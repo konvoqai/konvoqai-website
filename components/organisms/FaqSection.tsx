@@ -133,7 +133,7 @@ function FAQItem({ faq, delay }: { faq: { q: string; a: string }; delay: number 
   );
 }
 
-export default function FAQ() {
+export default function FaqSection() {
   return (
     <section id="faq" style={{ padding: "120px 24px" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto" }}>
@@ -177,3 +177,4 @@ export default function FAQ() {
     </section>
   );
 }
+

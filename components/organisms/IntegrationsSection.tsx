@@ -104,7 +104,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function Integrations() {
+export default function IntegrationsSection() {
   return (
     <section id="integrations" style={{ padding: "120px 0" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto", padding: "0 24px" }}>
@@ -144,3 +144,4 @@ export default function Integrations() {
     </section>
   );
 }
+

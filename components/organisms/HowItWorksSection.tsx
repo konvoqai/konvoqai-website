@@ -51,7 +51,7 @@ const steps = [
   },
 ];
 
-export default function HowItWorks() {
+export default function HowItWorksSection() {
   return (
     <section
       id="how"
@@ -226,3 +226,4 @@ export default function HowItWorks() {
     </section>
   );
 }
+

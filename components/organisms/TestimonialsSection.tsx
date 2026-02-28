@@ -59,7 +59,7 @@ const trustPills = [
   "🇪🇺 GDPR Compliant",
 ];
 
-export default function Testimonials() {
+export default function TestimonialsSection() {
   return (
     <section id="testimonials" style={{ padding: "120px 24px" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto" }}>
@@ -191,3 +191,4 @@ export default function Testimonials() {
     </section>
   );
 }
+

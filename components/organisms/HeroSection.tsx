@@ -458,7 +458,7 @@ const fadeUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
-export default function Hero() {
+export default function HeroSection() {
   return (
     <section
       id="hero"
@@ -697,3 +697,4 @@ export default function Hero() {
     </section>
   );
 }
+

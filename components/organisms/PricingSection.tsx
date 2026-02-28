@@ -85,7 +85,7 @@ const plans: Plan[] = [
   },
 ];
 
-export default function Pricing() {
+export default function PricingSection() {
   return (
     <section
       id="pricing"
@@ -290,3 +290,4 @@ export default function Pricing() {
     </section>
   );
 }
+

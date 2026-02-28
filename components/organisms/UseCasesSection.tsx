@@ -80,7 +80,7 @@ const cases: UseCase[] = [
   },
 ];
 
-export default function UseCases() {
+export default function UseCasesSection() {
   return (
     <section id="cases" style={{ padding: "120px 24px" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto" }}>
@@ -189,3 +189,4 @@ export default function UseCases() {
     </section>
   );
 }
+

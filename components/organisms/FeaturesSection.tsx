@@ -285,7 +285,7 @@ const cards: BentoCard[] = [
   },
 ];
 
-export default function Features() {
+export default function FeaturesSection() {
   return (
     <section id="features" style={{ padding: "120px 24px" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto" }}>
@@ -359,3 +359,4 @@ export default function Features() {
     </section>
   );
 }
+

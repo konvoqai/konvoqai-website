@@ -66,7 +66,7 @@ const fadeInUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-export default function SocialProof() {
+export default function SocialProofSection() {
   return (
     <section
       id="proof"
@@ -165,3 +165,4 @@ export default function SocialProof() {
     </section>
   );
 }
+

@@ -31,7 +31,7 @@ function AuroraBlob({
   );
 }
 
-export default function CTA() {
+export default function CtaSection() {
   return (
     <section
       id="cta"
@@ -227,3 +227,4 @@ export default function CTA() {
     </section>
   );
 }
+

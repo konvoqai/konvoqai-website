@@ -38,7 +38,7 @@ const rows = [
   { feature: "Branding Removal", konvoq: "✓ Free on all plans", chatbase: "Paid addon", tidio: "N/A", intercom: "N/A", konvoqGreen: true },
 ];
 
-export default function Comparison() {
+export default function ComparisonSection() {
   return (
     <section id="comparison" style={{ padding: "120px 24px" }}>
       <div style={{ maxWidth: 1180, margin: "0 auto" }}>
@@ -203,3 +203,4 @@ export default function Comparison() {
     </section>
   );
 }
+
