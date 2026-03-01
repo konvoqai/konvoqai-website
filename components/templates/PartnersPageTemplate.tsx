@@ -76,8 +76,8 @@ const TIERS = [
     icon: "ðŸ”Œ",
     title: "Technology Partner",
     badge: "For SaaS companies",
-    badgeColor: "var(--emerald)",
-    color: "var(--emerald)",
+    badgeColor: "var(--warning)",
+    color: "var(--warning)",
     commission: "Joint GTM + API access",
     highlights: [
       "Native integration listing in Konvoq marketplace",
@@ -92,12 +92,12 @@ const TIERS = [
 ];
 
 const BENEFITS = [
-  { icon: "ðŸ’¸", title: "Revenue Share", desc: "Earn meaningful recurring commissions on every customer you bring to Konvoq â€” month after month.", color: "var(--emerald)" },
+  { icon: "ðŸ’¸", title: "Revenue Share", desc: "Earn meaningful recurring commissions on every customer you bring to Konvoq â€” month after month.", color: "var(--warning)" },
   { icon: "ðŸ“£", title: "Co-Marketing", desc: "Joint campaigns, case studies, webinars, and content that drives demand for both of us.", color: "var(--accent)" },
   { icon: "ðŸ–¥ï¸", title: "Partner Portal", desc: "Track your referrals, commissions, and leads in one dedicated partner dashboard.", color: "var(--accent-strong)" },
-  { icon: "ðŸ›¡ï¸", title: "Technical Support", desc: "Priority support access to help you and your clients succeed faster with Konvoq.", color: "var(--danger)" },
+  { icon: "ðŸ›¡ï¸", title: "Technical Support", desc: "Priority support access to help you and your clients succeed faster with Konvoq.", color: "var(--warning)" },
   { icon: "ðŸ…", title: "Partner Badge", desc: "Display your Certified Konvoq Partner badge on your website, proposals, and marketing.", color: "var(--amber)" },
-  { icon: "ðŸ”®", title: "Early Access", desc: "Get early access to new features and influence our roadmap through quarterly partner advisory calls.", color: "#A78BFA" },
+  { icon: "ðŸ”®", title: "Early Access", desc: "Get early access to new features and influence our roadmap through quarterly partner advisory calls.", color: "#00A3FF" },
 ];
 
 const PARTNER_NAMES = [
@@ -143,7 +143,7 @@ function PartnerApplicationForm() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
         style={{
-          background: "var(--surface-2)", border: "1px solid var(--emerald)",
+          background: "var(--surface-2)", border: "1px solid var(--warning)",
           borderRadius: "var(--radius-xl)", padding: "56px 48px", textAlign: "center",
         }}
       >
@@ -302,7 +302,7 @@ export default function PartnersPageTemplate() {
       <section style={{ position: "relative", overflow: "hidden", padding: "100px 24px 120px" }}>
         <div aria-hidden style={{
           position: "absolute", inset: 0, pointerEvents: "none",
-          background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,185,129,0.07) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 80% 50%, var(--accent-muted) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 196, 70, 0.07) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 80% 50%, var(--accent-muted) 0%, transparent 60%)",
         }} />
         <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center", position: "relative" }}>
           <motion.div initial="hidden" animate="visible" variants={stagger}>
@@ -492,9 +492,9 @@ export default function PartnersPageTemplate() {
           >
             <div aria-hidden style={{
               position: "absolute", inset: 0, pointerEvents: "none",
-              background: "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(16,185,129,0.04) 0%, transparent 70%)",
+              background: "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(255, 196, 70, 0.04) 0%, transparent 70%)",
             }} />
-            <div style={{ fontSize: 48, marginBottom: 20, color: "var(--emerald)" }}>&ldquo;</div>
+            <div style={{ fontSize: 48, marginBottom: 20, color: "var(--warning)" }}>&ldquo;</div>
             <p style={{
               fontSize: 20, fontWeight: 600, lineHeight: 1.6, color: "var(--text-1)", marginBottom: 32,
             }}>
@@ -503,7 +503,7 @@ export default function PartnersPageTemplate() {
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
               <div style={{
                 width: 44, height: 44, borderRadius: "50%",
-                background: "linear-gradient(135deg, var(--emerald), var(--accent))",
+                background: "linear-gradient(135deg, var(--warning), var(--accent))",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 16, fontWeight: 700, color: "#000",
               }}>TD</div>
@@ -564,5 +564,6 @@ export default function PartnersPageTemplate() {
     </PageLayout>
   );
 }
+
 
 

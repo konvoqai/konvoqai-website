@@ -240,7 +240,7 @@ export default function PrivacyPageTemplate() {
           </PolicySection>
 
           <PolicySection id="data-sharing" title="3. Data Sharing">
-            <HighlightBox color="var(--emerald)">
+            <HighlightBox color="var(--warning)">
               We do not sell, rent, or trade your personal information to third parties for their marketing purposes. Ever.
             </HighlightBox>
             <p style={{ marginTop: 20 }}>We may share your information only in these limited circumstances:</p>
@@ -601,5 +601,6 @@ function ContactItem({
     </div>
   );
 }
+
 
 

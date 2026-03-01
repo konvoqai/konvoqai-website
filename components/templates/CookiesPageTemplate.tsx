@@ -31,7 +31,7 @@ const cookieCategories: CookieCategory[] = [
     label: "Strictly Necessary",
     required: true,
     defaultEnabled: true,
-    color: "var(--emerald)",
+    color: "var(--warning)",
     icon: "ðŸ”’",
     desc: "These cookies are essential for the website to function correctly and cannot be disabled. They are usually set in response to actions you take such as logging in or filling in forms.",
     cookies: [
@@ -124,7 +124,7 @@ export default function CookiesPageTemplate() {
           textAlign: "center",
           position: "relative",
           overflow: "hidden",
-          background: "linear-gradient(180deg, rgba(245,158,11,0.06) 0%, transparent 100%)",
+          background: "linear-gradient(180deg, rgba(255, 196, 70, 0.06) 0%, transparent 100%)",
           borderBottom: "1px solid var(--border)",
         }}
       >
@@ -132,7 +132,7 @@ export default function CookiesPageTemplate() {
           style={{
             position: "absolute",
             inset: 0,
-            background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(245,158,11,0.08) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255, 196, 70, 0.08) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -146,8 +146,8 @@ export default function CookiesPageTemplate() {
                 gap: 8,
                 padding: "6px 16px",
                 borderRadius: 999,
-                border: "1px solid rgba(245,158,11,0.3)",
-                background: "rgba(245,158,11,0.08)",
+                border: "1px solid rgba(255, 196, 70, 0.3)",
+                background: "rgba(255, 196, 70, 0.08)",
                 color: "var(--amber)",
                 fontSize: 13,
                 fontWeight: 600,
@@ -305,8 +305,8 @@ export default function CookiesPageTemplate() {
                             fontWeight: 600,
                             padding: "2px 8px",
                             borderRadius: 999,
-                            background: "rgba(16,185,129,0.1)",
-                            color: "var(--emerald)",
+                            background: "rgba(255, 196, 70, 0.1)",
+                            color: "var(--warning)",
                             letterSpacing: "0.05em",
                           }}
                         >
@@ -644,5 +644,6 @@ export default function CookiesPageTemplate() {
     </PageLayout>
   );
 }
+
 
 

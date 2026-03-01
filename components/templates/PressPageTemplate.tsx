@@ -49,7 +49,7 @@ const PRESS_LOGOS = [
 const PRESS_ARTICLES = [
   {
     outlet: "TechCrunch",
-    outletColor: "var(--danger)",
+    outletColor: "var(--warning)",
     title: "Konvoq raises $12M to bring AI chatbots to SMBs",
     excerpt: "The Series A, led by Sequoia Capital, will help the startup expand its AI-powered chatbot platform to small and medium businesses worldwide â€” a market largely ignored by enterprise AI vendors.",
     date: "December 2025",
@@ -111,7 +111,7 @@ export default function PressPageTemplate() {
       <section style={{ position: "relative", overflow: "hidden", padding: "100px 24px 120px" }}>
         <div aria-hidden style={{
           position: "absolute", inset: 0, pointerEvents: "none",
-          background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(91, 140, 255, 0.1) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 90% 50%, rgba(239, 68, 68, 0.07) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 163, 255, 0.1) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 90% 50%, rgba(255, 196, 70, 0.07) 0%, transparent 60%)",
         }} />
         <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center", position: "relative" }}>
           <motion.div initial="hidden" animate="visible" variants={stagger}>
@@ -321,7 +321,7 @@ export default function PressPageTemplate() {
             <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
               <div style={{
                 width: 52, height: 52, borderRadius: "50%",
-                background: "linear-gradient(135deg, rgba(91, 140, 255, 0.24), rgba(122, 162, 255, 0.24))",
+                background: "linear-gradient(135deg, rgba(0, 163, 255, 0.24), rgba(0, 163, 255, 0.24))",
                 border: "1px solid var(--border-2)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 22, flexShrink: 0,
@@ -337,7 +337,7 @@ export default function PressPageTemplate() {
             <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
               <div style={{
                 width: 52, height: 52, borderRadius: "50%",
-                background: "linear-gradient(135deg, rgba(16,185,129,0.2), rgba(91, 140, 255, 0.18))",
+                background: "linear-gradient(135deg, rgba(255, 196, 70, 0.2), rgba(0, 163, 255, 0.18))",
                 border: "1px solid var(--border-2)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 22, flexShrink: 0,
@@ -368,5 +368,6 @@ export default function PressPageTemplate() {
     </PageLayout>
   );
 }
+
 
 

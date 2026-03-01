@@ -64,8 +64,8 @@ const quickStart = [
     time: "5 min",
     desc: "Add one script tag to your site and the chat widget appears instantly.",
     color: "var(--accent)",
-    gradient: "linear-gradient(135deg, rgba(91, 140, 255, 0.18), rgba(91, 140, 255, 0.05))",
-    borderColor: "rgba(91, 140, 255, 0.24)",
+    gradient: "linear-gradient(135deg, rgba(0, 163, 255, 0.18), rgba(0, 163, 255, 0.05))",
+    borderColor: "rgba(0, 163, 255, 0.24)",
   },
   {
     icon: "ðŸ§ ",
@@ -74,8 +74,8 @@ const quickStart = [
     time: "10 min",
     desc: "Upload docs, paste URLs, or connect your knowledge base for instant AI training.",
     color: "var(--accent-strong)",
-    gradient: "linear-gradient(135deg, rgba(122, 162, 255, 0.16), rgba(122, 162, 255, 0.06))",
-    borderColor: "rgba(122, 162, 255, 0.24)",
+    gradient: "linear-gradient(135deg, rgba(0, 163, 255, 0.16), rgba(0, 163, 255, 0.06))",
+    borderColor: "rgba(0, 163, 255, 0.24)",
   },
   {
     icon: "ðŸš€",
@@ -83,9 +83,9 @@ const quickStart = [
     title: "Go Live",
     time: "2 min",
     desc: "Publish your chatbot and watch it handle customer queries autonomously.",
-    color: "var(--emerald)",
-    gradient: "linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.04))",
-    borderColor: "rgba(16,185,129,0.2)",
+    color: "var(--warning)",
+    gradient: "linear-gradient(135deg, rgba(255, 196, 70, 0.12), rgba(255, 196, 70, 0.04))",
+    borderColor: "rgba(255, 196, 70, 0.2)",
   },
 ];
 
@@ -97,7 +97,7 @@ const docCategories = [
     articles: 12,
     color: "var(--accent)",
     bg: "var(--accent-muted)",
-    border: "rgba(91, 140, 255, 0.18)",
+    border: "rgba(0, 163, 255, 0.18)",
   },
   {
     icon: "ðŸŽ¨",
@@ -105,17 +105,17 @@ const docCategories = [
     desc: "Themes, colors, positioning, triggers, and advanced UI options.",
     articles: 24,
     color: "var(--accent-strong)",
-    bg: "rgba(122, 162, 255, 0.09)",
-    border: "rgba(122, 162, 255, 0.2)",
+    bg: "rgba(0, 163, 255, 0.09)",
+    border: "rgba(0, 163, 255, 0.2)",
   },
   {
     icon: "ðŸ”Œ",
     title: "API & Webhooks",
     desc: "REST endpoints, webhook events, authentication, and rate limits.",
     articles: 31,
-    color: "var(--danger)",
-    bg: "rgba(239, 68, 68, 0.08)",
-    border: "rgba(239, 68, 68, 0.18)",
+    color: "var(--warning)",
+    bg: "rgba(255, 196, 70, 0.08)",
+    border: "rgba(255, 196, 70, 0.18)",
   },
   {
     icon: "ðŸ”—",
@@ -123,8 +123,8 @@ const docCategories = [
     desc: "Connect with Slack, HubSpot, Shopify, Zendesk, and 100+ more.",
     articles: 47,
     color: "var(--amber)",
-    bg: "rgba(245,158,11,0.06)",
-    border: "rgba(245,158,11,0.15)",
+    bg: "rgba(255, 196, 70, 0.06)",
+    border: "rgba(255, 196, 70, 0.15)",
   },
 ];
 
@@ -172,7 +172,7 @@ export default function DocsPageTemplate() {
             right: "10%",
             width: 400,
             height: 400,
-            background: "radial-gradient(circle, rgba(122, 162, 255, 0.1) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(0, 163, 255, 0.1) 0%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(60px)",
           }}
@@ -561,8 +561,8 @@ export default function DocsPageTemplate() {
                       fontSize: 10,
                       fontWeight: 600,
                       color: "var(--accent-strong)",
-                      background: "rgba(122, 162, 255, 0.12)",
-                      border: "1px solid rgba(122, 162, 255, 0.24)",
+                      background: "rgba(0, 163, 255, 0.12)",
+                      border: "1px solid rgba(0, 163, 255, 0.24)",
                       borderRadius: 100,
                       padding: "2px 8px",
                       whiteSpace: "nowrap",
@@ -618,8 +618,8 @@ export default function DocsPageTemplate() {
                         fontWeight: 700,
                         letterSpacing: "0.08em",
                         textTransform: "uppercase",
-                        color: item.badge === "New" ? "var(--emerald)" : "var(--amber)",
-                        background: item.badge === "New" ? "rgba(16,185,129,0.1)" : "rgba(245,158,11,0.1)",
+                        color: item.badge === "New" ? "var(--warning)" : "var(--amber)",
+                        background: item.badge === "New" ? "rgba(255, 196, 70, 0.1)" : "rgba(255, 196, 70, 0.1)",
                         borderRadius: 100,
                         padding: "2px 7px",
                       }}
@@ -645,7 +645,7 @@ export default function DocsPageTemplate() {
             viewport={{ once: true }}
             variants={fadeUp}
             style={{
-              background: "linear-gradient(135deg, var(--accent-muted) 0%, rgba(122, 162, 255, 0.12) 100%)",
+              background: "linear-gradient(135deg, var(--accent-muted) 0%, rgba(0, 163, 255, 0.12) 100%)",
               border: "1px solid var(--border-2)",
               borderRadius: "var(--radius-xl)",
               padding: "60px 48px",
@@ -663,7 +663,7 @@ export default function DocsPageTemplate() {
                   alignItems: "center",
                   gap: 8,
                   background: "var(--accent-muted-strong)",
-                  border: "1px solid rgba(91, 140, 255, 0.24)",
+                  border: "1px solid rgba(0, 163, 255, 0.24)",
                   borderRadius: 100,
                   padding: "4px 14px",
                   fontSize: 10,
@@ -735,5 +735,6 @@ export default function DocsPageTemplate() {
     </PageLayout>
   );
 }
+
 
 

@@ -47,7 +47,7 @@ const PERKS = [
     icon: "ðŸ’°",
     title: "Competitive Pay",
     desc: "Top-of-market salaries benchmarked against the best companies in tech. We pay well because great people deserve it.",
-    color: "var(--emerald)",
+    color: "var(--warning)",
   },
   {
     icon: "ðŸ“ˆ",
@@ -59,7 +59,7 @@ const PERKS = [
     icon: "ðŸ¥",
     title: "Full Health Coverage",
     desc: "Comprehensive health, dental, and vision insurance for you and your dependents. Your wellbeing comes first.",
-    color: "var(--danger)",
+    color: "var(--warning)",
   },
   {
     icon: "ðŸ“š",
@@ -71,7 +71,7 @@ const PERKS = [
     icon: "ðŸŒ´",
     title: "Unlimited PTO",
     desc: "Take the time you need. We trust you to manage your time well and come back recharged and ready to do great work.",
-    color: "#A78BFA",
+    color: "#00A3FF",
   },
 ];
 
@@ -105,7 +105,7 @@ const JOBS = [
     dept: "Customer Success",
     location: "Remote",
     type: "Full-time",
-    deptColor: "var(--emerald)",
+    deptColor: "var(--warning)",
     hot: false,
   },
   {
@@ -121,7 +121,7 @@ const JOBS = [
     dept: "Marketing",
     location: "Remote",
     type: "Full-time",
-    deptColor: "var(--danger)",
+    deptColor: "var(--warning)",
     hot: true,
   },
   {
@@ -137,7 +137,7 @@ const JOBS = [
     dept: "DevRel",
     location: "Remote",
     type: "Full-time",
-    deptColor: "#A78BFA",
+    deptColor: "#00A3FF",
     hot: false,
   },
 ];
@@ -146,17 +146,17 @@ const CULTURE_CARDS = [
   {
     title: "Async by default",
     desc: "We write things down. No unnecessary meetings, no timezone discrimination. Your best work happens when you're focused.",
-    grad: "linear-gradient(135deg, rgba(91, 140, 255, 0.18), rgba(122, 162, 255, 0.2))",
+    grad: "linear-gradient(135deg, rgba(0, 163, 255, 0.18), rgba(0, 163, 255, 0.2))",
   },
   {
     title: "Ship early, iterate fast",
     desc: "We celebrate shipping, even when things aren't perfect. Every deploy is a learning opportunity. Done beats perfect.",
-    grad: "linear-gradient(135deg, rgba(122, 162, 255, 0.2), rgba(239, 68, 68, 0.18))",
+    grad: "linear-gradient(135deg, rgba(0, 163, 255, 0.2), rgba(255, 196, 70, 0.18))",
   },
   {
     title: "Radical ownership",
     desc: "At Konvoq, there's no 'someone else's problem.' We take ownership of outcomes, not just tasks.",
-    grad: "linear-gradient(135deg, rgba(16,185,129,0.15), rgba(91, 140, 255, 0.18))",
+    grad: "linear-gradient(135deg, rgba(255, 196, 70, 0.15), rgba(0, 163, 255, 0.18))",
   },
 ];
 
@@ -168,7 +168,7 @@ export default function CareersPageTemplate() {
       <section style={{ position: "relative", overflow: "hidden", padding: "100px 24px 120px" }}>
         <div aria-hidden style={{
           position: "absolute", inset: 0, pointerEvents: "none",
-          background: "radial-gradient(ellipse 90% 60% at 50% -10%, rgba(122, 162, 255, 0.14) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 20% 60%, var(--accent-muted) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse 90% 60% at 50% -10%, rgba(0, 163, 255, 0.14) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 20% 60%, var(--accent-muted) 0%, transparent 60%)",
         }} />
         {/* Animated gradient orbs */}
         <motion.div aria-hidden
@@ -294,8 +294,8 @@ export default function CareersPageTemplate() {
                         <span style={{ fontWeight: 700, fontSize: 16, color: "var(--text-1)" }}>{job.title}</span>
                         {job.hot && (
                           <span style={{
-                            background: "rgba(239, 68, 68, 0.18)", color: "var(--danger)",
-                            border: "1px solid rgba(239, 68, 68, 0.26)", borderRadius: 100,
+                            background: "rgba(255, 196, 70, 0.18)", color: "var(--warning)",
+                            border: "1px solid rgba(255, 196, 70, 0.26)", borderRadius: 100,
                             fontSize: 10, fontWeight: 700, padding: "2px 8px", letterSpacing: "0.08em",
                           }}>HOT</span>
                         )}
@@ -385,7 +385,7 @@ export default function CareersPageTemplate() {
           >
             <div aria-hidden style={{
               position: "absolute", inset: 0, pointerEvents: "none",
-              background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(122, 162, 255, 0.09) 0%, transparent 70%)",
+              background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0, 163, 255, 0.09) 0%, transparent 70%)",
             }} />
             <motion.div variants={fadeUp} style={{ position: "relative" }}>
               <div style={{ fontSize: 40, marginBottom: 16 }}>ðŸ’Œ</div>
@@ -412,5 +412,6 @@ export default function CareersPageTemplate() {
     </PageLayout>
   );
 }
+
 
 

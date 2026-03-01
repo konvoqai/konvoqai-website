@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/molecules/SectionHeader";
@@ -95,3 +95,4 @@ export default function ComparisonSection() {
     </section>
   );
 }
+

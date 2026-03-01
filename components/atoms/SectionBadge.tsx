@@ -2,7 +2,7 @@
 
 export default function SectionBadge({
   children,
-  dotColor = "var(--accent)",
+  dotColor = "var(--text-1)",
 }: {
   children: React.ReactNode;
   dotColor?: string;
@@ -13,8 +13,8 @@ export default function SectionBadge({
         display: "inline-flex",
         alignItems: "center",
         gap: 8,
-        background: "var(--surface-2)",
-        border: "1px solid var(--border)",
+        background: "linear-gradient(135deg, color-mix(in srgb, var(--surface-2) 88%, transparent), color-mix(in srgb, var(--surface) 70%, transparent))",
+        border: "1px solid color-mix(in srgb, var(--border) 78%, transparent)",
         borderRadius: 999,
         padding: "8px 14px",
         fontSize: 11,
@@ -23,7 +23,7 @@ export default function SectionBadge({
         textTransform: "uppercase",
         color: "var(--text-2)",
         marginBottom: 24,
-        boxShadow: "0 1px 0 rgba(255,255,255,0.04) inset",
+        boxShadow: "0 1px 0 rgba(255,255,255,0.05) inset, 0 2px 12px rgba(0, 0, 0, 0.08)",
       }}
     >
       <div
@@ -33,11 +33,12 @@ export default function SectionBadge({
           background: dotColor,
           borderRadius: "50%",
           flexShrink: 0,
-          boxShadow: `0 0 18px ${dotColor}`,
+          boxShadow: `0 0 10px ${dotColor}, 0 0 22px ${dotColor}`,
         }}
       />
       {children}
     </div>
   );
 }
+
 

@@ -1,85 +1,66 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
-import SectionHeader from "@/components/molecules/SectionHeader";
 
-const testimonials = [
-  {
-    quote: "Konvoq reduced our support load without changing the tone of the product. It feels native to the experience, not pasted on.",
-    name: "Ava Chen",
-    role: "Head of Support, Northline",
-  },
-  {
-    quote: "The biggest win is the handoff quality. When a conversation reaches a human, the context is already organized and useful.",
-    name: "Marcus Reid",
-    role: "VP Customer Operations, Ledgerbase",
-  },
-  {
-    quote: "We launched faster than expected and the reporting made it obvious where to improve source content instead of guessing.",
-    name: "Priya Shah",
-    role: "Growth Lead, Patternwise",
-  },
-];
-
-// Each card enters from a different direction — left, up, right
-const cardInitialX = [-16, 0, 16];
-const cardInitialY = [0, 18, 0];
-
-// Slightly varied hover — outer two tilt, center stays flat
-const cardHovers = [
-  { y: -3, rotate: 0.5 },
-  { y: -5 },
-  { y: -3, rotate: -0.5 },
-];
+const people = ["AC", "MR", "PS", "JL", "NV"];
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" style={{ padding: "120px 24px" }}>
+    <section id="testimonials" style={{ padding: "34px 24px 110px" }}>
       <div className="site-container">
-        <SectionHeader
-          badge="What teams say"
-          heading={<>The people running it told us it felt different from day one.</>}
-          description={<>The value is not only containment. It is the quality of the operating model around every automated answer.</>}
-          style={{ marginBottom: 28 }}
-        />
-
-        {/* Slightly asymmetric column widths — breaks the 1/3 sameness */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.08fr 0.92fr", gap: 14 }}>
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.name}
-              className="section-surface"
-              initial={{ opacity: 0, x: cardInitialX[index], y: cardInitialY[index] }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.45, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={cardHovers[index]}
-              style={{ padding: 24, display: "flex", flexDirection: "column", gap: 16 }}
-            >
-              {/* Large opening quote mark — replaces the robotic "Customer note" label */}
-              <div
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1] }}
+          whileHover={{ y: -3 }}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr auto",
+            gap: 18,
+            alignItems: "center",
+            padding: "28px 28px",
+            border: "1px solid color-mix(in srgb, var(--border) 74%, transparent)",
+            borderRadius: 28,
+            background: "color-mix(in srgb, var(--surface-2) 82%, transparent)",
+            boxShadow: "var(--shadow-card)",
+          }}
+        >
+          <div>
+            <div style={{ fontSize: "clamp(28px, 3.8vw, 40px)", lineHeight: 1.2, letterSpacing: "-0.04em", fontWeight: 760, marginBottom: 10 }}>
+              You do not just get a platform. You get a crew.
+            </div>
+            <div style={{ color: "var(--text-2)", lineHeight: 1.7, fontSize: 15, maxWidth: 640 }}>
+              Teams switch because the product feels more operational from day one and the handoff quality is materially better than generic chatbot tooling.
+            </div>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", justifyContent: "flex-end" }}>
+            {people.map((person, index) => (
+              <motion.div
+                key={person}
+                initial={{ opacity: 0, scale: 0.84 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.28, delay: index * 0.04, ease: "easeOut" }}
                 style={{
-                  fontSize: 40,
-                  lineHeight: 1,
-                  color: "var(--accent)",
-                  fontWeight: 800,
-                  marginBottom: -8,
-                  fontFamily: "Georgia, serif",
-                  opacity: 0.7,
+                  width: 42,
+                  height: 42,
+                  borderRadius: 999,
+                  display: "grid",
+                  placeItems: "center",
+                  marginLeft: index > 0 ? -10 : 0,
+                  border: "1px solid color-mix(in srgb, var(--border) 78%, transparent)",
+                  background: index % 2 === 0 ? "var(--accent-muted)" : "color-mix(in srgb, var(--surface-2) 82%, transparent)",
+                  color: "var(--text-1)",
+                  fontSize: 12,
+                  fontWeight: 700,
                 }}
               >
-                &ldquo;
-              </div>
-              <p style={{ margin: 0, fontSize: 16, lineHeight: 1.8, color: "var(--text-2)", flex: 1 }}>
-                {testimonial.quote}
-              </p>
-              <div style={{ paddingTop: 4, borderTop: "1px solid color-mix(in srgb, var(--border) 60%, transparent)" }}>
-                <div style={{ fontSize: 15, fontWeight: 700 }}>{testimonial.name}</div>
-                <div style={{ fontSize: 13, color: "var(--text-3)", marginTop: 2 }}>{testimonial.role}</div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                {person}
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

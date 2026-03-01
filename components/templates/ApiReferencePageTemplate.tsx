@@ -61,7 +61,7 @@ const endpointCategories = [
     endpoints: 8,
     color: "var(--accent)",
     bg: "var(--accent-muted)",
-    border: "rgba(91, 140, 255, 0.24)",
+    border: "rgba(0, 163, 255, 0.24)",
   },
   {
     icon: "ðŸ’¬",
@@ -70,8 +70,8 @@ const endpointCategories = [
     methods: ["GET", "POST"],
     endpoints: 6,
     color: "var(--accent-strong)",
-    bg: "rgba(122, 162, 255, 0.09)",
-    border: "rgba(122, 162, 255, 0.24)",
+    bg: "rgba(0, 163, 255, 0.09)",
+    border: "rgba(0, 163, 255, 0.24)",
   },
   {
     icon: "ðŸ“¨",
@@ -79,9 +79,9 @@ const endpointCategories = [
     desc: "Send messages programmatically, retrieve thread history, inject context into ongoing conversations in real time.",
     methods: ["GET", "POST"],
     endpoints: 5,
-    color: "var(--emerald)",
-    bg: "rgba(16,185,129,0.06)",
-    border: "rgba(16,185,129,0.2)",
+    color: "var(--warning)",
+    bg: "rgba(255, 196, 70, 0.06)",
+    border: "rgba(255, 196, 70, 0.2)",
   },
   {
     icon: "ðŸ””",
@@ -90,8 +90,8 @@ const endpointCategories = [
     methods: ["GET", "POST", "DELETE"],
     endpoints: 4,
     color: "var(--amber)",
-    bg: "rgba(245,158,11,0.06)",
-    border: "rgba(245,158,11,0.2)",
+    bg: "rgba(255, 196, 70, 0.06)",
+    border: "rgba(255, 196, 70, 0.2)",
   },
 ];
 
@@ -109,8 +109,8 @@ const rateLimits = [
     limit: "10,000 / hr",
     monthly: "720,000 / mo",
     color: "var(--accent-strong)",
-    bg: "rgba(122, 162, 255, 0.12)",
-    border: "rgba(122, 162, 255, 0.24)",
+    bg: "rgba(0, 163, 255, 0.12)",
+    border: "rgba(0, 163, 255, 0.24)",
     featured: true,
   },
   {
@@ -119,7 +119,7 @@ const rateLimits = [
     monthly: "Unlimited",
     color: "var(--accent)",
     bg: "var(--accent-muted)",
-    border: "rgba(91, 140, 255, 0.24)",
+    border: "rgba(0, 163, 255, 0.24)",
   },
 ];
 
@@ -129,8 +129,8 @@ const sdks = [
     icon: "âš¡",
     install: "npm install @konvoq/sdk",
     color: "var(--amber)",
-    bg: "rgba(245,158,11,0.08)",
-    border: "rgba(245,158,11,0.2)",
+    bg: "rgba(255, 196, 70, 0.08)",
+    border: "rgba(255, 196, 70, 0.2)",
   },
   {
     lang: "Python",
@@ -138,15 +138,15 @@ const sdks = [
     install: "pip install konvoq",
     color: "var(--accent)",
     bg: "var(--accent-muted)",
-    border: "rgba(91, 140, 255, 0.24)",
+    border: "rgba(0, 163, 255, 0.24)",
   },
   {
     lang: "Go",
     icon: "ðŸ”µ",
     install: "go get github.com/konvoq/konvoq-go",
     color: "var(--accent-strong)",
-    bg: "rgba(122, 162, 255, 0.12)",
-    border: "rgba(122, 162, 255, 0.24)",
+    bg: "rgba(0, 163, 255, 0.12)",
+    border: "rgba(0, 163, 255, 0.24)",
   },
 ];
 
@@ -218,7 +218,7 @@ export default function ApiReferencePageTemplate() {
             right: "5%",
             width: 450,
             height: 450,
-            background: "radial-gradient(circle, rgba(122, 162, 255, 0.1) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(0, 163, 255, 0.1) 0%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(70px)",
           }}
@@ -287,9 +287,9 @@ export default function ApiReferencePageTemplate() {
                   fontWeight: 700,
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
-                  color: "var(--emerald)",
-                  background: "rgba(16,185,129,0.1)",
-                  border: "1px solid rgba(16,185,129,0.2)",
+                  color: "var(--warning)",
+                  background: "rgba(255, 196, 70, 0.1)",
+                  border: "1px solid rgba(255, 196, 70, 0.2)",
                   borderRadius: 100,
                   padding: "3px 9px",
                 }}
@@ -389,16 +389,16 @@ export default function ApiReferencePageTemplate() {
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 16 }}>
                   {cat.methods.map((m) => {
                     const methodColors: Record<string, string> = {
-                      GET: "var(--emerald)",
+                      GET: "var(--warning)",
                       POST: "var(--accent)",
                       PUT: "var(--amber)",
-                      DELETE: "var(--danger)",
+                      DELETE: "var(--warning)",
                     };
                     const methodBg: Record<string, string> = {
-                      GET: "rgba(16,185,129,0.1)",
+                      GET: "rgba(255, 196, 70, 0.1)",
                       POST: "var(--accent-muted-strong)",
-                      PUT: "rgba(245,158,11,0.1)",
-                      DELETE: "rgba(239, 68, 68, 0.12)",
+                      PUT: "rgba(255, 196, 70, 0.1)",
+                      DELETE: "rgba(255, 196, 70, 0.12)",
                     };
                     return (
                       <span
@@ -513,7 +513,7 @@ export default function ApiReferencePageTemplate() {
                   padding: "6px 14px",
                   fontSize: "0.8rem",
                   fontWeight: 600,
-                  color: copied ? "var(--emerald)" : "var(--text-2)",
+                  color: copied ? "var(--warning)" : "var(--text-2)",
                   cursor: "pointer",
                   fontFamily: "inherit",
                 }}
@@ -571,7 +571,7 @@ export default function ApiReferencePageTemplate() {
                             color: isKey
                               ? "var(--accent)"
                               : isValue
-                              ? "var(--emerald)"
+                              ? "var(--warning)"
                               : "var(--text-2)",
                           }}
                         >
@@ -629,7 +629,7 @@ export default function ApiReferencePageTemplate() {
                   style={{
                     fontFamily: "ui-monospace, monospace",
                     color: "var(--amber)",
-                    background: "rgba(245,158,11,0.08)",
+                    background: "rgba(255, 196, 70, 0.08)",
                     padding: "1px 6px",
                     borderRadius: 4,
                   }}
@@ -819,7 +819,7 @@ export default function ApiReferencePageTemplate() {
             viewport={{ once: true }}
             variants={fadeUp}
             style={{
-              background: "linear-gradient(135deg, var(--accent-muted) 0%, rgba(122, 162, 255, 0.12) 100%)",
+              background: "linear-gradient(135deg, var(--accent-muted) 0%, rgba(0, 163, 255, 0.12) 100%)",
               border: "1px solid var(--border-2)",
               borderRadius: "var(--radius-xl)",
               padding: "64px 48px",
@@ -904,5 +904,6 @@ export default function ApiReferencePageTemplate() {
     </PageLayout>
   );
 }
+
 
 

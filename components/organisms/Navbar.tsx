@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Button from "@/components/atoms/Button";
 import ThemeToggle from "@/components/atoms/ThemeToggle";
+import { SIGNUP_URL } from "@/lib/config";
 
 const navLinks = [
   { label: "Features", href: "/features" },
@@ -41,10 +42,12 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
         style={{
-          position: "fixed",
-          inset: "0 0 auto 0",
-          zIndex: 100,
-          padding: "16px 24px 0",
+          position: "sticky",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 200,
+          padding: "12px 24px 0",
         }}
       >
         <div
@@ -56,7 +59,7 @@ export default function Navbar() {
             justifyContent: "space-between",
             borderRadius: 999,
             border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)",
-            background: scrolled ? "color-mix(in srgb, var(--background-elevated) 82%, transparent)" : "color-mix(in srgb, var(--surface) 46%, transparent)",
+            background: scrolled ? "color-mix(in srgb, var(--background-elevated) 92%, transparent)" : "color-mix(in srgb, var(--background) 84%, transparent)",
             boxShadow: scrolled ? "var(--shadow-soft)" : "none",
             backdropFilter: "blur(20px)",
             padding: "0 18px 0 20px",
@@ -88,7 +91,7 @@ export default function Navbar() {
                 justifyContent: "center",
                 borderRadius: 10,
                 background: "var(--grad-btn)",
-                color: "#ffffff",
+                color: "var(--background)",
                 boxShadow: "var(--shadow-button)",
                 fontSize: 11,
                 fontWeight: 800,
@@ -145,7 +148,7 @@ export default function Navbar() {
             <Button href="/contact" variant="ghost" size="sm">
               Book demo
             </Button>
-            <Button href="/pricing" variant="primary" size="sm">
+            <Button href={SIGNUP_URL} variant="primary" size="sm">
               Start free
             </Button>
           </div>
@@ -216,7 +219,7 @@ export default function Navbar() {
             transition={{ duration: 0.22, ease: "easeOut" }}
             style={{
               position: "fixed",
-              inset: "94px 20px auto",
+              inset: "88px 20px auto",
               zIndex: 99,
               borderRadius: 28,
               border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)",
@@ -268,7 +271,7 @@ export default function Navbar() {
                 <Button href="/contact" variant="outline" size="md">
                   Book demo
                 </Button>
-                <Button href="/pricing" variant="primary" size="md">
+                <Button href={SIGNUP_URL} variant="primary" size="md">
                   Start free
                 </Button>
               </div>
@@ -279,3 +282,4 @@ export default function Navbar() {
     </>
   );
 }
+

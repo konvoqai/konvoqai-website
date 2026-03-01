@@ -37,7 +37,7 @@ export default function TestimonialCard({
     >
       <div style={{ display: "flex", gap: 4, marginBottom: 16 }}>
         {Array.from({ length: stars }).map((_, i) => (
-          <span key={i} style={{ color: "#FBBF24", fontSize: 16 }}>â˜…</span>
+          <span key={i} style={{ color: "#FFC446", fontSize: 16 }}>â˜…</span>
         ))}
       </div>
       <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--text-2)", flex: 1, marginBottom: 24 }}>
@@ -69,4 +69,5 @@ export default function TestimonialCard({
     </motion.div>
   );
 }
+
 

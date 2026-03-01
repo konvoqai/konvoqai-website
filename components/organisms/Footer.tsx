@@ -1,224 +1,275 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Button from "@/components/atoms/Button";
 
-const footerCols = [
-  {
-    title: "Product",
-    links: [
-      { label: "Features", href: "/features" },
-      { label: "Integrations", href: "/integrations" },
-      { label: "Pricing", href: "/pricing" },
-      { label: "Changelog", href: "/changelog" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "Documentation", href: "/docs" },
-      { label: "API reference", href: "/api-reference" },
-      { label: "Case studies", href: "/case-studies" },
-      { label: "Status", href: "/status" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "/about" },
-      { label: "Careers", href: "/careers" },
-      { label: "Partners", href: "/partners" },
-      { label: "Contact", href: "/contact" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
-      { label: "Security", href: "/security" },
-      { label: "GDPR", href: "/gdpr" },
-    ],
-  },
+const quickLinks = [
+  { label: "Home", href: "/" },
+  { label: "Features", href: "/features" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
+];
+
+const supportLinks = [
+  { label: "Contact Us", href: "/contact" },
+  { label: "Documentation", href: "/docs" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Status", href: "/status" },
+];
+
+const utilityLinks = [
+  { label: "API Reference", href: "/api-reference" },
+  { label: "Changelog", href: "/changelog" },
+  { label: "Security", href: "/security" },
+  { label: "Privacy", href: "/privacy" },
 ];
 
 const socials = [
-  { label: "X", href: "#" },
-  { label: "In", href: "#" },
-  { label: "Gh", href: "#" },
+  { label: "X", href: "https://twitter.com/konvoqai" },
+  { label: "In", href: "https://linkedin.com/company/konvoq" },
+  { label: "Gh", href: "https://github.com/konvoq-ai" },
 ];
+
+const contactItems: Array<{
+  label: string;
+  value: string;
+  href: string;
+  icon: "mail" | "link" | "pin";
+}> = [
+  {
+    label: "Sales",
+    value: "sales@konvoq.ai",
+    href: "mailto:sales@konvoq.ai",
+    icon: "mail",
+  },
+  {
+    label: "Support",
+    value: "support@konvoq.ai",
+    href: "mailto:support@konvoq.ai",
+    icon: "mail",
+  },
+  {
+    label: "App",
+    value: "app.konvoq.ai",
+    href: "https://app.konvoq.ai",
+    icon: "link",
+  },
+  {
+    label: "Presence",
+    value: "Remote-first / Global",
+    href: "/contact",
+    icon: "pin",
+  },
+];
+
+function FooterIcon({ type }: { type: "mail" | "link" | "pin" }) {
+  if (type === "mail") {
+    return (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 7.5 12 13l8-5.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+        <rect x="3.25" y="5.25" width="17.5" height="13.5" rx="2.75" stroke="currentColor" strokeWidth="1.7" />
+      </svg>
+    );
+  }
+
+  if (type === "link") {
+    return (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M10.5 13.5 13.5 10.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+        <path d="M8.25 15.75H7a4 4 0 1 1 0-8h1.25" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M15.75 8.25H17a4 4 0 1 1 0 8h-1.25" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 20s6-5.25 6-10a6 6 0 1 0-12 0c0 4.75 6 10 6 10Z" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="12" cy="10" r="2.25" stroke="currentColor" strokeWidth="1.7" />
+    </svg>
+  );
+}
+
+function FooterColumn({ title, links }: { title: string; links: Array<{ label: string; href: string }> }) {
+  return (
+    <div>
+      <h4
+        style={{
+          margin: "0 0 20px",
+          fontSize: 12,
+          fontWeight: 700,
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          color: "var(--text-1)",
+        }}
+      >
+        {title}
+      </h4>
+      <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="motion-link"
+            style={{
+              width: "fit-content",
+              color: "var(--text-2)",
+              textDecoration: "none",
+              fontSize: 15,
+              lineHeight: 1.5,
+            }}
+          >
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Footer() {
   return (
-    <footer style={{ padding: "48px 24px 40px" }}>
+    <footer style={{ padding: "64px 24px 28px" }}>
       <div className="site-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="section-frame"
           style={{
-            padding: 32,
-            marginBottom: 24,
-            overflow: "hidden",
+            paddingTop: 36,
+            borderTop: "1px solid color-mix(in srgb, var(--border) 74%, transparent)",
           }}
         >
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "1.05fr 0.95fr",
-              gap: 24,
-              alignItems: "center",
+              gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+              gap: 36,
+              marginBottom: 42,
             }}
           >
+            <FooterColumn title="Quick Links" links={quickLinks} />
+            <FooterColumn title="Support" links={supportLinks} />
+            <FooterColumn title="Utilities" links={utilityLinks} />
+
             <div>
-              <p
+              <h4
                 style={{
-                  margin: "0 0 10px",
+                  margin: "0 0 20px",
                   fontSize: 12,
                   fontWeight: 700,
-                  letterSpacing: "0.14em",
+                  letterSpacing: "0.12em",
                   textTransform: "uppercase",
-                  color: "var(--text-3)",
+                  color: "var(--text-1)",
                 }}
               >
-                Built for modern support teams
-              </p>
-              <h3
-                style={{
-                  margin: "0 0 12px",
-                  fontSize: "clamp(28px, 4vw, 40px)",
-                  fontWeight: 800,
-                  letterSpacing: "-0.04em",
-                  lineHeight: 1.05,
-                }}
-              >
-                A cleaner way to ship AI support that feels enterprise ready.
-              </h3>
-              <p style={{ margin: 0, maxWidth: 540, fontSize: 16, lineHeight: 1.7, color: "var(--text-2)" }}>
-                Train on your product, route the hard cases to humans, and keep the customer experience
-                consistent across every channel.
-              </p>
-            </div>
-
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 12 }}>
-              <Button href="/pricing" variant="primary" size="lg">
-                Start free
-              </Button>
-              <Button href="/contact" variant="outline" size="lg">
-                Speak with sales
-              </Button>
+                Contact Us
+              </h4>
+              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                {contactItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    style={{
+                      display: "flex",
+                      alignItems: "start",
+                      gap: 12,
+                      color: "var(--text-2)",
+                      textDecoration: "none",
+                      fontSize: 15,
+                      lineHeight: 1.55,
+                    }}
+                  >
+                    <span style={{ display: "inline-flex", marginTop: 2, color: "var(--text-3)" }}>
+                      <FooterIcon type={item.icon} />
+                    </span>
+                    <span>
+                      <span style={{ display: "block", color: "var(--text-3)", fontSize: 12, marginBottom: 3 }}>{item.label}</span>
+                      <span>{item.value}</span>
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
-        </motion.div>
 
-        <div className="section-frame" style={{ padding: "32px 32px 24px" }}>
-          <div className="footer-grid" style={{ gap: 32, marginBottom: 28 }}>
-            <div>
-              <Link
-                href="/"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 12,
-                  textDecoration: "none",
-                  color: "var(--text-1)",
-                  fontSize: 18,
-                  fontWeight: 800,
-                  letterSpacing: "-0.03em",
-                  marginBottom: 16,
-                }}
-              >
-                <span
-                  style={{
-                    width: 30,
-                    height: 30,
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: 10,
-                    background: "var(--grad-btn)",
-                    color: "#ffffff",
-                    boxShadow: "var(--shadow-button)",
-                    fontSize: 12,
-                    fontWeight: 800,
-                  }}
-                >
-                  K
-                </span>
-                Konvoq
-              </Link>
-              <p style={{ margin: "0 0 20px", maxWidth: 280, fontSize: 14, lineHeight: 1.7, color: "var(--text-2)" }}>
-                Customer conversations with better structure, better answers, and better handoff quality.
-              </p>
+          <div
+            style={{
+              paddingTop: 22,
+              borderTop: "1px solid color-mix(in srgb, var(--border) 68%, transparent)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 16,
+              flexWrap: "wrap",
+              marginBottom: 42,
+            }}
+          >
+            <div style={{ color: "var(--text-3)", fontSize: 13 }}>
+              Designed for modern support teams.
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
+              <span style={{ color: "var(--text-1)", fontSize: 13, fontWeight: 700 }}>Follow Us</span>
               <div style={{ display: "flex", gap: 10 }}>
                 {socials.map((social) => (
-                  <a
+                  <motion.a
                     key={social.label}
                     href={social.href}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.98 }}
                     style={{
-                      width: 38,
-                      height: 38,
+                      width: 36,
+                      height: 36,
                       display: "inline-flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      borderRadius: 12,
-                      border: "1px solid var(--border)",
-                      background: "var(--surface-2)",
-                      color: "var(--text-2)",
+                      borderRadius: 999,
+                      border: "1px solid color-mix(in srgb, var(--border) 74%, transparent)",
+                      background: "transparent",
+                      color: "var(--text-1)",
                       textDecoration: "none",
                       fontSize: 13,
                       fontWeight: 700,
                     }}
                   >
                     {social.label}
-                  </a>
+                  </motion.a>
                 ))}
               </div>
             </div>
+          </div>
 
-            {footerCols.map((column) => (
-              <div key={column.title}>
-                <h4
-                  style={{
-                    margin: "0 0 16px",
-                    fontSize: 12,
-                    fontWeight: 700,
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    color: "var(--text-3)",
-                  }}
-                >
-                  {column.title}
-                </h4>
-                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                  {column.links.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      style={{
-                        color: "var(--text-2)",
-                        textDecoration: "none",
-                        fontSize: 14,
-                        lineHeight: 1.5,
-                      }}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div style={{ position: "relative", overflow: "hidden", paddingBottom: 8 }}>
+            <div
+              aria-hidden="true"
+              style={{
+                fontSize: "clamp(76px, 16vw, 220px)",
+                lineHeight: 0.88,
+                fontWeight: 800,
+                letterSpacing: "-0.08em",
+                whiteSpace: "nowrap",
+                userSelect: "none",
+                backgroundImage:
+                  "repeating-linear-gradient(180deg, #FFFFFF 0 3px, #F8F9FA 3px 6px, rgba(248, 249, 250, 0) 6px 10px)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+                opacity: 0.95,
+                transform: "translateX(-4px)",
+              }}
+            >
+              Konvoq AI
+            </div>
           </div>
 
           <div
             style={{
-              paddingTop: 20,
-              borderTop: "1px solid var(--border)",
+              paddingTop: 18,
+              borderTop: "1px solid color-mix(in srgb, var(--border) 68%, transparent)",
               display: "flex",
-              alignItems: "center",
               justifyContent: "space-between",
               gap: 16,
               flexWrap: "wrap",
@@ -226,12 +277,11 @@ export default function Footer() {
               fontSize: 13,
             }}
           >
-            <span>Copyright 2026 Konvoq Inc. All rights reserved.</span>
+            <span>Copyright 2026 Konvoq AI. All rights reserved.</span>
             <span>Theme aware. Accessibility minded. Built for production.</span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
 }
-

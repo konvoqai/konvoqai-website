@@ -93,7 +93,7 @@ export default function AboutPageTemplate() {
             inset: 0,
             pointerEvents: "none",
             background:
-              "radial-gradient(circle at 50% 0%, rgba(91, 140, 255, 0.12), transparent 34%)",
+              "radial-gradient(circle at 50% 0%, rgba(0, 163, 255, 0.12), transparent 34%)",
             maskImage: "linear-gradient(180deg, black 0%, transparent 82%)",
           }}
         />
@@ -189,7 +189,7 @@ export default function AboutPageTemplate() {
                     padding: "8px 12px",
                     borderRadius: 999,
                     background: "var(--accent-muted)",
-                    border: "1px solid rgba(91, 140, 255, 0.24)",
+                    border: "1px solid rgba(0, 163, 255, 0.24)",
                     color: "var(--accent)",
                     fontSize: 12,
                     fontWeight: 700,
@@ -237,7 +237,7 @@ export default function AboutPageTemplate() {
                         height: 34,
                         borderRadius: 12,
                         background: "var(--accent-muted)",
-                        border: "1px solid rgba(91, 140, 255, 0.24)",
+                        border: "1px solid rgba(0, 163, 255, 0.24)",
                         color: "var(--accent)",
                         display: "grid",
                         placeItems: "center",
@@ -330,7 +330,7 @@ export default function AboutPageTemplate() {
                       display: "grid",
                       placeItems: "center",
                       background: "var(--accent-muted)",
-                      border: "1px solid rgba(91, 140, 255, 0.24)",
+                      border: "1px solid rgba(0, 163, 255, 0.24)",
                       color: "var(--accent)",
                       fontWeight: 800,
                       marginBottom: 16,
@@ -381,4 +381,5 @@ export default function AboutPageTemplate() {
     </PageLayout>
   );
 }
+
 

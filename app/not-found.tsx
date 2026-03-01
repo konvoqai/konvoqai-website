@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -47,7 +47,7 @@ export default function NotFound() {
             width: 400,
             height: 400,
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(0, 163, 255, 0.1) 0%, transparent 70%)",
             top: "30%",
             left: "60%",
             transform: "translate(-50%, -50%)",
@@ -102,7 +102,7 @@ export default function NotFound() {
                 style={{
                   width: 6,
                   height: 6,
-                  background: "var(--rose)",
+                  background: "var(--warning)",
                   borderRadius: "50%",
                 }}
               />
@@ -163,7 +163,7 @@ export default function NotFound() {
                     textDecoration: "none",
                   }}
                 >
-                  ← Go home
+                  â† Go home
                 </Link>
               </motion.div>
               <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>
@@ -244,4 +244,5 @@ export default function NotFound() {
     </>
   );
 }
+
 

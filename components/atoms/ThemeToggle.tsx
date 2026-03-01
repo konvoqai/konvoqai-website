@@ -100,7 +100,7 @@ export default function ThemeToggle() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "radial-gradient(circle at 50% 0%, rgba(91,140,255,0.16), transparent 62%)",
+          background: "radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.1), transparent 62%)",
           pointerEvents: "none",
         }}
       />
@@ -134,3 +134,4 @@ export default function ThemeToggle() {
     </motion.button>
   );
 }
+

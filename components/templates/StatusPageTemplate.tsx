@@ -117,8 +117,8 @@ const incidents = [
     duration: "Resolved in 23 min",
     severity: "Minor",
     severityColor: "var(--amber)",
-    severityBg: "rgba(245,158,11,0.1)",
-    severityBorder: "rgba(245,158,11,0.2)",
+    severityBg: "rgba(255, 196, 70, 0.1)",
+    severityBorder: "rgba(255, 196, 70, 0.2)",
     affected: ["API"],
   },
   {
@@ -129,8 +129,8 @@ const incidents = [
     duration: "Resolved in 41 min",
     severity: "Minor",
     severityColor: "var(--amber)",
-    severityBg: "rgba(245,158,11,0.1)",
-    severityBorder: "rgba(245,158,11,0.2)",
+    severityBg: "rgba(255, 196, 70, 0.1)",
+    severityBorder: "rgba(255, 196, 70, 0.2)",
     affected: ["Widget CDN"],
   },
   {
@@ -140,9 +140,9 @@ const incidents = [
       "A queuing backlog in the AI inference layer caused response generation delays across all regions. Chatbot responses took 8-15 seconds instead of the usual 1-2 seconds. No data was lost.",
     duration: "Resolved in 1h 12min",
     severity: "Degraded",
-    severityColor: "var(--danger)",
-    severityBg: "rgba(239, 68, 68, 0.12)",
-    severityBorder: "rgba(239, 68, 68, 0.22)",
+    severityColor: "var(--warning)",
+    severityBg: "rgba(255, 196, 70, 0.12)",
+    severityBorder: "rgba(255, 196, 70, 0.22)",
     affected: ["AI Processing"],
   },
 ];
@@ -202,7 +202,7 @@ export default function StatusPageTemplate() {
             transform: "translateX(-50%)",
             width: 700,
             height: 400,
-            background: "radial-gradient(ellipse, rgba(16,185,129,0.07) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse, rgba(255, 196, 70, 0.07) 0%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(80px)",
           }}
@@ -248,8 +248,8 @@ export default function StatusPageTemplate() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: 12,
-                  background: "rgba(16,185,129,0.1)",
-                  border: "2px solid rgba(16,185,129,0.3)",
+                  background: "rgba(255, 196, 70, 0.1)",
+                  border: "2px solid rgba(255, 196, 70, 0.3)",
                   borderRadius: "var(--radius-lg)",
                   padding: "18px 32px",
                 }}
@@ -260,7 +260,7 @@ export default function StatusPageTemplate() {
                     style={{
                       position: "absolute",
                       inset: 0,
-                      background: "var(--emerald)",
+                      background: "var(--warning)",
                       borderRadius: "50%",
                     }}
                   />
@@ -270,7 +270,7 @@ export default function StatusPageTemplate() {
                     style={{
                       position: "absolute",
                       inset: 0,
-                      background: "var(--emerald)",
+                      background: "var(--warning)",
                       borderRadius: "50%",
                     }}
                   />
@@ -279,7 +279,7 @@ export default function StatusPageTemplate() {
                   style={{
                     fontSize: "1.15rem",
                     fontWeight: 800,
-                    color: "var(--emerald)",
+                    color: "var(--warning)",
                     letterSpacing: "-0.01em",
                   }}
                 >
@@ -294,7 +294,7 @@ export default function StatusPageTemplate() {
               style={{ display: "flex", justifyContent: "center", gap: 32 }}
             >
               <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: "2rem", fontWeight: 900, color: "var(--emerald)" }}>
+                <div style={{ fontSize: "2rem", fontWeight: 900, color: "var(--warning)" }}>
                   99.99%
                 </div>
                 <div style={{ fontSize: "0.8rem", color: "var(--text-3)" }}>
@@ -423,8 +423,8 @@ export default function StatusPageTemplate() {
                       display: "flex",
                       alignItems: "center",
                       gap: 7,
-                      background: "rgba(16,185,129,0.1)",
-                      border: "1px solid rgba(16,185,129,0.2)",
+                      background: "rgba(255, 196, 70, 0.1)",
+                      border: "1px solid rgba(255, 196, 70, 0.2)",
                       borderRadius: 100,
                       padding: "5px 12px",
                       whiteSpace: "nowrap",
@@ -435,14 +435,14 @@ export default function StatusPageTemplate() {
                         width: 7,
                         height: 7,
                         borderRadius: "50%",
-                        background: "var(--emerald)",
+                        background: "var(--warning)",
                       }}
                     />
                     <span
                       style={{
                         fontSize: "0.8rem",
                         fontWeight: 700,
-                        color: "var(--emerald)",
+                        color: "var(--warning)",
                       }}
                     >
                       {svc.status}
@@ -525,10 +525,10 @@ export default function StatusPageTemplate() {
                       height: bar.status === "operational" ? "100%" : bar.status === "degraded" ? "60%" : "20%",
                       background:
                         bar.status === "operational"
-                          ? "var(--emerald)"
+                          ? "var(--warning)"
                           : bar.status === "degraded"
                           ? "var(--amber)"
-                          : "var(--danger)",
+                          : "var(--warning)",
                       borderRadius: 3,
                       opacity: hoveredBar !== null && hoveredBar !== i ? 0.4 : 1,
                       cursor: "pointer",
@@ -561,7 +561,7 @@ export default function StatusPageTemplate() {
                       style={{
                         color:
                           uptimeBars[hoveredBar].status === "operational"
-                            ? "var(--emerald)"
+                            ? "var(--warning)"
                             : "var(--amber)",
                         textTransform: "capitalize",
                       }}
@@ -581,9 +581,9 @@ export default function StatusPageTemplate() {
               {/* Legend */}
               <div style={{ display: "flex", gap: 20, marginTop: 16 }}>
                 {[
-                  { color: "var(--emerald)", label: "Operational" },
+                  { color: "var(--warning)", label: "Operational" },
                   { color: "var(--amber)", label: "Degraded performance" },
-                  { color: "var(--danger)", label: "Outage" },
+                  { color: "var(--warning)", label: "Outage" },
                 ].map((l) => (
                   <div
                     key={l.label}
@@ -673,9 +673,9 @@ export default function StatusPageTemplate() {
                           fontWeight: 700,
                           letterSpacing: "0.1em",
                           textTransform: "uppercase",
-                          color: "var(--emerald)",
-                          background: "rgba(16,185,129,0.1)",
-                          border: "1px solid rgba(16,185,129,0.2)",
+                          color: "var(--warning)",
+                          background: "rgba(255, 196, 70, 0.1)",
+                          border: "1px solid rgba(255, 196, 70, 0.2)",
                           borderRadius: 100,
                           padding: "3px 10px",
                         }}
@@ -713,7 +713,7 @@ export default function StatusPageTemplate() {
                     <div style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-1)" }}>
                       {inc.date}
                     </div>
-                    <div style={{ fontSize: "0.78rem", color: "var(--emerald)", marginTop: 2 }}>
+                    <div style={{ fontSize: "0.78rem", color: "var(--warning)", marginTop: 2 }}>
                       {inc.duration}
                     </div>
                   </div>
@@ -755,7 +755,7 @@ export default function StatusPageTemplate() {
             viewport={{ once: true }}
             variants={fadeUp}
             style={{
-              background: "linear-gradient(135deg, rgba(16,185,129,0.07) 0%, rgba(91, 140, 255, 0.1) 100%)",
+              background: "linear-gradient(135deg, rgba(255, 196, 70, 0.07) 0%, rgba(0, 163, 255, 0.1) 100%)",
               border: "1px solid var(--border-2)",
               borderRadius: "var(--radius-xl)",
               padding: "56px 48px",
@@ -768,7 +768,7 @@ export default function StatusPageTemplate() {
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "radial-gradient(ellipse at 50% 0%, rgba(16,185,129,0.08) 0%, transparent 60%)",
+                background: "radial-gradient(ellipse at 50% 0%, rgba(255, 196, 70, 0.08) 0%, transparent 60%)",
                 pointerEvents: "none",
               }}
             />
@@ -807,13 +807,13 @@ export default function StatusPageTemplate() {
                     display: "inline-flex",
                     alignItems: "center",
                     gap: 10,
-                    background: "rgba(16,185,129,0.12)",
-                    border: "1px solid rgba(16,185,129,0.3)",
+                    background: "rgba(255, 196, 70, 0.12)",
+                    border: "1px solid rgba(255, 196, 70, 0.3)",
                     borderRadius: "var(--radius-lg)",
                     padding: "16px 28px",
                     fontSize: "1rem",
                     fontWeight: 700,
-                    color: "var(--emerald)",
+                    color: "var(--warning)",
                   }}
                 >
                   <span>âœ“</span>
@@ -850,7 +850,7 @@ export default function StatusPageTemplate() {
                       fontFamily: "inherit",
                     }}
                     onFocus={(e) => {
-                      e.currentTarget.style.borderColor = "var(--emerald)";
+                      e.currentTarget.style.borderColor = "var(--warning)";
                     }}
                     onBlur={(e) => {
                       e.currentTarget.style.borderColor = "var(--border-2)";
@@ -895,5 +895,6 @@ export default function StatusPageTemplate() {
     </PageLayout>
   );
 }
+
 
 

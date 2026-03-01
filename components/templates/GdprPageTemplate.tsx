@@ -35,13 +35,13 @@ const gdprRights = [
   {
     icon: "ðŸ—‘ï¸",
     title: "Right to Erasure",
-    color: "var(--danger)",
+    color: "var(--warning)",
     desc: "Request deletion of your personal data (the 'right to be forgotten') when it is no longer necessary.",
   },
   {
     icon: "ðŸ“¦",
     title: "Right to Portability",
-    color: "var(--emerald)",
+    color: "var(--warning)",
     desc: "Receive your data in a structured, machine-readable format and transfer it to another controller.",
   },
   {
@@ -75,7 +75,7 @@ const commitments = [
     icon: "âš–ï¸",
     title: "Data Subject Rights",
     desc: "We have processes and tooling to honor all GDPR data subject rights within the required 30-day window.",
-    color: "var(--emerald)",
+    color: "var(--warning)",
   },
   {
     icon: "ðŸ—ï¸",
@@ -102,7 +102,7 @@ export default function GdprPageTemplate() {
           textAlign: "center",
           position: "relative",
           overflow: "hidden",
-          background: "linear-gradient(180deg, rgba(122, 162, 255, 0.09) 0%, transparent 100%)",
+          background: "linear-gradient(180deg, rgba(0, 163, 255, 0.09) 0%, transparent 100%)",
           borderBottom: "1px solid var(--border)",
         }}
       >
@@ -110,7 +110,7 @@ export default function GdprPageTemplate() {
           style={{
             position: "absolute",
             inset: 0,
-            background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(122, 162, 255, 0.14) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0, 163, 255, 0.14) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -138,8 +138,8 @@ export default function GdprPageTemplate() {
                 gap: 8,
                 padding: "6px 16px",
                 borderRadius: 999,
-                border: "1px solid rgba(122, 162, 255, 0.3)",
-                background: "rgba(122, 162, 255, 0.12)",
+                border: "1px solid rgba(0, 163, 255, 0.3)",
+                background: "rgba(0, 163, 255, 0.12)",
                 color: "var(--accent-strong)",
                 fontSize: 13,
                 fontWeight: 600,
@@ -342,7 +342,7 @@ export default function GdprPageTemplate() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--emerald)", marginBottom: 12 }}>
+            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--warning)", marginBottom: 12 }}>
               Data Handling
             </p>
             <h2 style={{ fontSize: "clamp(28px, 3.5vw, 36px)", fontWeight: 800, marginBottom: 20 }}>
@@ -416,8 +416,8 @@ export default function GdprPageTemplate() {
                         fontWeight: 600,
                         padding: "3px 10px",
                         borderRadius: 999,
-                        background: status === "Active" || status === "Certified" ? "rgba(16,185,129,0.12)" : "rgba(245,158,11,0.12)",
-                        color: status === "Active" || status === "Certified" ? "var(--emerald)" : "var(--amber)",
+                        background: status === "Active" || status === "Certified" ? "rgba(255, 196, 70, 0.12)" : "rgba(255, 196, 70, 0.12)",
+                        color: status === "Active" || status === "Certified" ? "var(--warning)" : "var(--amber)",
                       }}
                     >
                       {status}
@@ -559,8 +559,8 @@ export default function GdprPageTemplate() {
             <div
               style={{
                 padding: "32px",
-                background: "rgba(16,185,129,0.08)",
-                border: "1px solid rgba(16,185,129,0.3)",
+                background: "rgba(255, 196, 70, 0.08)",
+                border: "1px solid rgba(255, 196, 70, 0.3)",
                 borderRadius: "var(--radius-xl)",
                 textAlign: "center",
               }}
@@ -681,5 +681,6 @@ export default function GdprPageTemplate() {
     </PageLayout>
   );
 }
+
 
 

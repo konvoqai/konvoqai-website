@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/molecules/SectionHeader";
@@ -6,91 +6,121 @@ import SectionHeader from "@/components/molecules/SectionHeader";
 const steps = [
   {
     step: "01",
-    title: "Connect your sources",
-    description: "Start with your public site, docs, onboarding material, or internal product notes. Konvoq consolidates them into one searchable operating layer.",
+    title: "Train the agent",
+    description: "Connect docs, website pages, onboarding material, and product knowledge into one retrieval layer.",
   },
   {
     step: "02",
-    title: "Tune the assistant",
-    description: "Set escalation rules, define conversation style, and control which flows should end with a handoff, a lead capture, or a direct answer.",
+    title: "Customize the widget",
+    description: "Tune the tone, prompts, escalation rules, and visual layer so it feels native to your product.",
   },
   {
     step: "03",
-    title: "Launch and improve",
-    description: "Deploy the assistant, review containment metrics, and continuously improve response quality from the dashboard instead of patching support macros.",
+    title: "Deploy everywhere",
+    description: "Launch on web, docs, and product surfaces with shared reporting and structured handoff logic.",
   },
 ];
 
-// Each step enters from a different direction — left, up, right
-const stepInitialX = [-16, 0, 16];
-const stepInitialY = [0, 18, 0];
+function StepVisual({ index }: { index: number }) {
+  if (index === 0) {
+    return (
+      <div style={{ padding: 16, borderRadius: 18, border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)", background: "color-mix(in srgb, var(--surface-2) 80%, transparent)" }}>
+        <div style={{ display: "grid", gap: 10 }}>
+          {["Website pages", "Docs", "Internal notes"].map((item, itemIndex) => (
+            <div key={item} style={{ display: "flex", justifyContent: "space-between", padding: "10px 12px", borderRadius: 12, background: itemIndex === 0 ? "var(--accent-muted)" : "color-mix(in srgb, var(--surface) 70%, transparent)", fontSize: 13, color: itemIndex === 0 ? "var(--text-1)" : "var(--text-2)" }}>
+              <span>{item}</span>
+              <span>{itemIndex + 1}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (index === 1) {
+    return (
+      <div style={{ padding: 16, borderRadius: 18, border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)", background: "color-mix(in srgb, var(--surface-2) 80%, transparent)" }}>
+        <div style={{ display: "flex", gap: 8, marginBottom: 14 }}>
+          {["#000000", "#151718", "#889096", "#F8F9FA"].map((color) => (
+            <div key={color} style={{ width: 22, height: 22, borderRadius: 999, background: color, border: "1px solid color-mix(in srgb, var(--border) 60%, transparent)" }} />
+          ))}
+        </div>
+        <div style={{ display: "grid", gap: 10 }}>
+          <div style={{ padding: "10px 12px", borderRadius: 12, background: "var(--accent-muted)", fontSize: 13 }}>Welcome to Konvoq AI</div>
+          <div style={{ padding: "10px 12px", borderRadius: 12, background: "color-mix(in srgb, var(--surface) 70%, transparent)", fontSize: 13, color: "var(--text-2)" }}>Prompt starters</div>
+          <div style={{ padding: "10px 12px", borderRadius: 12, background: "color-mix(in srgb, var(--surface) 70%, transparent)", fontSize: 13, color: "var(--text-2)" }}>Escalation rules</div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ padding: 16, borderRadius: 18, border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)", background: "color-mix(in srgb, var(--surface-2) 80%, transparent)" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 14 }}>
+        {["Web app", "Docs", "Shopify", "Help center", "CRM"].map((item, itemIndex) => (
+          <div key={item} style={{ padding: "8px 10px", borderRadius: 999, background: itemIndex === 2 ? "var(--accent-muted)" : "color-mix(in srgb, var(--surface) 70%, transparent)", color: itemIndex === 2 ? "var(--text-1)" : "var(--text-2)", fontSize: 12 }}>
+            {item}
+          </div>
+        ))}
+      </div>
+      <div style={{ padding: "12px 14px", borderRadius: 14, background: "var(--accent-muted)", fontSize: 13 }}>
+        Embed once. Operate everywhere.
+      </div>
+    </div>
+  );
+}
 
 export default function HowItWorksSection() {
   return (
-    <section id="how" style={{ padding: "120px 24px" }}>
+    <section id="how" style={{ padding: "110px 24px" }}>
       <div className="site-container">
-        <div style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 18, marginBottom: 18, alignItems: "start" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "end", gap: 20, marginBottom: 30, flexWrap: "wrap" }}>
           <SectionHeader
-            badge="Workflow"
-            heading={<>Launch the assistant without bolting on another tool.</>}
-            description={<>The setup is intentionally operational: connect the source material, tune the decision layer, and launch with enough visibility to improve fast.</>}
+            badge="How it works"
+            heading={<>Launch a full AI agent workflow in three clear steps.</>}
+            description={<>A structured setup flow keeps rollout fast while preserving the controls serious teams still need.</>}
             align="left"
+            style={{ margin: 0 }}
           />
-
-          <div className="section-frame" style={{ padding: 22 }}>
-            <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 10 }}>Why teams move quickly</div>
-            <div style={{ fontSize: 24, fontWeight: 760, letterSpacing: "-0.04em", lineHeight: 1.1, marginBottom: 12 }}>
-              The redesign focuses on operational clarity, not marketing noise.
-            </div>
-            <p style={{ margin: 0, color: "var(--text-2)", lineHeight: 1.72, fontSize: 15 }}>
-              Each phase maps directly to a real rollout step so the assistant reaches production without a long implementation loop or brittle custom setup.
-            </p>
-          </div>
+          <motion.a
+            href="/docs"
+            className="motion-link"
+            whileHover={{ x: 3 }}
+            transition={{ type: "spring", stiffness: 280, damping: 20 }}
+            style={{ color: "var(--text-1)", fontSize: 14, fontWeight: 700, textDecoration: "none", paddingBottom: 8 }}
+          >
+            View workflow docs
+          </motion.a>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 16 }}>
           {steps.map((step, index) => (
             <motion.div
               key={step.step}
-              className="section-surface"
-              initial={{ opacity: 0, x: stepInitialX[index], y: stepInitialY[index] }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.48, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.48, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -4 }}
-              style={{ padding: 24 }}
+              style={{
+                padding: 24,
+                border: "1px solid color-mix(in srgb, var(--border) 74%, transparent)",
+                borderRadius: 24,
+                background: "color-mix(in srgb, var(--surface-2) 82%, transparent)",
+                boxShadow: "var(--shadow-card)",
+              }}
             >
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18 }}>
-                {/* Step number — springs in with a scale pop */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.68 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.36, delay: index * 0.07 + 0.16, ease: [0.34, 1.56, 0.64, 1] }}
-                  style={{ fontSize: 28, fontWeight: 800, letterSpacing: "-0.06em" }}
-                >
-                  {step.step}
-                </motion.div>
-                {/* Subtle circle arrow — replaces the meaningless "Go" box */}
-                <div
-                  style={{
-                    width: 32,
-                    height: 32,
-                    borderRadius: "50%",
-                    border: "1px solid color-mix(in srgb, var(--border) 80%, transparent)",
-                    display: "grid",
-                    placeItems: "center",
-                    color: "var(--text-3)",
-                    fontSize: 13,
-                  }}
-                >
-                  →
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+                <div style={{ fontSize: 30, fontWeight: 800, letterSpacing: "-0.06em" }}>{step.step}</div>
+                <div style={{ width: 34, height: 34, borderRadius: 999, display: "grid", placeItems: "center", border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)", color: "var(--text-3)", fontSize: 13 }}>
+                  +
                 </div>
               </div>
-              <h3 style={{ margin: "0 0 10px", fontSize: 22, fontWeight: 750, letterSpacing: "-0.04em", lineHeight: 1.1 }}>
+              <h3 style={{ margin: "0 0 10px", fontSize: 24, lineHeight: 1.08, letterSpacing: "-0.04em", fontWeight: 760 }}>
                 {step.title}
               </h3>
-              <p style={{ margin: 0, fontSize: 15, lineHeight: 1.72, color: "var(--text-2)" }}>{step.description}</p>
+              <p style={{ margin: "0 0 18px", fontSize: 15, lineHeight: 1.72, color: "var(--text-2)" }}>{step.description}</p>
+              <StepVisual index={index} />
             </motion.div>
           ))}
         </div>

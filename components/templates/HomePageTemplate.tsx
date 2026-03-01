@@ -5,7 +5,6 @@ import FeaturesSection from "@/components/organisms/FeaturesSection";
 import HowItWorksSection from "@/components/organisms/HowItWorksSection";
 import IntegrationsSection from "@/components/organisms/IntegrationsSection";
 import UseCasesSection from "@/components/organisms/UseCasesSection";
-import ComparisonSection from "@/components/organisms/ComparisonSection";
 import TestimonialsSection from "@/components/organisms/TestimonialsSection";
 import PricingSection from "@/components/organisms/PricingSection";
 import FaqSection from "@/components/organisms/FaqSection";
@@ -23,9 +22,8 @@ export default function HomePageTemplate() {
         <HowItWorksSection />
         <IntegrationsSection />
         <UseCasesSection />
-        <ComparisonSection />
-        <TestimonialsSection />
         <PricingSection />
+        <TestimonialsSection />
         <FaqSection />
         <CtaSection />
       </main>
@@ -33,4 +31,3 @@ export default function HomePageTemplate() {
     </div>
   );
 }
-

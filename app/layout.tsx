@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 
@@ -61,3 +61,4 @@ export default function RootLayout({
     </html>
   );
 }
+

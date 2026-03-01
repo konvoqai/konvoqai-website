@@ -157,33 +157,33 @@ const statusConfig = {
   shipped: {
     label: "Shipped",
     icon: "âœ“",
-    headerBg: "rgba(16,185,129,0.08)",
-    headerBorder: "rgba(16,185,129,0.2)",
-    headerText: "var(--emerald)",
-    glowColor: "rgba(16,185,129,0.08)",
-    cardBorder: "rgba(16,185,129,0.12)",
-    accentColor: "var(--emerald)",
-    dotColor: "var(--emerald)",
+    headerBg: "rgba(255, 196, 70, 0.08)",
+    headerBorder: "rgba(255, 196, 70, 0.2)",
+    headerText: "var(--warning)",
+    glowColor: "rgba(255, 196, 70, 0.08)",
+    cardBorder: "rgba(255, 196, 70, 0.12)",
+    accentColor: "var(--warning)",
+    dotColor: "var(--warning)",
   },
   "in-progress": {
     label: "In Progress",
     icon: "âŸ³",
     headerBg: "var(--accent-muted)",
-    headerBorder: "rgba(91, 140, 255, 0.24)",
+    headerBorder: "rgba(0, 163, 255, 0.24)",
     headerText: "var(--accent)",
     glowColor: "var(--accent-muted)",
-    cardBorder: "rgba(91, 140, 255, 0.18)",
+    cardBorder: "rgba(0, 163, 255, 0.18)",
     accentColor: "var(--accent)",
     dotColor: "var(--accent)",
   },
   planned: {
     label: "Planned",
     icon: "â—·",
-    headerBg: "rgba(122, 162, 255, 0.12)",
-    headerBorder: "rgba(122, 162, 255, 0.24)",
+    headerBg: "rgba(0, 163, 255, 0.12)",
+    headerBorder: "rgba(0, 163, 255, 0.24)",
     headerText: "var(--accent-strong)",
-    glowColor: "rgba(122, 162, 255, 0.09)",
-    cardBorder: "rgba(122, 162, 255, 0.16)",
+    glowColor: "rgba(0, 163, 255, 0.09)",
+    cardBorder: "rgba(0, 163, 255, 0.16)",
     accentColor: "var(--accent-strong)",
     dotColor: "var(--accent-strong)",
   },
@@ -332,17 +332,17 @@ export default function RoadmapPageTemplate() {
       <div style={{ position: "fixed", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
         <div style={{
           position: "absolute", top: "-10%", left: "-5%", width: 500, height: 500,
-          background: "radial-gradient(circle, rgba(16,185,129,0.05) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(255, 196, 70, 0.05) 0%, transparent 70%)",
           filter: "blur(40px)",
         }} />
         <div style={{
           position: "absolute", top: "20%", right: "-5%", width: 500, height: 500,
-          background: "radial-gradient(circle, rgba(122, 162, 255, 0.09) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0, 163, 255, 0.09) 0%, transparent 70%)",
           filter: "blur(40px)",
         }} />
         <div style={{
           position: "absolute", bottom: "10%", left: "40%", width: 400, height: 400,
-          background: "radial-gradient(circle, rgba(91, 140, 255, 0.05) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0, 163, 255, 0.05) 0%, transparent 70%)",
           filter: "blur(40px)",
         }} />
       </div>
@@ -474,7 +474,7 @@ export default function RoadmapPageTemplate() {
           >
             <div style={{
               position: "absolute", inset: 0,
-              background: "radial-gradient(ellipse at center, rgba(122, 162, 255, 0.1) 0%, transparent 60%)",
+              background: "radial-gradient(ellipse at center, rgba(0, 163, 255, 0.1) 0%, transparent 60%)",
               pointerEvents: "none",
             }} />
 
@@ -501,9 +501,9 @@ export default function RoadmapPageTemplate() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 style={{
-                  background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.3)",
+                  background: "rgba(255, 196, 70, 0.1)", border: "1px solid rgba(255, 196, 70, 0.3)",
                   borderRadius: "var(--radius)", padding: "16px 24px",
-                  color: "var(--emerald)", fontWeight: 600, fontSize: 15,
+                  color: "var(--warning)", fontWeight: 600, fontSize: 15,
                 }}
               >
                 Thanks! Your request has been added to our backlog.
@@ -553,5 +553,6 @@ export default function RoadmapPageTemplate() {
     </PageLayout>
   );
 }
+
 
 

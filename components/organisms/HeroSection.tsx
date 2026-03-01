@@ -1,179 +1,256 @@
-"use client";
+﻿"use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
 import Button from "@/components/atoms/Button";
 import SectionBadge from "@/components/atoms/SectionBadge";
+import { motion, useScroll, useTransform } from "framer-motion";
 
-const heroMetrics = [
-  { label: "Resolution rate", value: "91%", note: "Average automated resolution" },
-  { label: "Time to launch", value: "3 min", note: "From URL to embedded widget" },
-  { label: "Teams onboarded", value: "12k+", note: "Across SaaS, commerce, and support" },
+const proofPoints = [
+  "Website and docs trained",
+  "Human handoff built in",
 ];
 
-const featureChips = ["Website training", "Docs ingestion", "Human handoff", "Analytics", "White-label"];
+const trustStats = [
+  { label: "Teams onboarded", value: "12k+" },
+  { label: "Average containment", value: "91%" },
+  { label: "Median setup time", value: "1 day" },
+];
 
-// Non-uniform chip delays — not perfectly spaced
-const chipDelays = [0.28, 0.34, 0.39, 0.44, 0.51];
-// Non-uniform metric delays
-const metricDelays = [0.48, 0.56, 0.63];
+const leftRail = ["Agent routing", "Knowledge score", "Lead intent", "Escalation map"];
+const actionCards = [
+  { title: "Billing plan update", meta: "Resolved with pricing context and proration logic.", label: "Support", status: "Resolved" },
+  { title: "Enterprise demo request", meta: "Assigned to sales owner with rollout and procurement context.", label: "Sales", status: "Assigned" },
+  { title: "API auth question", meta: "Answered from docs and linked to the correct setup path.", label: "Support", status: "Docs grounded" },
+];
 
-function ProductPreview() {
+function HeroDashboard() {
   const { scrollY } = useScroll();
-  const translateY = useTransform(scrollY, [0, 800], [0, 80]);
-  const rotate = useTransform(scrollY, [0, 800], [0, -3]);
+  const panelY = useTransform(scrollY, [0, 900], [0, 64]);
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 28 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.75, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-      style={{
-        padding: "18px 0 0",
-        position: "relative",
-        y: translateY,
-        rotate,
-        transformOrigin: "top center",
-      }}
+      transition={{ duration: 0.75, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+      style={{ position: "relative", y: panelY }}
     >
+      <motion.div
+        style={{
+          position: "absolute",
+          top: -24,
+          left: "50%",
+          x: "-50%",
+          width: 320,
+          height: 24,
+          borderRadius: 999,
+          background: "radial-gradient(circle, rgba(255, 255, 255, 0.16), rgba(136, 144, 150, 0.12) 48%, transparent 78%)",
+          filter: "blur(14px)",
+          pointerEvents: "none",
+        }}
+      />
+
       <div
-        className="section-frame open-divider-grid"
+        className="section-frame"
         style={{
           position: "relative",
-          padding: "24px 28px 0",
+          padding: 24,
           overflow: "hidden",
+          borderRadius: 32,
+          border: "1px solid color-mix(in srgb, var(--border) 78%, transparent)",
+          background:
+            "linear-gradient(180deg, color-mix(in srgb, var(--surface-2) 82%, transparent) 0%, color-mix(in srgb, var(--surface) 92%, transparent) 100%)",
+          boxShadow: "var(--shadow-card)",
         }}
       >
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "radial-gradient(circle at top right, rgba(91, 140, 255, 0.16), transparent 36%)",
+            background:
+              "radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.06), transparent 36%), linear-gradient(180deg, rgba(255,255,255,0.04), transparent 24%)",
             pointerEvents: "none",
           }}
         />
 
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 18 }}>
-          <span style={{ width: 9, height: 9, borderRadius: 999, background: "rgba(239,68,68,0.84)" }} />
-          <span style={{ width: 9, height: 9, borderRadius: 999, background: "rgba(245,158,11,0.84)" }} />
-          <span style={{ width: 9, height: 9, borderRadius: 999, background: "rgba(34,197,94,0.84)" }} />
-          <span style={{ marginLeft: 10, fontSize: 12, color: "var(--text-3)" }}>assistant operating view</span>
-        </div>
-
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 0.92fr", gap: 26, alignItems: "start" }}>
-          <div style={{ display: "grid", gap: 18 }}>
-            <div style={{ paddingBottom: 18, borderBottom: "1px solid color-mix(in srgb, var(--border) 72%, transparent)" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", marginBottom: 16 }}>
-                <div>
-                  <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 6 }}>Overview</div>
-                  <div style={{ fontSize: 24, fontWeight: 750, letterSpacing: "-0.04em" }}>Weekly operating pulse</div>
-                </div>
-                <motion.div
-                  animate={{ opacity: [0.6, 1, 0.6] }}
-                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-                  style={{
-                    padding: "7px 11px",
-                    borderRadius: 999,
-                    background: "var(--accent-muted)",
-                    color: "var(--accent)",
-                    fontSize: 12,
-                    fontWeight: 700,
-                  }}
-                >
-                  Live
-                </motion.div>
+        <div style={{ position: "relative", display: "grid", gap: 18 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
+            <div>
+              <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.12em" }}>
+                Operator dashboard
               </div>
-
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginBottom: 18 }}>
-                {[
-                  { label: "Conversations", value: "14,382" },
-                  { label: "Qualified leads", value: "1,847" },
-                  { label: "Handoff rate", value: "9%" },
-                ].map((metric, index) => (
-                  <motion.div
-                    key={metric.label}
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.45, delay: 0.25 + index * 0.06, ease: "easeOut" }}
-                    style={{ padding: "0 0 8px", borderBottom: "1px solid color-mix(in srgb, var(--border) 58%, transparent)" }}
-                  >
-                    <div style={{ fontSize: 11, color: "var(--text-3)", marginBottom: 6 }}>{metric.label}</div>
-                    <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: "-0.04em" }}>{metric.value}</div>
-                  </motion.div>
-                ))}
+              <div style={{ fontSize: 28, fontWeight: 800, letterSpacing: "-0.05em", lineHeight: 1.02 }}>
+                Customer conversation intelligence
               </div>
-
-              <div>
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}>
-                  <span style={{ fontSize: 12, color: "var(--text-3)" }}>Conversation volume</span>
-                  <span style={{ fontSize: 12, color: "var(--text-2)" }}>Last 30 days</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "end", gap: 6, height: 112 }}>
-                  {[36, 52, 44, 58, 62, 76, 71, 84, 78, 94, 90, 96].map((height, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: `${height}%`, opacity: 1 }}
-                      transition={{ duration: 0.55, delay: 0.38 + index * 0.03, ease: "easeOut" }}
-                      style={{
-                        flex: 1,
-                        borderRadius: "999px 999px 0 0",
-                        background: index > 7 ? "var(--grad-btn)" : "color-mix(in srgb, var(--surface-2) 84%, transparent)",
-                        border: "1px solid color-mix(in srgb, var(--border) 68%, transparent)",
-                      }}
-                    />
-                  ))}
-                </div>
+            </div>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              <div style={{ padding: "9px 12px", borderRadius: 999, background: "color-mix(in srgb, var(--surface) 76%, transparent)", border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)", color: "var(--text-2)", fontSize: 12, fontWeight: 700 }}>
+                Live
+              </div>
+              <div style={{ padding: "9px 12px", borderRadius: 999, background: "var(--accent-muted)", border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)", color: "var(--text-1)", fontSize: 12, fontWeight: 700 }}>
+                91% containment
               </div>
             </div>
           </div>
 
-          <div style={{ display: "grid", gap: 12, paddingLeft: 8 }}>
-            <div>
-              <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 6 }}>Live assistant</div>
-              <div style={{ fontSize: 17, fontWeight: 700, letterSpacing: "-0.03em" }}>Support bot response stream</div>
+          <div style={{ display: "grid", gridTemplateColumns: "200px minmax(0, 1fr) 280px", gap: 18, alignItems: "stretch" }}>
+            <div style={{ padding: 16, borderRadius: 22, border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)", background: "color-mix(in srgb, var(--surface-2) 82%, transparent)" }}>
+              <div style={{ fontSize: 11, color: "var(--text-3)", marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.12em" }}>Workspace</div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                {leftRail.map((item, index) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.36, delay: 0.24 + index * 0.05, ease: "easeOut" }}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "12px 13px",
+                      borderRadius: 14,
+                      background: index === 0 ? "var(--accent-muted)" : "color-mix(in srgb, var(--surface) 72%, transparent)",
+                      color: index === 0 ? "var(--text-1)" : "var(--text-2)",
+                      fontSize: 13,
+                    }}
+                  >
+                    <span>{item}</span>
+                    <span style={{ color: "var(--text-3)", fontSize: 12 }}>{index + 1}</span>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-            {[
-              { role: "visitor", text: "Can I change plans in the middle of the month?" },
-              { role: "assistant", text: "Yes. Upgrades apply immediately and billing is prorated automatically." },
-              { role: "visitor", text: "Can you route enterprise requests to sales?" },
-              { role: "assistant", text: "Already handled. Sales conversations route to the right owner with context attached." },
-            ].map((message, index) => (
+
+            <div style={{ display: "grid", gap: 14 }}>
+              <div style={{ padding: 18, borderRadius: 22, border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)", background: "color-mix(in srgb, var(--surface-2) 78%, transparent)" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 12, marginBottom: 16 }}>
+                  {[
+                    { label: "Conversations", value: "14,382" },
+                    { label: "Resolved", value: "12,945" },
+                    { label: "Escalated", value: "1,437" },
+                  ].map((metric, index) => (
+                    <motion.div
+                      key={metric.label}
+                      initial={{ opacity: 0, y: 14 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.32 + index * 0.05, ease: "easeOut" }}
+                      style={{ paddingBottom: 8, borderBottom: "1px solid color-mix(in srgb, var(--border) 60%, transparent)" }}
+                    >
+                      <div style={{ fontSize: 11, color: "var(--text-3)", marginBottom: 6 }}>{metric.label}</div>
+                      <div style={{ fontSize: 24, fontWeight: 700, letterSpacing: "-0.04em" }}>{metric.value}</div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <div style={{ padding: 14, borderRadius: 18, border: "1px solid color-mix(in srgb, var(--border) 68%, transparent)", background: "linear-gradient(180deg, color-mix(in srgb, var(--surface) 84%, transparent), transparent)" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}>
+                    <span style={{ fontSize: 12, color: "var(--text-3)" }}>Performance trend</span>
+                    <span style={{ fontSize: 12, color: "var(--text-2)" }}>Last 30 days</span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "end", gap: 7, height: 140 }}>
+                    {[18, 24, 28, 34, 42, 51, 57, 54, 66, 72, 79, 86].map((height, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: `${height}%`, opacity: 1 }}
+                        transition={{ duration: 0.55, delay: 0.42 + index * 0.03, ease: "easeOut" }}
+                        style={{
+                          flex: 1,
+                          borderRadius: "999px 999px 0 0",
+                          background: index > 7 ? "linear-gradient(180deg, var(--text-1), var(--text-2))" : "color-mix(in srgb, var(--surface-2) 88%, transparent)",
+                          border: "1px solid color-mix(in srgb, var(--border) 70%, transparent)",
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 14 }}>
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: 0.66, ease: "easeOut" }}
+                  style={{ padding: 18, borderRadius: 20, background: "linear-gradient(180deg, color-mix(in srgb, var(--surface-2) 82%, transparent), transparent 100%)", border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)" }}
+                >
+                  <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 8 }}>Assistant response</div>
+                  <div style={{ fontSize: 15, lineHeight: 1.72, color: "var(--text-1)" }}>
+                    &ldquo;Yes. Plan upgrades apply immediately, enterprise requests can route to sales, and billing is prorated automatically.&rdquo;
+                  </div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: 0.74, ease: "easeOut" }}
+                  style={{ padding: 18, borderRadius: 20, border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)", background: "color-mix(in srgb, var(--surface-2) 78%, transparent)" }}
+                >
+                  <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 8 }}>Suggested next action</div>
+                  <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 8 }}>Offer enterprise callback</div>
+                  <div style={{ fontSize: 13, color: "var(--text-2)", lineHeight: 1.6 }}>
+                    Customer mentioned procurement, internal rollout, and owner assignment in the same thread.
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            <div style={{ display: "grid", gap: 12 }}>
               <motion.div
-                key={index}
-                initial={{ opacity: 0, x: message.role === "assistant" ? -14 : 14 }}
+                initial={{ opacity: 0, x: 16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.38, delay: 0.52 + index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.4, delay: 0.34, ease: "easeOut" }}
                 style={{
-                  alignSelf: message.role === "assistant" ? "flex-start" : "flex-end",
-                  maxWidth: "88%",
-                  padding: "12px 14px",
-                  borderRadius: 18,
-                  background: message.role === "assistant" ? "color-mix(in srgb, var(--surface-2) 82%, transparent)" : "var(--accent-muted)",
+                  padding: 18,
+                  borderRadius: 22,
                   border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)",
-                  color: message.role === "assistant" ? "var(--text-2)" : "var(--text-1)",
-                  lineHeight: 1.6,
-                  fontSize: 13,
+                  background: "linear-gradient(180deg, color-mix(in srgb, var(--surface-2) 86%, transparent), color-mix(in srgb, var(--surface) 92%, transparent))",
                 }}
               >
-                {message.text}
+                <div style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-3)", fontWeight: 700, marginBottom: 10 }}>
+                  Lead signal
+                </div>
+                <div style={{ fontSize: 34, fontWeight: 800, letterSpacing: "-0.06em", marginBottom: 6 }}>+32%</div>
+                <div style={{ fontSize: 13, color: "var(--text-2)", lineHeight: 1.6 }}>
+                  More qualified buying intent from conversations mentioning rollout, pricing, and procurement in the same thread.
+                </div>
+              </motion.div>
+
+              {actionCards.map((card, index) => (
+                <motion.div
+                  key={card.title}
+                  initial={{ opacity: 0, x: 16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.42 + index * 0.08, ease: "easeOut" }}
+                  style={{
+                    padding: 16,
+                    borderRadius: 20,
+                    border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)",
+                    background: "color-mix(in srgb, var(--surface-2) 78%, transparent)",
+                  }}
+                >
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                    <span style={{ fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-3)", fontWeight: 700 }}>
+                      {card.label}
+                    </span>
+                    <span style={{ fontSize: 11, color: "var(--text-3)" }}>{card.status}</span>
+                  </div>
+                  <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 6, lineHeight: 1.35 }}>{card.title}</div>
+                  <div style={{ fontSize: 13, color: "var(--text-2)", lineHeight: 1.6 }}>{card.meta}</div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 14, paddingTop: 18, borderTop: "1px solid color-mix(in srgb, var(--border) 72%, transparent)" }}>
+            {trustStats.map((item, index) => (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.42, delay: 0.54 + index * 0.06, ease: "easeOut" }}
+                style={{ padding: "6px 4px 0", textAlign: "center" }}
+              >
+                <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 8 }}>{item.label}</div>
+                <div style={{ fontSize: 30, fontWeight: 800, letterSpacing: "-0.05em" }}>{item.value}</div>
               </motion.div>
             ))}
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.9, ease: "easeOut" }}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                paddingTop: 16,
-                borderTop: "1px solid color-mix(in srgb, var(--border) 62%, transparent)",
-              }}
-            >
-              <span style={{ fontSize: 13, color: "var(--text-3)" }}>Next best action</span>
-              <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text-1)" }}>Offer enterprise callback</span>
-            </motion.div>
           </div>
         </div>
       </div>
@@ -183,14 +260,14 @@ function ProductPreview() {
 
 export default function HeroSection() {
   const { scrollY } = useScroll();
-  const orbY = useTransform(scrollY, [0, 900], [0, 120]);
-  const orbYReverse = useTransform(scrollY, [0, 900], [0, -90]);
+  const topGlowY = useTransform(scrollY, [0, 900], [0, 120]);
+  const bottomGlowY = useTransform(scrollY, [0, 900], [0, -76]);
 
   return (
     <section
       id="hero"
       style={{
-        padding: "132px 24px 104px",
+        padding: "60px 24px 88px",
         position: "relative",
         overflow: "hidden",
       }}
@@ -198,131 +275,96 @@ export default function HeroSection() {
       <motion.div
         style={{
           position: "absolute",
-          top: -120,
-          right: -120,
-          width: 420,
-          height: 420,
+          top: -180,
+          right: -180,
+          width: 620,
+          height: 620,
           borderRadius: 999,
-          background: "radial-gradient(circle, rgba(91,140,255,0.18), transparent 70%)",
+          background: "radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 72%)",
           pointerEvents: "none",
-          y: orbY,
+          y: topGlowY,
         }}
       />
       <motion.div
         style={{
           position: "absolute",
-          left: -140,
-          bottom: -160,
-          width: 360,
-          height: 360,
+          left: -120,
+          bottom: -180,
+          width: 420,
+          height: 420,
           borderRadius: 999,
-          background: "radial-gradient(circle, rgba(91,140,255,0.12), transparent 72%)",
+          background: "radial-gradient(circle, rgba(136, 144, 150, 0.12), transparent 72%)",
           pointerEvents: "none",
-          y: orbYReverse,
+          y: bottomGlowY,
         }}
       />
 
       <div className="site-container">
-        <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 36, alignItems: "center" }}>
-          <div>
-            {/* Badge — pure fade, no movement */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4 }}
-            >
-              <SectionBadge>Customer conversations, rethought</SectionBadge>
-            </motion.div>
+        <div style={{ maxWidth: 920, margin: "0 auto", textAlign: "center" }}>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: "easeOut" }} style={{ display: "flex", justifyContent: "center" }}>
+            <SectionBadge>AI agent system</SectionBadge>
+          </motion.div>
 
-            {/* H1 — slides in from left, editorial feel */}
-            <motion.h1
-              initial={{ opacity: 0, x: -18 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-              style={{
-                margin: "0 0 20px",
-                fontSize: "clamp(50px, 7.5vw, 90px)",
-                lineHeight: 0.93,
-                letterSpacing: "-0.065em",
-                fontWeight: 800,
-                maxWidth: 760,
-              }}
-            >
-              A cleaner system for support, conversion, and AI handoff.
-            </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.66, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
+            style={{
+              margin: "0 0 18px",
+              fontSize: "clamp(52px, 7.4vw, 92px)",
+              lineHeight: 0.94,
+              letterSpacing: "-0.07em",
+              fontWeight: 800,
+            }}
+          >
+            Support and revenue, in one AI layer.
+          </motion.h1>
 
-            {/* Description — fades in, minimal movement */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.55, delay: 0.2 }}
-              style={{
-                margin: "0 0 28px",
-                maxWidth: 580,
-                fontSize: 18,
-                lineHeight: 1.72,
-                color: "var(--text-2)",
-              }}
-            >
-              Train Konvoq on your website, docs, and product knowledge, then launch an assistant that answers quickly,
-              routes intelligently, and looks native to your brand.
-            </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.52, delay: 0.16, ease: "easeOut" }}
+            style={{
+              margin: "0 auto 26px",
+              maxWidth: 560,
+              fontSize: 17,
+              lineHeight: 1.68,
+              color: "var(--text-2)",
+            }}
+          >
+            Train on your product, answer clearly, and route high-intent conversations without losing context.
+          </motion.p>
 
-            {/* Buttons — slide up slightly */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.26, ease: "easeOut" }}
-              style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 32 }}
-            >
-              <Button href="/pricing" variant="primary" size="lg">
-                Start free
-              </Button>
-              <Button href="/contact" variant="outline" size="lg">
-                Book a demo
-              </Button>
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.42, delay: 0.24, ease: "easeOut" }}
+            style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 12, flexWrap: "wrap", marginBottom: 20 }}
+          >
+            <Button href="/pricing" variant="primary" size="lg">
+              Try for free
+            </Button>
+            <Button href="/contact" variant="outline" size="lg">
+              Book a demo
+            </Button>
+          </motion.div>
 
-            {/* Feature chips — cascade in from left, non-uniform delays */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginBottom: 36 }}>
-              {featureChips.map((chip, index) => (
-                <motion.div
-                  key={chip}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.38, delay: chipDelays[index], ease: [0.22, 1, 0.36, 1] }}
-                  style={{
-                    fontSize: 13,
-                    color: "var(--text-2)",
-                    paddingBottom: 8,
-                    borderBottom: "1px solid color-mix(in srgb, var(--border) 72%, transparent)",
-                  }}
-                >
-                  {chip}
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Metrics — slide in from left with slight delay stagger */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
-              {heroMetrics.map((metric, index) => (
-                <motion.div
-                  key={metric.label}
-                  initial={{ opacity: 0, x: -14 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.48, delay: metricDelays[index], ease: [0.22, 1, 0.36, 1] }}
-                  style={{ paddingBottom: 14, borderBottom: "1px solid color-mix(in srgb, var(--border) 70%, transparent)" }}
-                >
-                  <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 8 }}>{metric.label}</div>
-                  <div style={{ fontSize: 28, fontWeight: 800, letterSpacing: "-0.05em", marginBottom: 6 }}>{metric.value}</div>
-                  <div style={{ fontSize: 13, color: "var(--text-2)", lineHeight: 1.55 }}>{metric.note}</div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          <ProductPreview />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.45, delay: 0.3 }}
+            style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 18, marginBottom: 42, color: "var(--text-2)", fontSize: 14 }}
+          >
+            {proofPoints.map((item, index) => (
+              <div key={item} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <span style={{ width: 8, height: 8, borderRadius: 999, background: index === 0 ? "var(--text-1)" : "var(--text-3)", flexShrink: 0 }} />
+                {item}
+              </div>
+            ))}
+          </motion.div>
         </div>
+
+        <HeroDashboard />
       </div>
     </section>
   );

@@ -1,10 +1,11 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { AnimatePresence, LayoutGroup, motion, type Variants } from "framer-motion";
 import Button from "@/components/atoms/Button";
 import SectionHeader from "@/components/molecules/SectionHeader";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
+import { SIGNUP_URL } from "@/lib/config";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -23,7 +24,7 @@ const plans = [
     annualPrice: 0,
     description: "For early teams validating an AI support workflow.",
     cta: "Start free",
-    ctaHref: "/signup",
+    ctaHref: SIGNUP_URL,
     variant: "outline" as const,
     featured: false,
     highlights: [
@@ -40,7 +41,7 @@ const plans = [
     annualPrice: 63,
     description: "For SaaS teams replacing repetitive support and qualification work.",
     cta: "Start 14-day trial",
-    ctaHref: "/signup",
+    ctaHref: SIGNUP_URL,
     variant: "primary" as const,
     featured: true,
     highlights: [
@@ -72,7 +73,7 @@ const plans = [
   },
 ];
 
-// Directional entry — each plan slides from a unique direction
+// Directional entry â€” each plan slides from a unique direction
 const cardInitialX = [-24, 0, 24];
 const cardInitialY = [0, 28, 0];
 
@@ -121,13 +122,13 @@ function CheckIcon({ featured }: { featured: boolean }) {
         placeItems: "center",
         flexShrink: 0,
         background: featured ? "var(--accent-muted)" : "color-mix(in srgb, var(--surface-2) 80%, transparent)",
-        border: `1px solid ${featured ? "rgba(91, 140, 255, 0.28)" : "color-mix(in srgb, var(--border) 80%, transparent)"}`,
+        border: `1px solid ${featured ? "rgba(0, 163, 255, 0.28)" : "color-mix(in srgb, var(--border) 80%, transparent)"}`,
         color: featured ? "var(--accent)" : "var(--text-2)",
         fontSize: 11,
         fontWeight: 800,
       }}
     >
-      ✓
+      âœ“
     </div>
   );
 }
@@ -142,13 +143,13 @@ function StatusIcon({ enabled }: { enabled: boolean }) {
         display: "grid",
         placeItems: "center",
         background: enabled ? "var(--accent-muted)" : "var(--surface-3)",
-        border: `1px solid ${enabled ? "rgba(91, 140, 255, 0.24)" : "var(--border)"}`,
+        border: `1px solid ${enabled ? "rgba(0, 163, 255, 0.24)" : "var(--border)"}`,
         color: enabled ? "var(--accent)" : "var(--text-3)",
         fontSize: 12,
         fontWeight: 700,
       }}
     >
-      {enabled ? "+" : "−"}
+      {enabled ? "+" : "âˆ’"}
     </div>
   );
 }
@@ -166,7 +167,7 @@ export default function PricingPageTemplate() {
             position: "absolute",
             inset: 0,
             pointerEvents: "none",
-            background: "radial-gradient(circle at 50% 0%, rgba(91, 140, 255, 0.13), transparent 36%)",
+            background: "radial-gradient(circle at 50% 0%, rgba(0, 163, 255, 0.13), transparent 36%)",
             maskImage: "linear-gradient(180deg, black 0%, transparent 72%)",
           }}
         />
@@ -183,7 +184,7 @@ export default function PricingPageTemplate() {
                 />
               </motion.div>
 
-              {/* Billing toggle — animated sliding pill */}
+              {/* Billing toggle â€” animated sliding pill */}
               <motion.div
                 variants={fadeUp}
                 style={{ marginTop: 32, display: "flex", justifyContent: "center" }}
@@ -244,7 +245,7 @@ export default function PricingPageTemplate() {
                         padding: "9px 14px",
                         borderRadius: 999,
                         background: "var(--accent-muted)",
-                        border: "1px solid rgba(91, 140, 255, 0.26)",
+                        border: "1px solid rgba(0, 163, 255, 0.26)",
                         color: "var(--accent)",
                         fontSize: 11,
                         fontWeight: 700,
@@ -292,10 +293,10 @@ export default function PricingPageTemplate() {
                         ? "linear-gradient(160deg, color-mix(in srgb, var(--accent-muted) 90%, var(--panel-strong) 10%) 0%, var(--panel-strong) 100%)"
                         : "color-mix(in srgb, var(--surface) 72%, transparent)",
                       border: plan.featured
-                        ? "1px solid rgba(91, 140, 255, 0.32)"
+                        ? "1px solid rgba(0, 163, 255, 0.32)"
                         : "1px solid color-mix(in srgb, var(--border) 80%, transparent)",
                       boxShadow: plan.featured
-                        ? "var(--shadow-card), 0 0 0 1px rgba(91, 140, 255, 0.18), 0 0 60px rgba(91, 140, 255, 0.1)"
+                        ? "var(--shadow-card), 0 0 0 1px rgba(0, 163, 255, 0.18), 0 0 60px rgba(0, 163, 255, 0.1)"
                         : "var(--shadow-card)",
                       overflow: "hidden",
                       // Featured card sits slightly higher
@@ -323,7 +324,7 @@ export default function PricingPageTemplate() {
                           position: "absolute",
                           inset: 0,
                           pointerEvents: "none",
-                          background: "radial-gradient(ellipse at top, rgba(91, 140, 255, 0.16), transparent 48%)",
+                          background: "radial-gradient(ellipse at top, rgba(0, 163, 255, 0.16), transparent 48%)",
                         }}
                       />
                     )}
@@ -355,7 +356,7 @@ export default function PricingPageTemplate() {
                               padding: "6px 12px",
                               borderRadius: 999,
                               background: "color-mix(in srgb, var(--accent-muted) 80%, transparent)",
-                              border: "1px solid rgba(91, 140, 255, 0.28)",
+                              border: "1px solid rgba(0, 163, 255, 0.28)",
                               color: "var(--accent)",
                               fontSize: 11,
                               fontWeight: 700,
@@ -394,7 +395,7 @@ export default function PricingPageTemplate() {
                         </div>
                         {annual && price > 0 && (
                           <div style={{ fontSize: 12, color: "var(--text-3)" }}>
-                            billed annually · ${plan.monthlyPrice}/mo monthly
+                            billed annually Â· ${plan.monthlyPrice}/mo monthly
                           </div>
                         )}
                       </div>
@@ -418,7 +419,7 @@ export default function PricingPageTemplate() {
                       <div
                         style={{
                           paddingTop: 20,
-                          borderTop: `1px solid ${plan.featured ? "rgba(91,140,255,0.18)" : "color-mix(in srgb, var(--border) 70%, transparent)"}`,
+                          borderTop: `1px solid ${plan.featured ? "rgba(0, 163, 255, 0.18)" : "color-mix(in srgb, var(--border) 70%, transparent)"}`,
                           display: "grid",
                           gap: 12,
                         }}
@@ -652,7 +653,7 @@ export default function PricingPageTemplate() {
                         transition={{ type: "spring", stiffness: 280, damping: 22, mass: 0.6 }}
                         style={{ display: "inline-block", color: "var(--text-3)", fontSize: 18, lineHeight: 1, flexShrink: 0 }}
                       >
-                        ›
+                        â€º
                       </motion.span>
                     </button>
                     <AnimatePresence initial={false}>
@@ -700,7 +701,7 @@ export default function PricingPageTemplate() {
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background: "radial-gradient(ellipse at bottom right, rgba(91, 140, 255, 0.1), transparent 56%)",
+                  background: "radial-gradient(ellipse at bottom right, rgba(0, 163, 255, 0.1), transparent 56%)",
                   pointerEvents: "none",
                 }}
               />
@@ -712,7 +713,7 @@ export default function PricingPageTemplate() {
                     padding: "7px 13px",
                     borderRadius: 999,
                     background: "var(--accent-muted)",
-                    border: "1px solid rgba(91, 140, 255, 0.26)",
+                    border: "1px solid rgba(0, 163, 255, 0.26)",
                     color: "var(--accent)",
                     fontSize: 11,
                     fontWeight: 700,
@@ -774,3 +775,4 @@ export default function PricingPageTemplate() {
     </PageLayout>
   );
 }
+

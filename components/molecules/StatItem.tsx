@@ -29,3 +29,4 @@ export default function StatItem({ value, label, description, accent = "var(--ac
   );
 }
 
+

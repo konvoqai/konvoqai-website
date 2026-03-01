@@ -36,7 +36,7 @@ export default function SecurityPageTemplate() {
           textAlign: "center",
           position: "relative",
           overflow: "hidden",
-          background: "linear-gradient(180deg, rgba(16,185,129,0.07) 0%, transparent 100%)",
+          background: "linear-gradient(180deg, rgba(255, 196, 70, 0.07) 0%, transparent 100%)",
           borderBottom: "1px solid var(--border)",
         }}
       >
@@ -44,7 +44,7 @@ export default function SecurityPageTemplate() {
           style={{
             position: "absolute",
             inset: 0,
-            background: "radial-gradient(ellipse 70% 60% at 50% -10%, rgba(16,185,129,0.1) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse 70% 60% at 50% -10%, rgba(255, 196, 70, 0.1) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -60,7 +60,7 @@ export default function SecurityPageTemplate() {
               transform: "translate(-50%, -50%)",
               width: 200 + i * 120,
               height: 200 + i * 120,
-              border: `1px solid rgba(16,185,129,${0.06 - i * 0.015})`,
+              border: `1px solid rgba(255, 196, 70, ${0.06 - i * 0.015})`,
               borderRadius: "50%",
               pointerEvents: "none",
             }}
@@ -84,8 +84,8 @@ export default function SecurityPageTemplate() {
                 width: 80,
                 height: 80,
                 borderRadius: "50%",
-                background: "linear-gradient(135deg, rgba(16,185,129,0.15), var(--accent-muted-strong))",
-                border: "2px solid rgba(16,185,129,0.3)",
+                background: "linear-gradient(135deg, rgba(255, 196, 70, 0.15), var(--accent-muted-strong))",
+                border: "2px solid rgba(255, 196, 70, 0.3)",
                 fontSize: 36,
                 marginBottom: 24,
               }}
@@ -114,7 +114,7 @@ export default function SecurityPageTemplate() {
             style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "center" }}
           >
             {[
-              { label: "SOC 2 Type II", color: "var(--emerald)" },
+              { label: "SOC 2 Type II", color: "var(--warning)" },
               { label: "GDPR Compliant", color: "var(--accent)" },
               { label: "HIPAA Ready", color: "var(--accent-strong)" },
               { label: "ISO 27001", color: "var(--amber)" },
@@ -151,7 +151,7 @@ export default function SecurityPageTemplate() {
             {
               icon: "ðŸ†",
               title: "SOC 2 Type II",
-              color: "var(--emerald)",
+              color: "var(--warning)",
               desc: "Annual third-party audit verifying our security, availability, processing integrity, confidentiality, and privacy controls.",
             },
             {
@@ -262,7 +262,7 @@ export default function SecurityPageTemplate() {
           {[
             { icon: "ðŸ”’", title: "AES-256 at Rest", color: "var(--accent)", desc: "All stored data â€” conversations, configs, user records â€” encrypted using AES-256-GCM, the same standard used by financial institutions." },
             { icon: "ðŸ”", title: "TLS 1.3 in Transit", color: "var(--accent-strong)", desc: "All data transmitted using TLS 1.3 with perfect forward secrecy. Older cipher suites are disabled. HSTS enforced across all endpoints." },
-            { icon: "ðŸ•³ï¸", title: "Zero-Knowledge Architecture", color: "var(--emerald)", desc: "Conversation data is processed ephemerally for AI responses. We do not train our models on your private conversations without explicit consent." },
+            { icon: "ðŸ•³ï¸", title: "Zero-Knowledge Architecture", color: "var(--warning)", desc: "Conversation data is processed ephemerally for AI responses. We do not train our models on your private conversations without explicit consent." },
           ].map(({ icon, title, color, desc }) => (
             <motion.div
               key={title}
@@ -342,7 +342,7 @@ export default function SecurityPageTemplate() {
             variants={cardIn}
             style={{
               padding: "40px",
-              background: "linear-gradient(135deg, rgba(91, 140, 255, 0.1) 0%, rgba(122, 162, 255, 0.07) 100%)",
+              background: "linear-gradient(135deg, rgba(0, 163, 255, 0.1) 0%, rgba(0, 163, 255, 0.07) 100%)",
               border: "1px solid var(--border-2)",
               borderRadius: "var(--radius-xl)",
               display: "flex",
@@ -355,8 +355,8 @@ export default function SecurityPageTemplate() {
                 width: 48,
                 height: 48,
                 borderRadius: "50%",
-                background: "rgba(91, 140, 255, 0.18)",
-                border: "1px solid rgba(91, 140, 255, 0.32)",
+                background: "rgba(0, 163, 255, 0.18)",
+                border: "1px solid rgba(0, 163, 255, 0.32)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -377,7 +377,7 @@ export default function SecurityPageTemplate() {
                   style={{
                     padding: "4px 12px",
                     background: "var(--accent-muted)",
-                    border: "1px solid rgba(91, 140, 255, 0.24)",
+                    border: "1px solid rgba(0, 163, 255, 0.24)",
                     borderRadius: 999,
                     fontSize: 12,
                     color: "var(--accent)",
@@ -405,7 +405,7 @@ export default function SecurityPageTemplate() {
             }}
           >
             <span style={{ fontSize: 36 }}>âš¡</span>
-            <p style={{ fontSize: 40, fontWeight: 800, color: "var(--emerald)" }}>&lt;1h</p>
+            <p style={{ fontSize: 40, fontWeight: 800, color: "var(--warning)" }}>&lt;1h</p>
             <p style={{ color: "var(--text-2)", fontSize: 14 }}>Incident Response Time</p>
           </motion.div>
           <motion.div
@@ -434,7 +434,7 @@ export default function SecurityPageTemplate() {
                 fontSize: 14,
                 textDecoration: "none",
                 padding: "8px 16px",
-                border: "1px solid rgba(91, 140, 255, 0.32)",
+                border: "1px solid rgba(0, 163, 255, 0.32)",
                 borderRadius: 999,
               }}
             >
@@ -471,7 +471,7 @@ export default function SecurityPageTemplate() {
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {["Network & infrastructure testing", "Web application (OWASP Top 10)", "API security assessment", "Social engineering simulation"].map((item) => (
                 <div key={item} style={{ display: "flex", gap: 8, alignItems: "center", fontSize: 13, color: "var(--text-2)" }}>
-                  <span style={{ color: "var(--emerald)", fontWeight: 700 }}>âœ“</span> {item}
+                  <span style={{ color: "var(--warning)", fontWeight: 700 }}>âœ“</span> {item}
                 </div>
               ))}
             </div>
@@ -539,10 +539,10 @@ export default function SecurityPageTemplate() {
             <div
               style={{
                 padding: "24px",
-                background: "rgba(16,185,129,0.1)",
-                border: "1px solid rgba(16,185,129,0.3)",
+                background: "rgba(255, 196, 70, 0.1)",
+                border: "1px solid rgba(255, 196, 70, 0.3)",
                 borderRadius: "var(--radius-lg)",
-                color: "var(--emerald)",
+                color: "var(--warning)",
                 fontWeight: 600,
               }}
             >
@@ -628,7 +628,7 @@ function Section({
               fontWeight: 700,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color: "var(--emerald)",
+              color: "var(--warning)",
               marginBottom: 12,
             }}
           >
@@ -641,5 +641,7 @@ function Section({
     </section>
   );
 }
+
+
 
 

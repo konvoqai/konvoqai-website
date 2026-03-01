@@ -57,8 +57,8 @@ const categories = ["All", "Product", "Guides", "Case Studies", "News"];
 const blogPosts = [
   {
     emoji: "ðŸ¤–",
-    gradient: "linear-gradient(135deg, rgba(91, 140, 255, 0.14), rgba(122, 162, 255, 0.14))",
-    borderColor: "rgba(91, 140, 255, 0.24)",
+    gradient: "linear-gradient(135deg, rgba(0, 163, 255, 0.14), rgba(0, 163, 255, 0.14))",
+    borderColor: "rgba(0, 163, 255, 0.24)",
     accentColor: "var(--accent)",
     title: "The Complete Guide to Training AI on Your Knowledge Base",
     excerpt:
@@ -72,8 +72,8 @@ const blogPosts = [
   },
   {
     emoji: "ðŸ“Š",
-    gradient: "linear-gradient(135deg, rgba(122, 162, 255, 0.14), rgba(239, 68, 68, 0.14))",
-    borderColor: "rgba(122, 162, 255, 0.24)",
+    gradient: "linear-gradient(135deg, rgba(0, 163, 255, 0.14), rgba(255, 196, 70, 0.14))",
+    borderColor: "rgba(0, 163, 255, 0.24)",
     accentColor: "var(--accent-strong)",
     title: "5 Metrics Every Customer Support Team Should Track",
     excerpt:
@@ -87,23 +87,23 @@ const blogPosts = [
   },
   {
     emoji: "ðŸ†",
-    gradient: "linear-gradient(135deg, rgba(34, 197, 94, 0.14), rgba(91, 140, 255, 0.14))",
-    borderColor: "rgba(16,185,129,0.2)",
-    accentColor: "var(--emerald)",
+    gradient: "linear-gradient(135deg, rgba(255, 196, 70, 0.14), rgba(0, 163, 255, 0.14))",
+    borderColor: "rgba(255, 196, 70, 0.2)",
+    accentColor: "var(--warning)",
     title: "How We Achieved 94% Resolution Rate with Zero Agents",
     excerpt:
       "A behind-the-scenes look at how Konvoq's own support team is powered entirely by AI.",
     author: "Sarah Chen",
     authorInitial: "S",
-    authorColor: "var(--emerald)",
+    authorColor: "var(--warning)",
     date: "Feb 14, 2026",
     readTime: "5 min read",
     category: "Case Studies",
   },
   {
     emoji: "âš¡",
-    gradient: "linear-gradient(135deg, rgba(245, 158, 11, 0.14), rgba(239, 68, 68, 0.14))",
-    borderColor: "rgba(245,158,11,0.2)",
+    gradient: "linear-gradient(135deg, rgba(255, 196, 70, 0.14), rgba(255, 196, 70, 0.14))",
+    borderColor: "rgba(255, 196, 70, 0.2)",
     accentColor: "var(--amber)",
     title: "GPT-4o vs Claude 3.5: Which Model for Customer Support?",
     excerpt:
@@ -117,23 +117,23 @@ const blogPosts = [
   },
   {
     emoji: "ðŸ›ï¸",
-    gradient: "linear-gradient(135deg, rgba(239, 68, 68, 0.14), rgba(122, 162, 255, 0.14))",
-    borderColor: "rgba(239, 68, 68, 0.22)",
-    accentColor: "var(--danger)",
+    gradient: "linear-gradient(135deg, rgba(255, 196, 70, 0.14), rgba(0, 163, 255, 0.14))",
+    borderColor: "rgba(255, 196, 70, 0.22)",
+    accentColor: "var(--warning)",
     title: "Shopify Store Reduced Support Tickets by 70% Using AI",
     excerpt:
       "ShopEasy's journey from 2,000 monthly tickets to just 600 â€” without adding a single agent.",
     author: "Amara Johnson",
     authorInitial: "A",
-    authorColor: "var(--danger)",
+    authorColor: "var(--warning)",
     date: "Feb 6, 2026",
     readTime: "7 min read",
     category: "Case Studies",
   },
   {
     emoji: "ðŸŒ",
-    gradient: "linear-gradient(135deg, rgba(91, 140, 255, 0.14), rgba(34, 197, 94, 0.14))",
-    borderColor: "rgba(91, 140, 255, 0.18)",
+    gradient: "linear-gradient(135deg, rgba(0, 163, 255, 0.14), rgba(255, 196, 70, 0.14))",
+    borderColor: "rgba(0, 163, 255, 0.18)",
     accentColor: "var(--accent)",
     title: "Building a Multilingual Chatbot: Step-by-Step Guide",
     excerpt:
@@ -176,7 +176,7 @@ export default function BlogPageTemplate() {
             right: "15%",
             width: 600,
             height: 600,
-            background: "radial-gradient(circle, rgba(122, 162, 255, 0.09) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(0, 163, 255, 0.09) 0%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(80px)",
           }}
@@ -188,7 +188,7 @@ export default function BlogPageTemplate() {
             left: "5%",
             width: 400,
             height: 400,
-            background: "radial-gradient(circle, rgba(91, 140, 255, 0.06) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(0, 163, 255, 0.06) 0%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(60px)",
           }}
@@ -248,7 +248,7 @@ export default function BlogPageTemplate() {
             <motion.div
               whileHover={{ y: -4 }}
               style={{
-                background: "linear-gradient(135deg, rgba(91, 140, 255, 0.1) 0%, rgba(122, 162, 255, 0.1) 50%, rgba(239, 68, 68, 0.07) 100%)",
+                background: "linear-gradient(135deg, rgba(0, 163, 255, 0.1) 0%, rgba(0, 163, 255, 0.1) 50%, rgba(255, 196, 70, 0.07) 100%)",
                 border: "1px solid var(--border-2)",
                 borderRadius: "var(--radius-xl)",
                 padding: "48px 48px",
@@ -302,7 +302,7 @@ export default function BlogPageTemplate() {
                       textTransform: "uppercase",
                       color: "var(--accent)",
                       background: "var(--accent-muted-strong)",
-                      border: "1px solid rgba(91, 140, 255, 0.24)",
+                      border: "1px solid rgba(0, 163, 255, 0.24)",
                       borderRadius: 100,
                       padding: "4px 12px",
                     }}
@@ -602,7 +602,7 @@ export default function BlogPageTemplate() {
                 transform: "translateX(-50%)",
                 width: 600,
                 height: 300,
-                background: "radial-gradient(ellipse, rgba(122, 162, 255, 0.16) 0%, transparent 70%)",
+                background: "radial-gradient(ellipse, rgba(0, 163, 255, 0.16) 0%, transparent 70%)",
                 pointerEvents: "none",
               }}
             />
@@ -687,5 +687,6 @@ export default function BlogPageTemplate() {
     </PageLayout>
   );
 }
+
 
 

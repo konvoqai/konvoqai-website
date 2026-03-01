@@ -58,7 +58,7 @@ export default function TermsPageTemplate() {
       {/* Hero */}
       <section
         style={{
-          background: "linear-gradient(180deg, rgba(122, 162, 255, 0.12) 0%, transparent 100%)",
+          background: "linear-gradient(180deg, rgba(0, 163, 255, 0.12) 0%, transparent 100%)",
           borderBottom: "1px solid var(--border)",
           padding: "80px 24px 64px",
           textAlign: "center",
@@ -71,7 +71,7 @@ export default function TermsPageTemplate() {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(122, 162, 255, 0.14) 0%, transparent 70%)",
+              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0, 163, 255, 0.14) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -84,8 +84,8 @@ export default function TermsPageTemplate() {
                 gap: 8,
                 padding: "6px 16px",
                 borderRadius: 999,
-                border: "1px solid rgba(122, 162, 255, 0.3)",
-                background: "rgba(122, 162, 255, 0.12)",
+                border: "1px solid rgba(0, 163, 255, 0.3)",
+                background: "rgba(0, 163, 255, 0.12)",
                 color: "var(--accent-strong)",
                 fontSize: 13,
                 fontWeight: 600,
@@ -162,7 +162,7 @@ export default function TermsPageTemplate() {
                 key={id}
                 onClick={() => scrollTo(id)}
                 style={{
-                  background: activeSection === id ? "rgba(122, 162, 255, 0.14)" : "transparent",
+                  background: activeSection === id ? "rgba(0, 163, 255, 0.14)" : "transparent",
                   border: "none",
                   borderRadius: "var(--radius)",
                   padding: "8px 12px",
@@ -239,12 +239,12 @@ export default function TermsPageTemplate() {
               <div
                 style={{
                   padding: "24px",
-                  background: "rgba(16,185,129,0.05)",
-                  border: "1px solid rgba(16,185,129,0.2)",
+                  background: "rgba(255, 196, 70, 0.05)",
+                  border: "1px solid rgba(255, 196, 70, 0.2)",
                   borderRadius: "var(--radius-lg)",
                 }}
               >
-                <p style={{ fontWeight: 700, color: "var(--emerald)", marginBottom: 12, fontSize: 14 }}>
+                <p style={{ fontWeight: 700, color: "var(--warning)", marginBottom: 12, fontSize: 14 }}>
                   âœ“ Permitted Uses
                 </p>
                 <ul style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.8, paddingLeft: 16 }}>
@@ -259,12 +259,12 @@ export default function TermsPageTemplate() {
               <div
                 style={{
                   padding: "24px",
-                  background: "rgba(239, 68, 68, 0.07)",
-                  border: "1px solid rgba(239, 68, 68, 0.22)",
+                  background: "rgba(255, 196, 70, 0.07)",
+                  border: "1px solid rgba(255, 196, 70, 0.22)",
                   borderRadius: "var(--radius-lg)",
                 }}
               >
-                <p style={{ fontWeight: 700, color: "var(--danger)", marginBottom: 12, fontSize: 14 }}>
+                <p style={{ fontWeight: 700, color: "var(--warning)", marginBottom: 12, fontSize: 14 }}>
                   âœ— Prohibited Uses
                 </p>
                 <ul style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.8, paddingLeft: 16 }}>
@@ -383,7 +383,7 @@ export default function TermsPageTemplate() {
           </TermsSection>
 
           <TermsSection id="liability" title="8. Limitation of Liability">
-            <InfoBox color="var(--danger)">
+            <InfoBox color="var(--warning)">
               TO THE MAXIMUM EXTENT PERMITTED BY LAW, KONVOQ AI SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS OR DATA.
             </InfoBox>
             <p style={{ marginTop: 16 }}>
@@ -564,5 +564,6 @@ function InfoBox({ color, children }: { color: string; children: React.ReactNode
     </div>
   );
 }
+
 
 

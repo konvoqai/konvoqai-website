@@ -53,7 +53,7 @@ const CONTACT_CHANNELS = [
     email: "support@konvoq.ai",
     response: "Response within 2 hours",
     note: "Priority queue for paid plans",
-    color: "var(--emerald)",
+    color: "var(--warning)",
     href: "mailto:support@konvoq.ai",
   },
   {
@@ -253,7 +253,7 @@ export default function ContactPageTemplate() {
       <section style={{ position: "relative", overflow: "hidden", padding: "100px 24px 80px" }}>
         <div aria-hidden style={{
           position: "absolute", inset: 0, pointerEvents: "none",
-          background: "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(91, 140, 255, 0.1) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0, 163, 255, 0.1) 0%, transparent 70%)",
         }} />
         <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center", position: "relative" }}>
           <motion.div initial="hidden" animate="visible" variants={stagger}>
@@ -343,7 +343,7 @@ export default function ContactPageTemplate() {
             <motion.div variants={fadeIn}
               whileHover={{ y: -3, transition: { duration: 0.2, ease: "easeOut" } }}
               style={{
-                background: "linear-gradient(135deg, var(--accent-muted), rgba(122, 162, 255, 0.12))",
+                background: "linear-gradient(135deg, var(--accent-muted), rgba(0, 163, 255, 0.12))",
                 border: "1px solid var(--border-2)", borderRadius: "var(--radius-lg)",
                 padding: "24px 20px", marginTop: 8, cursor: "pointer",
               }}
@@ -436,5 +436,6 @@ export default function ContactPageTemplate() {
     </PageLayout>
   );
 }
+
 
 

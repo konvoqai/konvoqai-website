@@ -73,3 +73,4 @@ export default function AccordionItem({ question, answer, defaultOpen = false }:
   );
 }
 
+

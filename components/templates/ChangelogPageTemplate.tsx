@@ -41,11 +41,11 @@ interface Release {
 }
 
 const badgeColors: Record<BadgeType, { bg: string; border: string; text: string }> = {
-  "New Feature": { bg: "var(--accent-muted-strong)", border: "rgba(91, 140, 255, 0.32)", text: "var(--accent)" },
-  "Improvement": { bg: "rgba(122, 162, 255, 0.14)", border: "rgba(122, 162, 255, 0.3)", text: "var(--accent-strong)" },
-  "Bug Fix": { bg: "rgba(239, 68, 68, 0.12)", border: "rgba(239, 68, 68, 0.3)", text: "var(--danger)" },
-  "Performance": { bg: "rgba(245,158,11,0.1)", border: "rgba(245,158,11,0.3)", text: "var(--amber)" },
-  "Security": { bg: "rgba(16,185,129,0.1)", border: "rgba(16,185,129,0.3)", text: "var(--emerald)" },
+  "New Feature": { bg: "var(--accent-muted-strong)", border: "rgba(0, 163, 255, 0.32)", text: "var(--accent)" },
+  "Improvement": { bg: "rgba(0, 163, 255, 0.14)", border: "rgba(0, 163, 255, 0.3)", text: "var(--accent-strong)" },
+  "Bug Fix": { bg: "rgba(255, 196, 70, 0.12)", border: "rgba(255, 196, 70, 0.3)", text: "var(--warning)" },
+  "Performance": { bg: "rgba(255, 196, 70, 0.1)", border: "rgba(255, 196, 70, 0.3)", text: "var(--amber)" },
+  "Security": { bg: "rgba(255, 196, 70, 0.1)", border: "rgba(255, 196, 70, 0.3)", text: "var(--warning)" },
 };
 
 const releases: Release[] = [
@@ -292,7 +292,7 @@ export default function ChangelogPageTemplate() {
                       style={{
                         width: 12, height: 12, borderRadius: "50%",
                         background: "var(--grad-btn)",
-                        boxShadow: "0 0 12px rgba(91, 140, 255, 0.32)",
+                        boxShadow: "0 0 12px rgba(0, 163, 255, 0.32)",
                         flexShrink: 0,
                       }}
                     />
@@ -367,7 +367,7 @@ export default function ChangelogPageTemplate() {
           >
             <div style={{
               position: "absolute", inset: 0,
-              background: "radial-gradient(ellipse at center, rgba(122, 162, 255, 0.1) 0%, transparent 60%)",
+              background: "radial-gradient(ellipse at center, rgba(0, 163, 255, 0.1) 0%, transparent 60%)",
               pointerEvents: "none",
             }} />
             <motion.div variants={fadeUp} style={{ fontSize: 40, marginBottom: 16 }}>ðŸ“¬</motion.div>
@@ -389,9 +389,9 @@ export default function ChangelogPageTemplate() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 style={{
-                  background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.3)",
+                  background: "rgba(255, 196, 70, 0.1)", border: "1px solid rgba(255, 196, 70, 0.3)",
                   borderRadius: "var(--radius)", padding: "16px 24px",
-                  color: "var(--emerald)", fontWeight: 600, fontSize: 15,
+                  color: "var(--warning)", fontWeight: 600, fontSize: 15,
                 }}
               >
                 You're subscribed! We'll be in touch.
@@ -434,6 +434,7 @@ export default function ChangelogPageTemplate() {
     </PageLayout>
   );
 }
+
 
 
 

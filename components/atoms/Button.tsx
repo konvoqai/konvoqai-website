@@ -19,8 +19,8 @@ interface ButtonProps {
 const variantStyles: Record<Variant, React.CSSProperties> = {
   primary: {
     background: "var(--grad-btn)",
-    color: "#ffffff",
-    border: "1px solid color-mix(in srgb, var(--accent) 68%, white 12%)",
+    color: "var(--background)",
+    border: "1px solid color-mix(in srgb, var(--border-strong) 84%, transparent)",
     boxShadow: "var(--shadow-button)",
   },
   secondary: {
@@ -34,9 +34,9 @@ const variantStyles: Record<Variant, React.CSSProperties> = {
     border: "1px solid transparent",
   },
   outline: {
-    background: "color-mix(in srgb, var(--surface) 54%, transparent)",
+    background: "color-mix(in srgb, var(--surface) 60%, transparent)",
     color: "var(--text-1)",
-    border: "1px solid color-mix(in srgb, var(--border) 74%, transparent)",
+    border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)",
   },
 };
 
@@ -69,7 +69,7 @@ function ButtonInner({ children, variant }: { children: React.ReactNode; variant
           bottom: -6,
           height: 1,
           transformOrigin: "left",
-          background: variant === "primary" ? "rgba(255,255,255,0.92)" : "currentColor",
+          background: variant === "primary" ? "rgba(0,0,0,0.72)" : "currentColor",
         }}
       />
     </span>
@@ -108,8 +108,8 @@ export default function Button({
     inset: 0,
     background:
       variant === "primary"
-        ? "radial-gradient(circle at 50% 0%, rgba(255,255,255,0.22), transparent 60%)"
-        : "radial-gradient(circle at 50% 0%, rgba(91,140,255,0.14), transparent 60%)",
+        ? "radial-gradient(circle at 30% 0%, rgba(255,255,255,0.22), transparent 55%), radial-gradient(circle at 70% 100%, rgba(136, 144, 150, 0.18), transparent 50%)"
+        : "radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%)",
     pointerEvents: "none",
   };
 
@@ -139,3 +139,4 @@ export default function Button({
     </motion.div>
   );
 }
+

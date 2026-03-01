@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import SectionBadge from "@/components/atoms/SectionBadge";
@@ -74,3 +74,4 @@ export default function SectionHeader({
     </div>
   );
 }
+

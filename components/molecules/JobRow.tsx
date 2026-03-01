@@ -38,9 +38,9 @@ export default function JobRow({ title, department, location, type, deptColor = 
             {hot && (
               <span
                 style={{
-                  background: "rgba(239, 68, 68, 0.18)",
-                  color: "var(--danger)",
-                  border: "1px solid rgba(239, 68, 68, 0.26)",
+                  background: "rgba(255, 196, 70, 0.18)",
+                  color: "var(--warning)",
+                  border: "1px solid rgba(255, 196, 70, 0.26)",
                   borderRadius: 100,
                   fontSize: 10,
                   fontWeight: 700,
@@ -94,4 +94,5 @@ export default function JobRow({ title, department, location, type, deptColor = 
     </motion.div>
   );
 }
+
 

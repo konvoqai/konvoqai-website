@@ -50,8 +50,8 @@ const categories = [
   {
     label: "E-commerce",
     icon: "ðŸ›’",
-    accent: "var(--emerald)",
-    glowColor: "rgba(16,185,129,0.08)",
+    accent: "var(--warning)",
+    glowColor: "rgba(255, 196, 70, 0.08)",
     integrations: [
       { icon: "ðŸŸ¢", name: "Shopify", description: "Answer product, order, and shipping questions with real-time store data." },
       { icon: "ðŸ”µ", name: "WooCommerce", description: "Connect your WordPress store and let the AI handle order status queries." },
@@ -63,7 +63,7 @@ const categories = [
     label: "Helpdesk",
     icon: "ðŸŽ§",
     accent: "var(--accent-strong)",
-    glowColor: "rgba(122, 162, 255, 0.14)",
+    glowColor: "rgba(0, 163, 255, 0.14)",
     integrations: [
       { icon: "ðŸŸ©", name: "Zendesk", description: "Escalate unresolved chats to Zendesk tickets with full conversation history." },
       { icon: "ðŸ’¬", name: "Intercom", description: "Use Konvoq as first-line AI and hand off complex issues to Intercom agents." },
@@ -74,8 +74,8 @@ const categories = [
   {
     label: "CMS",
     icon: "ðŸ“",
-    accent: "var(--danger)",
-    glowColor: "rgba(239, 68, 68, 0.1)",
+    accent: "var(--warning)",
+    glowColor: "rgba(255, 196, 70, 0.1)",
     integrations: [
       { icon: "ðŸ”µ", name: "WordPress", description: "Auto-train on your WordPress pages, posts, and WooCommerce products." },
       { icon: "âš¡", name: "Webflow", description: "Embed the Konvoq widget on any Webflow site with a single code snippet." },
@@ -87,7 +87,7 @@ const categories = [
     label: "Analytics",
     icon: "ðŸ“Š",
     accent: "var(--amber)",
-    glowColor: "rgba(245,158,11,0.08)",
+    glowColor: "rgba(255, 196, 70, 0.08)",
     integrations: [
       { icon: "ðŸ“‰", name: "Google Analytics", description: "Track chat engagement as GA4 events and connect to your existing dashboards." },
       { icon: "ðŸ”®", name: "Mixpanel", description: "Send conversation events to Mixpanel for deep funnel and retention analysis." },
@@ -99,7 +99,7 @@ const categories = [
     label: "Communication",
     icon: "ðŸ’¬",
     accent: "var(--accent)",
-    glowColor: "rgba(91, 140, 255, 0.1)",
+    glowColor: "rgba(0, 163, 255, 0.1)",
     integrations: [
       { icon: "ðŸ’œ", name: "Slack", description: "Get real-time alerts for new conversations and handoff requests in Slack." },
       { icon: "ðŸŸ¦", name: "Microsoft Teams", description: "Notify your support team in Teams channels when intervention is needed." },
@@ -141,7 +141,7 @@ export default function IntegrationsPageTemplate() {
       <div style={{ position: "fixed", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
         <div style={{
           position: "absolute", top: "-10%", right: "-5%", width: 600, height: 600,
-          background: "radial-gradient(circle, rgba(122, 162, 255, 0.1) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0, 163, 255, 0.1) 0%, transparent 70%)",
           borderRadius: "50%", filter: "blur(40px)",
         }} />
         <div style={{
@@ -322,7 +322,7 @@ export default function IntegrationsPageTemplate() {
           >
             <div style={{
               position: "absolute", inset: 0,
-              background: "radial-gradient(ellipse at center top, rgba(122, 162, 255, 0.12) 0%, transparent 60%)",
+              background: "radial-gradient(ellipse at center top, rgba(0, 163, 255, 0.12) 0%, transparent 60%)",
               pointerEvents: "none",
             }} />
             <motion.div variants={fadeUp} style={{ fontSize: 48, marginBottom: 20 }}>ðŸ”Œ</motion.div>
@@ -371,5 +371,6 @@ export default function IntegrationsPageTemplate() {
     </PageLayout>
   );
 }
+
 
 

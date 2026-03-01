@@ -74,8 +74,8 @@ const caseStudies = [
     ],
     color: "var(--accent)",
     bg: "var(--accent-muted)",
-    border: "rgba(91, 140, 255, 0.18)",
-    gradient: "linear-gradient(135deg, var(--accent-muted-strong), rgba(91, 140, 255, 0.04))",
+    border: "rgba(0, 163, 255, 0.18)",
+    gradient: "linear-gradient(135deg, var(--accent-muted-strong), rgba(0, 163, 255, 0.04))",
   },
   {
     company: "HealthFirst",
@@ -89,10 +89,10 @@ const caseStudies = [
       { label: "After-hours Coverage", value: "100%" },
       { label: "Patient Satisfaction", value: "4.9/5" },
     ],
-    color: "var(--emerald)",
-    bg: "rgba(16,185,129,0.06)",
-    border: "rgba(16,185,129,0.15)",
-    gradient: "linear-gradient(135deg, rgba(16,185,129,0.1), rgba(16,185,129,0.02))",
+    color: "var(--warning)",
+    bg: "rgba(255, 196, 70, 0.06)",
+    border: "rgba(255, 196, 70, 0.15)",
+    gradient: "linear-gradient(135deg, rgba(255, 196, 70, 0.1), rgba(255, 196, 70, 0.02))",
   },
   {
     company: "EduLearn",
@@ -107,9 +107,9 @@ const caseStudies = [
       { label: "Student NPS", value: "+72" },
     ],
     color: "var(--accent-strong)",
-    bg: "rgba(122, 162, 255, 0.09)",
-    border: "rgba(122, 162, 255, 0.2)",
-    gradient: "linear-gradient(135deg, rgba(122, 162, 255, 0.14), rgba(122, 162, 255, 0.04))",
+    bg: "rgba(0, 163, 255, 0.09)",
+    border: "rgba(0, 163, 255, 0.2)",
+    gradient: "linear-gradient(135deg, rgba(0, 163, 255, 0.14), rgba(0, 163, 255, 0.04))",
   },
   {
     company: "CloudHost",
@@ -124,9 +124,9 @@ const caseStudies = [
       { label: "Team Redirected", value: "14 FTE" },
     ],
     color: "var(--amber)",
-    bg: "rgba(245,158,11,0.06)",
-    border: "rgba(245,158,11,0.15)",
-    gradient: "linear-gradient(135deg, rgba(245,158,11,0.1), rgba(245,158,11,0.02))",
+    bg: "rgba(255, 196, 70, 0.06)",
+    border: "rgba(255, 196, 70, 0.15)",
+    gradient: "linear-gradient(135deg, rgba(255, 196, 70, 0.1), rgba(255, 196, 70, 0.02))",
   },
   {
     company: "LegalEase",
@@ -140,10 +140,10 @@ const caseStudies = [
       { label: "Intake Time", value: "-80%" },
       { label: "Client Rating", value: "4.7/5" },
     ],
-    color: "var(--danger)",
-    bg: "rgba(239, 68, 68, 0.08)",
-    border: "rgba(239, 68, 68, 0.18)",
-    gradient: "linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.04))",
+    color: "var(--warning)",
+    bg: "rgba(255, 196, 70, 0.08)",
+    border: "rgba(255, 196, 70, 0.18)",
+    gradient: "linear-gradient(135deg, rgba(255, 196, 70, 0.12), rgba(255, 196, 70, 0.04))",
   },
 ];
 
@@ -176,7 +176,7 @@ export default function CaseStudiesPageTemplate() {
             left: "10%",
             width: 600,
             height: 600,
-            background: "radial-gradient(circle, rgba(16,185,129,0.06) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(255, 196, 70, 0.06) 0%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(80px)",
           }}
@@ -188,7 +188,7 @@ export default function CaseStudiesPageTemplate() {
             right: "5%",
             width: 500,
             height: 500,
-            background: "radial-gradient(circle, rgba(122, 162, 255, 0.09) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(0, 163, 255, 0.09) 0%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(70px)",
           }}
@@ -255,9 +255,9 @@ export default function CaseStudiesPageTemplate() {
                 value: "94%",
                 label: "avg resolution rate",
                 sublabel: "across all customers",
-                color: "var(--emerald)",
-                bg: "rgba(16,185,129,0.08)",
-                border: "rgba(16,185,129,0.2)",
+                color: "var(--warning)",
+                bg: "rgba(255, 196, 70, 0.08)",
+                border: "rgba(255, 196, 70, 0.2)",
               },
               {
                 value: "67%",
@@ -265,15 +265,15 @@ export default function CaseStudiesPageTemplate() {
                 sublabel: "median within 60 days",
                 color: "var(--accent)",
                 bg: "var(--accent-muted)",
-                border: "rgba(91, 140, 255, 0.24)",
+                border: "rgba(0, 163, 255, 0.24)",
               },
               {
                 value: "3x",
                 label: "faster response time",
                 sublabel: "vs human-only teams",
                 color: "var(--accent-strong)",
-                bg: "rgba(122, 162, 255, 0.12)",
-                border: "rgba(122, 162, 255, 0.24)",
+                bg: "rgba(0, 163, 255, 0.12)",
+                border: "rgba(0, 163, 255, 0.24)",
               },
             ].map((m) => (
               <motion.div
@@ -319,7 +319,7 @@ export default function CaseStudiesPageTemplate() {
             <motion.div
               whileHover={{ y: -4 }}
               style={{
-                background: "linear-gradient(135deg, rgba(91, 140, 255, 0.1) 0%, rgba(122, 162, 255, 0.1) 60%, rgba(239, 68, 68, 0.07) 100%)",
+                background: "linear-gradient(135deg, rgba(0, 163, 255, 0.1) 0%, rgba(0, 163, 255, 0.1) 60%, rgba(255, 196, 70, 0.07) 100%)",
                 border: "1px solid var(--border-2)",
                 borderRadius: "var(--radius-xl)",
                 padding: "52px 52px",
@@ -368,7 +368,7 @@ export default function CaseStudiesPageTemplate() {
                       textTransform: "uppercase",
                       color: "var(--accent)",
                       background: "var(--accent-muted-strong)",
-                      border: "1px solid rgba(91, 140, 255, 0.24)",
+                      border: "1px solid rgba(0, 163, 255, 0.24)",
                       borderRadius: 100,
                       padding: "4px 12px",
                     }}
@@ -384,7 +384,7 @@ export default function CaseStudiesPageTemplate() {
                       height: 56,
                       borderRadius: "var(--radius)",
                       background: "var(--accent-muted-strong)",
-                      border: "1px solid rgba(91, 140, 255, 0.24)",
+                      border: "1px solid rgba(0, 163, 255, 0.24)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -701,7 +701,7 @@ export default function CaseStudiesPageTemplate() {
             viewport={{ once: true }}
             variants={fadeUp}
             style={{
-              background: "linear-gradient(135deg, rgba(16,185,129,0.08) 0%, var(--accent-muted) 100%)",
+              background: "linear-gradient(135deg, rgba(255, 196, 70, 0.08) 0%, var(--accent-muted) 100%)",
               border: "1px solid var(--border-2)",
               borderRadius: "var(--radius-xl)",
               padding: "64px 48px",
@@ -714,7 +714,7 @@ export default function CaseStudiesPageTemplate() {
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "radial-gradient(ellipse at 50% 100%, rgba(16,185,129,0.1) 0%, transparent 60%)",
+                background: "radial-gradient(ellipse at 50% 100%, rgba(255, 196, 70, 0.1) 0%, transparent 60%)",
                 pointerEvents: "none",
               }}
             />
@@ -787,6 +787,7 @@ export default function CaseStudiesPageTemplate() {
     </PageLayout>
   );
 }
+
 
 
 

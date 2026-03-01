@@ -47,7 +47,7 @@ const features = [
       "Sync your product catalog for real-time inventory answers",
     ],
     accent: "var(--accent)",
-    glowColor: "rgba(91, 140, 255, 0.18)",
+    glowColor: "rgba(0, 163, 255, 0.18)",
   },
   {
     icon: "âš¡",
@@ -62,7 +62,7 @@ const features = [
       "Automatic fallback routing if a provider goes down",
     ],
     accent: "var(--accent-strong)",
-    glowColor: "rgba(122, 162, 255, 0.16)",
+    glowColor: "rgba(0, 163, 255, 0.16)",
   },
   {
     icon: "ðŸŽ¨",
@@ -76,8 +76,8 @@ const features = [
       "Write your own welcome message and conversation starters",
       "Choose placement: bottom-right, bottom-left, or embedded inline",
     ],
-    accent: "var(--danger)",
-    glowColor: "rgba(239, 68, 68, 0.16)",
+    accent: "var(--warning)",
+    glowColor: "rgba(255, 196, 70, 0.16)",
   },
   {
     icon: "ðŸ“Š",
@@ -92,7 +92,7 @@ const features = [
       "Revenue attribution â€” see which chats convert to sales",
     ],
     accent: "var(--amber)",
-    glowColor: "rgba(245,158,11,0.12)",
+    glowColor: "rgba(255, 196, 70, 0.12)",
   },
   {
     icon: "ðŸ‘¥",
@@ -106,8 +106,8 @@ const features = [
       "Role-based access: Admin, Agent, and Viewer permissions",
       "Automated routing rules based on topic or customer tier",
     ],
-    accent: "var(--emerald)",
-    glowColor: "rgba(16,185,129,0.12)",
+    accent: "var(--warning)",
+    glowColor: "rgba(255, 196, 70, 0.12)",
   },
   {
     icon: "ðŸ”’",
@@ -149,12 +149,12 @@ export default function FeaturesPageTemplate() {
         }} />
         <div style={{
           position: "absolute", top: "30%", right: "-15%", width: 600, height: 600,
-          background: "radial-gradient(circle, rgba(122, 162, 255, 0.1) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0, 163, 255, 0.1) 0%, transparent 70%)",
           borderRadius: "50%", filter: "blur(40px)",
         }} />
         <div style={{
           position: "absolute", bottom: "10%", left: "20%", width: 500, height: 500,
-          background: "radial-gradient(circle, rgba(239, 68, 68, 0.07) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(255, 196, 70, 0.07) 0%, transparent 70%)",
           borderRadius: "50%", filter: "blur(40px)",
         }} />
       </div>
@@ -378,7 +378,7 @@ export default function FeaturesPageTemplate() {
                   <div style={{ color: "var(--text-2)", fontSize: 15 }}>{row.feature}</div>
                   <div style={{ textAlign: "center" }}>
                     {row.basic
-                      ? <span style={{ color: "var(--emerald)", fontSize: 18 }}>âœ“</span>
+                      ? <span style={{ color: "var(--warning)", fontSize: 18 }}>âœ“</span>
                       : <span style={{ color: "var(--text-3)", fontSize: 18 }}>âœ•</span>}
                   </div>
                   <div style={{ textAlign: "center" }}>
@@ -388,7 +388,7 @@ export default function FeaturesPageTemplate() {
                   </div>
                   <div style={{ textAlign: "center" }}>
                     {row.enterprise
-                      ? <span style={{ color: "var(--emerald)", fontSize: 18 }}>âœ“</span>
+                      ? <span style={{ color: "var(--warning)", fontSize: 18 }}>âœ“</span>
                       : <span style={{ color: "var(--text-3)", fontSize: 18 }}>âœ•</span>}
                   </div>
                 </div>
@@ -451,5 +451,6 @@ export default function FeaturesPageTemplate() {
     </PageLayout>
   );
 }
+
 
 
