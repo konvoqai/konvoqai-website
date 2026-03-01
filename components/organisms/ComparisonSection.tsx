@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/molecules/SectionHeader";
@@ -17,7 +17,7 @@ export default function ComparisonSection() {
     <section id="comparison" style={{ padding: "120px 24px" }}>
       <div className="site-container">
         <SectionHeader
-          badge="Comparison"
+          badge="Why teams switch"
           heading={<>A more opinionated product than generic chatbot tooling.</>}
           description={<>Konvoq is designed to behave like a serious operating layer for support and growth teams, not a widget with AI bolted on afterward.</>}
           style={{ marginBottom: 28 }}
@@ -25,10 +25,10 @@ export default function ComparisonSection() {
 
         <motion.div
           className="section-frame"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.99 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.45, ease: "easeOut" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           style={{ overflow: "hidden" }}
         >
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -61,7 +61,13 @@ export default function ComparisonSection() {
             </thead>
             <tbody>
               {rows.map((row, index) => (
-                <tr key={row.feature}>
+                <motion.tr
+                  key={row.feature}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.36, delay: index * 0.05, ease: "easeOut" }}
+                >
                   <td style={{ padding: "16px", borderBottom: index < rows.length - 1 ? "1px solid var(--border)" : "none", fontWeight: 600 }}>
                     {row.feature}
                   </td>
@@ -80,7 +86,7 @@ export default function ComparisonSection() {
                       {value}
                     </td>
                   ))}
-                </tr>
+                </motion.tr>
               ))}
             </tbody>
           </table>
@@ -89,4 +95,3 @@ export default function ComparisonSection() {
     </section>
   );
 }
-

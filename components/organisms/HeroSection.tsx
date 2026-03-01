@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Button from "@/components/atoms/Button";
@@ -11,6 +11,11 @@ const heroMetrics = [
 ];
 
 const featureChips = ["Website training", "Docs ingestion", "Human handoff", "Analytics", "White-label"];
+
+// Non-uniform chip delays — not perfectly spaced
+const chipDelays = [0.28, 0.34, 0.39, 0.44, 0.51];
+// Non-uniform metric delays
+const metricDelays = [0.48, 0.56, 0.63];
 
 function ProductPreview() {
   const { scrollY } = useScroll();
@@ -31,12 +36,11 @@ function ProductPreview() {
       }}
     >
       <div
-        className="open-divider-grid"
+        className="section-frame open-divider-grid"
         style={{
           position: "relative",
-          borderTop: "1px solid color-mix(in srgb, var(--border-strong) 72%, transparent)",
-          borderBottom: "1px solid color-mix(in srgb, var(--border) 64%, transparent)",
-          padding: "24px 0 0",
+          padding: "24px 28px 0",
+          overflow: "hidden",
         }}
       >
         <div
@@ -128,7 +132,7 @@ function ProductPreview() {
               <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 6 }}>Live assistant</div>
               <div style={{ fontSize: 17, fontWeight: 700, letterSpacing: "-0.03em" }}>Support bot response stream</div>
             </div>
-            {[ 
+            {[
               { role: "visitor", text: "Can I change plans in the middle of the month?" },
               { role: "assistant", text: "Yes. Upgrades apply immediately and billing is prorated automatically." },
               { role: "visitor", text: "Can you route enterprise requests to sales?" },
@@ -220,28 +224,41 @@ export default function HeroSection() {
 
       <div className="site-container">
         <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 36, alignItems: "center" }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <SectionBadge>Customer conversations, rethought</SectionBadge>
-            <h1
+          <div>
+            {/* Badge — pure fade, no movement */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4 }}
+            >
+              <SectionBadge>Customer conversations, rethought</SectionBadge>
+            </motion.div>
+
+            {/* H1 — slides in from left, editorial feel */}
+            <motion.h1
+              initial={{ opacity: 0, x: -18 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
               style={{
                 margin: "0 0 20px",
-                fontSize: "clamp(46px, 7vw, 84px)",
-                lineHeight: 0.96,
-                letterSpacing: "-0.06em",
+                fontSize: "clamp(50px, 7.5vw, 90px)",
+                lineHeight: 0.93,
+                letterSpacing: "-0.065em",
                 fontWeight: 800,
                 maxWidth: 760,
               }}
             >
               A cleaner system for support, conversion, and AI handoff.
-            </h1>
-            <p
+            </motion.h1>
+
+            {/* Description — fades in, minimal movement */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.55, delay: 0.2 }}
               style={{
                 margin: "0 0 28px",
-                maxWidth: 620,
+                maxWidth: 580,
                 fontSize: 18,
                 lineHeight: 1.72,
                 color: "var(--text-2)",
@@ -249,24 +266,31 @@ export default function HeroSection() {
             >
               Train Konvoq on your website, docs, and product knowledge, then launch an assistant that answers quickly,
               routes intelligently, and looks native to your brand.
-            </p>
+            </motion.p>
 
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 28 }}>
+            {/* Buttons — slide up slightly */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.26, ease: "easeOut" }}
+              style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 32 }}
+            >
               <Button href="/pricing" variant="primary" size="lg">
                 Start free
               </Button>
               <Button href="/contact" variant="outline" size="lg">
                 Book a demo
               </Button>
-            </div>
+            </motion.div>
 
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginBottom: 34 }}>
+            {/* Feature chips — cascade in from left, non-uniform delays */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginBottom: 36 }}>
               {featureChips.map((chip, index) => (
                 <motion.div
                   key={chip}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.36, delay: 0.12 + index * 0.05, ease: "easeOut" }}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.38, delay: chipDelays[index], ease: [0.22, 1, 0.36, 1] }}
                   style={{
                     fontSize: 13,
                     color: "var(--text-2)",
@@ -279,13 +303,14 @@ export default function HeroSection() {
               ))}
             </div>
 
+            {/* Metrics — slide in from left with slight delay stagger */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
               {heroMetrics.map((metric, index) => (
                 <motion.div
                   key={metric.label}
-                  initial={{ opacity: 0, y: 18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.45, delay: 0.18 + index * 0.08, ease: "easeOut" }}
+                  initial={{ opacity: 0, x: -14 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.48, delay: metricDelays[index], ease: [0.22, 1, 0.36, 1] }}
                   style={{ paddingBottom: 14, borderBottom: "1px solid color-mix(in srgb, var(--border) 70%, transparent)" }}
                 >
                   <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 8 }}>{metric.label}</div>
@@ -294,7 +319,7 @@ export default function HeroSection() {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           <ProductPreview />
         </div>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import SectionBadge from "@/components/atoms/SectionBadge";
@@ -21,11 +21,7 @@ export default function SectionHeader({
   style,
 }: SectionHeaderProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.35 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+    <div
       style={{
         textAlign: align,
         maxWidth: align === "center" ? 720 : 640,
@@ -33,12 +29,21 @@ export default function SectionHeader({
         ...style,
       }}
     >
-      {badge && <SectionBadge dotColor={badgeDotColor}>{badge}</SectionBadge>}
+      {badge && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.35 }}
+        >
+          <SectionBadge dotColor={badgeDotColor}>{badge}</SectionBadge>
+        </motion.div>
+      )}
       <motion.h2
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.35 }}
-        transition={{ duration: 0.55, delay: 0.04, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ opacity: 0, x: align === "center" ? 0 : -12 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
         style={{
           margin: 0,
           fontSize: "clamp(32px, 4.8vw, 58px)",
@@ -52,10 +57,10 @@ export default function SectionHeader({
       </motion.h2>
       {description && (
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 6 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.14, ease: "easeOut" }}
           style={{
             margin: 0,
             fontSize: 17,
@@ -66,6 +71,6 @@ export default function SectionHeader({
           {description}
         </motion.p>
       )}
-    </motion.div>
+    </div>
   );
 }

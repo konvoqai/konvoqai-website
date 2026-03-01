@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/molecules/SectionHeader";
@@ -26,26 +26,30 @@ const useCases = [
   },
 ];
 
+// Cards alternate direction: left, right, left, right
+const cardInitialX = [-16, 16, -16, 16];
+
 export default function UseCasesSection() {
   return (
     <section id="cases" style={{ padding: "120px 24px" }}>
       <div className="site-container">
         <SectionHeader
-          badge="Use cases"
+          badge="Built for your team"
           heading={<>Flexible enough for different teams, consistent enough for one brand.</>}
           description={<>The same operating model adapts across support, growth, and onboarding, which means your assistant can expand without creating a fragmented customer experience.</>}
           style={{ marginBottom: 28 }}
         />
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 14 }}>
+        {/* Asymmetric column widths — left column wider, subtly intentional */}
+        <div style={{ display: "grid", gridTemplateColumns: "1.18fr 0.82fr", gap: 14 }}>
           {useCases.map((item, index) => (
             <motion.div
               key={item.title}
               className="section-surface"
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: cardInitialX[index] }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.42, delay: index * 0.06, ease: "easeOut" }}
+              transition={{ duration: 0.46, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -4 }}
               style={{ padding: 24 }}
             >
@@ -63,4 +67,3 @@ export default function UseCasesSection() {
     </section>
   );
 }
-

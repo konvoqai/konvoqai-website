@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
@@ -21,6 +21,9 @@ const logos = [
   "Stripe",
   "Linear",
 ];
+
+// Non-uniform logo stagger delays — makes it feel hand-crafted
+const logoDelays = [0, 0.04, 0.09, 0.13, 0.18, 0.24, 0.29, 0.35];
 
 function AnimatedStat({ value, suffix = "", prefix = "", label }: { value: number; suffix?: string; prefix?: string; label: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -52,29 +55,36 @@ export default function SocialProofSection() {
       <div className="site-container">
         <div className="section-frame" style={{ padding: 28 }}>
           <SectionHeader
-            badge="Trusted by operators"
-            heading={<>Proof that the system is working in the real world.</>}
+            badge="In production with real teams"
+            heading={<>Numbers from operators running it daily.</>}
             description={<>Konvoq is deployed by growth teams, support leaders, and product operators who need cleaner automation without a messy support experience.</>}
             align="left"
             style={{ marginBottom: 26 }}
           />
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 18 }}>
+          {/* Stats — first column slightly wider, emphasising the primary metric */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1.3fr 1fr 1fr 1fr",
+              gap: 12,
+              marginBottom: 18,
+            }}
+          >
             {metrics.map((metric) => (
               <AnimatedStat key={metric.label} {...metric} />
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
-            style={{ display: "flex", flexWrap: "wrap", gap: 10 }}
-          >
-            {logos.map((logo) => (
-              <div
+          {/* Logos — stagger individually, scale in */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            {logos.map((logo, index) => (
+              <motion.div
                 key={logo}
+                initial={{ opacity: 0, scale: 0.88 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.28, delay: logoDelays[index], ease: "easeOut" }}
                 className="section-surface"
                 style={{
                   padding: "12px 16px",
@@ -85,12 +95,11 @@ export default function SocialProofSection() {
                 }}
               >
                 {logo}
-              </div>
+              </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-

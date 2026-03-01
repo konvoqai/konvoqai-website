@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/molecules/SectionHeader";
@@ -44,6 +44,15 @@ const featureCards = [
   },
 ];
 
+// Each small card enters from a unique direction
+const cardInitialX = [-18, 0, 18, 0];
+const cardInitialY = [0, 22, 0, 22];
+// Slightly varied hover targets
+const cardHoverY = [-4, -5, -4, -5];
+const cardHoverX = [-2, 0, 0, 2];
+// Non-uniform point stagger in the hero card
+const pointDelays = [0.06, 0.15, 0.25];
+
 export default function FeaturesSection() {
   return (
     <section id="features" style={{ padding: "120px 24px" }}>
@@ -55,24 +64,21 @@ export default function FeaturesSection() {
           style={{ marginBottom: 42 }}
         />
 
-        <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 28, marginBottom: 32 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 18, marginBottom: 18 }}>
+          {/* Wide feature card — section-frame for proper depth + rounding */}
           <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="section-frame"
+            initial={{ opacity: 0, x: -18 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            style={{
-              padding: "8px 0 22px",
-              borderTop: "1px solid color-mix(in srgb, var(--border-strong) 80%, transparent)",
-              borderBottom: "1px solid color-mix(in srgb, var(--border) 64%, transparent)",
-              position: "relative",
-            }}
+            transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
+            style={{ padding: 32, overflow: "hidden", position: "relative" }}
           >
             <div
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "radial-gradient(circle at top left, rgba(91,140,255,0.12), transparent 46%)",
+                background: "radial-gradient(ellipse at top left, rgba(91,140,255,0.13), transparent 52%)",
                 pointerEvents: "none",
               }}
             />
@@ -80,20 +86,21 @@ export default function FeaturesSection() {
               <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--text-3)", marginBottom: 10 }}>
                 {featureCards[0].eyebrow}
               </div>
-              <h3 style={{ margin: "0 0 14px", fontSize: "clamp(30px, 4.2vw, 52px)", fontWeight: 760, letterSpacing: "-0.05em", lineHeight: 1.02, maxWidth: 700 }}>
+              <h3 style={{ margin: "0 0 14px", fontSize: "clamp(28px, 3.8vw, 48px)", fontWeight: 760, letterSpacing: "-0.05em", lineHeight: 1.03, maxWidth: 640 }}>
                 {featureCards[0].title}
               </h3>
-              <p style={{ margin: "0 0 22px", fontSize: 17, color: "var(--text-2)", lineHeight: 1.78, maxWidth: 700 }}>
+              <p style={{ margin: "0 0 24px", fontSize: 16, color: "var(--text-2)", lineHeight: 1.78, maxWidth: 580 }}>
                 {featureCards[0].description}
               </p>
+              {/* Points cascade in from left with non-uniform delays */}
               <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
                 {featureCards[0].points.map((point, index) => (
                   <motion.div
                     key={point}
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.4, delay: 0.08 + index * 0.05, ease: "easeOut" }}
+                    transition={{ duration: 0.42, delay: pointDelays[index], ease: [0.22, 1, 0.36, 1] }}
                     style={{ paddingBottom: 10, borderBottom: "1px solid color-mix(in srgb, var(--border) 70%, transparent)" }}
                   >
                     <div style={{ width: 24, height: 2, borderRadius: 999, background: featureCards[0].accent, marginBottom: 10 }} />
@@ -104,46 +111,47 @@ export default function FeaturesSection() {
             </div>
           </motion.div>
 
+          {/* Quote column — section-surface for visual consistency */}
           <motion.div
-            initial={{ opacity: 0, x: 16 }}
+            className="section-surface"
+            initial={{ opacity: 0, x: 18 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            style={{ alignSelf: "end", paddingBottom: 14 }}
+            transition={{ duration: 0.52, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            style={{ padding: 28, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}
           >
-            <div className="section-divider" style={{ marginBottom: 18 }} />
+            <div className="section-divider" style={{ marginBottom: 20 }} />
             <p style={{ margin: 0, fontSize: 18, lineHeight: 1.72, color: "var(--text-2)" }}>
               Konvoq is designed as an operating system for AI conversations, not a widget-only add-on. That is why the product feels more coherent at scale.
             </p>
           </motion.div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 18 }}>
+        {/* Small feature cards — section-surface with per-card direction */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 14 }}>
           {featureCards.slice(1).map((card, index) => (
-            <motion.article
+            <motion.div
               key={card.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="section-surface"
+              initial={{ opacity: 0, x: cardInitialX[index], y: cardInitialY[index] }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.46, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -4 }}
-              style={{
-                paddingTop: 22,
-                borderTop: "1px solid color-mix(in srgb, var(--border-strong) 72%, transparent)",
-              }}
+              transition={{ duration: 0.48, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: cardHoverY[index] }}
+              style={{ padding: 24 }}
             >
               <motion.div
-                whileHover={{ x: 4 }}
+                whileHover={{ x: cardHoverX[index] }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
               >
                 <div style={{ width: 36, height: 2, borderRadius: 999, background: card.accent, marginBottom: 16 }} />
                 <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--text-3)", marginBottom: 10 }}>
                   {card.eyebrow}
                 </div>
-                <h3 style={{ margin: "0 0 12px", fontSize: 26, fontWeight: 750, letterSpacing: "-0.04em", lineHeight: 1.08 }}>
+                <h3 style={{ margin: "0 0 12px", fontSize: 24, fontWeight: 750, letterSpacing: "-0.04em", lineHeight: 1.08 }}>
                   {card.title}
                 </h3>
-                <p style={{ margin: "0 0 18px", fontSize: 15, color: "var(--text-2)", lineHeight: 1.72, maxWidth: 520 }}>
+                <p style={{ margin: "0 0 18px", fontSize: 15, color: "var(--text-2)", lineHeight: 1.72 }}>
                   {card.description}
                 </p>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -155,7 +163,7 @@ export default function FeaturesSection() {
                   ))}
                 </div>
               </motion.div>
-            </motion.article>
+            </motion.div>
           ))}
         </div>
       </div>
