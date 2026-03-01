@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -12,7 +12,7 @@ interface JobRowProps {
   hot?: boolean;
 }
 
-export default function JobRow({ title, department, location, type, deptColor = "var(--violet)", hot = false }: JobRowProps) {
+export default function JobRow({ title, department, location, type, deptColor = "var(--accent-strong)", hot = false }: JobRowProps) {
   const slug = title.toLowerCase().replace(/\s+/g, "-");
   return (
     <motion.div
@@ -38,9 +38,9 @@ export default function JobRow({ title, department, location, type, deptColor = 
             {hot && (
               <span
                 style={{
-                  background: "rgba(244,63,94,0.15)",
-                  color: "var(--rose)",
-                  border: "1px solid rgba(244,63,94,0.25)",
+                  background: "rgba(239, 68, 68, 0.18)",
+                  color: "var(--danger)",
+                  border: "1px solid rgba(239, 68, 68, 0.26)",
                   borderRadius: 100,
                   fontSize: 10,
                   fontWeight: 700,
@@ -66,8 +66,8 @@ export default function JobRow({ title, department, location, type, deptColor = 
             >
               {department}
             </span>
-            <span style={{ fontSize: 13, color: "var(--text-2)" }}>📍 {location}</span>
-            <span style={{ fontSize: 13, color: "var(--text-2)" }}>🕐 {type}</span>
+            <span style={{ fontSize: 13, color: "var(--text-2)" }}>ðŸ“ {location}</span>
+            <span style={{ fontSize: 13, color: "var(--text-2)" }}>ðŸ• {type}</span>
           </div>
         </div>
       </div>
@@ -88,9 +88,10 @@ export default function JobRow({ title, department, location, type, deptColor = 
             whiteSpace: "nowrap",
           }}
         >
-          Apply →
+          Apply â†’
         </Link>
       </motion.div>
     </motion.div>
   );
 }
+

@@ -1,15 +1,15 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// ─── Reusable SectionLabel ───────────────────────────────────────────────────
+// â”€â”€â”€ Reusable SectionLabel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
       display: "inline-flex", alignItems: "center", gap: 8,
-      background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-2)",
+      background: "var(--surface-3)", border: "1px solid var(--border-2)",
       borderRadius: 100, padding: "6px 16px", fontSize: 11, fontWeight: 600,
       letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-2)",
       marginBottom: 24,
@@ -20,7 +20,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// ─── Variants ────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -36,14 +36,14 @@ const fadeIn: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const TIERS = [
   {
-    icon: "🤝",
+    icon: "ðŸ¤",
     title: "Referral Partner",
     badge: "Most popular",
-    badgeColor: "var(--cyan)",
-    color: "var(--cyan)",
+    badgeColor: "var(--accent)",
+    color: "var(--accent)",
     commission: "30% recurring",
     highlights: [
       "30% recurring commission on all referred revenue",
@@ -56,11 +56,11 @@ const TIERS = [
     featured: false,
   },
   {
-    icon: "🏗️",
+    icon: "ðŸ—ï¸",
     title: "Solution Partner",
     badge: "For agencies",
-    badgeColor: "var(--violet)",
-    color: "var(--violet)",
+    badgeColor: "var(--accent-strong)",
+    color: "var(--accent-strong)",
     commission: "20% recurring + build fees",
     highlights: [
       "Build, customize, and resell on Konvoq",
@@ -73,7 +73,7 @@ const TIERS = [
     featured: true,
   },
   {
-    icon: "🔌",
+    icon: "ðŸ”Œ",
     title: "Technology Partner",
     badge: "For SaaS companies",
     badgeColor: "var(--emerald)",
@@ -92,12 +92,12 @@ const TIERS = [
 ];
 
 const BENEFITS = [
-  { icon: "💸", title: "Revenue Share", desc: "Earn meaningful recurring commissions on every customer you bring to Konvoq — month after month.", color: "var(--emerald)" },
-  { icon: "📣", title: "Co-Marketing", desc: "Joint campaigns, case studies, webinars, and content that drives demand for both of us.", color: "var(--cyan)" },
-  { icon: "🖥️", title: "Partner Portal", desc: "Track your referrals, commissions, and leads in one dedicated partner dashboard.", color: "var(--violet)" },
-  { icon: "🛡️", title: "Technical Support", desc: "Priority support access to help you and your clients succeed faster with Konvoq.", color: "var(--rose)" },
-  { icon: "🏅", title: "Partner Badge", desc: "Display your Certified Konvoq Partner badge on your website, proposals, and marketing.", color: "var(--amber)" },
-  { icon: "🔮", title: "Early Access", desc: "Get early access to new features and influence our roadmap through quarterly partner advisory calls.", color: "#A78BFA" },
+  { icon: "ðŸ’¸", title: "Revenue Share", desc: "Earn meaningful recurring commissions on every customer you bring to Konvoq â€” month after month.", color: "var(--emerald)" },
+  { icon: "ðŸ“£", title: "Co-Marketing", desc: "Joint campaigns, case studies, webinars, and content that drives demand for both of us.", color: "var(--accent)" },
+  { icon: "ðŸ–¥ï¸", title: "Partner Portal", desc: "Track your referrals, commissions, and leads in one dedicated partner dashboard.", color: "var(--accent-strong)" },
+  { icon: "ðŸ›¡ï¸", title: "Technical Support", desc: "Priority support access to help you and your clients succeed faster with Konvoq.", color: "var(--danger)" },
+  { icon: "ðŸ…", title: "Partner Badge", desc: "Display your Certified Konvoq Partner badge on your website, proposals, and marketing.", color: "var(--amber)" },
+  { icon: "ðŸ”®", title: "Early Access", desc: "Get early access to new features and influence our roadmap through quarterly partner advisory calls.", color: "#A78BFA" },
 ];
 
 const PARTNER_NAMES = [
@@ -117,11 +117,11 @@ const FAQS = [
   },
   {
     q: "Can I be more than one type of partner?",
-    a: "Yes — many of our strongest partners are both Referral and Solution Partners. If you're an agency that also refers clients, we'll work with you to set up the right structure and ensure you're compensated for both activities.",
+    a: "Yes â€” many of our strongest partners are both Referral and Solution Partners. If you're an agency that also refers clients, we'll work with you to set up the right structure and ensure you're compensated for both activities.",
   },
 ];
 
-// ─── Partner Application Form ─────────────────────────────────────────────────
+// â”€â”€â”€ Partner Application Form â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function PartnerApplicationForm() {
   const [formData, setFormData] = useState({
     company: "",
@@ -147,7 +147,7 @@ function PartnerApplicationForm() {
           borderRadius: "var(--radius-xl)", padding: "56px 48px", textAlign: "center",
         }}
       >
-        <div style={{ fontSize: 48, marginBottom: 16 }}>🎉</div>
+        <div style={{ fontSize: 48, marginBottom: 16 }}>ðŸŽ‰</div>
         <h3 style={{ fontSize: 24, fontWeight: 800, marginBottom: 12 }}>Application received!</h3>
         <p style={{ fontSize: 16, color: "var(--text-2)", lineHeight: 1.7 }}>
           Thanks for applying! Our partner team will review your application and get back to you within 5 business days.
@@ -213,9 +213,9 @@ function PartnerApplicationForm() {
           }}
         >
           <option value="" disabled>Select partnership type</option>
-          <option value="referral">Referral Partner — Earn 30% recurring commission</option>
-          <option value="solution">Solution Partner — Build and resell on Konvoq</option>
-          <option value="technology">Technology Partner — Native integration & joint GTM</option>
+          <option value="referral">Referral Partner â€” Earn 30% recurring commission</option>
+          <option value="solution">Solution Partner â€” Build and resell on Konvoq</option>
+          <option value="technology">Technology Partner â€” Native integration & joint GTM</option>
         </select>
       </div>
       <div>
@@ -246,7 +246,7 @@ function PartnerApplicationForm() {
           border: "none", fontFamily: "inherit",
         }}
       >
-        Submit Application →
+        Submit Application â†’
       </motion.button>
       <p style={{ fontSize: 12, color: "var(--text-3)", textAlign: "center" }}>
         We review every application. You&apos;ll hear back within 5 business days.
@@ -255,7 +255,7 @@ function PartnerApplicationForm() {
   );
 }
 
-// ─── FAQ Item ─────────────────────────────────────────────────────────────────
+// â”€â”€â”€ FAQ Item â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
@@ -294,15 +294,15 @@ function FaqItem({ q, a }: { q: string; a: string }) {
   );
 }
 
-// ─── Component ───────────────────────────────────────────────────────────────
+// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function PartnersPageTemplate() {
   return (
     <PageLayout>
-      {/* ── Hero ── */}
+      {/* â”€â”€ Hero â”€â”€ */}
       <section style={{ position: "relative", overflow: "hidden", padding: "100px 24px 120px" }}>
         <div aria-hidden style={{
           position: "absolute", inset: 0, pointerEvents: "none",
-          background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,185,129,0.07) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 80% 50%, rgba(6,239,255,0.06) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,185,129,0.07) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 80% 50%, var(--accent-muted) 0%, transparent 60%)",
         }} />
         <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center", position: "relative" }}>
           <motion.div initial="hidden" animate="visible" variants={stagger}>
@@ -340,7 +340,7 @@ export default function PartnersPageTemplate() {
         </div>
       </section>
 
-      {/* ── Partnership Tiers ── */}
+      {/* â”€â”€ Partnership Tiers â”€â”€ */}
       <section style={{ padding: "80px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}>
@@ -415,7 +415,7 @@ export default function PartnersPageTemplate() {
         </div>
       </section>
 
-      {/* ── Benefits ── */}
+      {/* â”€â”€ Benefits â”€â”€ */}
       <section style={{ padding: "80px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}>
@@ -451,7 +451,7 @@ export default function PartnersPageTemplate() {
         </div>
       </section>
 
-      {/* ── Current Partners ── */}
+      {/* â”€â”€ Current Partners â”€â”€ */}
       <section style={{ padding: "80px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={stagger}>
@@ -479,7 +479,7 @@ export default function PartnersPageTemplate() {
         </div>
       </section>
 
-      {/* ── Testimonial ── */}
+      {/* â”€â”€ Testimonial â”€â”€ */}
       <section style={{ padding: "60px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <motion.div
@@ -503,20 +503,20 @@ export default function PartnersPageTemplate() {
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
               <div style={{
                 width: 44, height: 44, borderRadius: "50%",
-                background: "linear-gradient(135deg, var(--emerald), var(--cyan))",
+                background: "linear-gradient(135deg, var(--emerald), var(--accent))",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 16, fontWeight: 700, color: "#000",
               }}>TD</div>
               <div style={{ textAlign: "left" }}>
                 <div style={{ fontWeight: 700, fontSize: 15 }}>Tyler Davis</div>
-                <div style={{ fontSize: 13, color: "var(--text-2)" }}>Founder, Orbit Analytics — Referral Partner</div>
+                <div style={{ fontSize: 13, color: "var(--text-2)" }}>Founder, Orbit Analytics â€” Referral Partner</div>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* ── Application Form ── */}
+      {/* â”€â”€ Application Form â”€â”€ */}
       <section id="apply" style={{ padding: "80px 24px 120px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}>
@@ -541,7 +541,7 @@ export default function PartnersPageTemplate() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
+      {/* â”€â”€ FAQ â”€â”€ */}
       <section style={{ padding: "80px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}>
@@ -564,4 +564,5 @@ export default function PartnersPageTemplate() {
     </PageLayout>
   );
 }
+
 

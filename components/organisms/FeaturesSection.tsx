@@ -1,362 +1,164 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
+import SectionHeader from "@/components/molecules/SectionHeader";
 
-interface BentoCard {
-  icon: string;
-  iconClass: "cyan" | "violet" | "rose" | "emerald" | "amber";
-  glowClass: "cyan" | "violet" | "rose" | "emerald";
-  title: string;
-  desc: string;
-  wide?: boolean;
-  tall?: boolean;
-  extra?: React.ReactNode;
-}
-
-function IconBox({ icon, color }: { icon: string; color: string }) {
-  const colors: Record<string, { bg: string; border: string }> = {
-    cyan: { bg: "rgba(6,239,255,0.1)", border: "rgba(6,239,255,0.2)" },
-    violet: { bg: "rgba(139,92,246,0.1)", border: "rgba(139,92,246,0.2)" },
-    rose: { bg: "rgba(244,63,94,0.1)", border: "rgba(244,63,94,0.2)" },
-    emerald: { bg: "rgba(16,185,129,0.1)", border: "rgba(16,185,129,0.2)" },
-    amber: { bg: "rgba(245,158,11,0.1)", border: "rgba(245,158,11,0.2)" },
-  };
-  const c = colors[color];
-  return (
-    <div
-      style={{
-        width: 44,
-        height: 44,
-        borderRadius: 10,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: 20,
-        marginBottom: 20,
-        background: c.bg,
-        border: `1px solid ${c.border}`,
-      }}
-    >
-      {icon}
-    </div>
-  );
-}
-
-const glowMap: Record<string, string> = {
-  cyan: "radial-gradient(circle at 0% 0%, rgba(6,239,255,0.06) 0%, transparent 60%)",
-  violet: "radial-gradient(circle at 100% 0%, rgba(139,92,246,0.07) 0%, transparent 60%)",
-  rose: "radial-gradient(circle at 0% 100%, rgba(244,63,94,0.06) 0%, transparent 60%)",
-  emerald: "radial-gradient(circle at 100% 100%, rgba(16,185,129,0.07) 0%, transparent 60%)",
-};
-
-const lineMap: Record<string, string> = {
-  cyan: "linear-gradient(90deg, transparent, rgba(6,239,255,0.6), transparent)",
-  violet: "linear-gradient(90deg, transparent, rgba(139,92,246,0.6), transparent)",
-  rose: "linear-gradient(90deg, transparent, rgba(244,63,94,0.6), transparent)",
-  emerald: "linear-gradient(90deg, transparent, rgba(16,185,129,0.6), transparent)",
-};
-
-function BentoCardComponent({
-  card,
-  delay,
-}: {
-  card: BentoCard;
-  delay: number;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
-      whileHover={{ y: -2 }}
-      style={{
-        gridColumn: card.wide ? "span 2" : "span 1",
-        gridRow: card.tall ? "span 2" : "span 1",
-        background: "var(--surface)",
-        border: "1px solid var(--border)",
-        borderRadius: "var(--radius-lg)",
-        padding: 32,
-        position: "relative",
-        overflow: "hidden",
-        cursor: "default",
-      }}
-    >
-      {/* Top gradient line on hover */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileHover={{ opacity: 1 }}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: "10%",
-          right: "10%",
-          height: 1,
-          background: lineMap[card.glowClass],
-          borderRadius: "100%",
-        }}
-      />
-      {/* Glow overlay on hover */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileHover={{ opacity: 1 }}
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: glowMap[card.glowClass],
-          borderRadius: "inherit",
-          pointerEvents: "none",
-        }}
-      />
-
-      <IconBox icon={card.icon} color={card.iconClass} />
-      <h3
-        style={{
-          fontSize: 17,
-          fontWeight: 800,
-          letterSpacing: "-0.01em",
-          marginBottom: 10,
-          color: "var(--text-1)",
-          fontFamily: "Nunito, sans-serif",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        {card.title}
-      </h3>
-      <p
-        style={{
-          fontSize: 14,
-          color: "var(--text-2)",
-          lineHeight: 1.75,
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        {card.desc}
-      </p>
-      {card.extra && (
-        <div style={{ position: "relative", zIndex: 1 }}>{card.extra}</div>
-      )}
-    </motion.div>
-  );
-}
-
-const cards: BentoCard[] = [
+const featureCards = [
   {
-    icon: "⚡",
-    iconClass: "cyan",
-    glowClass: "cyan",
-    title: "Choose Your AI Brain — GPT-4o, Claude 3.5, or Gemini",
-    desc: "The only chatbot platform that lets you pick the model that fits your use case. Switch per-bot, not per-plan. Always using the world's best AI.",
+    eyebrow: "Training",
+    title: "A single source of truth for your assistant.",
+    description:
+      "Ingest website pages, product docs, help center articles, and structured files with a workflow that is fast enough for operations teams and reliable enough for enterprise rollouts.",
+    points: ["Auto re-sync on content updates", "Source-level quality controls", "Private knowledge collections"],
+    accent: "var(--accent)",
     wide: true,
-    extra: (
-      <div style={{ display: "flex", gap: 8, marginTop: 24, flexWrap: "wrap" }}>
-        {[
-          { label: "GPT-4o", dotColor: "#10a37f" },
-          { label: "Claude 3.5 Sonnet", dotColor: "#c07b4f" },
-          { label: "Gemini 1.5 Pro", dotColor: "#4285F4" },
-        ].map((m) => (
-          <div
-            key={m.label}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid var(--border-2)",
-              borderRadius: 8,
-              padding: "8px 14px",
-              fontSize: 12,
-              fontWeight: 600,
-              color: "var(--text-1)",
-            }}
-          >
-            <div
-              style={{
-                width: 8,
-                height: 8,
-                borderRadius: "50%",
-                background: m.dotColor,
-                boxShadow: `0 0 8px ${m.dotColor}`,
-              }}
-            />
-            {m.label}
-          </div>
-        ))}
-      </div>
-    ),
   },
   {
-    icon: "🧠",
-    iconClass: "violet",
-    glowClass: "violet",
-    title: "Train on Your Website, Docs & Data",
-    desc: "Paste a URL. Upload PDFs. Connect Drive. Konvoq reads everything and auto-resyncs when content changes.",
+    eyebrow: "Routing",
+    title: "Handoff only when it matters.",
+    description: "Konvoq classifies intent, spots risk, and escalates with conversation context attached.",
+    points: ["SLA-aware routing", "Priority queues", "Human notes and context"],
+    accent: "var(--accent-strong)",
   },
   {
-    icon: "📊",
-    iconClass: "rose",
-    glowClass: "rose",
-    title: "Revenue Intelligence Dashboard",
-    desc: "Topic clustering, sentiment analysis, conversion tracking, and knowledge gap detection. Know exactly what your customers need — before they leave.",
-    tall: true,
-    extra: (
-      <>
-        <div style={{ display: "flex", alignItems: "flex-end", gap: 3, height: 60, marginTop: 24 }}>
-          {[35, 55, 45, 80, 65, 95, 75, 100].map((h, i) => (
-            <motion.div
-              key={i}
-              style={{
-                flex: 1,
-                borderRadius: "3px 3px 0 0",
-                background: [1, 3, 5, 7].includes(i)
-                  ? "linear-gradient(180deg, rgba(6,239,255,0.8), rgba(139,92,246,0.8))"
-                  : "rgba(139,92,246,0.2)",
-              }}
-              initial={{ height: 0 }}
-              whileInView={{ height: `${h}%` }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.06, ease: "easeOut" }}
-            />
-          ))}
-        </div>
-        <p style={{ marginTop: 20, fontSize: 13, color: "var(--text-2)", lineHeight: 1.75 }}>
-          Understand every conversation. Optimize every week.
-        </p>
-      </>
-    ),
+    eyebrow: "Analytics",
+    title: "Metrics teams can actually act on.",
+    description:
+      "Track containment, lead quality, resolution quality, and content gaps without digging through transcripts manually.",
+    points: ["Conversation themes", "Revenue and pipeline attribution", "Knowledge gap alerts"],
+    accent: "var(--success)",
   },
   {
-    icon: "🚀",
-    iconClass: "emerald",
-    glowClass: "emerald",
-    title: "Live in Under 3 Minutes",
-    desc: "One line of code. Any website. Zero technical skills required. Most users go live before their coffee is ready.",
+    eyebrow: "Brand",
+    title: "A widget that feels like your product.",
+    description: "Use your own colors, voice, and handoff language so the assistant never feels bolted on.",
+    points: ["Theme-aware embed", "Custom starter prompts", "White-label support"],
+    accent: "var(--accent)",
   },
   {
-    icon: "🎨",
-    iconClass: "violet",
-    glowClass: "violet",
-    title: "White-Label on Every Plan",
-    desc: "Not a paid addon. Your brand. Your colors. Your name. Zero Konvoq branding — ever. Agencies love this.",
-  },
-  {
-    icon: "🔒",
-    iconClass: "emerald",
-    glowClass: "emerald",
-    title: "Enterprise-Grade Security — Included, Not Extra",
-    desc: "SOC 2 Type II, GDPR, and HIPAA compliance built into the platform. Data isolation, encryption at rest and in transit, and configurable data retention policies.",
-    wide: true,
-    extra: (
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 24 }}>
-        {["SOC 2 Type II", "GDPR Compliant", "HIPAA Ready", "AES-256 Encryption", "99.9% Uptime SLA"].map((b) => (
-          <span
-            key={b}
-            style={{
-              fontSize: 11,
-              fontWeight: 600,
-              background: "rgba(16,185,129,0.08)",
-              border: "1px solid rgba(16,185,129,0.2)",
-              color: "var(--emerald)",
-              padding: "5px 12px",
-              borderRadius: 6,
-            }}
-          >
-            {b}
-          </span>
-        ))}
-      </div>
-    ),
-  },
-  {
-    icon: "🌐",
-    iconClass: "cyan",
-    glowClass: "cyan",
-    title: "Omnichannel in One Dashboard",
-    desc: "Web, WhatsApp, Instagram, Slack — one bot, all channels, full context across every session.",
-  },
-  {
-    icon: "🤝",
-    iconClass: "rose",
-    glowClass: "rose",
-    title: "Smart Human Handoff",
-    desc: "AI resolves 80%+ automatically. Complex queries route to your team with full conversation history intact.",
+    eyebrow: "Security",
+    title: "Enterprise controls from day one.",
+    description: "Designed for procurement review, security review, and rollout at scale.",
+    points: ["Role-based access", "Regional data strategy", "Audit-friendly operations"],
+    accent: "var(--danger)",
   },
 ];
 
 export default function FeaturesSection() {
   return (
     <section id="features" style={{ padding: "120px 24px" }}>
-      <div style={{ maxWidth: 1180, margin: "0 auto" }}>
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{ textAlign: "center", marginBottom: 72 }}
-        >
-          <div
+      <div className="site-container">
+        <SectionHeader
+          badge="Platform"
+          heading={<>The product system behind high-quality AI support.</>}
+          description={<>Every layer is tuned to reduce support load, preserve context, and make the customer-facing experience feel intentional.</>}
+          style={{ marginBottom: 42 }}
+        />
+
+        <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 28, marginBottom: 32 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid var(--border-2)",
-              borderRadius: 100,
-              padding: "6px 16px",
-              fontSize: 11,
-              fontWeight: 600,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              color: "var(--text-2)",
-              marginBottom: 20,
+              padding: "8px 0 22px",
+              borderTop: "1px solid color-mix(in srgb, var(--border-strong) 80%, transparent)",
+              borderBottom: "1px solid color-mix(in srgb, var(--border) 64%, transparent)",
+              position: "relative",
             }}
           >
             <div
               style={{
-                width: 6,
-                height: 6,
-                background: "var(--grad-aurora)",
-                borderRadius: "50%",
+                position: "absolute",
+                inset: 0,
+                background: "radial-gradient(circle at top left, rgba(91,140,255,0.12), transparent 46%)",
+                pointerEvents: "none",
               }}
             />
-            Features
-          </div>
-          <h2
-            style={{
-              fontSize: "clamp(36px, 4.5vw, 56px)",
-              fontWeight: 900,
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
-              marginBottom: 16,
-              fontFamily: "Nunito, sans-serif",
-            }}
-          >
-            Everything to deploy an AI chatbot
-            <br />
-            <span className="grad-text">that actually performs</span>
-          </h2>
-          <p style={{ fontSize: 17, color: "var(--text-2)", maxWidth: 500, margin: "0 auto", lineHeight: 1.75 }}>
-            Not another chatbot widget. A revenue engine trained on your business and built to convert.
-          </p>
-        </motion.div>
+            <div style={{ position: "relative" }}>
+              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--text-3)", marginBottom: 10 }}>
+                {featureCards[0].eyebrow}
+              </div>
+              <h3 style={{ margin: "0 0 14px", fontSize: "clamp(30px, 4.2vw, 52px)", fontWeight: 760, letterSpacing: "-0.05em", lineHeight: 1.02, maxWidth: 700 }}>
+                {featureCards[0].title}
+              </h3>
+              <p style={{ margin: "0 0 22px", fontSize: 17, color: "var(--text-2)", lineHeight: 1.78, maxWidth: 700 }}>
+                {featureCards[0].description}
+              </p>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+                {featureCards[0].points.map((point, index) => (
+                  <motion.div
+                    key={point}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.4, delay: 0.08 + index * 0.05, ease: "easeOut" }}
+                    style={{ paddingBottom: 10, borderBottom: "1px solid color-mix(in srgb, var(--border) 70%, transparent)" }}
+                  >
+                    <div style={{ width: 24, height: 2, borderRadius: 999, background: featureCards[0].accent, marginBottom: 10 }} />
+                    <div style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.65 }}>{point}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
 
-        {/* Bento grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: 16,
-          }}
-        >
-          {cards.map((card, i) => (
-            <BentoCardComponent key={card.title} card={card} delay={i * 0.07} />
+          <motion.div
+            initial={{ opacity: 0, x: 16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            style={{ alignSelf: "end", paddingBottom: 14 }}
+          >
+            <div className="section-divider" style={{ marginBottom: 18 }} />
+            <p style={{ margin: 0, fontSize: 18, lineHeight: 1.72, color: "var(--text-2)" }}>
+              Konvoq is designed as an operating system for AI conversations, not a widget-only add-on. That is why the product feels more coherent at scale.
+            </p>
+          </motion.div>
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 18 }}>
+          {featureCards.slice(1).map((card, index) => (
+            <motion.article
+              key={card.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.46, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -4 }}
+              style={{
+                paddingTop: 22,
+                borderTop: "1px solid color-mix(in srgb, var(--border-strong) 72%, transparent)",
+              }}
+            >
+              <motion.div
+                whileHover={{ x: 4 }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              >
+                <div style={{ width: 36, height: 2, borderRadius: 999, background: card.accent, marginBottom: 16 }} />
+                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--text-3)", marginBottom: 10 }}>
+                  {card.eyebrow}
+                </div>
+                <h3 style={{ margin: "0 0 12px", fontSize: 26, fontWeight: 750, letterSpacing: "-0.04em", lineHeight: 1.08 }}>
+                  {card.title}
+                </h3>
+                <p style={{ margin: "0 0 18px", fontSize: 15, color: "var(--text-2)", lineHeight: 1.72, maxWidth: 520 }}>
+                  {card.description}
+                </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                  {card.points.map((point) => (
+                    <div key={point} style={{ display: "flex", alignItems: "center", gap: 10, color: "var(--text-2)", fontSize: 14 }}>
+                      <span style={{ width: 8, height: 8, borderRadius: 999, background: card.accent, flexShrink: 0 }} />
+                      {point}
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>
     </section>
   );
 }
-

@@ -1,9 +1,11 @@
-"use client";
+﻿"use client";
 
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { useState, useEffect } from "react";
+import { AnimatePresence, LayoutGroup, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import Button from "@/components/atoms/Button";
+import ThemeToggle from "@/components/atoms/ThemeToggle";
 
 const navLinks = [
   { label: "Features", href: "/features" },
@@ -14,288 +16,263 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const { scrollY } = useScroll();
-  const borderOpacity = useTransform(scrollY, [0, 80], [0, 1]);
   const pathname = usePathname();
+  const { scrollY } = useScroll();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const unsub = scrollY.on("change", (v) => setScrolled(v > 20));
-    return unsub;
-  }, [scrollY]);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setScrolled(latest > 18);
+  });
 
-  // Close menu on route change
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
-
-  // Prevent body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <>
       <motion.nav
-        initial={{ y: -80, opacity: 0 }}
+        initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
         style={{
           position: "fixed",
           inset: "0 0 auto 0",
           zIndex: 100,
-          height: 64,
-          display: "flex",
-          alignItems: "center",
-          padding: "0 24px",
-          background: scrolled ? "rgba(0,0,0,0.9)" : "rgba(0,0,0,0.4)",
-          backdropFilter: "blur(24px) saturate(180%)",
-          WebkitBackdropFilter: "blur(24px) saturate(180%)",
-          transition: "background 0.3s ease",
+          padding: "16px 24px 0",
         }}
       >
-        <motion.div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: 1,
-            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)",
-            opacity: borderOpacity,
-          }}
-        />
-
         <div
+          className="site-container"
           style={{
-            maxWidth: 1180,
-            margin: "0 auto",
-            width: "100%",
+            height: "var(--nav-height)",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            borderRadius: 999,
+            border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)",
+            background: scrolled ? "color-mix(in srgb, var(--background-elevated) 82%, transparent)" : "color-mix(in srgb, var(--surface) 46%, transparent)",
+            boxShadow: scrolled ? "var(--shadow-soft)" : "none",
+            backdropFilter: "blur(20px)",
+            padding: "0 18px 0 20px",
           }}
         >
-          {/* Logo */}
           <Link
             href="/"
+            onClick={closeMenu}
+            className="motion-link"
             style={{
-              fontSize: 20,
-              fontWeight: 900,
-              letterSpacing: "-0.02em",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 12,
               textDecoration: "none",
               color: "var(--text-1)",
-              fontFamily: "Nunito, sans-serif",
+              fontSize: 16,
+              fontWeight: 800,
+              letterSpacing: "-0.03em",
             }}
           >
-            Konv<span className="grad-text">oq</span>
-          </Link>
-
-          {/* Nav Links — Desktop */}
-          <div
-            className="nav-links-desktop"
-            style={{
-              alignItems: "center",
-              gap: 4,
-              background: "rgba(255,255,255,0.03)",
-              border: "1px solid var(--border)",
-              borderRadius: 100,
-              padding: 4,
-            }}
-          >
-            {navLinks.map((link, i) => {
-              const isActive = pathname === link.href;
-              return (
-                <motion.div
-                  key={link.label}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.1 + i * 0.05 }}
-                  whileHover={{ backgroundColor: "rgba(255,255,255,0.06)" }}
-                  style={{ borderRadius: 100 }}
-                >
-                  <Link
-                    href={link.href}
-                    style={{
-                      display: "block",
-                      fontSize: 13,
-                      fontWeight: isActive ? 600 : 500,
-                      color: isActive ? "var(--text-1)" : "var(--text-2)",
-                      textDecoration: "none",
-                      padding: "6px 16px",
-                      borderRadius: 100,
-                      background: isActive ? "rgba(255,255,255,0.08)" : "transparent",
-                    }}
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Right actions — Desktop */}
-          <div className="nav-actions-desktop" style={{ alignItems: "center", gap: 10 }}>
-            <Link
-              href="#"
+            <motion.span
+              whileHover={{ rotate: -6, scale: 1.06 }}
+              transition={{ type: "spring", stiffness: 260, damping: 16 }}
               style={{
-                fontSize: 13,
-                fontWeight: 500,
-                color: "var(--text-2)",
-                textDecoration: "none",
-                padding: "6px 14px",
+                width: 28,
+                height: 28,
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 10,
+                background: "var(--grad-btn)",
+                color: "#ffffff",
+                boxShadow: "var(--shadow-button)",
+                fontSize: 11,
+                fontWeight: 800,
               }}
             >
-              Log in
-            </Link>
-            <motion.div whileHover={{ y: -1 }}>
-              <Link
-                href="#"
-                style={{
-                  fontSize: 13,
-                  fontWeight: 600,
-                  color: "var(--black)",
-                  textDecoration: "none",
-                  padding: "8px 18px",
-                  background: "var(--text-1)",
-                  borderRadius: 8,
-                  display: "inline-flex",
-                  alignItems: "center",
-                }}
-              >
-                Start Free →
-              </Link>
-            </motion.div>
+              K
+            </motion.span>
+            Konvoq
+          </Link>
+
+          <LayoutGroup>
+            <div className="nav-links-desktop" style={{ alignItems: "center", gap: 4, position: "relative" }}>
+              {navLinks.map((link) => {
+                const active = pathname === link.href;
+                return (
+                  <motion.div key={link.href} whileHover={{ y: -1 }} transition={{ type: "spring", stiffness: 260, damping: 20 }} style={{ position: "relative" }}>
+                    {active && (
+                      <motion.span
+                        layoutId="nav-active-pill"
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          borderRadius: 999,
+                          background: "color-mix(in srgb, var(--surface-2) 72%, transparent)",
+                          border: "1px solid color-mix(in srgb, var(--border) 70%, transparent)",
+                        }}
+                        transition={{ type: "spring", stiffness: 340, damping: 28 }}
+                      />
+                    )}
+                    <Link
+                      href={link.href}
+                      className="motion-link"
+                      style={{
+                        position: "relative",
+                        zIndex: 1,
+                        padding: "10px 14px",
+                        borderRadius: 999,
+                        fontSize: 13,
+                        fontWeight: active ? 700 : 600,
+                        textDecoration: "none",
+                        color: active ? "var(--text-1)" : "var(--text-2)",
+                      }}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </LayoutGroup>
+
+          <div className="nav-actions-desktop" style={{ alignItems: "center", gap: 10 }}>
+            <ThemeToggle />
+            <Button href="/contact" variant="ghost" size="sm">
+              Book demo
+            </Button>
+            <Button href="/pricing" variant="primary" size="sm">
+              Start free
+            </Button>
           </div>
 
-          {/* Hamburger — Mobile */}
-          <button
+          <motion.button
+            type="button"
             className="nav-hamburger"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-expanded={menuOpen}
+            aria-label="Toggle navigation menu"
+            whileTap={{ scale: 0.96 }}
             style={{
-              flexDirection: "column",
-              gap: 5,
-              background: "none",
-              border: "none",
+              width: 40,
+              height: 40,
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 999,
+              border: "1px solid var(--border)",
+              background: "color-mix(in srgb, var(--surface-2) 78%, transparent)",
+              color: "var(--text-1)",
               cursor: "pointer",
-              padding: 8,
+              position: "relative",
             }}
           >
             <motion.span
-              animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.2 }}
-              style={{ display: "block", width: 22, height: 2, background: "var(--text-1)", borderRadius: 2 }}
+              animate={menuOpen ? { rotate: 45, y: 3 } : { rotate: 0, y: -3 }}
+              transition={{ type: "spring", stiffness: 280, damping: 18 }}
+              style={{
+                position: "absolute",
+                width: 16,
+                height: 1.5,
+                background: "currentColor",
+                borderRadius: 999,
+              }}
             />
             <motion.span
-              animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
-              transition={{ duration: 0.2 }}
-              style={{ display: "block", width: 22, height: 2, background: "var(--text-1)", borderRadius: 2 }}
+              animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+              transition={{ duration: 0.18 }}
+              style={{
+                position: "absolute",
+                width: 16,
+                height: 1.5,
+                background: "currentColor",
+                borderRadius: 999,
+              }}
             />
             <motion.span
-              animate={menuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.2 }}
-              style={{ display: "block", width: 22, height: 2, background: "var(--text-1)", borderRadius: 2 }}
+              animate={menuOpen ? { rotate: -45, y: -3 } : { rotate: 0, y: 3 }}
+              transition={{ type: "spring", stiffness: 280, damping: 18 }}
+              style={{
+                position: "absolute",
+                width: 16,
+                height: 1.5,
+                background: "currentColor",
+                borderRadius: 999,
+              }}
             />
-          </button>
+          </motion.button>
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -16 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
             style={{
               position: "fixed",
-              inset: "64px 0 0 0",
+              inset: "94px 20px auto",
               zIndex: 99,
-              background: "rgba(0,0,0,0.97)",
-              backdropFilter: "blur(24px)",
-              WebkitBackdropFilter: "blur(24px)",
-              padding: "28px 20px",
-              display: "flex",
-              flexDirection: "column",
-              gap: 6,
-              overflowY: "auto",
+              borderRadius: 28,
+              border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)",
+              background: "color-mix(in srgb, var(--background-elevated) 90%, transparent)",
+              boxShadow: "var(--shadow-soft)",
+              backdropFilter: "blur(18px)",
+              padding: 18,
             }}
           >
-            {navLinks.map((link, i) => {
-              const isActive = pathname === link.href;
-              return (
-                <motion.div
-                  key={link.label}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.06, ease: "easeOut" }}
-                >
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {navLinks.map((link) => {
+                const active = pathname === link.href;
+                return (
                   <Link
+                    key={link.href}
                     href={link.href}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={closeMenu}
+                    className="motion-link"
                     style={{
-                      display: "block",
-                      fontSize: 20,
-                      fontWeight: isActive ? 700 : 500,
-                      color: isActive ? "var(--text-1)" : "var(--text-2)",
+                      padding: "14px 16px",
+                      borderRadius: 16,
+                      background: active ? "color-mix(in srgb, var(--surface-2) 72%, transparent)" : "transparent",
+                      border: active ? "1px solid var(--border)" : "1px solid transparent",
                       textDecoration: "none",
-                      padding: "16px 16px",
-                      borderRadius: 12,
-                      background: isActive ? "rgba(255,255,255,0.06)" : "transparent",
-                      borderBottom: "1px solid var(--border)",
+                      color: active ? "var(--text-1)" : "var(--text-2)",
+                      fontSize: 15,
+                      fontWeight: 600,
                     }}
                   >
                     {link.label}
                   </Link>
-                </motion.div>
-              );
-            })}
+                );
+              })}
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: navLinks.length * 0.06 + 0.05, ease: "easeOut" }}
-              style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 12 }}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "auto 1fr",
+                gap: 12,
+                alignItems: "center",
+                marginTop: 18,
+                paddingTop: 18,
+                borderTop: "1px solid var(--border)",
+              }}
             >
-              <Link
-                href="#"
-                onClick={() => setMenuOpen(false)}
-                style={{
-                  display: "block",
-                  textAlign: "center",
-                  fontSize: 15,
-                  fontWeight: 500,
-                  color: "var(--text-2)",
-                  textDecoration: "none",
-                  padding: "14px",
-                  border: "1px solid var(--border)",
-                  borderRadius: 12,
-                }}
-              >
-                Log in
-              </Link>
-              <Link
-                href="#"
-                onClick={() => setMenuOpen(false)}
-                style={{
-                  display: "block",
-                  textAlign: "center",
-                  fontSize: 15,
-                  fontWeight: 700,
-                  color: "var(--black)",
-                  textDecoration: "none",
-                  padding: "14px",
-                  background: "var(--text-1)",
-                  borderRadius: 12,
-                }}
-              >
-                Start Free →
-              </Link>
-            </motion.div>
+              <ThemeToggle />
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                <Button href="/contact" variant="outline" size="md">
+                  Book demo
+                </Button>
+                <Button href="/pricing" variant="primary" size="md">
+                  Start free
+                </Button>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

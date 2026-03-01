@@ -1,7 +1,8 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Button from "@/components/atoms/Button";
 
 const footerCols = [
   {
@@ -11,16 +12,14 @@ const footerCols = [
       { label: "Integrations", href: "/integrations" },
       { label: "Pricing", href: "/pricing" },
       { label: "Changelog", href: "/changelog" },
-      { label: "Roadmap", href: "/roadmap" },
     ],
   },
   {
     title: "Resources",
     links: [
       { label: "Documentation", href: "/docs" },
-      { label: "Blog", href: "/blog" },
-      { label: "API Reference", href: "/api-reference" },
-      { label: "Case Studies", href: "/case-studies" },
+      { label: "API reference", href: "/api-reference" },
+      { label: "Case studies", href: "/case-studies" },
       { label: "Status", href: "/status" },
     ],
   },
@@ -29,7 +28,6 @@ const footerCols = [
     links: [
       { label: "About", href: "/about" },
       { label: "Careers", href: "/careers" },
-      { label: "Press", href: "/press" },
       { label: "Partners", href: "/partners" },
       { label: "Contact", href: "/contact" },
     ],
@@ -37,175 +35,203 @@ const footerCols = [
   {
     title: "Legal",
     links: [
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of Service", href: "/terms" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
       { label: "Security", href: "/security" },
       { label: "GDPR", href: "/gdpr" },
-      { label: "Cookies", href: "/cookies" },
     ],
   },
 ];
 
 const socials = [
-  { label: "𝕏", href: "#" },
-  { label: "in", href: "#" },
-  { label: "▶", href: "#" },
-  { label: "gh", href: "#" },
-];
-
-const bottomLinks = [
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
-  { label: "Security", href: "/security" },
-  { label: "GDPR", href: "/gdpr" },
+  { label: "X", href: "#" },
+  { label: "In", href: "#" },
+  { label: "Gh", href: "#" },
 ];
 
 export default function Footer() {
   return (
-    <footer
-      style={{
-        padding: "72px 24px 40px",
-        borderTop: "1px solid var(--border)",
-      }}
-    >
-      <div style={{ maxWidth: 1180, margin: "0 auto" }}>
-        {/* Top grid */}
+    <footer style={{ padding: "48px 24px 40px" }}>
+      <div className="site-container">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="footer-grid"
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="section-frame"
           style={{
-            gap: 40,
-            marginBottom: 56,
+            padding: 32,
+            marginBottom: 24,
+            overflow: "hidden",
           }}
         >
-          {/* Brand */}
-          <div>
-            <Link
-              href="/"
-              className="grad-text"
-              style={{
-                fontSize: 22,
-                fontWeight: 900,
-                letterSpacing: "-0.04em",
-                marginBottom: 10,
-                fontFamily: "Nunito, sans-serif",
-                textDecoration: "none",
-                display: "block",
-              }}
-            >
-              Konvoq
-            </Link>
-            <div
-              style={{
-                fontSize: 14,
-                color: "var(--text-3)",
-                maxWidth: 210,
-                lineHeight: 1.65,
-              }}
-            >
-              The AI chatbot platform that converts visitors, resolves tickets, and grows your
-              business — automatically.
-            </div>
-
-            <div style={{ display: "flex", gap: 10, marginTop: 24 }}>
-              {socials.map((s) => (
-                <motion.a
-                  key={s.label}
-                  href={s.href}
-                  whileHover={{
-                    background: "rgba(255,255,255,0.08)",
-                    color: "var(--text-1)",
-                    borderColor: "var(--border-2)",
-                  }}
-                  style={{
-                    width: 34,
-                    height: 34,
-                    borderRadius: 8,
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid var(--border)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 14,
-                    textDecoration: "none",
-                    color: "var(--text-2)",
-                  }}
-                >
-                  {s.label}
-                </motion.a>
-              ))}
-            </div>
-          </div>
-
-          {/* Link columns */}
-          {footerCols.map((col) => (
-            <div key={col.title}>
-              <h4
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1.05fr 0.95fr",
+              gap: 24,
+              alignItems: "center",
+            }}
+          >
+            <div>
+              <p
                 style={{
+                  margin: "0 0 10px",
                   fontSize: 12,
                   fontWeight: 700,
-                  textTransform: "uppercase" as const,
-                  letterSpacing: "0.08em",
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase",
+                  color: "var(--text-3)",
+                }}
+              >
+                Built for modern support teams
+              </p>
+              <h3
+                style={{
+                  margin: "0 0 12px",
+                  fontSize: "clamp(28px, 4vw, 40px)",
+                  fontWeight: 800,
+                  letterSpacing: "-0.04em",
+                  lineHeight: 1.05,
+                }}
+              >
+                A cleaner way to ship AI support that feels enterprise ready.
+              </h3>
+              <p style={{ margin: 0, maxWidth: 540, fontSize: 16, lineHeight: 1.7, color: "var(--text-2)" }}>
+                Train on your product, route the hard cases to humans, and keep the customer experience
+                consistent across every channel.
+              </p>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 12 }}>
+              <Button href="/pricing" variant="primary" size="lg">
+                Start free
+              </Button>
+              <Button href="/contact" variant="outline" size="lg">
+                Speak with sales
+              </Button>
+            </div>
+          </div>
+        </motion.div>
+
+        <div className="section-frame" style={{ padding: "32px 32px 24px" }}>
+          <div className="footer-grid" style={{ gap: 32, marginBottom: 28 }}>
+            <div>
+              <Link
+                href="/"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 12,
+                  textDecoration: "none",
                   color: "var(--text-1)",
+                  fontSize: 18,
+                  fontWeight: 800,
+                  letterSpacing: "-0.03em",
                   marginBottom: 16,
                 }}
               >
-                {col.title}
-              </h4>
-              {col.links.map((link) => (
-                <motion.div key={link.label} whileHover={{ x: 2 }} style={{ marginBottom: 10 }}>
-                  <Link
-                    href={link.href}
+                <span
+                  style={{
+                    width: 30,
+                    height: 30,
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: 10,
+                    background: "var(--grad-btn)",
+                    color: "#ffffff",
+                    boxShadow: "var(--shadow-button)",
+                    fontSize: 12,
+                    fontWeight: 800,
+                  }}
+                >
+                  K
+                </span>
+                Konvoq
+              </Link>
+              <p style={{ margin: "0 0 20px", maxWidth: 280, fontSize: 14, lineHeight: 1.7, color: "var(--text-2)" }}>
+                Customer conversations with better structure, better answers, and better handoff quality.
+              </p>
+              <div style={{ display: "flex", gap: 10 }}>
+                {socials.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
                     style={{
-                      display: "block",
-                      fontSize: 13,
-                      color: "var(--text-3)",
+                      width: 38,
+                      height: 38,
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: 12,
+                      border: "1px solid var(--border)",
+                      background: "var(--surface-2)",
+                      color: "var(--text-2)",
                       textDecoration: "none",
-                      transition: "color 0.2s",
+                      fontSize: 13,
+                      fontWeight: 700,
                     }}
                   >
-                    {link.label}
-                  </Link>
-                </motion.div>
-              ))}
+                    {social.label}
+                  </a>
+                ))}
+              </div>
             </div>
-          ))}
-        </motion.div>
 
-        {/* Bottom bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            paddingTop: 28,
-            borderTop: "1px solid var(--border)",
-            fontSize: 13,
-            color: "var(--text-3)",
-          }}
-        >
-          <span>© 2026 Konvoq Inc. All rights reserved.</span>
-          <div style={{ display: "flex", gap: 20 }}>
-            {bottomLinks.map((l) => (
-              <motion.div key={l.label} whileHover={{ color: "var(--text-1)" }}>
-                <Link
-                  href={l.href}
-                  style={{ color: "var(--text-3)", textDecoration: "none" }}
+            {footerCols.map((column) => (
+              <div key={column.title}>
+                <h4
+                  style={{
+                    margin: "0 0 16px",
+                    fontSize: 12,
+                    fontWeight: 700,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "var(--text-3)",
+                  }}
                 >
-                  {l.label}
-                </Link>
-              </motion.div>
+                  {column.title}
+                </h4>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                  {column.links.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      style={{
+                        color: "var(--text-2)",
+                        textDecoration: "none",
+                        fontSize: 14,
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
-        </motion.div>
+
+          <div
+            style={{
+              paddingTop: 20,
+              borderTop: "1px solid var(--border)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 16,
+              flexWrap: "wrap",
+              color: "var(--text-3)",
+              fontSize: 13,
+            }}
+          >
+            <span>Copyright 2026 Konvoq Inc. All rights reserved.</span>
+            <span>Theme aware. Accessibility minded. Built for production.</span>
+          </div>
+        </div>
       </div>
     </footer>
   );
 }
+

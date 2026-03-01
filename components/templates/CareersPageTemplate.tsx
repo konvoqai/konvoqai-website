@@ -1,14 +1,14 @@
-"use client";
+﻿"use client";
 
 import { motion, type Variants } from "framer-motion";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// ─── Reusable SectionLabel ───────────────────────────────────────────────────
+// â”€â”€â”€ Reusable SectionLabel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
       display: "inline-flex", alignItems: "center", gap: 8,
-      background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-2)",
+      background: "var(--surface-3)", border: "1px solid var(--border-2)",
       borderRadius: 100, padding: "6px 16px", fontSize: 11, fontWeight: 600,
       letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-2)",
       marginBottom: 24,
@@ -19,7 +19,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// ─── Variants ────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -35,40 +35,40 @@ const fadeIn: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const PERKS = [
   {
-    icon: "🌍",
+    icon: "ðŸŒ",
     title: "Remote First",
     desc: "Work from anywhere. We have team members in 12 countries and we believe the best talent isn't in any single city.",
-    color: "var(--cyan)",
+    color: "var(--accent)",
   },
   {
-    icon: "💰",
+    icon: "ðŸ’°",
     title: "Competitive Pay",
     desc: "Top-of-market salaries benchmarked against the best companies in tech. We pay well because great people deserve it.",
     color: "var(--emerald)",
   },
   {
-    icon: "📈",
+    icon: "ðŸ“ˆ",
     title: "Meaningful Equity",
     desc: "Generous equity packages. As we grow, so do you. Every team member has real ownership in what we're building.",
-    color: "var(--violet)",
+    color: "var(--accent-strong)",
   },
   {
-    icon: "🏥",
+    icon: "ðŸ¥",
     title: "Full Health Coverage",
     desc: "Comprehensive health, dental, and vision insurance for you and your dependents. Your wellbeing comes first.",
-    color: "var(--rose)",
+    color: "var(--danger)",
   },
   {
-    icon: "📚",
+    icon: "ðŸ“š",
     title: "$2K Learning Budget",
     desc: "Annual budget for courses, books, conferences, or anything that makes you better at your craft. No questions asked.",
     color: "var(--amber)",
   },
   {
-    icon: "🌴",
+    icon: "ðŸŒ´",
     title: "Unlimited PTO",
     desc: "Take the time you need. We trust you to manage your time well and come back recharged and ready to do great work.",
     color: "#A78BFA",
@@ -81,7 +81,7 @@ const JOBS = [
     dept: "Engineering",
     location: "Remote",
     type: "Full-time",
-    deptColor: "var(--violet)",
+    deptColor: "var(--accent-strong)",
     hot: true,
   },
   {
@@ -89,7 +89,7 @@ const JOBS = [
     dept: "Engineering",
     location: "Remote",
     type: "Full-time",
-    deptColor: "var(--violet)",
+    deptColor: "var(--accent-strong)",
     hot: false,
   },
   {
@@ -97,7 +97,7 @@ const JOBS = [
     dept: "Design",
     location: "Remote",
     type: "Full-time",
-    deptColor: "var(--cyan)",
+    deptColor: "var(--accent)",
     hot: true,
   },
   {
@@ -113,7 +113,7 @@ const JOBS = [
     dept: "Engineering",
     location: "Remote",
     type: "Full-time",
-    deptColor: "var(--violet)",
+    deptColor: "var(--accent-strong)",
     hot: false,
   },
   {
@@ -121,7 +121,7 @@ const JOBS = [
     dept: "Marketing",
     location: "Remote",
     type: "Full-time",
-    deptColor: "var(--rose)",
+    deptColor: "var(--danger)",
     hot: true,
   },
   {
@@ -146,29 +146,29 @@ const CULTURE_CARDS = [
   {
     title: "Async by default",
     desc: "We write things down. No unnecessary meetings, no timezone discrimination. Your best work happens when you're focused.",
-    grad: "linear-gradient(135deg, rgba(6,239,255,0.15), rgba(139,92,246,0.15))",
+    grad: "linear-gradient(135deg, rgba(91, 140, 255, 0.18), rgba(122, 162, 255, 0.2))",
   },
   {
     title: "Ship early, iterate fast",
     desc: "We celebrate shipping, even when things aren't perfect. Every deploy is a learning opportunity. Done beats perfect.",
-    grad: "linear-gradient(135deg, rgba(139,92,246,0.15), rgba(244,63,94,0.15))",
+    grad: "linear-gradient(135deg, rgba(122, 162, 255, 0.2), rgba(239, 68, 68, 0.18))",
   },
   {
     title: "Radical ownership",
     desc: "At Konvoq, there's no 'someone else's problem.' We take ownership of outcomes, not just tasks.",
-    grad: "linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,239,255,0.15))",
+    grad: "linear-gradient(135deg, rgba(16,185,129,0.15), rgba(91, 140, 255, 0.18))",
   },
 ];
 
-// ─── Component ───────────────────────────────────────────────────────────────
+// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function CareersPageTemplate() {
   return (
     <PageLayout>
-      {/* ── Hero ── */}
+      {/* â”€â”€ Hero â”€â”€ */}
       <section style={{ position: "relative", overflow: "hidden", padding: "100px 24px 120px" }}>
         <div aria-hidden style={{
           position: "absolute", inset: 0, pointerEvents: "none",
-          background: "radial-gradient(ellipse 90% 60% at 50% -10%, rgba(139,92,246,0.1) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 20% 60%, rgba(6,239,255,0.06) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse 90% 60% at 50% -10%, rgba(122, 162, 255, 0.14) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 20% 60%, var(--accent-muted) 0%, transparent 60%)",
         }} />
         {/* Animated gradient orbs */}
         <motion.div aria-hidden
@@ -176,7 +176,7 @@ export default function CareersPageTemplate() {
           transition={{ duration: 8, repeat: Infinity, ease: "easeOut" }}
           style={{
             position: "absolute", width: 600, height: 600, borderRadius: "50%",
-            background: "var(--violet)", filter: "blur(120px)",
+            background: "var(--accent-strong)", filter: "blur(120px)",
             top: "50%", left: "50%", transform: "translate(-50%, -50%)",
             pointerEvents: "none",
           }}
@@ -225,7 +225,7 @@ export default function CareersPageTemplate() {
         </div>
       </section>
 
-      {/* ── Perks ── */}
+      {/* â”€â”€ Perks â”€â”€ */}
       <section style={{ padding: "80px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={stagger}>
@@ -263,7 +263,7 @@ export default function CareersPageTemplate() {
         </div>
       </section>
 
-      {/* ── Open Positions ── */}
+      {/* â”€â”€ Open Positions â”€â”€ */}
       <section id="open-positions" style={{ padding: "80px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}>
@@ -273,7 +273,7 @@ export default function CareersPageTemplate() {
                 Find your role
               </h2>
               <p style={{ fontSize: 17, color: "var(--text-2)", marginTop: 16 }}>
-                {JOBS.length} open positions · All remote · Full-time
+                {JOBS.length} open positions Â· All remote Â· Full-time
               </p>
             </motion.div>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -294,8 +294,8 @@ export default function CareersPageTemplate() {
                         <span style={{ fontWeight: 700, fontSize: 16, color: "var(--text-1)" }}>{job.title}</span>
                         {job.hot && (
                           <span style={{
-                            background: "rgba(244,63,94,0.15)", color: "var(--rose)",
-                            border: "1px solid rgba(244,63,94,0.25)", borderRadius: 100,
+                            background: "rgba(239, 68, 68, 0.18)", color: "var(--danger)",
+                            border: "1px solid rgba(239, 68, 68, 0.26)", borderRadius: 100,
                             fontSize: 10, fontWeight: 700, padding: "2px 8px", letterSpacing: "0.08em",
                           }}>HOT</span>
                         )}
@@ -306,8 +306,8 @@ export default function CareersPageTemplate() {
                           background: `${job.deptColor}15`, color: job.deptColor,
                           border: `1px solid ${job.deptColor}30`,
                         }}>{job.dept}</span>
-                        <span style={{ fontSize: 13, color: "var(--text-2)" }}>📍 {job.location}</span>
-                        <span style={{ fontSize: 13, color: "var(--text-2)" }}>🕐 {job.type}</span>
+                        <span style={{ fontSize: 13, color: "var(--text-2)" }}>ðŸ“ {job.location}</span>
+                        <span style={{ fontSize: 13, color: "var(--text-2)" }}>ðŸ• {job.type}</span>
                       </div>
                     </div>
                   </div>
@@ -320,7 +320,7 @@ export default function CareersPageTemplate() {
                       borderRadius: 100, fontWeight: 700, fontSize: 14,
                       color: "#fff", textDecoration: "none", whiteSpace: "nowrap",
                     }}>
-                    Apply →
+                    Apply â†’
                   </motion.a>
                 </motion.div>
               ))}
@@ -329,7 +329,7 @@ export default function CareersPageTemplate() {
         </div>
       </section>
 
-      {/* ── Culture ── */}
+      {/* â”€â”€ Culture â”€â”€ */}
       <section style={{ padding: "80px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}>
@@ -354,7 +354,7 @@ export default function CareersPageTemplate() {
                   }}>
                     <div style={{
                       width: 64, height: 64, borderRadius: "50%",
-                      background: "rgba(255,255,255,0.08)", border: "1px solid var(--border-2)",
+                      background: "var(--surface-2)", border: "1px solid var(--border-2)",
                     }} />
                   </div>
                   <div style={{
@@ -372,7 +372,7 @@ export default function CareersPageTemplate() {
         </div>
       </section>
 
-      {/* ── General Application ── */}
+      {/* â”€â”€ General Application â”€â”€ */}
       <section style={{ padding: "80px 24px 120px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
           <motion.div
@@ -385,10 +385,10 @@ export default function CareersPageTemplate() {
           >
             <div aria-hidden style={{
               position: "absolute", inset: 0, pointerEvents: "none",
-              background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(139,92,246,0.06) 0%, transparent 70%)",
+              background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(122, 162, 255, 0.09) 0%, transparent 70%)",
             }} />
             <motion.div variants={fadeUp} style={{ position: "relative" }}>
-              <div style={{ fontSize: 40, marginBottom: 16 }}>💌</div>
+              <div style={{ fontSize: 40, marginBottom: 16 }}>ðŸ’Œ</div>
               <h2 style={{ fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 800, marginBottom: 16, letterSpacing: "-0.02em" }}>
                 Don&apos;t see your role?
               </h2>
@@ -403,7 +403,7 @@ export default function CareersPageTemplate() {
                   background: "var(--grad-btn)", borderRadius: 100, fontWeight: 700, fontSize: 15,
                   color: "#fff", textDecoration: "none",
                 }}>
-                Send a general application →
+                Send a general application â†’
               </motion.a>
             </motion.div>
           </motion.div>
@@ -412,4 +412,5 @@ export default function CareersPageTemplate() {
     </PageLayout>
   );
 }
+
 

@@ -1,4 +1,4 @@
-import Navbar from "@/components/organisms/Navbar";
+﻿import Navbar from "@/components/organisms/Navbar";
 import HeroSection from "@/components/organisms/HeroSection";
 import SocialProofSection from "@/components/organisms/SocialProofSection";
 import FeaturesSection from "@/components/organisms/FeaturesSection";
@@ -14,9 +14,9 @@ import Footer from "@/components/organisms/Footer";
 
 export default function HomePageTemplate() {
   return (
-    <>
+    <div className="site-shell">
       <Navbar />
-      <main>
+      <main className="marketing-main">
         <HeroSection />
         <SocialProofSection />
         <FeaturesSection />
@@ -30,6 +30,7 @@ export default function HomePageTemplate() {
         <CtaSection />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
+

@@ -1,15 +1,15 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// ─── Reusable SectionLabel ───────────────────────────────────────────────────
+// â”€â”€â”€ Reusable SectionLabel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
       display: "inline-flex", alignItems: "center", gap: 8,
-      background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-2)",
+      background: "var(--surface-3)", border: "1px solid var(--border-2)",
       borderRadius: 100, padding: "6px 16px", fontSize: 11, fontWeight: 600,
       letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-2)",
       marginBottom: 24,
@@ -20,7 +20,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// ─── Variants ────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -36,19 +36,19 @@ const fadeIn: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const CONTACT_CHANNELS = [
   {
-    icon: "💼",
+    icon: "ðŸ’¼",
     label: "Sales",
     email: "sales@konvoq.ai",
     response: "Response within 1 hour",
     note: null,
-    color: "var(--cyan)",
+    color: "var(--accent)",
     href: "mailto:sales@konvoq.ai",
   },
   {
-    icon: "🛠️",
+    icon: "ðŸ› ï¸",
     label: "Support",
     email: "support@konvoq.ai",
     response: "Response within 2 hours",
@@ -57,7 +57,7 @@ const CONTACT_CHANNELS = [
     href: "mailto:support@konvoq.ai",
   },
   {
-    icon: "📰",
+    icon: "ðŸ“°",
     label: "Press",
     email: "pr@konvoq.ai",
     response: "Response within 24 hours",
@@ -66,24 +66,24 @@ const CONTACT_CHANNELS = [
     href: "mailto:pr@konvoq.ai",
   },
   {
-    icon: "👋",
+    icon: "ðŸ‘‹",
     label: "Careers",
     email: "careers@konvoq.ai",
     response: null,
     note: "See all open roles",
-    color: "var(--violet)",
+    color: "var(--accent-strong)",
     href: "mailto:careers@konvoq.ai",
   },
 ];
 
 const SOCIALS = [
-  { name: "Twitter / X", handle: "@konvoqai", icon: "𝕏", href: "https://twitter.com/konvoqai" },
+  { name: "Twitter / X", handle: "@konvoqai", icon: "ð•", href: "https://twitter.com/konvoqai" },
   { name: "LinkedIn", handle: "Konvoq AI", icon: "in", href: "https://linkedin.com/company/konvoq" },
-  { name: "GitHub", handle: "konvoq-ai", icon: "⌥", href: "https://github.com/konvoq-ai" },
-  { name: "YouTube", handle: "Konvoq", icon: "▶", href: "https://youtube.com/@konvoqai" },
+  { name: "GitHub", handle: "konvoq-ai", icon: "âŒ¥", href: "https://github.com/konvoq-ai" },
+  { name: "YouTube", handle: "Konvoq", icon: "â–¶", href: "https://youtube.com/@konvoqai" },
 ];
 
-// ─── Styled Input ─────────────────────────────────────────────────────────────
+// â”€â”€â”€ Styled Input â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
@@ -103,7 +103,7 @@ const inputStyle: React.CSSProperties = {
   fontFamily: "inherit", transition: "border-color 0.15s",
 };
 
-// ─── Contact Form ─────────────────────────────────────────────────────────────
+// â”€â”€â”€ Contact Form â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function ContactForm() {
   const [form, setForm] = useState({
     name: "", email: "", company: "", topic: "", message: "",
@@ -113,8 +113,8 @@ function ContactForm() {
 
   const getFieldStyle = (field: string): React.CSSProperties => ({
     ...inputStyle,
-    borderColor: focusedField === field ? "var(--cyan)" : "var(--border-2)",
-    boxShadow: focusedField === field ? "0 0 0 3px rgba(6,239,255,0.08)" : "none",
+    borderColor: focusedField === field ? "var(--accent)" : "var(--border-2)",
+    boxShadow: focusedField === field ? "0 0 0 3px var(--accent-muted)" : "none",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -138,7 +138,7 @@ function ContactForm() {
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           style={{ fontSize: 56, marginBottom: 20 }}
-        >✅</motion.div>
+        >âœ…</motion.div>
         <h3 style={{ fontSize: 24, fontWeight: 800, marginBottom: 12 }}>Message sent!</h3>
         <p style={{ fontSize: 16, color: "var(--text-2)", lineHeight: 1.7 }}>
           Thanks for reaching out! We&apos;ll get back to you at <strong style={{ color: "var(--text-1)" }}>{form.email}</strong> as soon as possible.
@@ -205,8 +205,8 @@ function ContactForm() {
         >
           <option value="">Select a topic</option>
           <option value="general">General Inquiry</option>
-          <option value="sales">Sales — Pricing & Plans</option>
-          <option value="support">Support — Technical Help</option>
+          <option value="sales">Sales â€” Pricing & Plans</option>
+          <option value="support">Support â€” Technical Help</option>
           <option value="partnership">Partnership Opportunities</option>
           <option value="press">Press & Media</option>
         </select>
@@ -236,7 +236,7 @@ function ContactForm() {
           border: "none", fontFamily: "inherit",
         }}
       >
-        Send Message →
+        Send Message â†’
       </motion.button>
       <p style={{ fontSize: 12, color: "var(--text-3)", textAlign: "center" }}>
         By submitting this form you agree to our privacy policy. We&apos;ll never share your email with third parties.
@@ -245,15 +245,15 @@ function ContactForm() {
   );
 }
 
-// ─── Component ───────────────────────────────────────────────────────────────
+// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function ContactPageTemplate() {
   return (
     <PageLayout>
-      {/* ── Hero ── */}
+      {/* â”€â”€ Hero â”€â”€ */}
       <section style={{ position: "relative", overflow: "hidden", padding: "100px 24px 80px" }}>
         <div aria-hidden style={{
           position: "absolute", inset: 0, pointerEvents: "none",
-          background: "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(6,239,255,0.07) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(91, 140, 255, 0.1) 0%, transparent 70%)",
         }} />
         <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center", position: "relative" }}>
           <motion.div initial="hidden" animate="visible" variants={stagger}>
@@ -269,13 +269,13 @@ export default function ContactPageTemplate() {
             <motion.p variants={fadeUp} style={{
               fontSize: 20, color: "var(--text-2)", lineHeight: 1.7, maxWidth: 520, margin: "0 auto",
             }}>
-              Whether you&apos;re exploring Konvoq for your business, need technical help, or just want to say hello — we&apos;re here and we respond fast.
+              Whether you&apos;re exploring Konvoq for your business, need technical help, or just want to say hello â€” we&apos;re here and we respond fast.
             </motion.p>
           </motion.div>
         </div>
       </section>
 
-      {/* ── Two Column Layout ── */}
+      {/* â”€â”€ Two Column Layout â”€â”€ */}
       <section style={{ padding: "40px 24px 100px" }}>
         <div style={{
           maxWidth: 1200, margin: "0 auto",
@@ -335,7 +335,7 @@ export default function ContactPageTemplate() {
                     <div style={{ fontSize: 12, color: "var(--text-3)" }}>{channel.note}</div>
                   )}
                 </div>
-                <div style={{ color: "var(--text-3)", fontSize: 16 }}>→</div>
+                <div style={{ color: "var(--text-3)", fontSize: 16 }}>â†’</div>
               </motion.a>
             ))}
 
@@ -343,7 +343,7 @@ export default function ContactPageTemplate() {
             <motion.div variants={fadeIn}
               whileHover={{ y: -3, transition: { duration: 0.2, ease: "easeOut" } }}
               style={{
-                background: "linear-gradient(135deg, rgba(6,239,255,0.08), rgba(139,92,246,0.08))",
+                background: "linear-gradient(135deg, var(--accent-muted), rgba(122, 162, 255, 0.12))",
                 border: "1px solid var(--border-2)", borderRadius: "var(--radius-lg)",
                 padding: "24px 20px", marginTop: 8, cursor: "pointer",
               }}
@@ -353,7 +353,7 @@ export default function ContactPageTemplate() {
                   width: 44, height: 44, borderRadius: "var(--radius)", flexShrink: 0,
                   background: "var(--grad-btn)", display: "flex", alignItems: "center",
                   justifyContent: "center", fontSize: 20,
-                }}>💬</div>
+                }}>ðŸ’¬</div>
                 <div>
                   <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 4 }}>
                     Try our AI chatbot for instant answers
@@ -384,13 +384,13 @@ export default function ContactPageTemplate() {
                 display: "flex", gap: 14, alignItems: "flex-start",
               }}
             >
-              <div style={{ fontSize: 22, flexShrink: 0 }}>🌍</div>
+              <div style={{ fontSize: 22, flexShrink: 0 }}>ðŸŒ</div>
               <div>
                 <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 4 }}>
                   Fully Remote
                 </div>
                 <div style={{ fontSize: 13, color: "var(--text-2)", lineHeight: 1.5 }}>
-                  Our team spans 12 countries across every timezone. No headquarters — just great people everywhere.
+                  Our team spans 12 countries across every timezone. No headquarters â€” just great people everywhere.
                 </div>
               </div>
             </motion.div>
@@ -398,7 +398,7 @@ export default function ContactPageTemplate() {
         </div>
       </section>
 
-      {/* ── Social Links ── */}
+      {/* â”€â”€ Social Links â”€â”€ */}
       <section style={{ padding: "60px 24px 100px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.4 }} variants={stagger}>
@@ -436,4 +436,5 @@ export default function ContactPageTemplate() {
     </PageLayout>
   );
 }
+
 

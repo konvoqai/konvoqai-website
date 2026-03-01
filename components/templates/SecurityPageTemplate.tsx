@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
@@ -84,13 +84,13 @@ export default function SecurityPageTemplate() {
                 width: 80,
                 height: 80,
                 borderRadius: "50%",
-                background: "linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,239,255,0.1))",
+                background: "linear-gradient(135deg, rgba(16,185,129,0.15), var(--accent-muted-strong))",
                 border: "2px solid rgba(16,185,129,0.3)",
                 fontSize: 36,
                 marginBottom: 24,
               }}
             >
-              🛡️
+              ðŸ›¡ï¸
             </div>
           </motion.div>
           <motion.h1
@@ -115,8 +115,8 @@ export default function SecurityPageTemplate() {
           >
             {[
               { label: "SOC 2 Type II", color: "var(--emerald)" },
-              { label: "GDPR Compliant", color: "var(--cyan)" },
-              { label: "HIPAA Ready", color: "var(--violet)" },
+              { label: "GDPR Compliant", color: "var(--accent)" },
+              { label: "HIPAA Ready", color: "var(--accent-strong)" },
               { label: "ISO 27001", color: "var(--amber)" },
             ].map(({ label, color }) => (
               <span
@@ -131,7 +131,7 @@ export default function SecurityPageTemplate() {
                   fontSize: 13,
                 }}
               >
-                ✓ {label}
+                âœ“ {label}
               </span>
             ))}
           </motion.div>
@@ -149,25 +149,25 @@ export default function SecurityPageTemplate() {
         >
           {[
             {
-              icon: "🏆",
+              icon: "ðŸ†",
               title: "SOC 2 Type II",
               color: "var(--emerald)",
               desc: "Annual third-party audit verifying our security, availability, processing integrity, confidentiality, and privacy controls.",
             },
             {
-              icon: "🇪🇺",
+              icon: "ðŸ‡ªðŸ‡º",
               title: "GDPR Compliant",
-              color: "var(--cyan)",
+              color: "var(--accent)",
               desc: "Full compliance with the EU General Data Protection Regulation including DPA, data subject rights, and transfer mechanisms.",
             },
             {
-              icon: "🏥",
+              icon: "ðŸ¥",
               title: "HIPAA Ready",
-              color: "var(--violet)",
+              color: "var(--accent-strong)",
               desc: "Healthcare customers can sign a BAA. Our platform supports HIPAA-compliant deployment configurations for protected health information.",
             },
             {
-              icon: "🌐",
+              icon: "ðŸŒ",
               title: "ISO 27001",
               color: "var(--amber)",
               desc: "Information security management system certified to ISO/IEC 27001:2022 international standard.",
@@ -213,9 +213,9 @@ export default function SecurityPageTemplate() {
           style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}
         >
           {[
-            { icon: "☁️", title: "AWS Infrastructure", stat: "99.99%", statLabel: "Uptime SLA", desc: "Hosted on Amazon Web Services — the world's most secure and reliable cloud provider. We leverage AWS Shield, WAF, and Security Hub." },
-            { icon: "🌍", title: "Multi-Region", stat: "5+", statLabel: "Global Regions", desc: "Data replicated across multiple AWS regions for disaster recovery, data residency compliance, and low-latency access worldwide." },
-            { icon: "⚡", title: "99.99% Uptime SLA", stat: "<100ms", statLabel: "Avg. Latency", desc: "Enterprise SLA with financial-backed guarantees. Real-time status at status.konvoq.ai. Automatic failover in under 30 seconds." },
+            { icon: "â˜ï¸", title: "AWS Infrastructure", stat: "99.99%", statLabel: "Uptime SLA", desc: "Hosted on Amazon Web Services â€” the world's most secure and reliable cloud provider. We leverage AWS Shield, WAF, and Security Hub." },
+            { icon: "ðŸŒ", title: "Multi-Region", stat: "5+", statLabel: "Global Regions", desc: "Data replicated across multiple AWS regions for disaster recovery, data residency compliance, and low-latency access worldwide." },
+            { icon: "âš¡", title: "99.99% Uptime SLA", stat: "<100ms", statLabel: "Avg. Latency", desc: "Enterprise SLA with financial-backed guarantees. Real-time status at status.konvoq.ai. Automatic failover in under 30 seconds." },
           ].map(({ icon, title, stat, statLabel, desc }) => (
             <motion.div
               key={title}
@@ -240,7 +240,7 @@ export default function SecurityPageTemplate() {
                   alignSelf: "flex-start",
                 }}
               >
-                <p style={{ fontSize: 28, fontWeight: 800, color: "var(--cyan)", lineHeight: 1 }}>{stat}</p>
+                <p style={{ fontSize: 28, fontWeight: 800, color: "var(--accent)", lineHeight: 1 }}>{stat}</p>
                 <p style={{ fontSize: 12, color: "var(--text-3)", marginTop: 2 }}>{statLabel}</p>
               </div>
               <h3 style={{ fontSize: 17, fontWeight: 700 }}>{title}</h3>
@@ -260,9 +260,9 @@ export default function SecurityPageTemplate() {
           style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}
         >
           {[
-            { icon: "🔒", title: "AES-256 at Rest", color: "var(--cyan)", desc: "All stored data — conversations, configs, user records — encrypted using AES-256-GCM, the same standard used by financial institutions." },
-            { icon: "🔐", title: "TLS 1.3 in Transit", color: "var(--violet)", desc: "All data transmitted using TLS 1.3 with perfect forward secrecy. Older cipher suites are disabled. HSTS enforced across all endpoints." },
-            { icon: "🕳️", title: "Zero-Knowledge Architecture", color: "var(--emerald)", desc: "Conversation data is processed ephemerally for AI responses. We do not train our models on your private conversations without explicit consent." },
+            { icon: "ðŸ”’", title: "AES-256 at Rest", color: "var(--accent)", desc: "All stored data â€” conversations, configs, user records â€” encrypted using AES-256-GCM, the same standard used by financial institutions." },
+            { icon: "ðŸ”", title: "TLS 1.3 in Transit", color: "var(--accent-strong)", desc: "All data transmitted using TLS 1.3 with perfect forward secrecy. Older cipher suites are disabled. HSTS enforced across all endpoints." },
+            { icon: "ðŸ•³ï¸", title: "Zero-Knowledge Architecture", color: "var(--emerald)", desc: "Conversation data is processed ephemerally for AI responses. We do not train our models on your private conversations without explicit consent." },
           ].map(({ icon, title, color, desc }) => (
             <motion.div
               key={title}
@@ -307,9 +307,9 @@ export default function SecurityPageTemplate() {
           style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}
         >
           {[
-            { icon: "🔑", title: "SSO / SAML 2.0", desc: "Single sign-on via SAML 2.0, OAuth 2.0, and OIDC. Integrates with Okta, Azure AD, Google Workspace, and any SAML-compliant IdP." },
-            { icon: "👥", title: "Role-Based Access Control", desc: "Granular RBAC with custom roles. Assign permissions at the workspace, project, and resource level. Full audit trail of all access events." },
-            { icon: "📱", title: "MFA Enforcement", desc: "Require MFA for all team members. Supports authenticator apps (TOTP), hardware keys (FIDO2/WebAuthn), and SMS fallback." },
+            { icon: "ðŸ”‘", title: "SSO / SAML 2.0", desc: "Single sign-on via SAML 2.0, OAuth 2.0, and OIDC. Integrates with Okta, Azure AD, Google Workspace, and any SAML-compliant IdP." },
+            { icon: "ðŸ‘¥", title: "Role-Based Access Control", desc: "Granular RBAC with custom roles. Assign permissions at the workspace, project, and resource level. Full audit trail of all access events." },
+            { icon: "ðŸ“±", title: "MFA Enforcement", desc: "Require MFA for all team members. Supports authenticator apps (TOTP), hardware keys (FIDO2/WebAuthn), and SMS fallback." },
           ].map(({ icon, title, desc }) => (
             <motion.div
               key={title}
@@ -342,7 +342,7 @@ export default function SecurityPageTemplate() {
             variants={cardIn}
             style={{
               padding: "40px",
-              background: "linear-gradient(135deg, rgba(6,239,255,0.07) 0%, rgba(139,92,246,0.05) 100%)",
+              background: "linear-gradient(135deg, rgba(91, 140, 255, 0.1) 0%, rgba(122, 162, 255, 0.07) 100%)",
               border: "1px solid var(--border-2)",
               borderRadius: "var(--radius-xl)",
               display: "flex",
@@ -355,15 +355,15 @@ export default function SecurityPageTemplate() {
                 width: 48,
                 height: 48,
                 borderRadius: "50%",
-                background: "rgba(6,239,255,0.12)",
-                border: "1px solid rgba(6,239,255,0.3)",
+                background: "rgba(91, 140, 255, 0.18)",
+                border: "1px solid rgba(91, 140, 255, 0.32)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 fontSize: 22,
               }}
             >
-              👁️
+              ðŸ‘ï¸
             </div>
             <h3 style={{ fontSize: 20, fontWeight: 700 }}>24/7 Security Monitoring</h3>
             <p style={{ color: "var(--text-2)", fontSize: 15, lineHeight: 1.7 }}>
@@ -376,11 +376,11 @@ export default function SecurityPageTemplate() {
                   key={tag}
                   style={{
                     padding: "4px 12px",
-                    background: "rgba(6,239,255,0.08)",
-                    border: "1px solid rgba(6,239,255,0.2)",
+                    background: "var(--accent-muted)",
+                    border: "1px solid rgba(91, 140, 255, 0.24)",
                     borderRadius: 999,
                     fontSize: 12,
-                    color: "var(--cyan)",
+                    color: "var(--accent)",
                     fontWeight: 600,
                   }}
                 >
@@ -404,7 +404,7 @@ export default function SecurityPageTemplate() {
               gap: 12,
             }}
           >
-            <span style={{ fontSize: 36 }}>⚡</span>
+            <span style={{ fontSize: 36 }}>âš¡</span>
             <p style={{ fontSize: 40, fontWeight: 800, color: "var(--emerald)" }}>&lt;1h</p>
             <p style={{ color: "var(--text-2)", fontSize: 14 }}>Incident Response Time</p>
           </motion.div>
@@ -423,22 +423,22 @@ export default function SecurityPageTemplate() {
               gap: 12,
             }}
           >
-            <span style={{ fontSize: 36 }}>📊</span>
+            <span style={{ fontSize: 36 }}>ðŸ“Š</span>
             <p style={{ fontSize: 18, fontWeight: 700 }}>Public Status Page</p>
             <a
               href="https://status.konvoq.ai"
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                color: "var(--cyan)",
+                color: "var(--accent)",
                 fontSize: 14,
                 textDecoration: "none",
                 padding: "8px 16px",
-                border: "1px solid rgba(6,239,255,0.3)",
+                border: "1px solid rgba(91, 140, 255, 0.32)",
                 borderRadius: 999,
               }}
             >
-              status.konvoq.ai →
+              status.konvoq.ai â†’
             </a>
           </motion.div>
         </motion.div>
@@ -462,16 +462,16 @@ export default function SecurityPageTemplate() {
               borderRadius: "var(--radius-xl)",
             }}
           >
-            <span style={{ fontSize: 36, display: "block", marginBottom: 16 }}>🧪</span>
+            <span style={{ fontSize: 36, display: "block", marginBottom: 16 }}>ðŸ§ª</span>
             <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 12 }}>Quarterly Penetration Testing</h3>
             <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.7, marginBottom: 16 }}>
               We engage independent, certified third-party security firms to conduct comprehensive penetration tests
-              every quarter — covering our web application, API, infrastructure, and mobile surfaces.
+              every quarter â€” covering our web application, API, infrastructure, and mobile surfaces.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {["Network & infrastructure testing", "Web application (OWASP Top 10)", "API security assessment", "Social engineering simulation"].map((item) => (
                 <div key={item} style={{ display: "flex", gap: 8, alignItems: "center", fontSize: 13, color: "var(--text-2)" }}>
-                  <span style={{ color: "var(--emerald)", fontWeight: 700 }}>✓</span> {item}
+                  <span style={{ color: "var(--emerald)", fontWeight: 700 }}>âœ“</span> {item}
                 </div>
               ))}
             </div>
@@ -485,7 +485,7 @@ export default function SecurityPageTemplate() {
               borderRadius: "var(--radius-xl)",
             }}
           >
-            <span style={{ fontSize: 36, display: "block", marginBottom: 16 }}>🔎</span>
+            <span style={{ fontSize: 36, display: "block", marginBottom: 16 }}>ðŸ”Ž</span>
             <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 12 }}>Vulnerability Disclosure Program</h3>
             <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.7, marginBottom: 16 }}>
               We welcome responsible disclosure of security vulnerabilities from the security research community.
@@ -493,8 +493,8 @@ export default function SecurityPageTemplate() {
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-                <span style={{ fontSize: 20 }}>📧</span>
-                <a href="mailto:security@konvoq.ai" style={{ color: "var(--cyan)", fontWeight: 600 }}>
+                <span style={{ fontSize: 20 }}>ðŸ“§</span>
+                <a href="mailto:security@konvoq.ai" style={{ color: "var(--accent)", fontWeight: 600 }}>
                   security@konvoq.ai
                 </a>
               </div>
@@ -526,7 +526,7 @@ export default function SecurityPageTemplate() {
             textAlign: "center",
           }}
         >
-          <span style={{ fontSize: 48, display: "block", marginBottom: 16 }}>📄</span>
+          <span style={{ fontSize: 48, display: "block", marginBottom: 16 }}>ðŸ“„</span>
           <h2 style={{ fontSize: 28, fontWeight: 700, marginBottom: 12 }}>
             Download Our{" "}
             <span className="grad-text">SOC 2 Report</span>
@@ -546,7 +546,7 @@ export default function SecurityPageTemplate() {
                 fontWeight: 600,
               }}
             >
-              ✓ Request received! We&apos;ll send the report to your email within 1 business day.
+              âœ“ Request received! We&apos;ll send the report to your email within 1 business day.
             </div>
           ) : (
             <form
@@ -594,7 +594,7 @@ export default function SecurityPageTemplate() {
   );
 }
 
-/* ─── Section wrapper ─────────────────────────────── */
+/* â”€â”€â”€ Section wrapper â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function Section({
   label,
   title,
@@ -641,4 +641,5 @@ function Section({
     </section>
   );
 }
+
 

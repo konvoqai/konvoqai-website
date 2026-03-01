@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
@@ -18,7 +18,7 @@ export default function TestimonialCard({
   role,
   company,
   initials,
-  avatarColor = "var(--violet)",
+  avatarColor = "var(--accent-strong)",
   stars = 5,
 }: TestimonialCardProps) {
   return (
@@ -37,7 +37,7 @@ export default function TestimonialCard({
     >
       <div style={{ display: "flex", gap: 4, marginBottom: 16 }}>
         {Array.from({ length: stars }).map((_, i) => (
-          <span key={i} style={{ color: "#FBBF24", fontSize: 16 }}>★</span>
+          <span key={i} style={{ color: "#FBBF24", fontSize: 16 }}>â˜…</span>
         ))}
       </div>
       <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--text-2)", flex: 1, marginBottom: 24 }}>
@@ -63,9 +63,10 @@ export default function TestimonialCard({
         </div>
         <div>
           <div style={{ fontWeight: 700, fontSize: 14, color: "var(--text-1)" }}>{name}</div>
-          <div style={{ fontSize: 13, color: "var(--text-3)" }}>{role} · {company}</div>
+          <div style={{ fontSize: 13, color: "var(--text-3)" }}>{role} Â· {company}</div>
         </div>
       </div>
     </motion.div>
   );
 }
+

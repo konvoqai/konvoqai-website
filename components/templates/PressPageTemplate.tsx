@@ -1,14 +1,14 @@
-"use client";
+﻿"use client";
 
 import { motion, type Variants } from "framer-motion";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// ─── Reusable SectionLabel ───────────────────────────────────────────────────
+// â”€â”€â”€ Reusable SectionLabel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
       display: "inline-flex", alignItems: "center", gap: 8,
-      background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-2)",
+      background: "var(--surface-3)", border: "1px solid var(--border-2)",
       borderRadius: 100, padding: "6px 16px", fontSize: 11, fontWeight: 600,
       letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-2)",
       marginBottom: 24,
@@ -19,7 +19,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// ─── Variants ────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -35,7 +35,7 @@ const fadeIn: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const PRESS_STATS = [
   { value: "500+", label: "Articles written" },
   { value: "50+", label: "Media features" },
@@ -49,9 +49,9 @@ const PRESS_LOGOS = [
 const PRESS_ARTICLES = [
   {
     outlet: "TechCrunch",
-    outletColor: "var(--rose)",
+    outletColor: "var(--danger)",
     title: "Konvoq raises $12M to bring AI chatbots to SMBs",
-    excerpt: "The Series A, led by Sequoia Capital, will help the startup expand its AI-powered chatbot platform to small and medium businesses worldwide — a market largely ignored by enterprise AI vendors.",
+    excerpt: "The Series A, led by Sequoia Capital, will help the startup expand its AI-powered chatbot platform to small and medium businesses worldwide â€” a market largely ignored by enterprise AI vendors.",
     date: "December 2025",
     tag: "Funding",
   },
@@ -67,15 +67,15 @@ const PRESS_ARTICLES = [
     outlet: "Wired",
     outletColor: "var(--text-1)",
     title: "How Konvoq is making enterprise AI accessible to everyone",
-    excerpt: "Inside the startup that figured out how to strip away the complexity of large language models without stripping away the capability — and why it might be the most important AI company most people haven't heard of.",
+    excerpt: "Inside the startup that figured out how to strip away the complexity of large language models without stripping away the capability â€” and why it might be the most important AI company most people haven't heard of.",
     date: "November 2025",
     tag: "Deep Dive",
   },
   {
     outlet: "VentureBeat",
-    outletColor: "var(--violet)",
+    outletColor: "var(--accent-strong)",
     title: "Konvoq's AI achieves 94% resolution rate, outperforming human agents",
-    excerpt: "New benchmark data released by Konvoq shows their AI chatbot resolves 94% of customer inquiries without human escalation — compared to an industry average of 68% for human agents.",
+    excerpt: "New benchmark data released by Konvoq shows their AI chatbot resolves 94% of customer inquiries without human escalation â€” compared to an industry average of 68% for human agents.",
     date: "February 2026",
     tag: "Research",
   },
@@ -89,7 +89,7 @@ const PRESS_ARTICLES = [
   },
   {
     outlet: "The Verge",
-    outletColor: "var(--cyan)",
+    outletColor: "var(--accent)",
     title: "Building chatbots used to be hard. Konvoq changed that.",
     excerpt: "We spent two weeks building chatbots with every major platform on the market. Konvoq was the only one where we had a fully functioning, context-aware bot live in production in under 30 minutes.",
     date: "October 2025",
@@ -98,20 +98,20 @@ const PRESS_ARTICLES = [
 ];
 
 const PRESS_KIT_ITEMS = [
-  { icon: "🖼️", title: "Logo Files", desc: "PNG, SVG, and EPS formats. Light and dark variants included." },
-  { icon: "📐", title: "Brand Guidelines", desc: "Color palette, typography, usage rules, and spacing standards." },
-  { icon: "📸", title: "Founder Photos", desc: "High-resolution headshots of Aryan Mehta and Priya Sharma." },
+  { icon: "ðŸ–¼ï¸", title: "Logo Files", desc: "PNG, SVG, and EPS formats. Light and dark variants included." },
+  { icon: "ðŸ“", title: "Brand Guidelines", desc: "Color palette, typography, usage rules, and spacing standards." },
+  { icon: "ðŸ“¸", title: "Founder Photos", desc: "High-resolution headshots of Aryan Mehta and Priya Sharma." },
 ];
 
-// ─── Component ───────────────────────────────────────────────────────────────
+// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function PressPageTemplate() {
   return (
     <PageLayout>
-      {/* ── Hero ── */}
+      {/* â”€â”€ Hero â”€â”€ */}
       <section style={{ position: "relative", overflow: "hidden", padding: "100px 24px 120px" }}>
         <div aria-hidden style={{
           position: "absolute", inset: 0, pointerEvents: "none",
-          background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(6,239,255,0.07) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 90% 50%, rgba(244,63,94,0.05) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(91, 140, 255, 0.1) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 90% 50%, rgba(239, 68, 68, 0.07) 0%, transparent 60%)",
         }} />
         <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center", position: "relative" }}>
           <motion.div initial="hidden" animate="visible" variants={stagger}>
@@ -146,7 +146,7 @@ export default function PressPageTemplate() {
         </div>
       </section>
 
-      {/* ── Featured In ── */}
+      {/* â”€â”€ Featured In â”€â”€ */}
       <section style={{ padding: "60px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={stagger}>
@@ -177,7 +177,7 @@ export default function PressPageTemplate() {
         </div>
       </section>
 
-      {/* ── Press Articles ── */}
+      {/* â”€â”€ Press Articles â”€â”€ */}
       <section style={{ padding: "80px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}>
@@ -225,7 +225,7 @@ export default function PressPageTemplate() {
                     paddingTop: 16, borderTop: "1px solid var(--border)",
                   }}>
                     <span style={{ fontSize: 12, color: "var(--text-3)" }}>{article.date}</span>
-                    <span style={{ fontSize: 13, color: "var(--cyan)", fontWeight: 600 }}>Read article →</span>
+                    <span style={{ fontSize: 13, color: "var(--accent)", fontWeight: 600 }}>Read article â†’</span>
                   </div>
                 </motion.div>
               ))}
@@ -234,7 +234,7 @@ export default function PressPageTemplate() {
         </div>
       </section>
 
-      {/* ── Press Kit ── */}
+      {/* â”€â”€ Press Kit â”€â”€ */}
       <section style={{ padding: "80px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={stagger}>
@@ -270,7 +270,7 @@ export default function PressPageTemplate() {
                       fontSize: 14, cursor: "pointer",
                     }}
                   >
-                    Download ↓
+                    Download â†“
                   </motion.button>
                 </motion.div>
               ))}
@@ -291,7 +291,7 @@ export default function PressPageTemplate() {
         </div>
       </section>
 
-      {/* ── Press Contact ── */}
+      {/* â”€â”€ Press Contact â”€â”€ */}
       <section style={{ padding: "80px 24px 120px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
           <motion.div
@@ -321,14 +321,14 @@ export default function PressPageTemplate() {
             <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
               <div style={{
                 width: 52, height: 52, borderRadius: "50%",
-                background: "linear-gradient(135deg, rgba(6,239,255,0.2), rgba(139,92,246,0.2))",
+                background: "linear-gradient(135deg, rgba(91, 140, 255, 0.24), rgba(122, 162, 255, 0.24))",
                 border: "1px solid var(--border-2)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 22, flexShrink: 0,
-              }}>📬</div>
+              }}>ðŸ“¬</div>
               <div>
                 <div style={{ fontSize: 13, color: "var(--text-3)", marginBottom: 4 }}>Press enquiries</div>
-                <a href="mailto:pr@konvoq.ai" style={{ fontSize: 20, fontWeight: 700, color: "var(--cyan)", textDecoration: "none" }}>
+                <a href="mailto:pr@konvoq.ai" style={{ fontSize: 20, fontWeight: 700, color: "var(--accent)", textDecoration: "none" }}>
                   pr@konvoq.ai
                 </a>
               </div>
@@ -337,11 +337,11 @@ export default function PressPageTemplate() {
             <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
               <div style={{
                 width: 52, height: 52, borderRadius: "50%",
-                background: "linear-gradient(135deg, rgba(16,185,129,0.2), rgba(6,239,255,0.15))",
+                background: "linear-gradient(135deg, rgba(16,185,129,0.2), rgba(91, 140, 255, 0.18))",
                 border: "1px solid var(--border-2)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 22, flexShrink: 0,
-              }}>⚡</div>
+              }}>âš¡</div>
               <div>
                 <div style={{ fontSize: 13, color: "var(--text-3)", marginBottom: 4 }}>Average response time</div>
                 <div style={{ fontSize: 18, fontWeight: 700, color: "var(--text-1)" }}>Under 24 hours</div>
@@ -360,7 +360,7 @@ export default function PressPageTemplate() {
                 fontWeight: 700, fontSize: 15, color: "#fff", textDecoration: "none",
               }}
             >
-              Email press team →
+              Email press team â†’
             </motion.a>
           </motion.div>
         </div>
@@ -368,4 +368,5 @@ export default function PressPageTemplate() {
     </PageLayout>
   );
 }
+
 

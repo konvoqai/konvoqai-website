@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef } from "react";
 import { motion, type Variants } from "framer-motion";
@@ -58,7 +58,7 @@ export default function TermsPageTemplate() {
       {/* Hero */}
       <section
         style={{
-          background: "linear-gradient(180deg, rgba(139,92,246,0.08) 0%, transparent 100%)",
+          background: "linear-gradient(180deg, rgba(122, 162, 255, 0.12) 0%, transparent 100%)",
           borderBottom: "1px solid var(--border)",
           padding: "80px 24px 64px",
           textAlign: "center",
@@ -71,7 +71,7 @@ export default function TermsPageTemplate() {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(139,92,246,0.1) 0%, transparent 70%)",
+              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(122, 162, 255, 0.14) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -84,9 +84,9 @@ export default function TermsPageTemplate() {
                 gap: 8,
                 padding: "6px 16px",
                 borderRadius: 999,
-                border: "1px solid rgba(139,92,246,0.3)",
-                background: "rgba(139,92,246,0.08)",
-                color: "var(--violet)",
+                border: "1px solid rgba(122, 162, 255, 0.3)",
+                background: "rgba(122, 162, 255, 0.12)",
+                color: "var(--accent-strong)",
                 fontSize: 13,
                 fontWeight: 600,
                 letterSpacing: "0.05em",
@@ -94,7 +94,7 @@ export default function TermsPageTemplate() {
                 marginBottom: 24,
               }}
             >
-              <span>📋</span> Legal
+              <span>ðŸ“‹</span> Legal
             </span>
           </motion.div>
           <motion.h1
@@ -162,17 +162,17 @@ export default function TermsPageTemplate() {
                 key={id}
                 onClick={() => scrollTo(id)}
                 style={{
-                  background: activeSection === id ? "rgba(139,92,246,0.1)" : "transparent",
+                  background: activeSection === id ? "rgba(122, 162, 255, 0.14)" : "transparent",
                   border: "none",
                   borderRadius: "var(--radius)",
                   padding: "8px 12px",
                   textAlign: "left",
                   cursor: "pointer",
-                  color: activeSection === id ? "var(--violet)" : "var(--text-2)",
+                  color: activeSection === id ? "var(--accent-strong)" : "var(--text-2)",
                   fontSize: 13,
                   fontWeight: activeSection === id ? 600 : 400,
                   transition: "all 0.2s",
-                  borderLeft: activeSection === id ? "2px solid var(--violet)" : "2px solid transparent",
+                  borderLeft: activeSection === id ? "2px solid var(--accent-strong)" : "2px solid transparent",
                 }}
               >
                 {title}
@@ -245,7 +245,7 @@ export default function TermsPageTemplate() {
                 }}
               >
                 <p style={{ fontWeight: 700, color: "var(--emerald)", marginBottom: 12, fontSize: 14 }}>
-                  ✓ Permitted Uses
+                  âœ“ Permitted Uses
                 </p>
                 <ul style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.8, paddingLeft: 16 }}>
                   <li>Customer support automation</li>
@@ -259,13 +259,13 @@ export default function TermsPageTemplate() {
               <div
                 style={{
                   padding: "24px",
-                  background: "rgba(244,63,94,0.05)",
-                  border: "1px solid rgba(244,63,94,0.2)",
+                  background: "rgba(239, 68, 68, 0.07)",
+                  border: "1px solid rgba(239, 68, 68, 0.22)",
                   borderRadius: "var(--radius-lg)",
                 }}
               >
-                <p style={{ fontWeight: 700, color: "var(--rose)", marginBottom: 12, fontSize: 14 }}>
-                  ✗ Prohibited Uses
+                <p style={{ fontWeight: 700, color: "var(--danger)", marginBottom: 12, fontSize: 14 }}>
+                  âœ— Prohibited Uses
                 </p>
                 <ul style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.8, paddingLeft: 16 }}>
                   <li>Illegal, harmful, or fraudulent activities</li>
@@ -286,9 +286,9 @@ export default function TermsPageTemplate() {
           <TermsSection id="billing" title="5. Subscription and Billing">
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 20 }}>
               {[
-                { label: "Billing Cycle", value: "Monthly or Annual", icon: "📅" },
-                { label: "Auto-Renewal", value: "Enabled by default", icon: "🔄" },
-                { label: "Money-Back", value: "30-day guarantee", icon: "💰" },
+                { label: "Billing Cycle", value: "Monthly or Annual", icon: "ðŸ“…" },
+                { label: "Auto-Renewal", value: "Enabled by default", icon: "ðŸ”„" },
+                { label: "Money-Back", value: "30-day guarantee", icon: "ðŸ’°" },
               ].map(({ label, value, icon }) => (
                 <div
                   key={label}
@@ -336,9 +336,9 @@ export default function TermsPageTemplate() {
                   borderRadius: "var(--radius-lg)",
                 }}
               >
-                <p style={{ fontWeight: 700, color: "var(--cyan)", marginBottom: 12 }}>Your Content</p>
+                <p style={{ fontWeight: 700, color: "var(--accent)", marginBottom: 12 }}>Your Content</p>
                 <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.7 }}>
-                  You retain full ownership of all content you create, upload, or process through Konvoq AI — including
+                  You retain full ownership of all content you create, upload, or process through Konvoq AI â€” including
                   conversation flows, training data, documents, and chatbot configurations. You grant us a limited
                   license to process this content solely to provide the Service.
                 </p>
@@ -351,7 +351,7 @@ export default function TermsPageTemplate() {
                   borderRadius: "var(--radius-lg)",
                 }}
               >
-                <p style={{ fontWeight: 700, color: "var(--violet)", marginBottom: 12 }}>Our Platform</p>
+                <p style={{ fontWeight: 700, color: "var(--accent-strong)", marginBottom: 12 }}>Our Platform</p>
                 <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.7 }}>
                   Konvoq AI retains all rights to the platform, including the software, AI models, user interface,
                   documentation, trademarks, and all related intellectual property. No license to our IP is granted
@@ -367,14 +367,14 @@ export default function TermsPageTemplate() {
           <TermsSection id="data-privacy" title="7. Data Processing and Privacy">
             <p>
               By using Konvoq AI, you agree to our{" "}
-              <a href="/privacy" style={{ color: "var(--cyan)" }}>Privacy Policy</a>, which is incorporated into
+              <a href="/privacy" style={{ color: "var(--accent)" }}>Privacy Policy</a>, which is incorporated into
               these Terms by reference.
             </p>
             <p>
               For enterprise customers subject to GDPR, CCPA, or similar regulations, we offer a Data Processing
               Agreement (DPA) upon request. Please contact{" "}
-              <a href="mailto:legal@konvoq.ai" style={{ color: "var(--cyan)" }}>legal@konvoq.ai</a> or download our
-              standard DPA at <a href="/gdpr" style={{ color: "var(--cyan)" }}>konvoq.ai/gdpr</a>.
+              <a href="mailto:legal@konvoq.ai" style={{ color: "var(--accent)" }}>legal@konvoq.ai</a> or download our
+              standard DPA at <a href="/gdpr" style={{ color: "var(--accent)" }}>konvoq.ai/gdpr</a>.
             </p>
             <p>
               You represent that you have obtained all necessary consents from your end users to process their data
@@ -383,7 +383,7 @@ export default function TermsPageTemplate() {
           </TermsSection>
 
           <TermsSection id="liability" title="8. Limitation of Liability">
-            <InfoBox color="var(--rose)">
+            <InfoBox color="var(--danger)">
               TO THE MAXIMUM EXTENT PERMITTED BY LAW, KONVOQ AI SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS OR DATA.
             </InfoBox>
             <p style={{ marginTop: 16 }}>
@@ -443,7 +443,7 @@ export default function TermsPageTemplate() {
                 borderRadius: "var(--radius-lg)",
               }}
             >
-              <span style={{ fontSize: 48 }}>⚖️</span>
+              <span style={{ fontSize: 48 }}>âš–ï¸</span>
               <div>
                 <p style={{ fontWeight: 600, marginBottom: 8 }}>Delaware, USA</p>
                 <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.7 }}>
@@ -476,7 +476,7 @@ export default function TermsPageTemplate() {
                 {[
                   { label: "Legal Email", value: "legal@konvoq.ai", href: "mailto:legal@konvoq.ai" },
                   { label: "Support", value: "support@konvoq.ai", href: "mailto:support@konvoq.ai" },
-                  { label: "Address", value: "Konvoq AI, Inc. — 1209 Orange St, Wilmington, DE 19801, USA" },
+                  { label: "Address", value: "Konvoq AI, Inc. â€” 1209 Orange St, Wilmington, DE 19801, USA" },
                 ].map(({ label, value, href }) => (
                   <div key={label} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
                     <span
@@ -493,7 +493,7 @@ export default function TermsPageTemplate() {
                       {label}
                     </span>
                     {href ? (
-                      <a href={href} style={{ color: "var(--violet)", fontWeight: 500 }}>{value}</a>
+                      <a href={href} style={{ color: "var(--accent-strong)", fontWeight: 500 }}>{value}</a>
                     ) : (
                       <span style={{ color: "var(--text-1)" }}>{value}</span>
                     )}
@@ -508,7 +508,7 @@ export default function TermsPageTemplate() {
   );
 }
 
-/* ─── Sub-components ─────────────────────────────── */
+/* â”€â”€â”€ Sub-components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 function TermsSection({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
@@ -537,7 +537,7 @@ function FeatureList({ items }: { items: string[] }) {
     <ul style={{ paddingLeft: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
       {items.map((item) => (
         <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 10, color: "var(--text-2)", fontSize: 14 }}>
-          <span style={{ color: "var(--violet)", fontWeight: 700, flexShrink: 0 }}>→</span>
+          <span style={{ color: "var(--accent-strong)", fontWeight: 700, flexShrink: 0 }}>â†’</span>
           {item}
         </li>
       ))}
@@ -564,4 +564,5 @@ function InfoBox({ color, children }: { color: string; children: React.ReactNode
     </div>
   );
 }
+
 

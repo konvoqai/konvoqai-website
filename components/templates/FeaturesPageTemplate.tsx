@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion, type Variants } from "framer-motion";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
@@ -7,7 +7,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
       display: "inline-flex", alignItems: "center", gap: 8,
-      background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-2)",
+      background: "var(--surface-3)", border: "1px solid var(--border-2)",
       borderRadius: 100, padding: "6px 16px", fontSize: 11, fontWeight: 600,
       letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-2)",
       marginBottom: 24,
@@ -35,67 +35,67 @@ const cardVariants: Variants = {
 
 const features = [
   {
-    icon: "🧠",
+    icon: "ðŸ§ ",
     title: "AI Training Engine",
     subtitle: "Train on any content in minutes",
     description:
       "Our proprietary ingestion pipeline processes your content and creates a semantic knowledge base that your AI chatbot draws from with pinpoint accuracy. No coding required.",
     points: [
-      "Paste website URLs — we crawl and index automatically",
+      "Paste website URLs â€” we crawl and index automatically",
       "Upload PDF, DOCX, CSV, or plain-text documents",
       "Add custom Q&A pairs for precise control",
       "Sync your product catalog for real-time inventory answers",
     ],
-    accent: "var(--cyan)",
-    glowColor: "rgba(6,239,255,0.12)",
+    accent: "var(--accent)",
+    glowColor: "rgba(91, 140, 255, 0.18)",
   },
   {
-    icon: "⚡",
+    icon: "âš¡",
     title: "Multi-LLM Support",
-    subtitle: "GPT-4o, Claude 3.5, Gemini 1.5 — you choose",
+    subtitle: "GPT-4o, Claude 3.5, Gemini 1.5 â€” you choose",
     description:
-      "Never be locked into a single AI provider. Konvoq sits on top of every major model so you can pick the right brain for the right job — and switch on the fly.",
+      "Never be locked into a single AI provider. Konvoq sits on top of every major model so you can pick the right brain for the right job â€” and switch on the fly.",
     points: [
       "Switch between models per chatbot or per conversation",
       "A/B test different LLMs to compare quality and cost",
       "Set monthly token budgets to keep spending predictable",
       "Automatic fallback routing if a provider goes down",
     ],
-    accent: "var(--violet)",
-    glowColor: "rgba(139,92,246,0.12)",
+    accent: "var(--accent-strong)",
+    glowColor: "rgba(122, 162, 255, 0.16)",
   },
   {
-    icon: "🎨",
+    icon: "ðŸŽ¨",
     title: "Widget Customization",
     subtitle: "Match your brand perfectly",
     description:
-      "The chat widget is a seamless extension of your product — not an afterthought. Configure every visual detail through a live preview editor without touching a line of code.",
+      "The chat widget is a seamless extension of your product â€” not an afterthought. Configure every visual detail through a live preview editor without touching a line of code.",
     points: [
       "Custom colors, fonts, and corner radius to match your design system",
       "Upload a branded avatar or use an AI-generated one",
       "Write your own welcome message and conversation starters",
       "Choose placement: bottom-right, bottom-left, or embedded inline",
     ],
-    accent: "var(--rose)",
-    glowColor: "rgba(244,63,94,0.12)",
+    accent: "var(--danger)",
+    glowColor: "rgba(239, 68, 68, 0.16)",
   },
   {
-    icon: "📊",
+    icon: "ðŸ“Š",
     title: "Advanced Analytics",
     subtitle: "Know exactly what's working",
     description:
-      "Turn every conversation into actionable intelligence. Our analytics suite surfaces the insights that actually drive decisions — not vanity metrics.",
+      "Turn every conversation into actionable intelligence. Our analytics suite surfaces the insights that actually drive decisions â€” not vanity metrics.",
     points: [
       "Conversation heatmaps showing peak engagement times",
       "Resolution rate tracking vs. human handoff rate",
       "Top unanswered questions to plug knowledge gaps fast",
-      "Revenue attribution — see which chats convert to sales",
+      "Revenue attribution â€” see which chats convert to sales",
     ],
     accent: "var(--amber)",
     glowColor: "rgba(245,158,11,0.12)",
   },
   {
-    icon: "👥",
+    icon: "ðŸ‘¥",
     title: "Team Collaboration",
     subtitle: "Your whole team, one platform",
     description:
@@ -110,19 +110,19 @@ const features = [
     glowColor: "rgba(16,185,129,0.12)",
   },
   {
-    icon: "🔒",
+    icon: "ðŸ”’",
     title: "Enterprise Security",
     subtitle: "SOC2 Type II, GDPR, HIPAA ready",
     description:
-      "Security isn't a feature — it's the foundation. Konvoq is built from the ground up to satisfy the strictest compliance requirements across every major regulation.",
+      "Security isn't a feature â€” it's the foundation. Konvoq is built from the ground up to satisfy the strictest compliance requirements across every major regulation.",
     points: [
       "End-to-end encryption in transit and at rest (AES-256)",
       "Data residency options: US, EU, or APAC regions",
       "Full audit log of every configuration change and conversation",
       "SSO via SAML 2.0 and SCIM provisioning for zero-friction onboarding",
     ],
-    accent: "var(--cyan)",
-    glowColor: "rgba(6,239,255,0.08)",
+    accent: "var(--accent)",
+    glowColor: "var(--accent-muted)",
   },
 ];
 
@@ -144,17 +144,17 @@ export default function FeaturesPageTemplate() {
       <div style={{ position: "fixed", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
         <div style={{
           position: "absolute", top: "-20%", left: "-10%", width: 700, height: 700,
-          background: "radial-gradient(circle, rgba(6,239,255,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, var(--accent-muted) 0%, transparent 70%)",
           borderRadius: "50%", filter: "blur(40px)",
         }} />
         <div style={{
           position: "absolute", top: "30%", right: "-15%", width: 600, height: 600,
-          background: "radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(122, 162, 255, 0.1) 0%, transparent 70%)",
           borderRadius: "50%", filter: "blur(40px)",
         }} />
         <div style={{
           position: "absolute", bottom: "10%", left: "20%", width: 500, height: 500,
-          background: "radial-gradient(circle, rgba(244,63,94,0.05) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(239, 68, 68, 0.07) 0%, transparent 70%)",
           borderRadius: "50%", filter: "blur(40px)",
         }} />
       </div>
@@ -213,7 +213,7 @@ export default function FeaturesPageTemplate() {
                 href="/demo"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 8,
-                  background: "rgba(255,255,255,0.06)", border: "1px solid var(--border-2)",
+                  background: "var(--surface-2)", border: "1px solid var(--border-2)",
                   color: "var(--text-1)", fontWeight: 600, padding: "14px 32px",
                   borderRadius: "var(--radius)", fontSize: 15, textDecoration: "none",
                 }}
@@ -336,7 +336,7 @@ export default function FeaturesPageTemplate() {
                 fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800,
                 letterSpacing: "-0.03em", color: "var(--text-1)",
               }}>
-                Built different — <span className="grad-text">built better</span>
+                Built different â€” <span className="grad-text">built better</span>
               </motion.h2>
             </motion.div>
 
@@ -378,18 +378,18 @@ export default function FeaturesPageTemplate() {
                   <div style={{ color: "var(--text-2)", fontSize: 15 }}>{row.feature}</div>
                   <div style={{ textAlign: "center" }}>
                     {row.basic
-                      ? <span style={{ color: "var(--emerald)", fontSize: 18 }}>✓</span>
-                      : <span style={{ color: "var(--text-3)", fontSize: 18 }}>✕</span>}
+                      ? <span style={{ color: "var(--emerald)", fontSize: 18 }}>âœ“</span>
+                      : <span style={{ color: "var(--text-3)", fontSize: 18 }}>âœ•</span>}
                   </div>
                   <div style={{ textAlign: "center" }}>
                     {row.konvoq
-                      ? <span style={{ color: "var(--cyan)", fontSize: 18, fontWeight: 700 }}>✓</span>
-                      : <span style={{ color: "var(--text-3)", fontSize: 18 }}>✕</span>}
+                      ? <span style={{ color: "var(--accent)", fontSize: 18, fontWeight: 700 }}>âœ“</span>
+                      : <span style={{ color: "var(--text-3)", fontSize: 18 }}>âœ•</span>}
                   </div>
                   <div style={{ textAlign: "center" }}>
                     {row.enterprise
-                      ? <span style={{ color: "var(--emerald)", fontSize: 18 }}>✓</span>
-                      : <span style={{ color: "var(--text-3)", fontSize: 18 }}>✕</span>}
+                      ? <span style={{ color: "var(--emerald)", fontSize: 18 }}>âœ“</span>
+                      : <span style={{ color: "var(--text-3)", fontSize: 18 }}>âœ•</span>}
                   </div>
                 </div>
               ))}
@@ -431,13 +431,13 @@ export default function FeaturesPageTemplate() {
                   textDecoration: "none",
                 }}
               >
-                Start free — no card needed
+                Start free â€” no card needed
               </a>
               <a
                 href="/pricing"
                 style={{
                   display: "inline-flex", alignItems: "center",
-                  background: "rgba(255,255,255,0.06)", border: "1px solid var(--border-2)",
+                  background: "var(--surface-2)", border: "1px solid var(--border-2)",
                   color: "var(--text-1)", fontWeight: 600, padding: "16px 40px",
                   borderRadius: "var(--radius)", fontSize: 16, textDecoration: "none",
                 }}
@@ -451,4 +451,5 @@ export default function FeaturesPageTemplate() {
     </PageLayout>
   );
 }
+
 

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
@@ -8,7 +8,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
       display: "inline-flex", alignItems: "center", gap: 8,
-      background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-2)",
+      background: "var(--surface-3)", border: "1px solid var(--border-2)",
       borderRadius: 100, padding: "6px 16px", fontSize: 11, fontWeight: 600,
       letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-2)",
       marginBottom: 24,
@@ -41,9 +41,9 @@ interface Release {
 }
 
 const badgeColors: Record<BadgeType, { bg: string; border: string; text: string }> = {
-  "New Feature": { bg: "rgba(6,239,255,0.1)", border: "rgba(6,239,255,0.3)", text: "var(--cyan)" },
-  "Improvement": { bg: "rgba(139,92,246,0.1)", border: "rgba(139,92,246,0.3)", text: "var(--violet)" },
-  "Bug Fix": { bg: "rgba(244,63,94,0.1)", border: "rgba(244,63,94,0.3)", text: "var(--rose)" },
+  "New Feature": { bg: "var(--accent-muted-strong)", border: "rgba(91, 140, 255, 0.32)", text: "var(--accent)" },
+  "Improvement": { bg: "rgba(122, 162, 255, 0.14)", border: "rgba(122, 162, 255, 0.3)", text: "var(--accent-strong)" },
+  "Bug Fix": { bg: "rgba(239, 68, 68, 0.12)", border: "rgba(239, 68, 68, 0.3)", text: "var(--danger)" },
   "Performance": { bg: "rgba(245,158,11,0.1)", border: "rgba(245,158,11,0.3)", text: "var(--amber)" },
   "Security": { bg: "rgba(16,185,129,0.1)", border: "rgba(16,185,129,0.3)", text: "var(--emerald)" },
 };
@@ -89,7 +89,7 @@ const releases: Release[] = [
       "Conversation heatmap: see engagement peaks by hour, day, and week",
       "Resolution funnel: track how many chats resolve vs. escalate vs. abandon",
       "Revenue attribution: connect resolved chats to downstream purchases via UTM params",
-      "Top unanswered questions report — updated daily",
+      "Top unanswered questions report â€” updated daily",
       "CSV and PDF export for all dashboard panels",
     ],
   },
@@ -103,7 +103,7 @@ const releases: Release[] = [
     changes: [
       "Switched to streaming completions by default for all LLM providers",
       "Knowledge base lookup now uses approximate nearest-neighbor indexing (HNSW)",
-      "CDN edge caching for static widget assets — load time down from 420ms to 90ms",
+      "CDN edge caching for static widget assets â€” load time down from 420ms to 90ms",
       "Reduced average context window size with smarter chunk ranking",
     ],
   },
@@ -130,7 +130,7 @@ const releases: Release[] = [
     description:
       "The widget editor got a major overhaul with live preview, new layout options, and far more granular control over every visual element.",
     changes: [
-      "Live preview panel — see changes in real-time as you edit",
+      "Live preview panel â€” see changes in real-time as you edit",
       "Custom CSS injection for advanced brand consistency",
       "New launcher button styles: circle, pill, and custom image",
       "Conversation starter bubbles: up to 6 quick-reply prompts",
@@ -141,12 +141,12 @@ const releases: Release[] = [
     version: "v2.0.0",
     date: "Oct 15, 2025",
     type: "New Feature",
-    title: "Konvoq 2.0 — Complete Rebuild",
+    title: "Konvoq 2.0 â€” Complete Rebuild",
     description:
       "After months of work, Konvoq 2.0 ships with a new training engine, a redesigned dashboard, and the foundation for everything we're building next.",
     changes: [
       "New AI Training Engine with 3x faster ingestion and higher answer accuracy",
-      "Completely redesigned dashboard — faster, cleaner, more powerful",
+      "Completely redesigned dashboard â€” faster, cleaner, more powerful",
       "Webhook system for real-time event notifications to any endpoint",
       "Public API v2 with full OpenAPI spec and SDK libraries",
       "New pricing plans with higher limits and more flexibility",
@@ -160,7 +160,7 @@ const releases: Release[] = [
     description:
       "A focused release on security hardening as we complete our SOC2 Type II audit, plus GDPR data residency controls for EU customers.",
     changes: [
-      "EU data residency option — all data stored in Frankfurt region",
+      "EU data residency option â€” all data stored in Frankfurt region",
       "Session tokens now rotate on every API call (token refresh pattern)",
       "Added rate limiting to all public-facing API endpoints",
       "Dependency audit: updated 34 packages with known CVEs",
@@ -198,7 +198,7 @@ export default function ChangelogPageTemplate() {
         <div style={{
           position: "absolute", top: "-10%", left: "50%", transform: "translateX(-50%)",
           width: 600, height: 400,
-          background: "radial-gradient(ellipse, rgba(6,239,255,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, var(--accent-muted) 0%, transparent 70%)",
           filter: "blur(40px)",
         }} />
       </div>
@@ -227,7 +227,7 @@ export default function ChangelogPageTemplate() {
                 margin: "0 auto", lineHeight: 1.7,
               }}
             >
-              Every update, improvement, and fix — documented as it ships.
+              Every update, improvement, and fix â€” documented as it ships.
             </motion.p>
           </motion.div>
         </section>
@@ -243,7 +243,7 @@ export default function ChangelogPageTemplate() {
               transition={{ duration: 1.4, ease: "easeOut" }}
               style={{
                 position: "absolute", left: 140, top: 0, bottom: 0,
-                width: 1, background: "linear-gradient(to bottom, var(--cyan), var(--violet), transparent)",
+                width: 1, background: "linear-gradient(to bottom, var(--accent), var(--accent-strong), transparent)",
                 transformOrigin: "top",
                 opacity: 0.3,
               }}
@@ -292,7 +292,7 @@ export default function ChangelogPageTemplate() {
                       style={{
                         width: 12, height: 12, borderRadius: "50%",
                         background: "var(--grad-btn)",
-                        boxShadow: "0 0 12px rgba(6,239,255,0.5)",
+                        boxShadow: "0 0 12px rgba(91, 140, 255, 0.32)",
                         flexShrink: 0,
                       }}
                     />
@@ -367,10 +367,10 @@ export default function ChangelogPageTemplate() {
           >
             <div style={{
               position: "absolute", inset: 0,
-              background: "radial-gradient(ellipse at center, rgba(139,92,246,0.07) 0%, transparent 60%)",
+              background: "radial-gradient(ellipse at center, rgba(122, 162, 255, 0.1) 0%, transparent 60%)",
               pointerEvents: "none",
             }} />
-            <motion.div variants={fadeUp} style={{ fontSize: 40, marginBottom: 16 }}>📬</motion.div>
+            <motion.div variants={fadeUp} style={{ fontSize: 40, marginBottom: 16 }}>ðŸ“¬</motion.div>
             <motion.h2 variants={fadeUp} style={{
               fontSize: 28, fontWeight: 800, letterSpacing: "-0.02em",
               color: "var(--text-1)", marginBottom: 12,
@@ -380,7 +380,7 @@ export default function ChangelogPageTemplate() {
             <motion.p variants={fadeUp} style={{
               color: "var(--text-2)", fontSize: 15, lineHeight: 1.7, marginBottom: 28,
             }}>
-              Get a short email whenever we ship something new. No noise — only meaningful updates.
+              Get a short email whenever we ship something new. No noise â€” only meaningful updates.
             </motion.p>
 
             {submitted ? (
@@ -434,4 +434,6 @@ export default function ChangelogPageTemplate() {
     </PageLayout>
   );
 }
+
+
 

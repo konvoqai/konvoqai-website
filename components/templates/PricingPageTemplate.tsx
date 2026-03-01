@@ -1,583 +1,604 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
+import Button from "@/components/atoms/Button";
+import SectionHeader from "@/components/molecules/SectionHeader";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <div style={{
-      display: "inline-flex", alignItems: "center", gap: 8,
-      background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-2)",
-      borderRadius: 100, padding: "6px 16px", fontSize: 11, fontWeight: 600,
-      letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-2)",
-      marginBottom: 24,
-    }}>
-      <div style={{ width: 6, height: 6, background: "var(--grad-aurora)", borderRadius: "50%" }} />
-      {children}
-    </div>
-  );
-}
-
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
 };
 
-const staggerContainer: Variants = {
+const stagger: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08 } },
 };
 
 const plans = [
   {
-    name: "Free",
+    name: "Starter",
     monthlyPrice: 0,
     annualPrice: 0,
-    description: "Perfect for trying out Konvoq and small projects.",
-    cta: "Get started free",
-    ctaStyle: "outline" as const,
-    popular: false,
-    features: [
-      "1 chatbot",
-      "100 conversations / month",
-      "1 data source",
-      "Basic widget customization",
+    description: "For early teams validating an AI support workflow.",
+    cta: "Start free",
+    variant: "outline" as const,
+    featured: false,
+    highlights: [
+      "1 production chatbot",
+      "250 conversations per month",
+      "1 shared inbox seat",
+      "Basic analytics and widget branding",
       "Email support",
-      "Konvoq branding",
     ],
   },
   {
-    name: "Pro",
-    monthlyPrice: 49,
-    annualPrice: 39,
-    description: "For growing businesses that need more power and insights.",
-    cta: "Start Pro trial",
-    ctaStyle: "gradient" as const,
-    popular: true,
-    features: [
-      "5 chatbots",
-      "5,000 conversations / month",
-      "Unlimited data sources",
-      "Full widget customization",
-      "Priority email & chat support",
-      "Advanced analytics dashboard",
-      "Remove Konvoq branding",
-      "API access",
+    name: "Growth",
+    monthlyPrice: 79,
+    annualPrice: 63,
+    description: "For SaaS teams replacing repetitive support and qualification work.",
+    cta: "Start 14-day trial",
+    variant: "primary" as const,
+    featured: true,
+    highlights: [
+      "5 production chatbots",
+      "7,500 conversations per month",
+      "Unlimited content sources",
+      "Advanced routing and human handoff",
+      "Analytics, API access, and custom branding",
+      "Priority support",
     ],
   },
   {
-    name: "Business",
-    monthlyPrice: 149,
-    annualPrice: 119,
-    description: "For teams and enterprises that need security and scale.",
-    cta: "Start Business trial",
-    ctaStyle: "outline" as const,
-    popular: false,
-    features: [
+    name: "Scale",
+    monthlyPrice: 249,
+    annualPrice: 199,
+    description: "For larger teams that need governance, security, and deeper collaboration.",
+    cta: "Talk to sales",
+    variant: "secondary" as const,
+    featured: false,
+    highlights: [
       "Unlimited chatbots",
-      "50,000 conversations / month",
-      "Team collaboration & inbox",
-      "Role-based access control",
-      "SLA guarantee (99.9% uptime)",
-      "SSO / SAML 2.0",
-      "Custom branding & domain",
-      "Dedicated account manager",
-      "SOC2 / GDPR / HIPAA",
-      "Audit logs",
+      "50,000 conversations per month",
+      "SSO, audit logs, and role controls",
+      "Dedicated environments and custom domains",
+      "SLA-backed support",
+      "Security review and procurement support",
     ],
   },
 ];
 
-const comparisonFeatures = [
-  { label: "Chatbots", free: "1", pro: "5", business: "Unlimited" },
-  { label: "Conversations / month", free: "100", pro: "5,000", business: "50,000" },
-  { label: "Data sources", free: "1", pro: "Unlimited", business: "Unlimited" },
-  { label: "Widget customization", free: "Basic", pro: "Full", business: "Full + White-label" },
-  { label: "Analytics", free: false, pro: true, business: true },
-  { label: "API access", free: false, pro: true, business: true },
-  { label: "Team collaboration", free: false, pro: false, business: true },
-  { label: "SSO / SAML", free: false, pro: false, business: true },
-  { label: "Remove branding", free: false, pro: true, business: true },
-  { label: "Priority support", free: false, pro: true, business: true },
-  { label: "Dedicated manager", free: false, pro: false, business: true },
-  { label: "SOC2 / HIPAA / GDPR", free: false, pro: false, business: true },
+const comparisonRows = [
+  { label: "Chatbots", starter: "1", growth: "5", scale: "Unlimited" },
+  { label: "Conversations / month", starter: "250", growth: "7,500", scale: "50,000" },
+  { label: "Knowledge sources", starter: "1", growth: "Unlimited", scale: "Unlimited" },
+  { label: "API access", starter: false, growth: true, scale: true },
+  { label: "Custom branding", starter: false, growth: true, scale: true },
+  { label: "Team collaboration", starter: false, growth: true, scale: true },
+  { label: "SSO and audit logs", starter: false, growth: false, scale: true },
+  { label: "Security review support", starter: false, growth: false, scale: true },
 ];
 
 const faqs = [
   {
-    q: "Can I change plans at any time?",
-    a: "Yes. You can upgrade or downgrade your plan at any time from your dashboard. Upgrades take effect immediately and you'll be prorated for the rest of the billing period. Downgrades take effect at the next renewal date.",
+    question: "Can we change plans during the quarter?",
+    answer:
+      "Yes. Upgrades take effect immediately, and downgrades are scheduled for the next renewal so your team keeps uninterrupted access.",
   },
   {
-    q: "What counts as a conversation?",
-    a: "A conversation is a single chat session between a user and your AI chatbot, regardless of how many messages are exchanged within it. Sessions that last fewer than 5 seconds are not counted.",
+    question: "What counts as a conversation?",
+    answer:
+      "A conversation is one end-user session with your assistant. Multiple messages inside the same session count as one conversation.",
   },
   {
-    q: "Do unused conversations roll over?",
-    a: "No. Conversation limits reset at the start of each billing month. If you regularly hit your limit, we recommend upgrading to the next plan — or contacting us for a custom quota.",
+    question: "Do you offer startup or annual discounts?",
+    answer:
+      "Annual billing includes a lower effective monthly price, and we offer startup pricing for eligible early-stage teams during onboarding.",
   },
   {
-    q: "Is there a free trial for paid plans?",
-    a: "Yes. Both Pro and Business plans come with a 14-day free trial, no credit card required. You'll get full access to every feature during the trial period.",
-  },
-  {
-    q: "Do you offer discounts for nonprofits or startups?",
-    a: "Yes. We offer a 50% discount for registered nonprofits and early-stage startups (under $1M ARR). Contact us with proof and we'll apply the discount to your account within 24 hours.",
+    question: "Can enterprise teams use dedicated infrastructure?",
+    answer:
+      "Yes. Scale plans can add dedicated environments, regional data residency, procurement support, and custom security controls.",
   },
 ];
 
-function CheckIcon({ color }: { color: string }) {
+function StatusIcon({ enabled }: { enabled: boolean }) {
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <circle cx="8" cy="8" r="8" fill={color} fillOpacity="0.15" />
-      <path d="M5 8l2.5 2.5L11 5.5" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function CrossIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <circle cx="8" cy="8" r="8" fill="rgba(255,255,255,0.04)" />
-      <path d="M5.5 10.5l5-5M10.5 10.5l-5-5" stroke="var(--text-3)" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
+    <div
+      style={{
+        width: 22,
+        height: 22,
+        borderRadius: 999,
+        display: "grid",
+        placeItems: "center",
+        background: enabled ? "var(--accent-muted)" : "var(--surface-3)",
+        border: `1px solid ${enabled ? "rgba(91, 140, 255, 0.24)" : "var(--border)"}`,
+        color: enabled ? "var(--accent)" : "var(--text-3)",
+        fontSize: 12,
+        fontWeight: 700,
+      }}
+    >
+      {enabled ? "+" : "-"}
+    </div>
   );
 }
 
 export default function PricingPageTemplate() {
-  const [annual, setAnnual] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [annual, setAnnual] = useState(true);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
     <PageLayout>
-      <div style={{ position: "fixed", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
-        <div style={{
-          position: "absolute", top: "-15%", left: "50%", transform: "translateX(-50%)",
-          width: 800, height: 500,
-          background: "radial-gradient(ellipse, rgba(139,92,246,0.08) 0%, transparent 70%)",
-          filter: "blur(40px)",
-        }} />
-      </div>
+      <div style={{ position: "relative" }}>
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            pointerEvents: "none",
+            background:
+              "radial-gradient(circle at 50% 0%, rgba(91, 140, 255, 0.12), transparent 34%)",
+            maskImage: "linear-gradient(180deg, black 0%, transparent 78%)",
+          }}
+        />
 
-      <div style={{ position: "relative", zIndex: 1 }}>
-        {/* Hero */}
-        <section style={{ textAlign: "center", padding: "100px 24px 72px" }}>
-          <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-            <motion.div variants={fadeUp}>
-              <SectionLabel>Pricing</SectionLabel>
-            </motion.div>
-            <motion.h1
-              variants={fadeUp}
-              style={{
-                fontSize: "clamp(36px, 6vw, 64px)", fontWeight: 800,
-                letterSpacing: "-0.03em", lineHeight: 1.1, margin: "0 auto 20px", maxWidth: 720,
-              }}
-            >
-              Simple, transparent pricing.{" "}
-              <span className="grad-text">No surprises.</span>
-            </motion.h1>
-            <motion.p variants={fadeUp} style={{
-              fontSize: 19, color: "var(--text-2)", maxWidth: 500,
-              margin: "0 auto 48px", lineHeight: 1.7,
-            }}>
-              Start free. Scale as you grow. Cancel anytime.
-            </motion.p>
+        <section style={{ padding: "48px 24px 40px" }}>
+          <div className="site-container">
+            <motion.div initial="hidden" animate="visible" variants={stagger}>
+              <motion.div variants={fadeUp}>
+                <SectionHeader
+                  badge="Pricing"
+                  heading={<>Simple pricing for teams that want to ship AI support with less friction.</>}
+                  description="A neutral, procurement-friendly pricing model with generous entry points, clear upgrade paths, and enterprise options when security requirements get heavier."
+                />
+              </motion.div>
 
-            {/* Toggle */}
-            <motion.div
-              variants={fadeUp}
-              style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16 }}
-            >
-              <span style={{ fontSize: 15, fontWeight: 500, color: !annual ? "var(--text-1)" : "var(--text-3)" }}>
-                Monthly
-              </span>
-              <button
-                onClick={() => setAnnual(!annual)}
+              <motion.div
+                variants={fadeUp}
                 style={{
-                  width: 52, height: 28, borderRadius: 100,
-                  background: annual ? "var(--grad-btn)" : "var(--surface-3)",
-                  border: "1px solid var(--border-2)", cursor: "pointer",
-                  position: "relative", transition: "background 0.3s",
-                  padding: 0,
+                  marginTop: 28,
+                  display: "flex",
+                  justifyContent: "center",
                 }}
               >
-                <motion.div
-                  animate={{ x: annual ? 24 : 0 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                <div
                   style={{
-                    width: 22, height: 22, borderRadius: "50%",
-                    background: annual ? "#000" : "var(--text-2)",
-                    position: "absolute", top: 2, left: 3,
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 14,
+                    background: "var(--surface-2)",
+                    border: "1px solid var(--border)",
+                    borderRadius: 999,
+                    padding: 8,
+                    boxShadow: "var(--shadow-card)",
                   }}
-                />
-              </button>
-              <span style={{ fontSize: 15, fontWeight: 500, color: annual ? "var(--text-1)" : "var(--text-3)" }}>
-                Annual
-              </span>
-              <AnimatePresence>
-                {annual && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8, x: -8 }}
-                    animate={{ opacity: 1, scale: 1, x: 0 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setAnnual(false)}
                     style={{
-                      background: "rgba(16,185,129,0.15)", border: "1px solid rgba(16,185,129,0.3)",
-                      color: "var(--emerald)", fontSize: 12, fontWeight: 700,
-                      padding: "3px 10px", borderRadius: 100, letterSpacing: "0.04em",
+                      border: 0,
+                      borderRadius: 999,
+                      padding: "10px 16px",
+                      background: annual ? "transparent" : "var(--background-elevated)",
+                      color: annual ? "var(--text-2)" : "var(--text-1)",
+                      fontWeight: 700,
+                      cursor: "pointer",
+                    }}
+                  >
+                    Monthly
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setAnnual(true)}
+                    style={{
+                      border: 0,
+                      borderRadius: 999,
+                      padding: "10px 16px",
+                      background: annual ? "var(--background-elevated)" : "transparent",
+                      color: annual ? "var(--text-1)" : "var(--text-2)",
+                      fontWeight: 700,
+                      cursor: "pointer",
+                    }}
+                  >
+                    Annual
+                  </button>
+                  <div
+                    style={{
+                      padding: "8px 12px",
+                      borderRadius: 999,
+                      background: "var(--accent-muted)",
+                      border: "1px solid rgba(91, 140, 255, 0.24)",
+                      color: "var(--accent)",
+                      fontSize: 12,
+                      fontWeight: 700,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
                     }}
                   >
                     Save 20%
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          </motion.div>
-        </section>
-
-        {/* Plans */}
-        <section style={{ padding: "0 24px 80px", maxWidth: 1100, margin: "0 auto" }}>
-          <div style={{
-            display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24,
-          }}>
-            {plans.map((plan, i) => (
-              <motion.div
-                key={plan.name}
-                initial={{ opacity: 0, y: 40, scale: 0.97 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.55, delay: 0.1 * i, ease: "easeOut" }}
-                whileHover={{ y: -6 }}
-                style={{
-                  background: plan.popular ? "var(--surface-2)" : "var(--surface)",
-                  border: plan.popular ? "1px solid transparent" : "1px solid var(--border)",
-                  borderRadius: "var(--radius-xl)",
-                  padding: "40px 36px",
-                  position: "relative",
-                  overflow: "hidden",
-                  backgroundImage: plan.popular
-                    ? "linear-gradient(var(--surface-2), var(--surface-2)), var(--grad-btn)"
-                    : "none",
-                  backgroundOrigin: plan.popular ? "border-box" : "initial",
-                  backgroundClip: plan.popular ? "padding-box, border-box" : "initial",
-                }}
-              >
-                {plan.popular && (
-                  <div style={{
-                    position: "absolute", top: 20, right: 20,
-                    background: "var(--grad-btn)", color: "#000",
-                    fontSize: 11, fontWeight: 700, padding: "4px 12px",
-                    borderRadius: 100, letterSpacing: "0.08em", textTransform: "uppercase",
-                  }}>
-                    Most Popular
                   </div>
-                )}
-
-                {plan.popular && (
-                  <div style={{
-                    position: "absolute", top: -60, left: "50%", transform: "translateX(-50%)",
-                    width: 300, height: 200,
-                    background: "radial-gradient(ellipse, rgba(139,92,246,0.15) 0%, transparent 70%)",
-                    pointerEvents: "none",
-                  }} />
-                )}
-
-                <div style={{ marginBottom: 8, fontSize: 14, fontWeight: 600, color: "var(--text-3)", letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                  {plan.name}
-                </div>
-
-                <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginBottom: 8 }}>
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={annual ? "annual" : "monthly"}
-                      initial={{ opacity: 0, y: -12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 12 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      style={{
-                        fontSize: 52, fontWeight: 800, letterSpacing: "-0.04em",
-                        color: "var(--text-1)", lineHeight: 1,
-                      }}
-                    >
-                      ${annual ? plan.annualPrice : plan.monthlyPrice}
-                    </motion.span>
-                  </AnimatePresence>
-                  {plan.monthlyPrice > 0 && (
-                    <span style={{ color: "var(--text-3)", fontSize: 16, marginBottom: 8 }}>/mo</span>
-                  )}
-                </div>
-
-                {annual && plan.monthlyPrice > 0 && (
-                  <div style={{ fontSize: 13, color: "var(--text-3)", marginBottom: 4 }}>
-                    Billed ${plan.annualPrice * 12}/year
-                  </div>
-                )}
-
-                <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.6, marginBottom: 28 }}>
-                  {plan.description}
-                </p>
-
-                <a
-                  href="/signup"
-                  style={{
-                    display: "block", textAlign: "center", textDecoration: "none",
-                    fontWeight: 700, fontSize: 15, padding: "14px 24px",
-                    borderRadius: "var(--radius)", marginBottom: 32,
-                    ...(plan.ctaStyle === "gradient"
-                      ? { background: "var(--grad-btn)", color: "#000" }
-                      : {
-                          background: "rgba(255,255,255,0.06)",
-                          border: "1px solid var(--border-2)",
-                          color: "var(--text-1)",
-                        }),
-                  }}
-                >
-                  {plan.cta}
-                </a>
-
-                <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                  {plan.features.map((feat) => (
-                    <div key={feat} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                      <CheckIcon color={plan.popular ? "var(--cyan)" : "var(--emerald)"} />
-                      <span style={{ fontSize: 14, color: "var(--text-2)" }}>{feat}</span>
-                    </div>
-                  ))}
                 </div>
               </motion.div>
-            ))}
+            </motion.div>
           </div>
         </section>
 
-        {/* Comparison Table */}
-        <section style={{ padding: "0 24px 80px", maxWidth: 1000, margin: "0 auto" }}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            style={{ textAlign: "center", marginBottom: 48 }}
-          >
-            <motion.div variants={fadeUp}>
-              <SectionLabel>Full Comparison</SectionLabel>
-            </motion.div>
-            <motion.h2 variants={fadeUp} style={{
-              fontSize: "clamp(26px, 4vw, 40px)", fontWeight: 800,
-              letterSpacing: "-0.03em", color: "var(--text-1)",
-            }}>
-              Compare all features
-            </motion.h2>
-          </motion.div>
+        <section style={{ padding: "0 24px 36px" }}>
+          <div className="site-container">
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                gap: 20,
+              }}
+            >
+              {plans.map((plan, index) => {
+                const price = annual ? plan.annualPrice : plan.monthlyPrice;
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            style={{ border: "1px solid var(--border)", borderRadius: "var(--radius-lg)", overflow: "hidden" }}
-          >
-            <div style={{
-              display: "grid", gridTemplateColumns: "1fr 120px 120px 120px",
-              background: "var(--surface-2)", borderBottom: "1px solid var(--border)",
-              padding: "14px 28px", gap: 8,
-            }}>
-              <div style={{ color: "var(--text-3)", fontSize: 12, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase" }}>Feature</div>
-              {["Free", "Pro", "Business"].map((label) => (
-                <div key={label} style={{
-                  textAlign: "center", fontSize: 13, fontWeight: 700,
-                  color: label === "Pro" ? "var(--cyan)" : "var(--text-2)",
-                }}>
-                  {label}
-                </div>
-              ))}
+                return (
+                  <motion.div
+                    key={plan.name}
+                    initial={{ opacity: 0, y: 28 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.45, delay: index * 0.06 }}
+                    whileHover={{ y: -4 }}
+                    style={{
+                      position: "relative",
+                      padding: 28,
+                      borderRadius: "var(--radius-lg)",
+                      background: plan.featured
+                        ? "linear-gradient(180deg, color-mix(in srgb, var(--accent-muted) 85%, var(--panel-strong) 15%) 0%, var(--panel-strong) 100%)"
+                        : "var(--surface)",
+                      border: plan.featured ? "1px solid rgba(91, 140, 255, 0.28)" : "1px solid var(--border)",
+                      boxShadow: "var(--shadow-card)",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {plan.featured && (
+                      <div
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          pointerEvents: "none",
+                          background:
+                            "radial-gradient(circle at top, rgba(91, 140, 255, 0.18), transparent 42%)",
+                        }}
+                      />
+                    )}
+                    <div style={{ position: "relative" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          gap: 12,
+                          marginBottom: 20,
+                        }}
+                      >
+                        <div>
+                          <div
+                            style={{
+                              fontSize: 12,
+                              fontWeight: 700,
+                              letterSpacing: "0.12em",
+                              textTransform: "uppercase",
+                              color: "var(--text-3)",
+                              marginBottom: 10,
+                            }}
+                          >
+                            {plan.name}
+                          </div>
+                          <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+                            <AnimatePresence mode="wait">
+                              <motion.span
+                                key={`${plan.name}-${annual ? "annual" : "monthly"}`}
+                                initial={{ opacity: 0, y: 8 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -8 }}
+                                transition={{ duration: 0.18 }}
+                                style={{
+                                  fontSize: 48,
+                                  lineHeight: 0.95,
+                                  letterSpacing: "-0.05em",
+                                  fontWeight: 800,
+                                }}
+                              >
+                                ${price}
+                              </motion.span>
+                            </AnimatePresence>
+                            <span style={{ color: "var(--text-3)", fontSize: 14 }}>
+                              {price === 0 ? "forever" : "/ month"}
+                            </span>
+                          </div>
+                        </div>
+                        {plan.featured && (
+                          <div
+                            style={{
+                              padding: "8px 10px",
+                              borderRadius: 14,
+                              background: "var(--background-elevated)",
+                              border: "1px solid rgba(91, 140, 255, 0.24)",
+                              color: "var(--accent)",
+                              fontSize: 12,
+                              fontWeight: 700,
+                            }}
+                          >
+                            Recommended
+                          </div>
+                        )}
+                      </div>
+
+                      <p style={{ margin: "0 0 24px", color: "var(--text-2)", lineHeight: 1.7 }}>
+                        {plan.description}
+                      </p>
+
+                      <div style={{ marginBottom: 24 }}>
+                        <Button href={plan.featured ? "/signup" : "/contact"} variant={plan.variant} size="lg" style={{ width: "100%" }}>
+                          {plan.cta}
+                        </Button>
+                      </div>
+
+                      <div style={{ display: "grid", gap: 12 }}>
+                        {plan.highlights.map((item) => (
+                          <div
+                            key={item}
+                            style={{ display: "flex", alignItems: "center", gap: 10, color: "var(--text-2)" }}
+                          >
+                            <div
+                              style={{
+                                width: 18,
+                                height: 18,
+                                borderRadius: 999,
+                                display: "grid",
+                                placeItems: "center",
+                                background: plan.featured ? "var(--accent-muted)" : "var(--surface-3)",
+                                border: `1px solid ${plan.featured ? "rgba(91, 140, 255, 0.24)" : "var(--border)"}`,
+                                color: plan.featured ? "var(--accent)" : "var(--text-1)",
+                                fontSize: 11,
+                                fontWeight: 700,
+                              }}
+                            >
+                              ✓
+                            </div>
+                            <span style={{ fontSize: 14 }}>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
+          </div>
+        </section>
 
-            {comparisonFeatures.map((row, i) => (
+        <section style={{ padding: "0 24px 40px" }}>
+          <div className="site-container">
+            <div
+              className="section-frame"
+              style={{
+                padding: 24,
+                display: "grid",
+                gridTemplateColumns: "1.2fr 0.8fr",
+                gap: 20,
+              }}
+            >
+              <div>
+                <div
+                  style={{
+                    fontSize: 12,
+                    fontWeight: 700,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "var(--text-3)",
+                    marginBottom: 14,
+                  }}
+                >
+                  Enterprise readiness
+                </div>
+                <h3 style={{ margin: "0 0 12px", fontSize: 28, letterSpacing: "-0.04em" }}>
+                  Structured for finance, IT, and security teams.
+                </h3>
+                <p style={{ margin: 0, color: "var(--text-2)", lineHeight: 1.7, maxWidth: 560 }}>
+                  Contracts, procurement reviews, security questionnaires, and usage ramp plans are supported without pushing teams into a bloated custom package too early.
+                </p>
+              </div>
               <div
-                key={row.label}
                 style={{
-                  display: "grid", gridTemplateColumns: "1fr 120px 120px 120px",
-                  padding: "14px 28px", gap: 8,
-                  borderBottom: i < comparisonFeatures.length - 1 ? "1px solid var(--border)" : "none",
-                  background: i % 2 === 0 ? "transparent" : "rgba(255,255,255,0.01)",
+                  display: "grid",
+                  gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+                  gap: 12,
                 }}
               >
-                <div style={{ color: "var(--text-2)", fontSize: 14 }}>{row.label}</div>
-                {[row.free, row.pro, row.business].map((val, vi) => (
-                  <div key={vi} style={{ textAlign: "center", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    {typeof val === "boolean" ? (
-                      val ? <CheckIcon color={vi === 1 ? "var(--cyan)" : "var(--emerald)"} /> : <CrossIcon />
-                    ) : (
-                      <span style={{ fontSize: 13, color: vi === 1 ? "var(--cyan)" : "var(--text-2)", fontWeight: vi === 1 ? 600 : 400 }}>
-                        {val}
-                      </span>
-                    )}
+                {[
+                  ["99.9%", "SLA available"],
+                  ["SOC 2", "Documentation ready"],
+                  ["EU / US", "Regional hosting"],
+                  ["< 2 weeks", "Typical rollout"],
+                ].map(([value, label]) => (
+                  <div
+                    key={label}
+                    style={{
+                      padding: 18,
+                      borderRadius: "var(--radius)",
+                      background: "var(--surface-2)",
+                      border: "1px solid var(--border)",
+                    }}
+                  >
+                    <div style={{ fontSize: 22, fontWeight: 800, marginBottom: 6 }}>{value}</div>
+                    <div style={{ color: "var(--text-2)", fontSize: 13 }}>{label}</div>
                   </div>
                 ))}
               </div>
-            ))}
-          </motion.div>
-        </section>
-
-        {/* Money Back */}
-        <section style={{ padding: "0 24px 64px", maxWidth: 1000, margin: "0 auto" }}>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            style={{
-              display: "flex", alignItems: "center", justifyContent: "center", gap: 16,
-              background: "rgba(16,185,129,0.06)", border: "1px solid rgba(16,185,129,0.2)",
-              borderRadius: "var(--radius-lg)", padding: "20px 32px", flexWrap: "wrap",
-            }}
-          >
-            <span style={{ fontSize: 28 }}>🛡️</span>
-            <div>
-              <div style={{ fontWeight: 700, color: "var(--emerald)", fontSize: 15 }}>30-Day Money-Back Guarantee</div>
-              <div style={{ color: "var(--text-2)", fontSize: 14 }}>Not happy? Get a full refund within 30 days — no questions asked.</div>
             </div>
-          </motion.div>
-        </section>
-
-        {/* FAQ */}
-        <section style={{ padding: "0 24px 80px", maxWidth: 760, margin: "0 auto" }}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            style={{ textAlign: "center", marginBottom: 48 }}
-          >
-            <motion.div variants={fadeUp}>
-              <SectionLabel>FAQ</SectionLabel>
-            </motion.div>
-            <motion.h2 variants={fadeUp} style={{
-              fontSize: "clamp(26px, 4vw, 40px)", fontWeight: 800,
-              letterSpacing: "-0.03em", color: "var(--text-1)",
-            }}>
-              Pricing questions
-            </motion.h2>
-          </motion.div>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {faqs.map((faq, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05, ease: "easeOut" }}
-                style={{
-                  background: "var(--surface)", border: "1px solid var(--border)",
-                  borderRadius: "var(--radius)", overflow: "hidden",
-                }}
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  style={{
-                    width: "100%", textAlign: "left", padding: "20px 24px",
-                    background: "none", border: "none", cursor: "pointer",
-                    display: "flex", justifyContent: "space-between", alignItems: "center",
-                    gap: 16, fontFamily: "inherit",
-                  }}
-                >
-                  <span style={{ fontSize: 16, fontWeight: 600, color: "var(--text-1)" }}>{faq.q}</span>
-                  <motion.span
-                    animate={{ rotate: openFaq === i ? 45 : 0 }}
-                    transition={{ duration: 0.2 }}
-                    style={{ color: "var(--text-3)", fontSize: 22, flexShrink: 0, lineHeight: 1 }}
-                  >
-                    +
-                  </motion.span>
-                </button>
-                <AnimatePresence initial={false}>
-                  {openFaq === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                      style={{ overflow: "hidden" }}
-                    >
-                      <div style={{
-                        padding: "0 24px 20px",
-                        color: "var(--text-2)", fontSize: 15, lineHeight: 1.75,
-                        borderTop: "1px solid var(--border)",
-                        paddingTop: 16,
-                      }}>
-                        {faq.a}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
           </div>
         </section>
 
-        {/* Enterprise CTA */}
-        <section style={{ padding: "0 24px 100px" }}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            style={{
-              maxWidth: 800, margin: "0 auto", textAlign: "center",
-              background: "var(--surface)", border: "1px solid var(--border-2)",
-              borderRadius: "var(--radius-xl)", padding: "64px 48px",
-              position: "relative", overflow: "hidden",
-            }}
-          >
-            <div style={{
-              position: "absolute", inset: 0,
-              background: "radial-gradient(ellipse at center, rgba(6,239,255,0.06) 0%, transparent 65%)",
-              pointerEvents: "none",
-            }} />
-            <motion.div variants={fadeUp}>
-              <SectionLabel>Enterprise</SectionLabel>
-            </motion.div>
-            <motion.h2 variants={fadeUp} style={{
-              fontSize: "clamp(26px, 4vw, 42px)", fontWeight: 800,
-              letterSpacing: "-0.03em", color: "var(--text-1)", marginBottom: 16,
-            }}>
-              Need more than Business?
-            </motion.h2>
-            <motion.p variants={fadeUp} style={{
-              color: "var(--text-2)", fontSize: 17, lineHeight: 1.7,
-              maxWidth: 520, margin: "0 auto 36px",
-            }}>
-              Custom conversation quotas, dedicated infrastructure, on-premise deployment,
-              and a white-glove onboarding experience. Let's build something together.
-            </motion.p>
-            <motion.div variants={fadeUp} style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-              <a
-                href="/contact"
+        <section style={{ padding: "0 24px 40px" }}>
+          <div className="site-container">
+            <div style={{ marginBottom: 24 }}>
+              <SectionHeader
+                badge="Compare"
+                align="left"
+                heading={<>A clear feature matrix, without feature-sprawl.</>}
+                description="The product tiers map to team maturity, not arbitrary packaging tricks."
+                style={{ margin: 0 }}
+              />
+            </div>
+            <div className="section-frame" style={{ overflow: "hidden" }}>
+              <div
                 style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  background: "var(--grad-btn)", color: "#000", fontWeight: 700,
-                  padding: "14px 36px", borderRadius: "var(--radius)", fontSize: 15,
-                  textDecoration: "none",
+                  display: "grid",
+                  gridTemplateColumns: "1.3fr repeat(3, minmax(0, 0.7fr))",
+                  padding: "18px 22px",
+                  gap: 12,
+                  borderBottom: "1px solid var(--border)",
+                  background: "var(--surface-2)",
                 }}
               >
-                Talk to sales
-              </a>
-              <a
-                href="/demo"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  background: "rgba(255,255,255,0.06)", border: "1px solid var(--border-2)",
-                  color: "var(--text-1)", fontWeight: 600, padding: "14px 36px",
-                  borderRadius: "var(--radius)", fontSize: 15, textDecoration: "none",
-                }}
-              >
-                Book a demo
-              </a>
-            </motion.div>
-          </motion.div>
+                <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-3)" }}>
+                  Capability
+                </div>
+                {plans.map((plan) => (
+                  <div
+                    key={plan.name}
+                    style={{ textAlign: "center", fontSize: 13, fontWeight: 700, color: plan.featured ? "var(--accent)" : "var(--text-1)" }}
+                  >
+                    {plan.name}
+                  </div>
+                ))}
+              </div>
+              {comparisonRows.map((row, index) => (
+                <div
+                  key={row.label}
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "1.3fr repeat(3, minmax(0, 0.7fr))",
+                    padding: "18px 22px",
+                    gap: 12,
+                    borderBottom: index === comparisonRows.length - 1 ? 0 : "1px solid var(--border)",
+                    background: index % 2 === 0 ? "transparent" : "var(--surface-3)",
+                  }}
+                >
+                  <div style={{ color: "var(--text-2)", fontSize: 14 }}>{row.label}</div>
+                  {[row.starter, row.growth, row.scale].map((value, cellIndex) => (
+                    <div key={cellIndex} style={{ display: "flex", justifyContent: "center" }}>
+                      {typeof value === "boolean" ? (
+                        <StatusIcon enabled={value} />
+                      ) : (
+                        <span style={{ color: cellIndex === 1 ? "var(--accent)" : "var(--text-1)", fontWeight: cellIndex === 1 ? 700 : 500, fontSize: 14 }}>
+                          {value}
+                        </span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section style={{ padding: "0 24px 88px" }}>
+          <div className="site-container" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+            <div className="section-frame" style={{ padding: 24 }}>
+              <SectionHeader
+                badge="FAQ"
+                align="left"
+                heading={<>Questions teams usually ask before procurement starts.</>}
+                description="Short answers now. Deeper security and architecture reviews later."
+                style={{ margin: 0, maxWidth: "100%" }}
+              />
+              <div style={{ display: "grid", gap: 12, marginTop: 24 }}>
+                {faqs.map((faq, index) => (
+                  <div
+                    key={faq.question}
+                    style={{
+                      borderRadius: "var(--radius)",
+                      border: "1px solid var(--border)",
+                      background: openFaq === index ? "var(--surface-2)" : "var(--surface)",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                      style={{
+                        width: "100%",
+                        textAlign: "left",
+                        padding: "18px 18px 16px",
+                        border: 0,
+                        background: "transparent",
+                        color: "var(--text-1)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        gap: 16,
+                        cursor: "pointer",
+                        fontWeight: 700,
+                      }}
+                    >
+                      <span>{faq.question}</span>
+                      <span style={{ color: "var(--text-3)", fontSize: 18 }}>{openFaq === index ? "-" : "+"}</span>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {openFaq === index && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.22 }}
+                          style={{ overflow: "hidden" }}
+                        >
+                          <div style={{ padding: "0 18px 18px", color: "var(--text-2)", lineHeight: 1.7 }}>
+                            {faq.answer}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="section-frame" style={{ padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 24 }}>
+              <div>
+                <div
+                  style={{
+                    display: "inline-flex",
+                    padding: "8px 12px",
+                    borderRadius: 999,
+                    background: "var(--accent-muted)",
+                    border: "1px solid rgba(91, 140, 255, 0.24)",
+                    color: "var(--accent)",
+                    fontSize: 12,
+                    fontWeight: 700,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    marginBottom: 16,
+                  }}
+                >
+                  Custom plans
+                </div>
+                <h3 style={{ margin: "0 0 12px", fontSize: 30, letterSpacing: "-0.04em" }}>
+                  Need higher throughput, dedicated infrastructure, or commercial flexibility?
+                </h3>
+                <p style={{ margin: 0, color: "var(--text-2)", lineHeight: 1.72 }}>
+                  We support multi-region deployments, security reviews, custom quotas, procurement workflows, and launch planning for larger enterprise rollouts.
+                </p>
+              </div>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <Button href="/contact" size="lg">Talk to sales</Button>
+                <Button href="/demo" variant="secondary" size="lg">Book a walkthrough</Button>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </PageLayout>
   );
 }
+
 

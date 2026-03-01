@@ -1,10 +1,37 @@
 import type { Metadata } from "next";
+import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 
+const sans = Manrope({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["400", "500", "600"],
+});
+
+const themeScript = `
+(() => {
+  try {
+    const stored = localStorage.getItem("konvoq-theme");
+    const system = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    const theme = stored || system;
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+  } catch (error) {
+    document.documentElement.dataset.theme = "dark";
+    document.documentElement.style.colorScheme = "dark";
+  }
+})();
+`;
+
 export const metadata: Metadata = {
-  title: "Konvoq — AI Chatbot for Websites",
+  title: "Konvoq | AI Chatbot for Websites",
   description:
-    "Konvoq trains a custom AI chatbot on your website, docs, and data — then deploys it in minutes. Convert more. Support better. Grow without hiring.",
+    "Konvoq trains a custom AI chatbot on your website, docs, and data, then deploys it in minutes. Convert more. Support better. Grow without hiring.",
   keywords: [
     "AI chatbot",
     "website chatbot",
@@ -22,18 +49,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${sans.variable} ${mono.variable} scroll-smooth`}
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900&display=swap"
-          rel="stylesheet"
-        />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

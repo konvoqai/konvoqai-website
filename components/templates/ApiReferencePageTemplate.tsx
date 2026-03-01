@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 
 import { motion, type Variants } from "framer-motion";
 import { useState } from "react";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// ─── Reusable helpers ────────────────────────────────────────────────────────
+// â”€â”€â”€ Reusable helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -13,7 +13,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
         display: "inline-flex",
         alignItems: "center",
         gap: 8,
-        background: "rgba(255,255,255,0.04)",
+        background: "var(--surface-3)",
         border: "1px solid var(--border-2)",
         borderRadius: 100,
         padding: "6px 16px",
@@ -38,7 +38,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// ─── Animation variants ──────────────────────────────────────────────────────
+// â”€â”€â”€ Animation variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -50,31 +50,31 @@ const stagger: Variants = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const endpointCategories = [
   {
-    icon: "🤖",
+    icon: "ðŸ¤–",
     title: "Chatbots",
     desc: "Create, update, delete, and configure chatbot instances. Set personalities, training data, and deployment targets.",
     methods: ["GET", "POST", "PUT", "DELETE"],
     endpoints: 8,
-    color: "var(--cyan)",
-    bg: "rgba(6,239,255,0.06)",
-    border: "rgba(6,239,255,0.2)",
+    color: "var(--accent)",
+    bg: "var(--accent-muted)",
+    border: "rgba(91, 140, 255, 0.24)",
   },
   {
-    icon: "💬",
+    icon: "ðŸ’¬",
     title: "Conversations",
     desc: "Query conversation history, export transcripts, access analytics, and filter by date, resolution status, or CSAT score.",
     methods: ["GET", "POST"],
     endpoints: 6,
-    color: "var(--violet)",
-    bg: "rgba(139,92,246,0.06)",
-    border: "rgba(139,92,246,0.2)",
+    color: "var(--accent-strong)",
+    bg: "rgba(122, 162, 255, 0.09)",
+    border: "rgba(122, 162, 255, 0.24)",
   },
   {
-    icon: "📨",
+    icon: "ðŸ“¨",
     title: "Messages",
     desc: "Send messages programmatically, retrieve thread history, inject context into ongoing conversations in real time.",
     methods: ["GET", "POST"],
@@ -84,9 +84,9 @@ const endpointCategories = [
     border: "rgba(16,185,129,0.2)",
   },
   {
-    icon: "🔔",
+    icon: "ðŸ””",
     title: "Webhooks",
-    desc: "Subscribe to real-time event notifications — new conversations, resolved tickets, escalations, and CSAT submissions.",
+    desc: "Subscribe to real-time event notifications â€” new conversations, resolved tickets, escalations, and CSAT submissions.",
     methods: ["GET", "POST", "DELETE"],
     endpoints: 4,
     color: "var(--amber)",
@@ -108,25 +108,25 @@ const rateLimits = [
     plan: "Pro",
     limit: "10,000 / hr",
     monthly: "720,000 / mo",
-    color: "var(--violet)",
-    bg: "rgba(139,92,246,0.08)",
-    border: "rgba(139,92,246,0.2)",
+    color: "var(--accent-strong)",
+    bg: "rgba(122, 162, 255, 0.12)",
+    border: "rgba(122, 162, 255, 0.24)",
     featured: true,
   },
   {
     plan: "Business",
     limit: "Unlimited",
     monthly: "Unlimited",
-    color: "var(--cyan)",
-    bg: "rgba(6,239,255,0.06)",
-    border: "rgba(6,239,255,0.2)",
+    color: "var(--accent)",
+    bg: "var(--accent-muted)",
+    border: "rgba(91, 140, 255, 0.24)",
   },
 ];
 
 const sdks = [
   {
     lang: "JavaScript / TypeScript",
-    icon: "⚡",
+    icon: "âš¡",
     install: "npm install @konvoq/sdk",
     color: "var(--amber)",
     bg: "rgba(245,158,11,0.08)",
@@ -134,19 +134,19 @@ const sdks = [
   },
   {
     lang: "Python",
-    icon: "🐍",
+    icon: "ðŸ",
     install: "pip install konvoq",
-    color: "var(--cyan)",
-    bg: "rgba(6,239,255,0.08)",
-    border: "rgba(6,239,255,0.2)",
+    color: "var(--accent)",
+    bg: "var(--accent-muted)",
+    border: "rgba(91, 140, 255, 0.24)",
   },
   {
     lang: "Go",
-    icon: "🔵",
+    icon: "ðŸ”µ",
     install: "go get github.com/konvoq/konvoq-go",
-    color: "var(--violet)",
-    bg: "rgba(139,92,246,0.08)",
-    border: "rgba(139,92,246,0.2)",
+    color: "var(--accent-strong)",
+    bg: "rgba(122, 162, 255, 0.12)",
+    border: "rgba(122, 162, 255, 0.24)",
   },
 ];
 
@@ -175,7 +175,7 @@ const responseExample = `{
   }
 }`;
 
-// ─── Component ───────────────────────────────────────────────────────────────
+// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export default function ApiReferencePageTemplate() {
   const [activeTab, setActiveTab] = useState<"request" | "response">("request");
@@ -206,7 +206,7 @@ export default function ApiReferencePageTemplate() {
             left: "5%",
             width: 500,
             height: 500,
-            background: "radial-gradient(circle, rgba(6,239,255,0.06) 0%, transparent 70%)",
+            background: "radial-gradient(circle, var(--accent-muted) 0%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(70px)",
           }}
@@ -218,7 +218,7 @@ export default function ApiReferencePageTemplate() {
             right: "5%",
             width: 450,
             height: 450,
-            background: "radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(122, 162, 255, 0.1) 0%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(70px)",
           }}
@@ -226,7 +226,7 @@ export default function ApiReferencePageTemplate() {
       </div>
 
       <div style={{ position: "relative", zIndex: 1 }}>
-        {/* ── Hero ── */}
+        {/* â”€â”€ Hero â”€â”€ */}
         <section
           style={{
             maxWidth: 900,
@@ -300,7 +300,7 @@ export default function ApiReferencePageTemplate() {
                 style={{
                   fontFamily: "ui-monospace, 'Cascadia Code', monospace",
                   fontSize: "0.95rem",
-                  color: "var(--cyan)",
+                  color: "var(--accent)",
                   letterSpacing: "0.02em",
                 }}
               >
@@ -310,7 +310,7 @@ export default function ApiReferencePageTemplate() {
           </motion.div>
         </section>
 
-        {/* ── Endpoint Categories ── */}
+        {/* â”€â”€ Endpoint Categories â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
             initial="hidden"
@@ -390,15 +390,15 @@ export default function ApiReferencePageTemplate() {
                   {cat.methods.map((m) => {
                     const methodColors: Record<string, string> = {
                       GET: "var(--emerald)",
-                      POST: "var(--cyan)",
+                      POST: "var(--accent)",
                       PUT: "var(--amber)",
-                      DELETE: "var(--rose)",
+                      DELETE: "var(--danger)",
                     };
                     const methodBg: Record<string, string> = {
                       GET: "rgba(16,185,129,0.1)",
-                      POST: "rgba(6,239,255,0.1)",
+                      POST: "var(--accent-muted-strong)",
                       PUT: "rgba(245,158,11,0.1)",
-                      DELETE: "rgba(244,63,94,0.1)",
+                      DELETE: "rgba(239, 68, 68, 0.12)",
                     };
                     return (
                       <span
@@ -426,14 +426,14 @@ export default function ApiReferencePageTemplate() {
                     color: cat.color,
                   }}
                 >
-                  {cat.endpoints} endpoints →
+                  {cat.endpoints} endpoints â†’
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </section>
 
-        {/* ── Code Example ── */}
+        {/* â”€â”€ Code Example â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
             initial="hidden"
@@ -545,9 +545,9 @@ export default function ApiReferencePageTemplate() {
                           key={i}
                           style={{
                             color: isUrl
-                              ? "var(--cyan)"
+                              ? "var(--accent)"
                               : isFlag
-                              ? "var(--violet)"
+                              ? "var(--accent-strong)"
                               : isKey
                               ? "var(--amber)"
                               : "var(--text-2)",
@@ -569,7 +569,7 @@ export default function ApiReferencePageTemplate() {
                           key={i}
                           style={{
                             color: isKey
-                              ? "var(--cyan)"
+                              ? "var(--accent)"
                               : isValue
                               ? "var(--emerald)"
                               : "var(--text-2)",
@@ -587,7 +587,7 @@ export default function ApiReferencePageTemplate() {
           </motion.div>
         </section>
 
-        {/* ── Authentication ── */}
+        {/* â”€â”€ Authentication â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
             initial="hidden"
@@ -605,7 +605,7 @@ export default function ApiReferencePageTemplate() {
                 padding: "32px 28px",
               }}
             >
-              <div style={{ fontSize: 28, marginBottom: 14 }}>🔑</div>
+              <div style={{ fontSize: 28, marginBottom: 14 }}>ðŸ”‘</div>
               <SectionLabel>Authentication</SectionLabel>
               <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--text-1)", marginBottom: 14 }}>
                 API Key Authentication
@@ -616,8 +616,8 @@ export default function ApiReferencePageTemplate() {
                 <code
                   style={{
                     fontFamily: "ui-monospace, monospace",
-                    color: "var(--cyan)",
-                    background: "rgba(6,239,255,0.08)",
+                    color: "var(--accent)",
+                    background: "var(--accent-muted)",
                     padding: "1px 6px",
                     borderRadius: 4,
                   }}
@@ -645,7 +645,7 @@ export default function ApiReferencePageTemplate() {
                   padding: "14px 16px",
                   fontFamily: "ui-monospace, monospace",
                   fontSize: "0.82rem",
-                  color: "var(--violet)",
+                  color: "var(--accent-strong)",
                 }}
               >
                 Authorization: Bearer kq_live_xxxxxxxxxxxx
@@ -661,7 +661,7 @@ export default function ApiReferencePageTemplate() {
                 padding: "32px 28px",
               }}
             >
-              <div style={{ fontSize: 28, marginBottom: 14 }}>⚡</div>
+              <div style={{ fontSize: 28, marginBottom: 14 }}>âš¡</div>
               <SectionLabel>Rate Limits</SectionLabel>
               <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "var(--text-1)", marginBottom: 20 }}>
                 Requests Per Plan
@@ -695,7 +695,7 @@ export default function ApiReferencePageTemplate() {
           </motion.div>
         </section>
 
-        {/* ── SDKs ── */}
+        {/* â”€â”€ SDKs â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
             initial="hidden"
@@ -803,7 +803,7 @@ export default function ApiReferencePageTemplate() {
                     }}
                     title="Copy"
                   >
-                    📋
+                    ðŸ“‹
                   </button>
                 </div>
               </motion.div>
@@ -811,7 +811,7 @@ export default function ApiReferencePageTemplate() {
           </motion.div>
         </section>
 
-        {/* ── CTA ── */}
+        {/* â”€â”€ CTA â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 100px" }}>
           <motion.div
             initial="hidden"
@@ -819,7 +819,7 @@ export default function ApiReferencePageTemplate() {
             viewport={{ once: true }}
             variants={fadeUp}
             style={{
-              background: "linear-gradient(135deg, rgba(6,239,255,0.08) 0%, rgba(139,92,246,0.08) 100%)",
+              background: "linear-gradient(135deg, var(--accent-muted) 0%, rgba(122, 162, 255, 0.12) 100%)",
               border: "1px solid var(--border-2)",
               borderRadius: "var(--radius-xl)",
               padding: "64px 48px",
@@ -832,7 +832,7 @@ export default function ApiReferencePageTemplate() {
               style={{
                 position: "absolute",
                 inset: 0,
-                background: "radial-gradient(ellipse at 50% 0%, rgba(6,239,255,0.08) 0%, transparent 60%)",
+                background: "radial-gradient(ellipse at 50% 0%, var(--accent-muted) 0%, transparent 60%)",
                 pointerEvents: "none",
               }}
             />
@@ -876,7 +876,7 @@ export default function ApiReferencePageTemplate() {
                     display: "inline-block",
                   }}
                 >
-                  Get API Key →
+                  Get API Key â†’
                 </motion.a>
                 <motion.a
                   href="/docs"
@@ -904,4 +904,5 @@ export default function ApiReferencePageTemplate() {
     </PageLayout>
   );
 }
+
 

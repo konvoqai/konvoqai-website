@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
@@ -9,7 +9,7 @@ interface PerkCardProps {
   accent?: string;
 }
 
-export default function PerkCard({ icon, title, description, accent = "var(--cyan)" }: PerkCardProps) {
+export default function PerkCard({ icon, title, description, accent = "var(--accent)" }: PerkCardProps) {
   return (
     <motion.div
       whileHover={{ y: -4 }}
@@ -44,3 +44,4 @@ export default function PerkCard({ icon, title, description, accent = "var(--cya
     </motion.div>
   );
 }
+

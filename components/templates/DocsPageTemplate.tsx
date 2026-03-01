@@ -1,9 +1,9 @@
-"use client";
+﻿"use client";
 
 import { motion, type Variants } from "framer-motion";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// ─── Reusable helpers ────────────────────────────────────────────────────────
+// â”€â”€â”€ Reusable helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +12,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
         display: "inline-flex",
         alignItems: "center",
         gap: 8,
-        background: "rgba(255,255,255,0.04)",
+        background: "var(--surface-3)",
         border: "1px solid var(--border-2)",
         borderRadius: 100,
         padding: "6px 16px",
@@ -37,7 +37,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// ─── Animation variants ──────────────────────────────────────────────────────
+// â”€â”€â”€ Animation variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -54,31 +54,31 @@ const fadeIn: Variants = {
   visible: { opacity: 1 },
 };
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const quickStart = [
   {
-    icon: "⚡",
+    icon: "âš¡",
     step: "01",
     title: "Install Widget",
     time: "5 min",
     desc: "Add one script tag to your site and the chat widget appears instantly.",
-    color: "var(--cyan)",
-    gradient: "linear-gradient(135deg, rgba(6,239,255,0.12), rgba(6,239,255,0.04))",
-    borderColor: "rgba(6,239,255,0.2)",
+    color: "var(--accent)",
+    gradient: "linear-gradient(135deg, rgba(91, 140, 255, 0.18), rgba(91, 140, 255, 0.05))",
+    borderColor: "rgba(91, 140, 255, 0.24)",
   },
   {
-    icon: "🧠",
+    icon: "ðŸ§ ",
     step: "02",
     title: "Train Your Bot",
     time: "10 min",
     desc: "Upload docs, paste URLs, or connect your knowledge base for instant AI training.",
-    color: "var(--violet)",
-    gradient: "linear-gradient(135deg, rgba(139,92,246,0.12), rgba(139,92,246,0.04))",
-    borderColor: "rgba(139,92,246,0.2)",
+    color: "var(--accent-strong)",
+    gradient: "linear-gradient(135deg, rgba(122, 162, 255, 0.16), rgba(122, 162, 255, 0.06))",
+    borderColor: "rgba(122, 162, 255, 0.24)",
   },
   {
-    icon: "🚀",
+    icon: "ðŸš€",
     step: "03",
     title: "Go Live",
     time: "2 min",
@@ -91,34 +91,34 @@ const quickStart = [
 
 const docCategories = [
   {
-    icon: "🚀",
+    icon: "ðŸš€",
     title: "Getting Started",
     desc: "Installation, configuration, and your first chatbot in minutes.",
     articles: 12,
-    color: "var(--cyan)",
-    bg: "rgba(6,239,255,0.06)",
-    border: "rgba(6,239,255,0.15)",
+    color: "var(--accent)",
+    bg: "var(--accent-muted)",
+    border: "rgba(91, 140, 255, 0.18)",
   },
   {
-    icon: "🎨",
+    icon: "ðŸŽ¨",
     title: "Widget Customization",
     desc: "Themes, colors, positioning, triggers, and advanced UI options.",
     articles: 24,
-    color: "var(--violet)",
-    bg: "rgba(139,92,246,0.06)",
-    border: "rgba(139,92,246,0.15)",
+    color: "var(--accent-strong)",
+    bg: "rgba(122, 162, 255, 0.09)",
+    border: "rgba(122, 162, 255, 0.2)",
   },
   {
-    icon: "🔌",
+    icon: "ðŸ”Œ",
     title: "API & Webhooks",
     desc: "REST endpoints, webhook events, authentication, and rate limits.",
     articles: 31,
-    color: "var(--rose)",
-    bg: "rgba(244,63,94,0.06)",
-    border: "rgba(244,63,94,0.15)",
+    color: "var(--danger)",
+    bg: "rgba(239, 68, 68, 0.08)",
+    border: "rgba(239, 68, 68, 0.18)",
   },
   {
-    icon: "🔗",
+    icon: "ðŸ”—",
     title: "Integrations",
     desc: "Connect with Slack, HubSpot, Shopify, Zendesk, and 100+ more.",
     articles: 47,
@@ -138,7 +138,7 @@ const popularArticles = [
   { title: "Multilingual Support: Enabling 50+ Languages", time: "4 min read", tag: "Advanced" },
 ];
 
-// ─── Component ───────────────────────────────────────────────────────────────
+// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export default function DocsPageTemplate() {
   return (
@@ -160,7 +160,7 @@ export default function DocsPageTemplate() {
             left: "20%",
             width: 500,
             height: 500,
-            background: "radial-gradient(circle, rgba(6,239,255,0.06) 0%, transparent 70%)",
+            background: "radial-gradient(circle, var(--accent-muted) 0%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(60px)",
           }}
@@ -172,7 +172,7 @@ export default function DocsPageTemplate() {
             right: "10%",
             width: 400,
             height: 400,
-            background: "radial-gradient(circle, rgba(139,92,246,0.07) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(122, 162, 255, 0.1) 0%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(60px)",
           }}
@@ -180,7 +180,7 @@ export default function DocsPageTemplate() {
       </div>
 
       <div style={{ position: "relative", zIndex: 1 }}>
-        {/* ── Hero ── */}
+        {/* â”€â”€ Hero â”€â”€ */}
         <section
           style={{
             maxWidth: 900,
@@ -246,7 +246,7 @@ export default function DocsPageTemplate() {
                   fontSize: 18,
                 }}
               >
-                🔍
+                ðŸ”
               </div>
               <input
                 type="text"
@@ -264,7 +264,7 @@ export default function DocsPageTemplate() {
                   transition: "border-color 0.2s",
                 }}
                 onFocus={(e) => {
-                  e.currentTarget.style.borderColor = "var(--cyan)";
+                  e.currentTarget.style.borderColor = "var(--accent)";
                 }}
                 onBlur={(e) => {
                   e.currentTarget.style.borderColor = "var(--border-2)";
@@ -285,13 +285,13 @@ export default function DocsPageTemplate() {
                   fontFamily: "inherit",
                 }}
               >
-                ⌘K
+                âŒ˜K
               </kbd>
             </motion.div>
           </motion.div>
         </section>
 
-        {/* ── Quick Start ── */}
+        {/* â”€â”€ Quick Start â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 80px" }}>
           <motion.div
             initial="hidden"
@@ -381,14 +381,14 @@ export default function DocsPageTemplate() {
                     fontWeight: 600,
                   }}
                 >
-                  Start →
+                  Start â†’
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </section>
 
-        {/* ── Categories ── */}
+        {/* â”€â”€ Categories â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 80px" }}>
           <motion.div
             initial="hidden"
@@ -486,14 +486,14 @@ export default function DocsPageTemplate() {
                   >
                     {cat.articles} articles
                   </span>
-                  <span style={{ color: cat.color, fontSize: "1rem" }}>→</span>
+                  <span style={{ color: cat.color, fontSize: "1rem" }}>â†’</span>
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </section>
 
-        {/* ── Popular Articles ── */}
+        {/* â”€â”€ Popular Articles â”€â”€ */}
         <section
           style={{
             maxWidth: 1100,
@@ -560,9 +560,9 @@ export default function DocsPageTemplate() {
                     style={{
                       fontSize: 10,
                       fontWeight: 600,
-                      color: "var(--violet)",
-                      background: "rgba(139,92,246,0.08)",
-                      border: "1px solid rgba(139,92,246,0.2)",
+                      color: "var(--accent-strong)",
+                      background: "rgba(122, 162, 255, 0.12)",
+                      border: "1px solid rgba(122, 162, 255, 0.24)",
                       borderRadius: 100,
                       padding: "2px 8px",
                       whiteSpace: "nowrap",
@@ -637,7 +637,7 @@ export default function DocsPageTemplate() {
           </motion.div>
         </section>
 
-        {/* ── API Reference CTA ── */}
+        {/* â”€â”€ API Reference CTA â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 100px" }}>
           <motion.div
             initial="hidden"
@@ -645,7 +645,7 @@ export default function DocsPageTemplate() {
             viewport={{ once: true }}
             variants={fadeUp}
             style={{
-              background: "linear-gradient(135deg, rgba(6,239,255,0.08) 0%, rgba(139,92,246,0.08) 100%)",
+              background: "linear-gradient(135deg, var(--accent-muted) 0%, rgba(122, 162, 255, 0.12) 100%)",
               border: "1px solid var(--border-2)",
               borderRadius: "var(--radius-xl)",
               padding: "60px 48px",
@@ -662,15 +662,15 @@ export default function DocsPageTemplate() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: 8,
-                  background: "rgba(6,239,255,0.1)",
-                  border: "1px solid rgba(6,239,255,0.2)",
+                  background: "var(--accent-muted-strong)",
+                  border: "1px solid rgba(91, 140, 255, 0.24)",
                   borderRadius: 100,
                   padding: "4px 14px",
                   fontSize: 10,
                   fontWeight: 700,
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
-                  color: "var(--cyan)",
+                  color: "var(--accent)",
                   marginBottom: 16,
                 }}
               >
@@ -708,7 +708,7 @@ export default function DocsPageTemplate() {
                   display: "inline-block",
                 }}
               >
-                View API Reference →
+                View API Reference â†’
               </motion.a>
               <motion.a
                 href="#"
@@ -735,4 +735,5 @@ export default function DocsPageTemplate() {
     </PageLayout>
   );
 }
+
 

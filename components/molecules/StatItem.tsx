@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 interface StatItemProps {
   value: string;
@@ -7,7 +7,7 @@ interface StatItemProps {
   accent?: string;
 }
 
-export default function StatItem({ value, label, description, accent = "var(--cyan)" }: StatItemProps) {
+export default function StatItem({ value, label, description, accent = "var(--accent)" }: StatItemProps) {
   return (
     <div style={{ textAlign: "center" }}>
       <div
@@ -28,3 +28,4 @@ export default function StatItem({ value, label, description, accent = "var(--cy
     </div>
   );
 }
+

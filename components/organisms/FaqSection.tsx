@@ -1,177 +1,88 @@
-"use client";
+﻿"use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <div
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 8,
-        background: "rgba(255,255,255,0.04)",
-        border: "1px solid var(--border-2)",
-        borderRadius: 100,
-        padding: "6px 16px",
-        fontSize: 11,
-        fontWeight: 600,
-        letterSpacing: "0.12em",
-        textTransform: "uppercase" as const,
-        color: "var(--text-2)",
-        marginBottom: 20,
-      }}
-    >
-      <div style={{ width: 6, height: 6, background: "var(--grad-aurora)", borderRadius: "50%" }} />
-      {children}
-    </div>
-  );
-}
+import SectionHeader from "@/components/molecules/SectionHeader";
 
 const faqs = [
   {
-    q: "What is Konvoq and how does it work?",
-    a: "Konvoq is an AI chatbot platform that trains a custom chatbot on your website, documents, and data. Connect your sources, customize the personality, embed one line of code — live in under 3 minutes.",
+    question: "How long does setup usually take?",
+    answer: "Most teams can connect content, tune the assistant, and embed the widget in under three minutes. More advanced routing and governance settings can be layered in afterward.",
   },
   {
-    q: "How do I train an AI chatbot on my website?",
-    a: "Paste your website URL and Konvoq automatically crawls and learns your content. You can also upload PDFs, Word docs, CSVs, or connect Google Drive. Content auto-resyncs when you update it.",
+    question: "Can we use our own voice and escalation policy?",
+    answer: "Yes. You can shape the assistant tone, define escalation conditions, and determine which conversations stay automated versus routed to a person.",
   },
   {
-    q: "Which AI models does Konvoq support?",
-    a: "GPT-4o (OpenAI), Claude 3.5 Sonnet (Anthropic), and Gemini 1.5 Pro (Google). Choose per-chatbot, or let Konvoq auto-select the best model for each use case.",
+    question: "Does Konvoq work for both support and conversion?",
+    answer: "That is the intended operating model. The assistant can answer support questions, qualify leads, capture intent, and route sales opportunities with context attached.",
   },
   {
-    q: "Is Konvoq GDPR and HIPAA compliant?",
-    a: "Yes. SOC 2 Type II certified, GDPR compliant, and HIPAA-ready. All data encrypted at rest and in transit. Full data retention control and deletion on request.",
-  },
-  {
-    q: "Can I white-label Konvoq for my clients?",
-    a: "Yes — and it's included on all paid plans, not a premium addon. Use your own logo, domain, brand colors, and bot name. Agencies manage all client bots from one dashboard.",
-  },
-  {
-    q: "How does Konvoq compare to Chatbase and Tidio?",
-    a: "Konvoq offers multi-LLM support, white-label on all plans, deeper revenue analytics, and faster setup — at a lower price. Chatbase charges extra for white-label. Tidio is legacy live chat with AI bolted on.",
-  },
-  {
-    q: "Do I need to know how to code?",
-    a: "No. Konvoq is built for non-technical users. Add your chatbot with one paste-and-go embed code. One-click plugins available for Shopify, WordPress, and Webflow.",
-  },
-  {
-    q: "What languages does Konvoq support?",
-    a: "95+ languages, auto-detected from the visitor. Train in English, respond in any language — no configuration needed.",
+    question: "Can we run Konvoq across multiple brands or client accounts?",
+    answer: "Yes. The product is structured to support multiple assistants, multiple environments, and brand-specific presentation without creating operational sprawl.",
   },
 ];
 
-function FAQItem({ faq, delay }: { faq: { q: string; a: string }; delay: number }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
-      style={{
-        background: "var(--surface)",
-        border: `1px solid ${open ? "var(--border-2)" : "var(--border)"}`,
-        borderRadius: "var(--radius)",
-        overflow: "hidden",
-        transition: "border-color 0.2s",
-      }}
-    >
-      <button
-        onClick={() => setOpen(!open)}
-        style={{
-          width: "100%",
-          padding: "20px 24px",
-          fontSize: 15,
-          fontWeight: 600,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          cursor: "pointer",
-          color: "var(--text-1)",
-          background: "none",
-          border: "none",
-          textAlign: "left" as const,
-        }}
-      >
-        {faq.q}
-        <motion.span
-          animate={{ rotate: open ? 45 : 0 }}
-          transition={{ duration: 0.3 }}
-          style={{ color: "var(--text-3)", fontSize: 18, flexShrink: 0, marginLeft: 16 }}
-        >
-          +
-        </motion.span>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            style={{ overflow: "hidden" }}
-          >
-            <div
-              style={{
-                padding: "0 24px 20px",
-                fontSize: 14,
-                color: "var(--text-2)",
-                lineHeight: 1.8,
-              }}
-            >
-              {faq.a}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
-}
-
 export default function FaqSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
   return (
     <section id="faq" style={{ padding: "120px 24px" }}>
-      <div style={{ maxWidth: 1180, margin: "0 auto" }}>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{ textAlign: "center", marginBottom: 64 }}
-        >
-          <SectionLabel>FAQ</SectionLabel>
-          <h2
-            style={{
-              fontSize: "clamp(36px, 4.5vw, 56px)",
-              fontWeight: 900,
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
-              fontFamily: "Nunito, sans-serif",
-            }}
-          >
-            Questions answered
-            <br />
-            <span className="grad-text">before you ask them</span>
-          </h2>
-        </motion.div>
+      <div className="site-container">
+        <SectionHeader
+          badge="FAQ"
+          heading={<>A few things teams usually ask before rollout.</>}
+          description={<>The questions below come up often when support and growth teams are evaluating how an assistant should fit into their existing workflow.</>}
+          style={{ marginBottom: 28 }}
+        />
 
-        <div
-          style={{
-            maxWidth: 720,
-            margin: "0 auto",
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-          }}
-        >
-          {faqs.map((faq, i) => (
-            <FAQItem key={faq.q} faq={faq} delay={i * 0.06} />
-          ))}
+        <div style={{ maxWidth: 860, margin: "0 auto", display: "flex", flexDirection: "column", gap: 12 }}>
+          {faqs.map((faq, index) => {
+            const open = openIndex === index;
+            return (
+              <div key={faq.question} className="section-surface" style={{ overflow: "hidden" }}>
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(open ? null : index)}
+                  style={{
+                    width: "100%",
+                    textAlign: "left",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: 16,
+                    padding: "20px 22px",
+                    background: "transparent",
+                    border: "none",
+                    cursor: "pointer",
+                    color: "var(--text-1)",
+                    fontWeight: 700,
+                    fontSize: 16,
+                  }}
+                >
+                  {faq.question}
+                  <motion.span animate={{ rotate: open ? 45 : 0 }} style={{ fontSize: 20, color: "var(--text-3)" }}>
+                    +
+                  </motion.span>
+                </button>
+                <AnimatePresence initial={false}>
+                  {open && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      style={{ overflow: "hidden" }}
+                    >
+                      <div style={{ padding: "0 22px 20px", color: "var(--text-2)", lineHeight: 1.75, fontSize: 15 }}>
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

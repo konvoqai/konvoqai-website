@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 
 import { motion, type Variants } from "framer-motion";
 import { useState } from "react";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// ─── Reusable helpers ────────────────────────────────────────────────────────
+// â”€â”€â”€ Reusable helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -13,7 +13,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
         display: "inline-flex",
         alignItems: "center",
         gap: 8,
-        background: "rgba(255,255,255,0.04)",
+        background: "var(--surface-3)",
         border: "1px solid var(--border-2)",
         borderRadius: 100,
         padding: "6px 16px",
@@ -38,7 +38,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// ─── Animation variants ──────────────────────────────────────────────────────
+// â”€â”€â”€ Animation variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -50,44 +50,44 @@ const stagger: Variants = {
   visible: { transition: { staggerChildren: 0.09 } },
 };
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const categories = ["All", "Product", "Guides", "Case Studies", "News"];
 
 const blogPosts = [
   {
-    emoji: "🤖",
-    gradient: "linear-gradient(135deg, #06EFFF22, #8B5CF622)",
-    borderColor: "rgba(6,239,255,0.2)",
-    accentColor: "var(--cyan)",
+    emoji: "ðŸ¤–",
+    gradient: "linear-gradient(135deg, rgba(91, 140, 255, 0.14), rgba(122, 162, 255, 0.14))",
+    borderColor: "rgba(91, 140, 255, 0.24)",
+    accentColor: "var(--accent)",
     title: "The Complete Guide to Training AI on Your Knowledge Base",
     excerpt:
       "Learn how to structure, clean, and upload your documentation so your chatbot answers questions with precision.",
     author: "Priya Sharma",
     authorInitial: "P",
-    authorColor: "var(--cyan)",
+    authorColor: "var(--accent)",
     date: "Feb 22, 2026",
     readTime: "8 min read",
     category: "Guides",
   },
   {
-    emoji: "📊",
-    gradient: "linear-gradient(135deg, #8B5CF622, #F43F5E22)",
-    borderColor: "rgba(139,92,246,0.2)",
-    accentColor: "var(--violet)",
+    emoji: "ðŸ“Š",
+    gradient: "linear-gradient(135deg, rgba(122, 162, 255, 0.14), rgba(239, 68, 68, 0.14))",
+    borderColor: "rgba(122, 162, 255, 0.24)",
+    accentColor: "var(--accent-strong)",
     title: "5 Metrics Every Customer Support Team Should Track",
     excerpt:
-      "From CSAT to resolution rate — the numbers that actually reveal how well your AI is performing.",
+      "From CSAT to resolution rate â€” the numbers that actually reveal how well your AI is performing.",
     author: "Marcus Lee",
     authorInitial: "M",
-    authorColor: "var(--violet)",
+    authorColor: "var(--accent-strong)",
     date: "Feb 18, 2026",
     readTime: "6 min read",
     category: "Guides",
   },
   {
-    emoji: "🏆",
-    gradient: "linear-gradient(135deg, #10B98122, #06EFFF22)",
+    emoji: "ðŸ†",
+    gradient: "linear-gradient(135deg, rgba(34, 197, 94, 0.14), rgba(91, 140, 255, 0.14))",
     borderColor: "rgba(16,185,129,0.2)",
     accentColor: "var(--emerald)",
     title: "How We Achieved 94% Resolution Rate with Zero Agents",
@@ -101,8 +101,8 @@ const blogPosts = [
     category: "Case Studies",
   },
   {
-    emoji: "⚡",
-    gradient: "linear-gradient(135deg, #F59E0B22, #F43F5E22)",
+    emoji: "âš¡",
+    gradient: "linear-gradient(135deg, rgba(245, 158, 11, 0.14), rgba(239, 68, 68, 0.14))",
     borderColor: "rgba(245,158,11,0.2)",
     accentColor: "var(--amber)",
     title: "GPT-4o vs Claude 3.5: Which Model for Customer Support?",
@@ -116,38 +116,38 @@ const blogPosts = [
     category: "Product",
   },
   {
-    emoji: "🛍️",
-    gradient: "linear-gradient(135deg, #F43F5E22, #8B5CF622)",
-    borderColor: "rgba(244,63,94,0.2)",
-    accentColor: "var(--rose)",
+    emoji: "ðŸ›ï¸",
+    gradient: "linear-gradient(135deg, rgba(239, 68, 68, 0.14), rgba(122, 162, 255, 0.14))",
+    borderColor: "rgba(239, 68, 68, 0.22)",
+    accentColor: "var(--danger)",
     title: "Shopify Store Reduced Support Tickets by 70% Using AI",
     excerpt:
-      "ShopEasy's journey from 2,000 monthly tickets to just 600 — without adding a single agent.",
+      "ShopEasy's journey from 2,000 monthly tickets to just 600 â€” without adding a single agent.",
     author: "Amara Johnson",
     authorInitial: "A",
-    authorColor: "var(--rose)",
+    authorColor: "var(--danger)",
     date: "Feb 6, 2026",
     readTime: "7 min read",
     category: "Case Studies",
   },
   {
-    emoji: "🌍",
-    gradient: "linear-gradient(135deg, #06EFFF22, #10B98122)",
-    borderColor: "rgba(6,239,255,0.15)",
-    accentColor: "var(--cyan)",
+    emoji: "ðŸŒ",
+    gradient: "linear-gradient(135deg, rgba(91, 140, 255, 0.14), rgba(34, 197, 94, 0.14))",
+    borderColor: "rgba(91, 140, 255, 0.18)",
+    accentColor: "var(--accent)",
     title: "Building a Multilingual Chatbot: Step-by-Step Guide",
     excerpt:
       "How to enable 50+ languages in your Konvoq chatbot and ensure culturally appropriate responses.",
-    author: "Lena Müller",
+    author: "Lena MÃ¼ller",
     authorInitial: "L",
-    authorColor: "var(--cyan)",
+    authorColor: "var(--accent)",
     date: "Feb 2, 2026",
     readTime: "9 min read",
     category: "Guides",
   },
 ];
 
-// ─── Component ───────────────────────────────────────────────────────────────
+// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export default function BlogPageTemplate() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -176,7 +176,7 @@ export default function BlogPageTemplate() {
             right: "15%",
             width: 600,
             height: 600,
-            background: "radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(122, 162, 255, 0.09) 0%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(80px)",
           }}
@@ -188,7 +188,7 @@ export default function BlogPageTemplate() {
             left: "5%",
             width: 400,
             height: 400,
-            background: "radial-gradient(circle, rgba(6,239,255,0.05) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(91, 140, 255, 0.06) 0%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(60px)",
           }}
@@ -196,7 +196,7 @@ export default function BlogPageTemplate() {
       </div>
 
       <div style={{ position: "relative", zIndex: 1 }}>
-        {/* ── Hero ── */}
+        {/* â”€â”€ Hero â”€â”€ */}
         <section
           style={{
             maxWidth: 800,
@@ -231,13 +231,13 @@ export default function BlogPageTemplate() {
                 lineHeight: 1.7,
               }}
             >
-              Everything you need to master AI-powered customer support —
+              Everything you need to master AI-powered customer support â€”
               from beginner tutorials to advanced optimization strategies.
             </motion.p>
           </motion.div>
         </section>
 
-        {/* ── Featured Post ── */}
+        {/* â”€â”€ Featured Post â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 60px" }}>
           <motion.div
             initial="hidden"
@@ -248,7 +248,7 @@ export default function BlogPageTemplate() {
             <motion.div
               whileHover={{ y: -4 }}
               style={{
-                background: "linear-gradient(135deg, rgba(6,239,255,0.07) 0%, rgba(139,92,246,0.07) 50%, rgba(244,63,94,0.05) 100%)",
+                background: "linear-gradient(135deg, rgba(91, 140, 255, 0.1) 0%, rgba(122, 162, 255, 0.1) 50%, rgba(239, 68, 68, 0.07) 100%)",
                 border: "1px solid var(--border-2)",
                 borderRadius: "var(--radius-xl)",
                 padding: "48px 48px",
@@ -275,7 +275,7 @@ export default function BlogPageTemplate() {
                   pointerEvents: "none",
                 }}
               >
-                🤖
+                ðŸ¤–
               </div>
 
               <div style={{ position: "relative", zIndex: 1 }}>
@@ -300,9 +300,9 @@ export default function BlogPageTemplate() {
                       fontWeight: 700,
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color: "var(--cyan)",
-                      background: "rgba(6,239,255,0.1)",
-                      border: "1px solid rgba(6,239,255,0.2)",
+                      color: "var(--accent)",
+                      background: "var(--accent-muted-strong)",
+                      border: "1px solid rgba(91, 140, 255, 0.24)",
                       borderRadius: 100,
                       padding: "4px 12px",
                     }}
@@ -346,7 +346,7 @@ export default function BlogPageTemplate() {
                         width: 36,
                         height: 36,
                         borderRadius: "50%",
-                        background: "linear-gradient(135deg, var(--cyan), var(--violet))",
+                        background: "var(--grad-btn)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -363,7 +363,7 @@ export default function BlogPageTemplate() {
                         James Watkins
                       </div>
                       <div style={{ fontSize: "0.78rem", color: "var(--text-3)" }}>
-                        Feb 26, 2026 · 12 min read
+                        Feb 26, 2026 Â· 12 min read
                       </div>
                     </div>
                   </div>
@@ -382,7 +382,7 @@ export default function BlogPageTemplate() {
                       fontFamily: "inherit",
                     }}
                   >
-                    Read Article →
+                    Read Article â†’
                   </motion.button>
                 </div>
               </div>
@@ -390,7 +390,7 @@ export default function BlogPageTemplate() {
           </motion.div>
         </section>
 
-        {/* ── Category Filter ── */}
+        {/* â”€â”€ Category Filter â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 40px" }}>
           <motion.div
             initial="hidden"
@@ -430,7 +430,7 @@ export default function BlogPageTemplate() {
           </motion.div>
         </section>
 
-        {/* ── Blog Grid ── */}
+        {/* â”€â”€ Blog Grid â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 80px" }}>
           <motion.div
             initial="hidden"
@@ -558,7 +558,7 @@ export default function BlogPageTemplate() {
                         <div style={{ fontSize: "0.72rem", color: "var(--text-3)" }}>{post.date}</div>
                       </div>
                     </div>
-                    <span style={{ color: post.accentColor, fontSize: "1.1rem" }}>→</span>
+                    <span style={{ color: post.accentColor, fontSize: "1.1rem" }}>â†’</span>
                   </div>
                 </div>
               </motion.article>
@@ -576,7 +576,7 @@ export default function BlogPageTemplate() {
           )}
         </section>
 
-        {/* ── Newsletter ── */}
+        {/* â”€â”€ Newsletter â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 100px" }}>
           <motion.div
             initial="hidden"
@@ -602,7 +602,7 @@ export default function BlogPageTemplate() {
                 transform: "translateX(-50%)",
                 width: 600,
                 height: 300,
-                background: "radial-gradient(ellipse, rgba(139,92,246,0.12) 0%, transparent 70%)",
+                background: "radial-gradient(ellipse, rgba(122, 162, 255, 0.16) 0%, transparent 70%)",
                 pointerEvents: "none",
               }}
             />
@@ -674,7 +674,7 @@ export default function BlogPageTemplate() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  Subscribe →
+                  Subscribe â†’
                 </motion.button>
               </div>
               <p style={{ fontSize: "0.78rem", color: "var(--text-3)", marginTop: 16 }}>
@@ -687,4 +687,5 @@ export default function BlogPageTemplate() {
     </PageLayout>
   );
 }
+
 

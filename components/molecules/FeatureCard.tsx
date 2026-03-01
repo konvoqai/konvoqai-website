@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 
@@ -14,7 +14,7 @@ export default function FeatureCard({
   icon,
   title,
   description,
-  accent = "var(--cyan)",
+  accent = "var(--accent)",
   points,
 }: FeatureCardProps) {
   return (
@@ -52,7 +52,7 @@ export default function FeatureCard({
         <ul style={{ marginTop: 16, display: "flex", flexDirection: "column", gap: 6, listStyle: "none", padding: 0 }}>
           {points.map((pt) => (
             <li key={pt} style={{ fontSize: 13, color: "var(--text-2)", display: "flex", alignItems: "flex-start", gap: 8 }}>
-              <span style={{ color: accent, marginTop: 2, flexShrink: 0 }}>✓</span>
+              <span style={{ color: accent, marginTop: 2, flexShrink: 0 }}>âœ“</span>
               {pt}
             </li>
           ))}
@@ -61,3 +61,4 @@ export default function FeatureCard({
     </motion.div>
   );
 }
+

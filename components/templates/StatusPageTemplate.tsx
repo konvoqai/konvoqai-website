@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 
 import { motion, type Variants } from "framer-motion";
 import { useState } from "react";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// ─── Reusable helpers ────────────────────────────────────────────────────────
+// â”€â”€â”€ Reusable helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -13,7 +13,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
         display: "inline-flex",
         alignItems: "center",
         gap: 8,
-        background: "rgba(255,255,255,0.04)",
+        background: "var(--surface-3)",
         border: "1px solid var(--border-2)",
         borderRadius: 100,
         padding: "6px 16px",
@@ -38,7 +38,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// ─── Animation variants ──────────────────────────────────────────────────────
+// â”€â”€â”€ Animation variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -55,13 +55,13 @@ const slideIn: Variants = {
   visible: { opacity: 1, x: 0 },
 };
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const services = [
   {
     name: "API",
     desc: "REST API endpoints and authentication",
-    icon: "🔌",
+    icon: "ðŸ”Œ",
     status: "Operational",
     uptime: "100.00%",
     latency: "42ms",
@@ -69,7 +69,7 @@ const services = [
   {
     name: "Widget CDN",
     desc: "Chat widget delivery and static assets",
-    icon: "🌐",
+    icon: "ðŸŒ",
     status: "Operational",
     uptime: "99.99%",
     latency: "18ms",
@@ -77,7 +77,7 @@ const services = [
   {
     name: "Dashboard",
     desc: "Web application and user interface",
-    icon: "📊",
+    icon: "ðŸ“Š",
     status: "Operational",
     uptime: "99.98%",
     latency: "210ms",
@@ -85,7 +85,7 @@ const services = [
   {
     name: "AI Processing",
     desc: "Language model inference and response generation",
-    icon: "🧠",
+    icon: "ðŸ§ ",
     status: "Operational",
     uptime: "99.97%",
     latency: "680ms",
@@ -93,7 +93,7 @@ const services = [
   {
     name: "Webhooks",
     desc: "Real-time event delivery and notifications",
-    icon: "🔔",
+    icon: "ðŸ””",
     status: "Operational",
     uptime: "99.99%",
     latency: "95ms",
@@ -101,10 +101,10 @@ const services = [
   {
     name: "Training Pipeline",
     desc: "Knowledge base ingestion and model fine-tuning",
-    icon: "⚙️",
+    icon: "âš™ï¸",
     status: "Operational",
     uptime: "99.96%",
-    latency: "—",
+    latency: "â€”",
   },
 ];
 
@@ -140,14 +140,14 @@ const incidents = [
       "A queuing backlog in the AI inference layer caused response generation delays across all regions. Chatbot responses took 8-15 seconds instead of the usual 1-2 seconds. No data was lost.",
     duration: "Resolved in 1h 12min",
     severity: "Degraded",
-    severityColor: "var(--rose)",
-    severityBg: "rgba(244,63,94,0.1)",
-    severityBorder: "rgba(244,63,94,0.2)",
+    severityColor: "var(--danger)",
+    severityBg: "rgba(239, 68, 68, 0.12)",
+    severityBorder: "rgba(239, 68, 68, 0.22)",
     affected: ["AI Processing"],
   },
 ];
 
-// Generate 30 uptime bars — mostly operational, a couple degraded
+// Generate 30 uptime bars â€” mostly operational, a couple degraded
 function generateUptimeBars(): Array<{ status: "operational" | "degraded" | "outage"; date: string }> {
   const bars = [];
   const today = new Date("2026-02-28");
@@ -168,7 +168,7 @@ function generateUptimeBars(): Array<{ status: "operational" | "degraded" | "out
 
 const uptimeBars = generateUptimeBars();
 
-// ─── Component ───────────────────────────────────────────────────────────────
+// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export default function StatusPageTemplate() {
   const [email, setEmail] = useState("");
@@ -210,7 +210,7 @@ export default function StatusPageTemplate() {
       </div>
 
       <div style={{ position: "relative", zIndex: 1 }}>
-        {/* ── Hero ── */}
+        {/* â”€â”€ Hero â”€â”€ */}
         <section
           style={{
             maxWidth: 800,
@@ -333,7 +333,7 @@ export default function StatusPageTemplate() {
           </motion.div>
         </section>
 
-        {/* ── Service Status Rows ── */}
+        {/* â”€â”€ Service Status Rows â”€â”€ */}
         <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
             initial="hidden"
@@ -459,7 +459,7 @@ export default function StatusPageTemplate() {
 
                   {/* Latency */}
                   <div style={{ textAlign: "center", minWidth: 60 }}>
-                    <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--cyan)" }}>
+                    <div style={{ fontSize: "0.9rem", fontWeight: 700, color: "var(--accent)" }}>
                       {svc.latency}
                     </div>
                     <div style={{ fontSize: "0.7rem", color: "var(--text-3)" }}>p50</div>
@@ -470,7 +470,7 @@ export default function StatusPageTemplate() {
           </motion.div>
         </section>
 
-        {/* ── 30-Day Uptime Visualization ── */}
+        {/* â”€â”€ 30-Day Uptime Visualization â”€â”€ */}
         <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
             initial="hidden"
@@ -528,7 +528,7 @@ export default function StatusPageTemplate() {
                           ? "var(--emerald)"
                           : bar.status === "degraded"
                           ? "var(--amber)"
-                          : "var(--rose)",
+                          : "var(--danger)",
                       borderRadius: 3,
                       opacity: hoveredBar !== null && hoveredBar !== i ? 0.4 : 1,
                       cursor: "pointer",
@@ -583,7 +583,7 @@ export default function StatusPageTemplate() {
                 {[
                   { color: "var(--emerald)", label: "Operational" },
                   { color: "var(--amber)", label: "Degraded performance" },
-                  { color: "var(--rose)", label: "Outage" },
+                  { color: "var(--danger)", label: "Outage" },
                 ].map((l) => (
                   <div
                     key={l.label}
@@ -605,7 +605,7 @@ export default function StatusPageTemplate() {
           </motion.div>
         </section>
 
-        {/* ── Incident History ── */}
+        {/* â”€â”€ Incident History â”€â”€ */}
         <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
             initial="hidden"
@@ -742,12 +742,12 @@ export default function StatusPageTemplate() {
                 paddingBottom: 2,
               }}
             >
-              View full incident history →
+              View full incident history â†’
             </a>
           </motion.div>
         </section>
 
-        {/* ── Subscribe to Status Updates ── */}
+        {/* â”€â”€ Subscribe to Status Updates â”€â”€ */}
         <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 100px" }}>
           <motion.div
             initial="hidden"
@@ -755,7 +755,7 @@ export default function StatusPageTemplate() {
             viewport={{ once: true }}
             variants={fadeUp}
             style={{
-              background: "linear-gradient(135deg, rgba(16,185,129,0.07) 0%, rgba(6,239,255,0.07) 100%)",
+              background: "linear-gradient(135deg, rgba(16,185,129,0.07) 0%, rgba(91, 140, 255, 0.1) 100%)",
               border: "1px solid var(--border-2)",
               borderRadius: "var(--radius-xl)",
               padding: "56px 48px",
@@ -773,7 +773,7 @@ export default function StatusPageTemplate() {
               }}
             />
             <div style={{ position: "relative", zIndex: 1 }}>
-              <div style={{ fontSize: 40, marginBottom: 16 }}>🔔</div>
+              <div style={{ fontSize: 40, marginBottom: 16 }}>ðŸ””</div>
               <h2
                 style={{
                   fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
@@ -816,7 +816,7 @@ export default function StatusPageTemplate() {
                     color: "var(--emerald)",
                   }}
                 >
-                  <span>✓</span>
+                  <span>âœ“</span>
                   <span>You're subscribed! We'll notify you of any incidents.</span>
                 </motion.div>
               ) : (
@@ -873,7 +873,7 @@ export default function StatusPageTemplate() {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    Subscribe →
+                    Subscribe â†’
                   </motion.button>
                 </form>
               )}
@@ -882,7 +882,7 @@ export default function StatusPageTemplate() {
                 You can also follow{" "}
                 <a
                   href="https://twitter.com/konvoqstatus"
-                  style={{ color: "var(--cyan)", textDecoration: "none" }}
+                  style={{ color: "var(--accent)", textDecoration: "none" }}
                 >
                   @konvoqstatus
                 </a>{" "}
@@ -895,4 +895,5 @@ export default function StatusPageTemplate() {
     </PageLayout>
   );
 }
+
 

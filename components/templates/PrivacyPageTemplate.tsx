@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef } from "react";
 import { motion, type Variants } from "framer-motion";
@@ -61,7 +61,7 @@ export default function PrivacyPageTemplate() {
       {/* Hero */}
       <section
         style={{
-          background: "linear-gradient(180deg, rgba(6,239,255,0.06) 0%, transparent 100%)",
+          background: "linear-gradient(180deg, var(--accent-muted) 0%, transparent 100%)",
           borderBottom: "1px solid var(--border)",
           padding: "80px 24px 64px",
           textAlign: "center",
@@ -74,7 +74,7 @@ export default function PrivacyPageTemplate() {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(6,239,255,0.08) 0%, transparent 70%)",
+              "radial-gradient(ellipse 60% 50% at 50% 0%, var(--accent-muted) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -93,8 +93,8 @@ export default function PrivacyPageTemplate() {
                 padding: "6px 16px",
                 borderRadius: 999,
                 border: "1px solid var(--border-2)",
-                background: "rgba(6,239,255,0.06)",
-                color: "var(--cyan)",
+                background: "var(--accent-muted)",
+                color: "var(--accent)",
                 fontSize: 13,
                 fontWeight: 600,
                 letterSpacing: "0.05em",
@@ -102,7 +102,7 @@ export default function PrivacyPageTemplate() {
                 marginBottom: 24,
               }}
             >
-              <span>🔒</span> Legal
+              <span>ðŸ”’</span> Legal
             </span>
           </motion.div>
           <motion.h1
@@ -184,18 +184,18 @@ export default function PrivacyPageTemplate() {
                 key={id}
                 onClick={() => scrollTo(id)}
                 style={{
-                  background: activeSection === id ? "rgba(6,239,255,0.08)" : "transparent",
+                  background: activeSection === id ? "var(--accent-muted)" : "transparent",
                   border: "none",
                   borderRadius: "var(--radius)",
                   padding: "8px 12px",
                   textAlign: "left",
                   cursor: "pointer",
-                  color: activeSection === id ? "var(--cyan)" : "var(--text-2)",
+                  color: activeSection === id ? "var(--accent)" : "var(--text-2)",
                   fontSize: 13,
                   fontWeight: activeSection === id ? 600 : 400,
                   transition: "all 0.2s",
                   borderLeft: activeSection === id
-                    ? "2px solid var(--cyan)"
+                    ? "2px solid var(--accent)"
                     : "2px solid transparent",
                 }}
               >
@@ -224,18 +224,18 @@ export default function PrivacyPageTemplate() {
               <p>We automatically collect data about how you use our platform: pages visited, features used, session duration, click patterns, error logs, API call frequency, and performance metrics.</p>
             </SubSection>
             <SubSection title="Cookies & Tracking">
-              <p>We use cookies and similar technologies to maintain sessions, remember your preferences, and analyze traffic. See our <a href="/cookies" style={{ color: "var(--cyan)" }}>Cookie Policy</a> for details.</p>
+              <p>We use cookies and similar technologies to maintain sessions, remember your preferences, and analyze traffic. See our <a href="/cookies" style={{ color: "var(--accent)" }}>Cookie Policy</a> for details.</p>
             </SubSection>
           </PolicySection>
 
           <PolicySection id="how-we-use" title="2. How We Use Your Information">
             <InfoGrid items={[
-              { icon: "⚙️", title: "Service Delivery", text: "To operate, maintain, and provide all features of the Konvoq AI platform." },
-              { icon: "📈", title: "Improvements", text: "To analyze usage patterns and improve our AI models, features, and user experience." },
-              { icon: "🛡️", title: "Security", text: "To detect fraud, abuse, and security threats, and to enforce our Terms of Service." },
-              { icon: "⚖️", title: "Legal Compliance", text: "To comply with applicable laws, regulations, court orders, and legal processes." },
-              { icon: "📧", title: "Communications", text: "To send you service updates, security alerts, and marketing communications (with opt-out)." },
-              { icon: "💰", title: "Billing", text: "To process payments, manage subscriptions, and send invoices." },
+              { icon: "âš™ï¸", title: "Service Delivery", text: "To operate, maintain, and provide all features of the Konvoq AI platform." },
+              { icon: "ðŸ“ˆ", title: "Improvements", text: "To analyze usage patterns and improve our AI models, features, and user experience." },
+              { icon: "ðŸ›¡ï¸", title: "Security", text: "To detect fraud, abuse, and security threats, and to enforce our Terms of Service." },
+              { icon: "âš–ï¸", title: "Legal Compliance", text: "To comply with applicable laws, regulations, court orders, and legal processes." },
+              { icon: "ðŸ“§", title: "Communications", text: "To send you service updates, security alerts, and marketing communications (with opt-out)." },
+              { icon: "ðŸ’°", title: "Billing", text: "To process payments, manage subscriptions, and send invoices." },
             ]} />
           </PolicySection>
 
@@ -267,24 +267,24 @@ export default function PrivacyPageTemplate() {
               <RetentionCard
                 plan="Paid Plans"
                 duration="1 Year"
-                color="var(--cyan)"
+                color="var(--accent)"
                 desc="Full conversation history and analytics retained for 12 months."
               />
             </div>
             <p style={{ marginTop: 20, color: "var(--text-2)" }}>
-              Account data is retained for the duration of your account plus 90 days after closure for legal and billing purposes. You may request deletion of your data at any time — see Your Rights below. Backups may retain data for up to 30 additional days.
+              Account data is retained for the duration of your account plus 90 days after closure for legal and billing purposes. You may request deletion of your data at any time â€” see Your Rights below. Backups may retain data for up to 30 additional days.
             </p>
           </PolicySection>
 
           <PolicySection id="security-measures" title="5. Security Measures">
             <p>We implement industry-leading security practices to protect your data:</p>
             <InfoGrid items={[
-              { icon: "🏆", title: "SOC 2 Type II", text: "Annually audited for security, availability, and confidentiality controls." },
-              { icon: "🔐", title: "Encryption at Rest", text: "All stored data is encrypted using AES-256 encryption." },
-              { icon: "🔒", title: "Encryption in Transit", text: "All data transmitted over TLS 1.3 with perfect forward secrecy." },
-              { icon: "👤", title: "Access Controls", text: "Strict role-based access controls and least-privilege principles." },
-              { icon: "🔑", title: "MFA", text: "Multi-factor authentication required for all Konvoq AI team members." },
-              { icon: "🧪", title: "Pen Testing", text: "Quarterly penetration testing by independent third-party security firms." },
+              { icon: "ðŸ†", title: "SOC 2 Type II", text: "Annually audited for security, availability, and confidentiality controls." },
+              { icon: "ðŸ”", title: "Encryption at Rest", text: "All stored data is encrypted using AES-256 encryption." },
+              { icon: "ðŸ”’", title: "Encryption in Transit", text: "All data transmitted over TLS 1.3 with perfect forward secrecy." },
+              { icon: "ðŸ‘¤", title: "Access Controls", text: "Strict role-based access controls and least-privilege principles." },
+              { icon: "ðŸ”‘", title: "MFA", text: "Multi-factor authentication required for all Konvoq AI team members." },
+              { icon: "ðŸ§ª", title: "Pen Testing", text: "Quarterly penetration testing by independent third-party security firms." },
             ]} />
           </PolicySection>
 
@@ -320,7 +320,7 @@ export default function PrivacyPageTemplate() {
             </div>
             <p style={{ marginTop: 20, color: "var(--text-2)" }}>
               To exercise any of these rights, email us at{" "}
-              <a href="mailto:privacy@konvoq.ai" style={{ color: "var(--cyan)" }}>privacy@konvoq.ai</a>.
+              <a href="mailto:privacy@konvoq.ai" style={{ color: "var(--accent)" }}>privacy@konvoq.ai</a>.
               We will respond within 30 days.
             </p>
           </PolicySection>
@@ -356,8 +356,8 @@ export default function PrivacyPageTemplate() {
                       borderRadius: 999,
                       fontSize: 12,
                       fontWeight: 600,
-                      background: required ? "rgba(6,239,255,0.1)" : "rgba(161,161,170,0.1)",
-                      color: required ? "var(--cyan)" : "var(--text-2)",
+                      background: required ? "var(--accent-muted-strong)" : "rgba(161,161,170,0.1)",
+                      color: required ? "var(--accent)" : "var(--text-2)",
                       whiteSpace: "nowrap",
                       flexShrink: 0,
                     }}
@@ -368,7 +368,7 @@ export default function PrivacyPageTemplate() {
               ))}
             </div>
             <p style={{ marginTop: 16, color: "var(--text-2)" }}>
-              See our full <a href="/cookies" style={{ color: "var(--cyan)" }}>Cookie Policy</a> for detailed information.
+              See our full <a href="/cookies" style={{ color: "var(--accent)" }}>Cookie Policy</a> for detailed information.
             </p>
           </PolicySection>
 
@@ -378,7 +378,7 @@ export default function PrivacyPageTemplate() {
             </HighlightBox>
             <p style={{ marginTop: 16, color: "var(--text-2)" }}>
               If you are a parent or guardian and believe your child has provided us with personal information, please contact us at{" "}
-              <a href="mailto:privacy@konvoq.ai" style={{ color: "var(--cyan)" }}>privacy@konvoq.ai</a>{" "}
+              <a href="mailto:privacy@konvoq.ai" style={{ color: "var(--accent)" }}>privacy@konvoq.ai</a>{" "}
               and we will delete such information from our systems promptly. Users between 13 and 18 must have parental consent before using our platform.
             </p>
           </PolicySection>
@@ -413,7 +413,7 @@ export default function PrivacyPageTemplate() {
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 <ContactItem label="Email" value="privacy@konvoq.ai" href="mailto:privacy@konvoq.ai" />
                 <ContactItem label="DPO Email" value="dpo@konvoq.ai" href="mailto:dpo@konvoq.ai" />
-                <ContactItem label="Address" value="Konvoq AI, Inc. — 1209 Orange St, Wilmington, DE 19801, USA" />
+                <ContactItem label="Address" value="Konvoq AI, Inc. â€” 1209 Orange St, Wilmington, DE 19801, USA" />
               </div>
             </div>
           </PolicySection>
@@ -423,7 +423,7 @@ export default function PrivacyPageTemplate() {
   );
 }
 
-/* ─── Sub-components ─────────────────────────────── */
+/* â”€â”€â”€ Sub-components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 function PolicySection({
   id,
@@ -592,7 +592,7 @@ function ContactItem({
         {label}
       </span>
       {href ? (
-        <a href={href} style={{ color: "var(--cyan)", fontWeight: 500 }}>
+        <a href={href} style={{ color: "var(--accent)", fontWeight: 500 }}>
           {value}
         </a>
       ) : (
@@ -601,4 +601,5 @@ function ContactItem({
     </div>
   );
 }
+
 

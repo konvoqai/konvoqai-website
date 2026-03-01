@@ -1,445 +1,175 @@
-"use client";
+﻿"use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Button from "@/components/atoms/Button";
+import SectionBadge from "@/components/atoms/SectionBadge";
 
-/* ── Animated aurora blobs ── */
-function AuroraBlob({
-  style,
-  duration,
-  delay = 0,
-}: {
-  style: React.CSSProperties;
-  duration: number;
-  delay?: number;
-}) {
+const heroMetrics = [
+  { label: "Resolution rate", value: "91%", note: "Average automated resolution" },
+  { label: "Time to launch", value: "3 min", note: "From URL to embedded widget" },
+  { label: "Teams onboarded", value: "12k+", note: "Across SaaS, commerce, and support" },
+];
+
+const featureChips = ["Website training", "Docs ingestion", "Human handoff", "Analytics", "White-label"];
+
+function ProductPreview() {
+  const { scrollY } = useScroll();
+  const translateY = useTransform(scrollY, [0, 800], [0, 80]);
+  const rotate = useTransform(scrollY, [0, 800], [0, -3]);
+
   return (
     <motion.div
+      initial={{ opacity: 0, y: 28 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.75, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
       style={{
-        position: "absolute",
-        borderRadius: "50%",
-        filter: "blur(100px)",
-        opacity: 0.5,
-        pointerEvents: "none",
-        ...style,
-      }}
-      animate={{
-        x: [0, 40, -30, 0],
-        y: [0, -40, 30, 0],
-        scale: [1, 1.05, 0.95, 1],
-      }}
-      transition={{
-        duration,
-        delay,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-    />
-  );
-}
-
-/* ── Spinning ring ── */
-function HeroRing({
-  size,
-  duration,
-  reverse = false,
-  gradient,
-}: {
-  size: number;
-  duration: number;
-  reverse?: boolean;
-  gradient: string;
-}) {
-  return (
-    <motion.div
-      style={{
-        position: "absolute",
-        width: size,
-        height: size,
-        borderRadius: "50%",
-        border: "1px solid transparent",
-        background: gradient,
-        top: "50%",
-        left: "50%",
-        marginLeft: -size / 2,
-        marginTop: -size / 2,
-        pointerEvents: "none",
-      }}
-      animate={{ rotate: reverse ? -360 : 360 }}
-      transition={{ duration, repeat: Infinity, ease: "linear" }}
-    />
-  );
-}
-
-/* ── Mock typing indicator ── */
-function TypingDot({ delay }: { delay: number }) {
-  return (
-    <motion.div
-      style={{
-        width: 5,
-        height: 5,
-        borderRadius: "50%",
-        background: "var(--cyan)",
-      }}
-      animate={{ opacity: [0.2, 1, 0.2], scale: [0.7, 1, 0.7] }}
-      transition={{ duration: 1.4, delay, repeat: Infinity, ease: "easeInOut" }}
-    />
-  );
-}
-
-/* ── Floating stat card ── */
-function FloatingCard({
-  label,
-  value,
-  change,
-  style,
-  delay,
-}: {
-  label: string;
-  value: string;
-  change: string;
-  style: React.CSSProperties;
-  delay: number;
-}) {
-  return (
-    <motion.div
-      style={{
-        position: "absolute",
-        background: "rgba(255,255,255,0.05)",
-        backdropFilter: "blur(16px)",
-        border: "1px solid rgba(255,255,255,0.1)",
-        borderRadius: 12,
-        padding: "12px 16px",
-        ...style,
-      }}
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
-      transition={{
-        opacity: { delay: delay + 1.2, duration: 0.4 },
-        scale: { delay: delay + 1.2, duration: 0.4 },
-        y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: delay * 0.5 },
+        padding: "18px 0 0",
+        position: "relative",
+        y: translateY,
+        rotate,
+        transformOrigin: "top center",
       }}
     >
-      <div style={{ fontSize: 10, color: "var(--text-3)", marginBottom: 4 }}>
-        {label}
-      </div>
       <div
-        className="grad-text"
-        style={{ fontSize: 18, fontWeight: 800, letterSpacing: "-0.04em" }}
-      >
-        {value}
-      </div>
-      <div style={{ fontSize: 10, color: "var(--emerald)" }}>{change}</div>
-    </motion.div>
-  );
-}
-
-/* ── Dashboard mockup ── */
-function DashboardMockup() {
-  const mockStats = [
-    { label: "Conversations", val: "14,382", change: "↑ 28% vs last month", color: "grad-text" },
-    { label: "Resolution Rate", val: "91%", change: "↑ 4% improvement", color: "emerald" },
-    { label: "Leads Captured", val: "1,847", change: "↑ 62% new this month", color: "rose" },
-  ];
-
-  const barHeights = [38, 52, 45, 68, 60, 82, 75, 92, 85, 100, 94, 100];
-  const hiIndices = [3, 5, 7, 9, 11];
-
-  const conversations = [
-    { initial: "J", name: "James Cooper", msg: "What's the return policy for international orders?", status: "Resolved", grad: "linear-gradient(135deg,#06EFFF,#8B5CF6)" },
-    { initial: "A", name: "Aisha Patel", msg: "Can I upgrade my plan mid-billing cycle?", status: "Resolved", grad: "linear-gradient(135deg,#10B981,#06EFFF)" },
-    { initial: "M", name: "Marco Silva", msg: "Need help with API webhook integration", status: "Pending", grad: "linear-gradient(135deg,#F43F5E,#8B5CF6)" },
-  ];
-
-  return (
-    <motion.div
-      style={{ position: "relative", width: "100%", maxWidth: 1000, margin: "64px auto 0" }}
-      initial={{ opacity: 0, y: 60, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.9, delay: 0.8, ease: "easeOut" }}
-    >
-      {/* Glow underneath */}
-      <div
-        style={{
-          position: "absolute",
-          inset: -40,
-          background: "radial-gradient(ellipse 60% 40% at 50% 100%, rgba(139,92,246,0.25) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }}
-      />
-
-      {/* Floating cards */}
-      <FloatingCard
-        label="Ticket deflection"
-        value="91%"
-        change="↑ vs human-only"
-        delay={0.2}
-        style={{ top: -20, left: -80 }}
-      />
-      <FloatingCard
-        label="Leads captured today"
-        value="+147"
-        change="↑ 62% this month"
-        delay={0.6}
-        style={{ bottom: -16, right: -70 }}
-      />
-
-      {/* Browser frame */}
-      <div
+        className="open-divider-grid"
         style={{
           position: "relative",
-          background: "var(--surface-2)",
-          border: "1px solid rgba(255,255,255,0.1)",
-          borderRadius: 16,
-          overflow: "hidden",
-          boxShadow: "0 0 0 1px rgba(255,255,255,0.05), 0 32px 64px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.08)",
+          borderTop: "1px solid color-mix(in srgb, var(--border-strong) 72%, transparent)",
+          borderBottom: "1px solid color-mix(in srgb, var(--border) 64%, transparent)",
+          padding: "24px 0 0",
         }}
       >
-        {/* Gradient top border */}
         <div
           style={{
             position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: 1,
-            background: "linear-gradient(90deg, transparent, rgba(6,239,255,0.5), rgba(139,92,246,0.5), transparent)",
+            inset: 0,
+            background: "radial-gradient(circle at top right, rgba(91, 140, 255, 0.16), transparent 36%)",
+            pointerEvents: "none",
           }}
         />
 
-        {/* Title bar */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            padding: "14px 18px",
-            background: "rgba(255,255,255,0.02)",
-            borderBottom: "1px solid var(--border)",
-          }}
-        >
-          {[{ bg: "#FF5F57" }, { bg: "#FEBC2E" }, { bg: "#28C840" }].map((d, i) => (
-            <div key={i} style={{ width: 11, height: 11, borderRadius: "50%", background: d.bg }} />
-          ))}
-          <div
-            style={{
-              marginLeft: 10,
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid var(--border)",
-              borderRadius: 6,
-              padding: "5px 14px",
-              fontSize: 12,
-              color: "var(--text-3)",
-              flex: 1,
-              maxWidth: 280,
-            }}
-          >
-            app.konvoq.ai / dashboard
-          </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 18 }}>
+          <span style={{ width: 9, height: 9, borderRadius: 999, background: "rgba(239,68,68,0.84)" }} />
+          <span style={{ width: 9, height: 9, borderRadius: 999, background: "rgba(245,158,11,0.84)" }} />
+          <span style={{ width: 9, height: 9, borderRadius: 999, background: "rgba(34,197,94,0.84)" }} />
+          <span style={{ marginLeft: 10, fontSize: 12, color: "var(--text-3)" }}>assistant operating view</span>
         </div>
 
-        {/* Body: sidebar + main + chat */}
-        <div style={{ display: "grid", gridTemplateColumns: "200px 1fr 260px", height: 460 }}>
-          {/* Sidebar */}
-          <div
-            style={{
-              background: "rgba(255,255,255,0.015)",
-              borderRight: "1px solid var(--border)",
-              padding: "20px 14px",
-              display: "flex",
-              flexDirection: "column",
-              gap: 4,
-            }}
-          >
-            <div
-              style={{
-                fontSize: 15,
-                fontWeight: 800,
-                letterSpacing: "-0.03em",
-                marginBottom: 20,
-                padding: "0 6px",
-                fontFamily: "Nunito, sans-serif",
-              }}
-            >
-              <span className="grad-text">Konvoq</span>
-            </div>
-            <div style={{ fontSize: 10, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-3)", padding: "0 8px", margin: "4px 0" }}>Main</div>
-            {[
-              { icon: "⬡", label: "Dashboard", active: true, badge: null },
-              { icon: "💬", label: "Conversations", active: false, badge: "12" },
-              { icon: "🤖", label: "Chatbots", active: false, badge: null },
-              { icon: "📚", label: "Knowledge", active: false, badge: null },
-            ].map((item) => (
-              <div
-                key={item.label}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 8,
-                  padding: "7px 10px",
-                  borderRadius: 7,
-                  fontSize: 12,
-                  color: item.active ? "var(--text-1)" : "var(--text-2)",
-                  background: item.active ? "rgba(255,255,255,0.06)" : "transparent",
-                }}
-              >
-                <span style={{ fontSize: 13 }}>{item.icon}</span>
-                {item.label}
-                {item.badge && (
-                  <span
-                    style={{
-                      marginLeft: "auto",
-                      background: "rgba(6,239,255,0.15)",
-                      color: "var(--cyan)",
-                      fontSize: 10,
-                      fontWeight: 700,
-                      padding: "1px 7px",
-                      borderRadius: 100,
-                    }}
-                  >
-                    {item.badge}
-                  </span>
-                )}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 0.92fr", gap: 26, alignItems: "start" }}>
+          <div style={{ display: "grid", gap: 18 }}>
+            <div style={{ paddingBottom: 18, borderBottom: "1px solid color-mix(in srgb, var(--border) 72%, transparent)" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", marginBottom: 16 }}>
+                <div>
+                  <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 6 }}>Overview</div>
+                  <div style={{ fontSize: 24, fontWeight: 750, letterSpacing: "-0.04em" }}>Weekly operating pulse</div>
+                </div>
+                <motion.div
+                  animate={{ opacity: [0.6, 1, 0.6] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                  style={{
+                    padding: "7px 11px",
+                    borderRadius: 999,
+                    background: "var(--accent-muted)",
+                    color: "var(--accent)",
+                    fontSize: 12,
+                    fontWeight: 700,
+                  }}
+                >
+                  Live
+                </motion.div>
               </div>
-            ))}
-            <div style={{ height: 1, background: "var(--border)", margin: "8px 0" }} />
-            <div style={{ fontSize: 10, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--text-3)", padding: "0 8px", margin: "4px 0" }}>Insights</div>
-            {["📊 Analytics", "🎯 Leads", "⚡ Flows"].map((item) => {
-              const [icon, ...rest] = item.split(" ");
-              return (
-                <div key={item} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 10px", borderRadius: 7, fontSize: 12, color: "var(--text-2)" }}>
-                  <span>{icon}</span>{rest.join(" ")}
-                </div>
-              );
-            })}
-          </div>
 
-          {/* Main panel */}
-          <div style={{ padding: "20px 22px", overflow: "hidden" }}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-              <h3 style={{ fontSize: 14, fontWeight: 700, margin: 0 }}>Overview</h3>
-              <span style={{ fontSize: 11, color: "var(--text-3)" }}>Last 30 days · All bots</span>
-            </div>
-
-            {/* Stats */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10, marginBottom: 14 }}>
-              {mockStats.map((s) => (
-                <div key={s.label} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid var(--border)", borderRadius: 10, padding: "12px 14px" }}>
-                  <div style={{ fontSize: 10, color: "var(--text-3)", marginBottom: 4 }}>{s.label}</div>
-                  <div
-                    style={{
-                      fontSize: 20,
-                      fontWeight: 800,
-                      letterSpacing: "-0.04em",
-                      ...(s.color === "emerald" ? { color: "var(--emerald)" } : {}),
-                      ...(s.color === "rose" ? { background: "linear-gradient(135deg,#F43F5E,#8B5CF6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" } : {}),
-                      ...(s.color === "grad-text" ? { background: "var(--grad-text)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" } : {}),
-                    }}
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginBottom: 18 }}>
+                {[
+                  { label: "Conversations", value: "14,382" },
+                  { label: "Qualified leads", value: "1,847" },
+                  { label: "Handoff rate", value: "9%" },
+                ].map((metric, index) => (
+                  <motion.div
+                    key={metric.label}
+                    initial={{ opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.45, delay: 0.25 + index * 0.06, ease: "easeOut" }}
+                    style={{ padding: "0 0 8px", borderBottom: "1px solid color-mix(in srgb, var(--border) 58%, transparent)" }}
                   >
-                    {s.val}
-                  </div>
-                  <div style={{ fontSize: 10, color: "var(--emerald)", marginTop: 2 }}>{s.change}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Chart */}
-            <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--border)", borderRadius: 10, padding: 12, height: 120, marginBottom: 12 }}>
-              <div style={{ fontSize: 10, color: "var(--text-3)", marginBottom: 8 }}>Conversation volume</div>
-              <div style={{ display: "flex", alignItems: "flex-end", gap: 4, height: 80 }}>
-                {barHeights.map((h, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      flex: 1,
-                      height: `${h}%`,
-                      borderRadius: "3px 3px 0 0",
-                      background: hiIndices.includes(i)
-                        ? "linear-gradient(180deg, rgba(6,239,255,0.8), rgba(139,92,246,0.8))"
-                        : "rgba(139,92,246,0.15)",
-                    }}
-                  />
+                    <div style={{ fontSize: 11, color: "var(--text-3)", marginBottom: 6 }}>{metric.label}</div>
+                    <div style={{ fontSize: 22, fontWeight: 700, letterSpacing: "-0.04em" }}>{metric.value}</div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
 
-            {/* Conversation list */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 1 }}>
-              {conversations.map((c) => (
-                <div key={c.name} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 0", borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
-                  <div style={{ width: 26, height: 26, borderRadius: "50%", background: c.grad, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 700, flexShrink: 0 }}>{c.initial}</div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: 11, fontWeight: 600 }}>{c.name}</div>
-                    <div style={{ fontSize: 10, color: "var(--text-3)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: 140 }}>{c.msg}</div>
-                  </div>
-                  <div style={{
-                    fontSize: 9,
-                    padding: "2px 7px",
-                    borderRadius: 100,
-                    fontWeight: 600,
-                    background: c.status === "Resolved" ? "rgba(16,185,129,0.15)" : "rgba(245,158,11,0.15)",
-                    color: c.status === "Resolved" ? "var(--emerald)" : "var(--amber)",
-                  }}>{c.status}</div>
+              <div>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}>
+                  <span style={{ fontSize: 12, color: "var(--text-3)" }}>Conversation volume</span>
+                  <span style={{ fontSize: 12, color: "var(--text-2)" }}>Last 30 days</span>
                 </div>
-              ))}
+                <div style={{ display: "flex", alignItems: "end", gap: 6, height: 112 }}>
+                  {[36, 52, 44, 58, 62, 76, 71, 84, 78, 94, 90, 96].map((height, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: `${height}%`, opacity: 1 }}
+                      transition={{ duration: 0.55, delay: 0.38 + index * 0.03, ease: "easeOut" }}
+                      style={{
+                        flex: 1,
+                        borderRadius: "999px 999px 0 0",
+                        background: index > 7 ? "var(--grad-btn)" : "color-mix(in srgb, var(--surface-2) 84%, transparent)",
+                        border: "1px solid color-mix(in srgb, var(--border) 68%, transparent)",
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Chat panel */}
-          <div style={{ borderLeft: "1px solid var(--border)", display: "flex", flexDirection: "column" }}>
-            <div style={{ padding: "12px 16px", borderBottom: "1px solid var(--border)", display: "flex", alignItems: "center", gap: 10 }}>
-              <div style={{ width: 30, height: 30, borderRadius: "50%", background: "var(--grad-btn)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14 }}>🤖</div>
-              <div>
-                <div style={{ fontSize: 12, fontWeight: 700 }}>Konvoq AI</div>
-                <div style={{ fontSize: 10, color: "var(--emerald)" }}>● Instant replies</div>
-              </div>
+          <div style={{ display: "grid", gap: 12, paddingLeft: 8 }}>
+            <div>
+              <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 6 }}>Live assistant</div>
+              <div style={{ fontSize: 17, fontWeight: 700, letterSpacing: "-0.03em" }}>Support bot response stream</div>
             </div>
+            {[ 
+              { role: "visitor", text: "Can I change plans in the middle of the month?" },
+              { role: "assistant", text: "Yes. Upgrades apply immediately and billing is prorated automatically." },
+              { role: "visitor", text: "Can you route enterprise requests to sales?" },
+              { role: "assistant", text: "Already handled. Sales conversations route to the right owner with context attached." },
+            ].map((message, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: message.role === "assistant" ? -14 : 14 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.38, delay: 0.52 + index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  alignSelf: message.role === "assistant" ? "flex-start" : "flex-end",
+                  maxWidth: "88%",
+                  padding: "12px 14px",
+                  borderRadius: 18,
+                  background: message.role === "assistant" ? "color-mix(in srgb, var(--surface-2) 82%, transparent)" : "var(--accent-muted)",
+                  border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)",
+                  color: message.role === "assistant" ? "var(--text-2)" : "var(--text-1)",
+                  lineHeight: 1.6,
+                  fontSize: 13,
+                }}
+              >
+                {message.text}
+              </motion.div>
+            ))}
 
-            <div style={{ flex: 1, padding: 14, display: "flex", flexDirection: "column", gap: 10, overflow: "hidden" }}>
-              {[
-                { ai: true, text: "Hi! 👋 How can I help you today?", time: "2:14 PM" },
-                { ai: false, text: "What's your refund policy?", time: "2:14 PM" },
-                { ai: true, text: "We offer a 30-day money-back guarantee — no questions asked. Want me to process one for you?", time: "2:14 PM" },
-                { ai: false, text: "Yes, order #4821", time: "2:15 PM" },
-              ].map((msg, i) => (
-                <div key={i} style={{ maxWidth: 200, alignSelf: msg.ai ? "flex-start" : "flex-end" }}>
-                  <div style={{
-                    padding: "9px 12px",
-                    borderRadius: msg.ai ? "3px 11px 11px 11px" : "11px 3px 11px 11px",
-                    fontSize: 11,
-                    lineHeight: 1.5,
-                    background: msg.ai ? "rgba(255,255,255,0.05)" : "var(--grad-btn)",
-                    border: msg.ai ? "1px solid var(--border)" : "none",
-                    color: msg.ai ? "var(--text-2)" : "#fff",
-                  }}>
-                    {msg.text}
-                  </div>
-                  <div style={{ fontSize: 9, color: "var(--text-3)", marginTop: 3, padding: "0 4px", textAlign: msg.ai ? "left" : "right" }}>{msg.time}</div>
-                </div>
-              ))}
-
-              {/* Typing indicator */}
-              <div style={{
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.9, ease: "easeOut" }}
+              style={{
                 display: "flex",
+                justifyContent: "space-between",
                 alignItems: "center",
-                gap: 4,
-                padding: "9px 12px",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid var(--border)",
-                borderRadius: "3px 11px 11px 11px",
-                width: 56,
-              }}>
-                <TypingDot delay={0} />
-                <TypingDot delay={0.2} />
-                <TypingDot delay={0.4} />
-              </div>
-            </div>
-
-            <div style={{ padding: "10px 12px", borderTop: "1px solid var(--border)" }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", background: "rgba(255,255,255,0.04)", border: "1px solid var(--border)", borderRadius: 8, padding: "8px 12px" }}>
-                <span style={{ fontSize: 11, color: "var(--text-3)" }}>Ask anything…</span>
-                <div style={{ width: 24, height: 24, background: "var(--grad-btn)", borderRadius: 6, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, color: "#fff" }}>→</div>
-              </div>
-            </div>
+                paddingTop: 16,
+                borderTop: "1px solid color-mix(in srgb, var(--border) 62%, transparent)",
+              }}
+            >
+              <span style={{ fontSize: 13, color: "var(--text-3)" }}>Next best action</span>
+              <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text-1)" }}>Offer enterprise callback</span>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -447,254 +177,128 @@ function DashboardMockup() {
   );
 }
 
-/* ── Hero section ── */
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
-};
-
 export default function HeroSection() {
+  const { scrollY } = useScroll();
+  const orbY = useTransform(scrollY, [0, 900], [0, 120]);
+  const orbYReverse = useTransform(scrollY, [0, 900], [0, -90]);
+
   return (
     <section
       id="hero"
       style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "120px 24px 80px",
-        textAlign: "center",
+        padding: "132px 24px 104px",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Aurora blobs */}
-      <div style={{ position: "absolute", inset: 0, zIndex: 0, overflow: "hidden", pointerEvents: "none" }}>
-        <AuroraBlob
-          duration={25}
-          style={{
-            width: 600,
-            height: 600,
-            background: "radial-gradient(circle, rgba(6,239,255,0.35) 0%, transparent 70%)",
-            top: -200,
-            left: -100,
-          }}
-        />
-        <AuroraBlob
-          duration={30}
-          delay={-8}
-          style={{
-            width: 700,
-            height: 700,
-            background: "radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%)",
-            top: -100,
-            right: -200,
-          }}
-        />
-        <AuroraBlob
-          duration={22}
-          delay={-15}
-          style={{
-            width: 500,
-            height: 500,
-            background: "radial-gradient(circle, rgba(244,63,94,0.25) 0%, transparent 70%)",
-            bottom: 0,
-            left: "30%",
-          }}
-        />
-      </div>
-
-      {/* Dot grid */}
-      <div
+      <motion.div
         style={{
           position: "absolute",
-          inset: 0,
-          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-          WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)",
-          maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)",
-          zIndex: 0,
+          top: -120,
+          right: -120,
+          width: 420,
+          height: 420,
+          borderRadius: 999,
+          background: "radial-gradient(circle, rgba(91,140,255,0.18), transparent 70%)",
+          pointerEvents: "none",
+          y: orbY,
+        }}
+      />
+      <motion.div
+        style={{
+          position: "absolute",
+          left: -140,
+          bottom: -160,
+          width: 360,
+          height: 360,
+          borderRadius: 999,
+          background: "radial-gradient(circle, rgba(91,140,255,0.12), transparent 72%)",
+          pointerEvents: "none",
+          y: orbYReverse,
         }}
       />
 
-      {/* Spinning rings */}
-      <HeroRing
-        size={900}
-        duration={20}
-        gradient="linear-gradient(var(--black), var(--black)) padding-box, conic-gradient(from 0deg, transparent 0%, rgba(6,239,255,0.3) 25%, rgba(139,92,246,0.3) 50%, rgba(244,63,94,0.2) 75%, transparent 100%) border-box"
-      />
-      <HeroRing
-        size={700}
-        duration={15}
-        reverse
-        gradient="linear-gradient(var(--black), var(--black)) padding-box, conic-gradient(from 180deg, transparent 0%, rgba(139,92,246,0.2) 30%, transparent 60%) border-box"
-      />
-
-      {/* Hero content */}
-      <motion.div
-        style={{ position: "relative", zIndex: 2, maxWidth: 860 }}
-        variants={stagger}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Badge */}
-        <motion.div variants={fadeUp}>
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 10,
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              borderRadius: 100,
-              padding: "8px 20px",
-              marginBottom: 36,
-              fontSize: 13,
-              color: "var(--text-2)",
-            }}
+      <div className="site-container">
+        <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 36, alignItems: "center" }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
-            <motion.div
+            <SectionBadge>Customer conversations, rethought</SectionBadge>
+            <h1
               style={{
-                width: 7,
-                height: 7,
-                background: "var(--emerald)",
-                borderRadius: "50%",
-                boxShadow: "0 0 8px var(--emerald)",
+                margin: "0 0 20px",
+                fontSize: "clamp(46px, 7vw, 84px)",
+                lineHeight: 0.96,
+                letterSpacing: "-0.06em",
+                fontWeight: 800,
+                maxWidth: 760,
               }}
-              animate={{ opacity: [1, 0.5, 1], scale: [1, 0.7, 1] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            />
-            Powered by{" "}
-            <strong style={{ color: "var(--text-1)" }}>
-              GPT-4o · Claude 3.5 · Gemini 1.5
-            </strong>
-          </div>
-        </motion.div>
+            >
+              A cleaner system for support, conversion, and AI handoff.
+            </h1>
+            <p
+              style={{
+                margin: "0 0 28px",
+                maxWidth: 620,
+                fontSize: 18,
+                lineHeight: 1.72,
+                color: "var(--text-2)",
+              }}
+            >
+              Train Konvoq on your website, docs, and product knowledge, then launch an assistant that answers quickly,
+              routes intelligently, and looks native to your brand.
+            </p>
 
-        {/* Headline */}
-        <motion.h1
-          variants={fadeUp}
-          style={{
-            fontSize: "clamp(52px, 7vw, 88px)",
-            fontWeight: 900,
-            lineHeight: 1.05,
-            letterSpacing: "-0.03em",
-            marginBottom: 28,
-            fontFamily: "Nunito, sans-serif",
-          }}
-        >
-          Turn Your Website Into an{" "}
-          <motion.span
-            className="grad-text"
-            style={{ display: "block" }}
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          >
-            AI Sales Machine
-          </motion.span>
-        </motion.h1>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 28 }}>
+              <Button href="/pricing" variant="primary" size="lg">
+                Start free
+              </Button>
+              <Button href="/contact" variant="outline" size="lg">
+                Book a demo
+              </Button>
+            </div>
 
-        {/* Subtitle */}
-        <motion.p
-          variants={fadeUp}
-          style={{
-            fontSize: 19,
-            color: "var(--text-2)",
-            lineHeight: 1.75,
-            maxWidth: 580,
-            margin: "0 auto 44px",
-            fontWeight: 400,
-          }}
-        >
-          Konvoq trains a custom AI chatbot on your website, docs, and data —
-          then deploys it in minutes. Convert more. Support better. Grow without
-          hiring.
-        </motion.p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginBottom: 34 }}>
+              {featureChips.map((chip, index) => (
+                <motion.div
+                  key={chip}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.36, delay: 0.12 + index * 0.05, ease: "easeOut" }}
+                  style={{
+                    fontSize: 13,
+                    color: "var(--text-2)",
+                    paddingBottom: 8,
+                    borderBottom: "1px solid color-mix(in srgb, var(--border) 72%, transparent)",
+                  }}
+                >
+                  {chip}
+                </motion.div>
+              ))}
+            </div>
 
-        {/* CTA buttons */}
-        <motion.div
-          variants={fadeUp}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 12,
-            marginBottom: 36,
-          }}
-        >
-          <motion.a
-            href="#"
-            whileHover={{ y: -2, boxShadow: "0 0 60px rgba(6,239,255,0.3), 0 0 100px rgba(139,92,246,0.15)" }}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              background: "var(--grad-btn)",
-              color: "#fff",
-              padding: "13px 28px",
-              borderRadius: 8,
-              fontSize: 14,
-              fontWeight: 600,
-              textDecoration: "none",
-              boxShadow: "0 0 40px rgba(6,239,255,0.2), 0 0 80px rgba(139,92,246,0.1)",
-              position: "relative",
-              overflow: "hidden",
-            }}
-          >
-            Build Your Chatbot Free →
-          </motion.a>
-          <motion.a
-            href="#"
-            whileHover={{ background: "rgba(255,255,255,0.08)", color: "var(--text-1)", borderColor: "rgba(255,255,255,0.2)" }}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              background: "rgba(255,255,255,0.04)",
-              color: "var(--text-2)",
-              padding: "12px 24px",
-              borderRadius: 8,
-              fontSize: 14,
-              fontWeight: 600,
-              textDecoration: "none",
-              border: "1px solid var(--border-2)",
-            }}
-          >
-            ▶ Watch 2-min Demo
-          </motion.a>
-        </motion.div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+              {heroMetrics.map((metric, index) => (
+                <motion.div
+                  key={metric.label}
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: 0.18 + index * 0.08, ease: "easeOut" }}
+                  style={{ paddingBottom: 14, borderBottom: "1px solid color-mix(in srgb, var(--border) 70%, transparent)" }}
+                >
+                  <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 8 }}>{metric.label}</div>
+                  <div style={{ fontSize: 28, fontWeight: 800, letterSpacing: "-0.05em", marginBottom: 6 }}>{metric.value}</div>
+                  <div style={{ fontSize: 13, color: "var(--text-2)", lineHeight: 1.55 }}>{metric.note}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
-        {/* Meta */}
-        <motion.div
-          variants={fadeUp}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 28,
-            fontSize: 13,
-            color: "var(--text-3)",
-          }}
-        >
-          {["Setup in under 3 minutes", "No coding required", "Free forever plan"].map((t) => (
-            <span key={t} style={{ display: "flex", alignItems: "center", gap: 6 }}>
-              <span style={{ color: "var(--emerald)" }}>✓</span> {t}
-            </span>
-          ))}
-        </motion.div>
-      </motion.div>
-
-      {/* Dashboard mockup */}
-      <DashboardMockup />
+          <ProductPreview />
+        </div>
+      </div>
     </section>
   );
 }
-

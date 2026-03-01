@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
@@ -8,7 +8,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
       display: "inline-flex", alignItems: "center", gap: 8,
-      background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-2)",
+      background: "var(--surface-3)", border: "1px solid var(--border-2)",
       borderRadius: 100, padding: "6px 16px", fontSize: 11, fontWeight: 600,
       letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-2)",
       marginBottom: 24,
@@ -46,37 +46,37 @@ interface RoadmapItem {
 
 const shipped: RoadmapItem[] = [
   {
-    icon: "🧠",
+    icon: "ðŸ§ ",
     title: "AI Training Engine v2",
-    description: "Complete rewrite of the ingestion pipeline — 3x faster indexing and higher answer accuracy across all content types.",
+    description: "Complete rewrite of the ingestion pipeline â€” 3x faster indexing and higher answer accuracy across all content types.",
     votes: 312,
   },
   {
-    icon: "📊",
+    icon: "ðŸ“Š",
     title: "Advanced Analytics Dashboard",
     description: "Conversation heatmaps, resolution funnels, revenue attribution, and full CSV/PDF export for every panel.",
     votes: 287,
   },
   {
-    icon: "👥",
+    icon: "ðŸ‘¥",
     title: "Team Collaboration & Shared Inbox",
     description: "Invite teammates, leave internal notes, @mention agents, and manage human handoffs from one unified inbox.",
     votes: 241,
   },
   {
-    icon: "⚡",
+    icon: "âš¡",
     title: "Multi-LLM Support",
     description: "Switch between GPT-4o, Claude 3.5, and Gemini 1.5 per chatbot with automatic fallback routing.",
     votes: 229,
   },
   {
-    icon: "🔌",
+    icon: "ðŸ”Œ",
     title: "Shopify & WooCommerce Integration",
     description: "Real-time product catalog sync so your chatbot can answer stock, pricing, and order status questions instantly.",
     votes: 198,
   },
   {
-    icon: "🌍",
+    icon: "ðŸŒ",
     title: "EU Data Residency",
     description: "All customer data stored exclusively in our Frankfurt region for GDPR compliance. Opt-in from your dashboard settings.",
     votes: 176,
@@ -85,28 +85,28 @@ const shipped: RoadmapItem[] = [
 
 const inProgress: RoadmapItem[] = [
   {
-    icon: "🎙️",
+    icon: "ðŸŽ™ï¸",
     title: "Voice Chat Support",
-    description: "Real-time voice conversations powered by the same knowledge base as your text chatbot — for phone and web.",
+    description: "Real-time voice conversations powered by the same knowledge base as your text chatbot â€” for phone and web.",
     votes: 418,
     progress: 72,
   },
   {
-    icon: "🌐",
+    icon: "ðŸŒ",
     title: "WhatsApp Business Channel",
     description: "Deploy your AI chatbot directly on WhatsApp Business API. Supports rich messages, buttons, and media.",
     votes: 389,
     progress: 55,
   },
   {
-    icon: "🤖",
+    icon: "ðŸ¤–",
     title: "Agentic Actions",
-    description: "Let your chatbot take actions — book appointments, create tickets, update CRM records — via function calling.",
+    description: "Let your chatbot take actions â€” book appointments, create tickets, update CRM records â€” via function calling.",
     votes: 356,
     progress: 40,
   },
   {
-    icon: "📱",
+    icon: "ðŸ“±",
     title: "Mobile SDK (iOS & Android)",
     description: "Native SDK to embed Konvoq into your mobile apps with full support for push notifications.",
     votes: 302,
@@ -116,37 +116,37 @@ const inProgress: RoadmapItem[] = [
 
 const planned: RoadmapItem[] = [
   {
-    icon: "🧩",
+    icon: "ðŸ§©",
     title: "Custom Workflow Builder",
     description: "A no-code flow builder to create branching conversation paths, conditional logic, and automated sequences.",
     votes: 534,
   },
   {
-    icon: "🔍",
+    icon: "ðŸ”",
     title: "Semantic Search Widget",
-    description: "Add a knowledge-base search bar to your site that answers in natural language — no chat interface required.",
+    description: "Add a knowledge-base search bar to your site that answers in natural language â€” no chat interface required.",
     votes: 467,
   },
   {
-    icon: "📧",
+    icon: "ðŸ“§",
     title: "Email Support Channel",
     description: "Route incoming support emails through Konvoq AI for automated replies with human escalation on complex cases.",
     votes: 412,
   },
   {
-    icon: "🎯",
+    icon: "ðŸŽ¯",
     title: "Proactive Messaging",
-    description: "Trigger chat messages based on user behavior — time on page, scroll depth, cart abandonment, and more.",
+    description: "Trigger chat messages based on user behavior â€” time on page, scroll depth, cart abandonment, and more.",
     votes: 378,
   },
   {
-    icon: "🌏",
+    icon: "ðŸŒ",
     title: "Auto-translation (50+ languages)",
     description: "Respond to users in their browser language automatically, while you author content in a single language.",
     votes: 344,
   },
   {
-    icon: "🔐",
+    icon: "ðŸ”",
     title: "On-Premise Deployment",
     description: "Run Konvoq entirely within your own cloud infrastructure for maximum data sovereignty.",
     votes: 289,
@@ -156,7 +156,7 @@ const planned: RoadmapItem[] = [
 const statusConfig = {
   shipped: {
     label: "Shipped",
-    icon: "✓",
+    icon: "âœ“",
     headerBg: "rgba(16,185,129,0.08)",
     headerBorder: "rgba(16,185,129,0.2)",
     headerText: "var(--emerald)",
@@ -167,25 +167,25 @@ const statusConfig = {
   },
   "in-progress": {
     label: "In Progress",
-    icon: "⟳",
-    headerBg: "rgba(6,239,255,0.08)",
-    headerBorder: "rgba(6,239,255,0.2)",
-    headerText: "var(--cyan)",
-    glowColor: "rgba(6,239,255,0.06)",
-    cardBorder: "rgba(6,239,255,0.15)",
-    accentColor: "var(--cyan)",
-    dotColor: "var(--cyan)",
+    icon: "âŸ³",
+    headerBg: "var(--accent-muted)",
+    headerBorder: "rgba(91, 140, 255, 0.24)",
+    headerText: "var(--accent)",
+    glowColor: "var(--accent-muted)",
+    cardBorder: "rgba(91, 140, 255, 0.18)",
+    accentColor: "var(--accent)",
+    dotColor: "var(--accent)",
   },
   planned: {
     label: "Planned",
-    icon: "◷",
-    headerBg: "rgba(139,92,246,0.08)",
-    headerBorder: "rgba(139,92,246,0.2)",
-    headerText: "var(--violet)",
-    glowColor: "rgba(139,92,246,0.06)",
-    cardBorder: "rgba(139,92,246,0.12)",
-    accentColor: "var(--violet)",
-    dotColor: "var(--violet)",
+    icon: "â—·",
+    headerBg: "rgba(122, 162, 255, 0.12)",
+    headerBorder: "rgba(122, 162, 255, 0.24)",
+    headerText: "var(--accent-strong)",
+    glowColor: "rgba(122, 162, 255, 0.09)",
+    cardBorder: "rgba(122, 162, 255, 0.16)",
+    accentColor: "var(--accent-strong)",
+    dotColor: "var(--accent-strong)",
   },
 };
 
@@ -216,7 +216,7 @@ function VoteButton({ votes, accent }: { votes: number; accent: string }) {
         transition: "all 0.2s",
       }}
     >
-      <span style={{ fontSize: 11 }}>▲</span>
+      <span style={{ fontSize: 11 }}>â–²</span>
       {count}
     </button>
   );
@@ -337,12 +337,12 @@ export default function RoadmapPageTemplate() {
         }} />
         <div style={{
           position: "absolute", top: "20%", right: "-5%", width: 500, height: 500,
-          background: "radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(122, 162, 255, 0.09) 0%, transparent 70%)",
           filter: "blur(40px)",
         }} />
         <div style={{
           position: "absolute", bottom: "10%", left: "40%", width: 400, height: 400,
-          background: "radial-gradient(circle, rgba(6,239,255,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(91, 140, 255, 0.05) 0%, transparent 70%)",
           filter: "blur(40px)",
         }} />
       </div>
@@ -474,11 +474,11 @@ export default function RoadmapPageTemplate() {
           >
             <div style={{
               position: "absolute", inset: 0,
-              background: "radial-gradient(ellipse at center, rgba(139,92,246,0.07) 0%, transparent 60%)",
+              background: "radial-gradient(ellipse at center, rgba(122, 162, 255, 0.1) 0%, transparent 60%)",
               pointerEvents: "none",
             }} />
 
-            <motion.div variants={fadeUp} style={{ fontSize: 44, marginBottom: 16 }}>💡</motion.div>
+            <motion.div variants={fadeUp} style={{ fontSize: 44, marginBottom: 16 }}>ðŸ’¡</motion.div>
             <motion.div variants={fadeUp}>
               <SectionLabel>Feature Requests</SectionLabel>
             </motion.div>
@@ -545,7 +545,7 @@ export default function RoadmapPageTemplate() {
             <motion.p variants={fadeUp} style={{
               marginTop: 20, fontSize: 13, color: "var(--text-3)",
             }}>
-              Or <a href="mailto:hello@konvoq.ai" style={{ color: "var(--cyan)", textDecoration: "none" }}>email us directly</a> — we read every message.
+              Or <a href="mailto:hello@konvoq.ai" style={{ color: "var(--accent)", textDecoration: "none" }}>email us directly</a> â€” we read every message.
             </motion.p>
           </motion.div>
         </section>
@@ -553,4 +553,5 @@ export default function RoadmapPageTemplate() {
     </PageLayout>
   );
 }
+
 

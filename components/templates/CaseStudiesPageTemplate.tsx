@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 
 import { motion, type Variants } from "framer-motion";
 import { useState } from "react";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// ─── Reusable helpers ────────────────────────────────────────────────────────
+// â”€â”€â”€ Reusable helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -13,7 +13,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
         display: "inline-flex",
         alignItems: "center",
         gap: 8,
-        background: "rgba(255,255,255,0.04)",
+        background: "var(--surface-3)",
         border: "1px solid var(--border-2)",
         borderRadius: 100,
         padding: "6px 16px",
@@ -38,7 +38,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// ─── Animation variants ──────────────────────────────────────────────────────
+// â”€â”€â”€ Animation variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -55,31 +55,31 @@ const scaleIn: Variants = {
   visible: { opacity: 1, scale: 1 },
 };
 
-// ─── Data ────────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const industries = ["All", "E-commerce", "SaaS", "Healthcare", "Education", "Legal"];
 
 const caseStudies = [
   {
     company: "ShopEasy",
-    logo: "🛍️",
+    logo: "ðŸ›ï¸",
     industry: "E-commerce",
     headline: "70% reduction in support tickets within 30 days of deployment",
     description:
-      "ShopEasy was drowning in order-status, return, and shipping queries. After deploying Konvoq, 70% of those tickets vanished overnight — handled instantly by AI.",
+      "ShopEasy was drowning in order-status, return, and shipping queries. After deploying Konvoq, 70% of those tickets vanished overnight â€” handled instantly by AI.",
     metrics: [
       { label: "Ticket Reduction", value: "70%" },
       { label: "CSAT Score", value: "4.8/5" },
       { label: "Response Time", value: "< 2s" },
     ],
-    color: "var(--cyan)",
-    bg: "rgba(6,239,255,0.06)",
-    border: "rgba(6,239,255,0.15)",
-    gradient: "linear-gradient(135deg, rgba(6,239,255,0.1), rgba(6,239,255,0.02))",
+    color: "var(--accent)",
+    bg: "var(--accent-muted)",
+    border: "rgba(91, 140, 255, 0.18)",
+    gradient: "linear-gradient(135deg, var(--accent-muted-strong), rgba(91, 140, 255, 0.04))",
   },
   {
     company: "HealthFirst",
-    logo: "🏥",
+    logo: "ðŸ¥",
     industry: "Healthcare",
     headline: "89% of patient queries resolved without human intervention",
     description:
@@ -96,7 +96,7 @@ const caseStudies = [
   },
   {
     company: "EduLearn",
-    logo: "🎓",
+    logo: "ðŸŽ“",
     industry: "Education",
     headline: "5x increase in student engagement with personalized AI tutoring",
     description:
@@ -106,14 +106,14 @@ const caseStudies = [
       { label: "Avg Response Time", value: "1.2s" },
       { label: "Student NPS", value: "+72" },
     ],
-    color: "var(--violet)",
-    bg: "rgba(139,92,246,0.06)",
-    border: "rgba(139,92,246,0.15)",
-    gradient: "linear-gradient(135deg, rgba(139,92,246,0.1), rgba(139,92,246,0.02))",
+    color: "var(--accent-strong)",
+    bg: "rgba(122, 162, 255, 0.09)",
+    border: "rgba(122, 162, 255, 0.2)",
+    gradient: "linear-gradient(135deg, rgba(122, 162, 255, 0.14), rgba(122, 162, 255, 0.04))",
   },
   {
     company: "CloudHost",
-    logo: "☁️",
+    logo: "â˜ï¸",
     industry: "SaaS",
     headline: "$2M saved in annual support costs by scaling AI to handle tier-1",
     description:
@@ -130,9 +130,9 @@ const caseStudies = [
   },
   {
     company: "LegalEase",
-    logo: "⚖️",
+    logo: "âš–ï¸",
     industry: "Legal",
-    headline: "24/7 client intake automation — never miss a lead again",
+    headline: "24/7 client intake automation â€” never miss a lead again",
     description:
       "LegalEase automated client intake, initial case triage, and document collection with Konvoq. They now capture 3x more qualified leads after business hours.",
     metrics: [
@@ -140,14 +140,14 @@ const caseStudies = [
       { label: "Intake Time", value: "-80%" },
       { label: "Client Rating", value: "4.7/5" },
     ],
-    color: "var(--rose)",
-    bg: "rgba(244,63,94,0.06)",
-    border: "rgba(244,63,94,0.15)",
-    gradient: "linear-gradient(135deg, rgba(244,63,94,0.1), rgba(244,63,94,0.02))",
+    color: "var(--danger)",
+    bg: "rgba(239, 68, 68, 0.08)",
+    border: "rgba(239, 68, 68, 0.18)",
+    gradient: "linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.04))",
   },
 ];
 
-// ─── Component ───────────────────────────────────────────────────────────────
+// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 export default function CaseStudiesPageTemplate() {
   const [activeIndustry, setActiveIndustry] = useState("All");
@@ -188,7 +188,7 @@ export default function CaseStudiesPageTemplate() {
             right: "5%",
             width: 500,
             height: 500,
-            background: "radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(122, 162, 255, 0.09) 0%, transparent 70%)",
             borderRadius: "50%",
             filter: "blur(70px)",
           }}
@@ -196,7 +196,7 @@ export default function CaseStudiesPageTemplate() {
       </div>
 
       <div style={{ position: "relative", zIndex: 1 }}>
-        {/* ── Hero ── */}
+        {/* â”€â”€ Hero â”€â”€ */}
         <section
           style={{
             maxWidth: 800,
@@ -237,7 +237,7 @@ export default function CaseStudiesPageTemplate() {
           </motion.div>
         </section>
 
-        {/* ── Metric Callouts ── */}
+        {/* â”€â”€ Metric Callouts â”€â”€ */}
         <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
             initial="hidden"
@@ -263,17 +263,17 @@ export default function CaseStudiesPageTemplate() {
                 value: "67%",
                 label: "ticket reduction",
                 sublabel: "median within 60 days",
-                color: "var(--cyan)",
-                bg: "rgba(6,239,255,0.08)",
-                border: "rgba(6,239,255,0.2)",
+                color: "var(--accent)",
+                bg: "var(--accent-muted)",
+                border: "rgba(91, 140, 255, 0.24)",
               },
               {
                 value: "3x",
                 label: "faster response time",
                 sublabel: "vs human-only teams",
-                color: "var(--violet)",
-                bg: "rgba(139,92,246,0.08)",
-                border: "rgba(139,92,246,0.2)",
+                color: "var(--accent-strong)",
+                bg: "rgba(122, 162, 255, 0.12)",
+                border: "rgba(122, 162, 255, 0.24)",
               },
             ].map((m) => (
               <motion.div
@@ -308,7 +308,7 @@ export default function CaseStudiesPageTemplate() {
           </motion.div>
         </section>
 
-        {/* ── Featured Case Study ── */}
+        {/* â”€â”€ Featured Case Study â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 60px" }}>
           <motion.div
             initial="hidden"
@@ -319,7 +319,7 @@ export default function CaseStudiesPageTemplate() {
             <motion.div
               whileHover={{ y: -4 }}
               style={{
-                background: "linear-gradient(135deg, rgba(6,239,255,0.07) 0%, rgba(139,92,246,0.07) 60%, rgba(244,63,94,0.05) 100%)",
+                background: "linear-gradient(135deg, rgba(91, 140, 255, 0.1) 0%, rgba(122, 162, 255, 0.1) 60%, rgba(239, 68, 68, 0.07) 100%)",
                 border: "1px solid var(--border-2)",
                 borderRadius: "var(--radius-xl)",
                 padding: "52px 52px",
@@ -341,7 +341,7 @@ export default function CaseStudiesPageTemplate() {
                   userSelect: "none",
                 }}
               >
-                🏢
+                ðŸ¢
               </div>
 
               <div style={{ position: "relative", zIndex: 1 }}>
@@ -366,9 +366,9 @@ export default function CaseStudiesPageTemplate() {
                       fontWeight: 700,
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color: "var(--cyan)",
-                      background: "rgba(6,239,255,0.1)",
-                      border: "1px solid rgba(6,239,255,0.2)",
+                      color: "var(--accent)",
+                      background: "var(--accent-muted-strong)",
+                      border: "1px solid rgba(91, 140, 255, 0.24)",
                       borderRadius: 100,
                       padding: "4px 12px",
                     }}
@@ -383,22 +383,22 @@ export default function CaseStudiesPageTemplate() {
                       width: 56,
                       height: 56,
                       borderRadius: "var(--radius)",
-                      background: "rgba(6,239,255,0.1)",
-                      border: "1px solid rgba(6,239,255,0.2)",
+                      background: "var(--accent-muted-strong)",
+                      border: "1px solid rgba(91, 140, 255, 0.24)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
                       fontSize: 28,
                     }}
                   >
-                    🏗️
+                    ðŸ—ï¸
                   </div>
                   <div>
                     <div style={{ fontSize: "1.1rem", fontWeight: 800, color: "var(--text-1)" }}>
                       TechCorp
                     </div>
                     <div style={{ fontSize: "0.82rem", color: "var(--text-3)" }}>
-                      Enterprise Software · 850 employees
+                      Enterprise Software Â· 850 employees
                     </div>
                   </div>
                 </div>
@@ -451,7 +451,7 @@ export default function CaseStudiesPageTemplate() {
                         style={{
                           fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
                           fontWeight: 900,
-                          color: "var(--cyan)",
+                          color: "var(--accent)",
                           letterSpacing: "-0.03em",
                           lineHeight: 1,
                           marginBottom: 4,
@@ -479,14 +479,14 @@ export default function CaseStudiesPageTemplate() {
                     fontFamily: "inherit",
                   }}
                 >
-                  Read Full Case Study →
+                  Read Full Case Study â†’
                 </motion.button>
               </div>
             </motion.div>
           </motion.div>
         </section>
 
-        {/* ── Industry Filter ── */}
+        {/* â”€â”€ Industry Filter â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 36px" }}>
           <motion.div
             initial="hidden"
@@ -522,7 +522,7 @@ export default function CaseStudiesPageTemplate() {
           </motion.div>
         </section>
 
-        {/* ── Case Study Cards Grid ── */}
+        {/* â”€â”€ Case Study Cards Grid â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 80px" }}>
           <motion.div
             initial="hidden"
@@ -676,7 +676,7 @@ export default function CaseStudiesPageTemplate() {
                     fontWeight: 700,
                   }}
                 >
-                  Read Case Study →
+                  Read Case Study â†’
                 </div>
               </motion.article>
             ))}
@@ -693,7 +693,7 @@ export default function CaseStudiesPageTemplate() {
           )}
         </section>
 
-        {/* ── Bottom CTA ── */}
+        {/* â”€â”€ Bottom CTA â”€â”€ */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 100px" }}>
           <motion.div
             initial="hidden"
@@ -701,7 +701,7 @@ export default function CaseStudiesPageTemplate() {
             viewport={{ once: true }}
             variants={fadeUp}
             style={{
-              background: "linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(6,239,255,0.08) 100%)",
+              background: "linear-gradient(135deg, rgba(16,185,129,0.08) 0%, var(--accent-muted) 100%)",
               border: "1px solid var(--border-2)",
               borderRadius: "var(--radius-xl)",
               padding: "64px 48px",
@@ -719,7 +719,7 @@ export default function CaseStudiesPageTemplate() {
               }}
             />
             <div style={{ position: "relative", zIndex: 1 }}>
-              <div style={{ fontSize: 48, marginBottom: 20 }}>🏆</div>
+              <div style={{ fontSize: 48, marginBottom: 20 }}>ðŸ†</div>
               <h2
                 style={{
                   fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)",
@@ -741,7 +741,7 @@ export default function CaseStudiesPageTemplate() {
                 }}
               >
                 Join hundreds of businesses already transforming their support
-                with Konvoq. Start free — no credit card required.
+                with Konvoq. Start free â€” no credit card required.
               </p>
               <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                 <motion.a
@@ -759,7 +759,7 @@ export default function CaseStudiesPageTemplate() {
                     display: "inline-block",
                   }}
                 >
-                  Start Free Trial →
+                  Start Free Trial â†’
                 </motion.a>
                 <motion.a
                   href="/pricing"
@@ -787,4 +787,6 @@ export default function CaseStudiesPageTemplate() {
     </PageLayout>
   );
 }
+
+
 

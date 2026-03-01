@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -50,7 +50,7 @@ export default function BlogCard({ cover, category, title, excerpt, readTime, au
               fontWeight: 700,
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              color: "var(--cyan)",
+              color: "var(--accent)",
               marginBottom: 10,
               display: "block",
             }}
@@ -64,7 +64,7 @@ export default function BlogCard({ cover, category, title, excerpt, readTime, au
             {excerpt}
           </p>
           <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "var(--text-3)" }}>
-            <span>{author} · {readTime}</span>
+            <span>{author} Â· {readTime}</span>
             <span>{date}</span>
           </div>
         </div>
@@ -72,3 +72,4 @@ export default function BlogCard({ cover, category, title, excerpt, readTime, au
     </motion.div>
   );
 }
+

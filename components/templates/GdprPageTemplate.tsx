@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
@@ -21,37 +21,37 @@ const cardIn: Variants = {
 
 const gdprRights = [
   {
-    icon: "👁️",
+    icon: "ðŸ‘ï¸",
     title: "Right to Access",
-    color: "var(--cyan)",
+    color: "var(--accent)",
     desc: "Request a complete copy of all personal data we hold about you, including how it is processed and why.",
   },
   {
-    icon: "✏️",
+    icon: "âœï¸",
     title: "Right to Rectification",
-    color: "var(--violet)",
+    color: "var(--accent-strong)",
     desc: "Request correction of inaccurate or incomplete personal data without undue delay.",
   },
   {
-    icon: "🗑️",
+    icon: "ðŸ—‘ï¸",
     title: "Right to Erasure",
-    color: "var(--rose)",
+    color: "var(--danger)",
     desc: "Request deletion of your personal data (the 'right to be forgotten') when it is no longer necessary.",
   },
   {
-    icon: "📦",
+    icon: "ðŸ“¦",
     title: "Right to Portability",
     color: "var(--emerald)",
     desc: "Receive your data in a structured, machine-readable format and transfer it to another controller.",
   },
   {
-    icon: "⏸️",
+    icon: "â¸ï¸",
     title: "Right to Restrict Processing",
     color: "var(--amber)",
     desc: "Request that we restrict processing of your data under certain circumstances.",
   },
   {
-    icon: "🚫",
+    icon: "ðŸš«",
     title: "Right to Object",
     color: "var(--text-2)",
     desc: "Object to processing based on legitimate interests or for direct marketing purposes at any time.",
@@ -60,25 +60,25 @@ const gdprRights = [
 
 const commitments = [
   {
-    icon: "🎯",
+    icon: "ðŸŽ¯",
     title: "Data Minimization",
     desc: "We collect only the personal data that is strictly necessary for the purposes for which it is processed.",
-    color: "var(--cyan)",
+    color: "var(--accent)",
   },
   {
-    icon: "📜",
+    icon: "ðŸ“œ",
     title: "Lawful Basis",
     desc: "Every processing activity has a documented lawful basis: consent, contract, legal obligation, or legitimate interest.",
-    color: "var(--violet)",
+    color: "var(--accent-strong)",
   },
   {
-    icon: "⚖️",
+    icon: "âš–ï¸",
     title: "Data Subject Rights",
     desc: "We have processes and tooling to honor all GDPR data subject rights within the required 30-day window.",
     color: "var(--emerald)",
   },
   {
-    icon: "🏗️",
+    icon: "ðŸ—ï¸",
     title: "Privacy by Design",
     desc: "Data protection is baked into our engineering process from day one, not bolted on as an afterthought.",
     color: "var(--amber)",
@@ -102,7 +102,7 @@ export default function GdprPageTemplate() {
           textAlign: "center",
           position: "relative",
           overflow: "hidden",
-          background: "linear-gradient(180deg, rgba(139,92,246,0.06) 0%, transparent 100%)",
+          background: "linear-gradient(180deg, rgba(122, 162, 255, 0.09) 0%, transparent 100%)",
           borderBottom: "1px solid var(--border)",
         }}
       >
@@ -110,7 +110,7 @@ export default function GdprPageTemplate() {
           style={{
             position: "absolute",
             inset: 0,
-            background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(139,92,246,0.09) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(122, 162, 255, 0.14) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -126,7 +126,7 @@ export default function GdprPageTemplate() {
             pointerEvents: "none",
           }}
         >
-          🇪🇺
+          ðŸ‡ªðŸ‡º
         </div>
 
         <motion.div variants={stagger} initial="hidden" animate="visible" style={{ position: "relative", zIndex: 1 }}>
@@ -138,9 +138,9 @@ export default function GdprPageTemplate() {
                 gap: 8,
                 padding: "6px 16px",
                 borderRadius: 999,
-                border: "1px solid rgba(139,92,246,0.3)",
-                background: "rgba(139,92,246,0.08)",
-                color: "var(--violet)",
+                border: "1px solid rgba(122, 162, 255, 0.3)",
+                background: "rgba(122, 162, 255, 0.12)",
+                color: "var(--accent-strong)",
                 fontSize: 13,
                 fontWeight: 600,
                 letterSpacing: "0.05em",
@@ -148,7 +148,7 @@ export default function GdprPageTemplate() {
                 marginBottom: 24,
               }}
             >
-              <span>🇪🇺</span> Compliance
+              <span>ðŸ‡ªðŸ‡º</span> Compliance
             </span>
           </motion.div>
           <motion.h1
@@ -209,7 +209,7 @@ export default function GdprPageTemplate() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             style={{ textAlign: "center", marginBottom: 48 }}
           >
-            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--violet)", marginBottom: 12 }}>
+            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--accent-strong)", marginBottom: 12 }}>
               Our Commitments
             </p>
             <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 800 }}>
@@ -269,7 +269,7 @@ export default function GdprPageTemplate() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             style={{ textAlign: "center", marginBottom: 48 }}
           >
-            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--cyan)", marginBottom: 12 }}>
+            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 12 }}>
               Your Rights
             </p>
             <h2 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 800 }}>Your Rights Under GDPR</h2>
@@ -391,9 +391,9 @@ export default function GdprPageTemplate() {
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 {[
-                  { mechanism: "Standard Contractual Clauses (SCCs)", status: "Active", icon: "📋" },
-                  { mechanism: "EU-US Data Privacy Framework", status: "Certified", icon: "🏅" },
-                  { mechanism: "Binding Corporate Rules", status: "In Progress", icon: "🔄" },
+                  { mechanism: "Standard Contractual Clauses (SCCs)", status: "Active", icon: "ðŸ“‹" },
+                  { mechanism: "EU-US Data Privacy Framework", status: "Certified", icon: "ðŸ…" },
+                  { mechanism: "Binding Corporate Rules", status: "In Progress", icon: "ðŸ”„" },
                 ].map(({ mechanism, status, icon }) => (
                   <div
                     key={mechanism}
@@ -458,7 +458,7 @@ export default function GdprPageTemplate() {
           }}
         >
           <div>
-            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--violet)", marginBottom: 12 }}>
+            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--accent-strong)", marginBottom: 12 }}>
               Data Processing Agreement
             </p>
             <h2 style={{ fontSize: 28, fontWeight: 800, marginBottom: 16 }}>Download Our DPA</h2>
@@ -482,7 +482,7 @@ export default function GdprPageTemplate() {
                   textDecoration: "none",
                 }}
               >
-                <span>📥</span> Download DPA (PDF)
+                <span>ðŸ“¥</span> Download DPA (PDF)
               </a>
               <a
                 href="mailto:legal@konvoq.ai"
@@ -521,14 +521,14 @@ export default function GdprPageTemplate() {
               communications.
             </p>
             <div style={{ display: "flex", gap: 10, alignItems: "center", marginTop: 8 }}>
-              <span style={{ fontSize: 20 }}>📧</span>
-              <a href="mailto:dpo@konvoq.ai" style={{ color: "var(--cyan)", fontWeight: 600 }}>
+              <span style={{ fontSize: 20 }}>ðŸ“§</span>
+              <a href="mailto:dpo@konvoq.ai" style={{ color: "var(--accent)", fontWeight: 600 }}>
                 dpo@konvoq.ai
               </a>
             </div>
             <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-              <span style={{ fontSize: 20 }}>🏢</span>
-              <span style={{ fontSize: 13, color: "var(--text-2)" }}>Konvoq AI, Inc. — 1209 Orange St, Wilmington, DE 19801</span>
+              <span style={{ fontSize: 20 }}>ðŸ¢</span>
+              <span style={{ fontSize: 13, color: "var(--text-2)" }}>Konvoq AI, Inc. â€” 1209 Orange St, Wilmington, DE 19801</span>
             </div>
           </div>
         </motion.div>
@@ -544,7 +544,7 @@ export default function GdprPageTemplate() {
           style={{ maxWidth: 560, margin: "0 auto" }}
         >
           <div style={{ textAlign: "center", marginBottom: 40 }}>
-            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--cyan)", marginBottom: 12 }}>
+            <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--accent)", marginBottom: 12 }}>
               Exercise Your Rights
             </p>
             <h2 style={{ fontSize: "clamp(26px, 4vw, 36px)", fontWeight: 800, marginBottom: 12 }}>
@@ -565,7 +565,7 @@ export default function GdprPageTemplate() {
                 textAlign: "center",
               }}
             >
-              <span style={{ fontSize: 48, display: "block", marginBottom: 16 }}>✅</span>
+              <span style={{ fontSize: 48, display: "block", marginBottom: 16 }}>âœ…</span>
               <h3 style={{ fontWeight: 700, marginBottom: 8 }}>Request Received</h3>
               <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.7 }}>
                 We&apos;ve received your request and will respond to <strong style={{ color: "var(--text-1)" }}>{form.email}</strong> within 30 days.
@@ -681,4 +681,5 @@ export default function GdprPageTemplate() {
     </PageLayout>
   );
 }
+
 
