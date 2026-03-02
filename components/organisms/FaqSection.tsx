@@ -46,13 +46,14 @@ export default function FaqSection() {
             style={{ margin: 0 }}
           />
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18, alignItems: "start" }}>
             {faqs.map((faq, index) => {
               const open = openIndex === index;
               return (
                 <div
                   key={faq.question}
                   style={{
+                    alignSelf: "start",
                     padding: 20,
                     border: "1px solid color-mix(in srgb, var(--border) 74%, transparent)",
                     borderRadius: 22,
