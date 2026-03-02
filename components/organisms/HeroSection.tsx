@@ -4,6 +4,32 @@ import Button from "@/components/atoms/Button";
 import SectionBadge from "@/components/atoms/SectionBadge";
 import { motion, useScroll, useTransform } from "framer-motion";
 
+function AnimatedCheckmark({ delay = 0 }: { delay?: number }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
+      <motion.circle
+        cx="8" cy="8" r="7"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: 1, opacity: 0.35 }}
+        transition={{ duration: 0.55, delay, ease: "easeOut" }}
+      />
+      <motion.path
+        d="M5 8L7 10L11 6"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 0.4, delay: delay + 0.32, ease: "easeOut" }}
+      />
+    </svg>
+  );
+}
+
 const proofPoints = [
   "Website and docs trained",
   "Human handoff built in",
@@ -356,8 +382,8 @@ export default function HeroSection() {
             style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 18, marginBottom: 42, color: "var(--text-2)", fontSize: 14 }}
           >
             {proofPoints.map((item, index) => (
-              <div key={item} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <span style={{ width: 8, height: 8, borderRadius: 999, background: index === 0 ? "var(--text-1)" : "var(--text-3)", flexShrink: 0 }} />
+              <div key={item} style={{ display: "flex", alignItems: "center", gap: 8, color: "var(--text-2)" }}>
+                <AnimatedCheckmark delay={0.36 + index * 0.1} />
                 {item}
               </div>
             ))}

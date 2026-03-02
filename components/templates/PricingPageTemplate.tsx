@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, LayoutGroup, motion, type Variants } from "framer-motion";
+import { Check, Minus, ChevronRight } from "lucide-react";
 import Button from "@/components/atoms/Button";
 import SectionHeader from "@/components/molecules/SectionHeader";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
@@ -73,7 +74,7 @@ const plans = [
   },
 ];
 
-// Directional entry â€” each plan slides from a unique direction
+// Directional entry — each plan slides from a unique direction
 const cardInitialX = [-24, 0, 24];
 const cardInitialY = [0, 28, 0];
 
@@ -124,11 +125,9 @@ function CheckIcon({ featured }: { featured: boolean }) {
         background: featured ? "var(--accent-muted)" : "color-mix(in srgb, var(--surface-2) 80%, transparent)",
         border: `1px solid ${featured ? "rgba(0, 163, 255, 0.28)" : "color-mix(in srgb, var(--border) 80%, transparent)"}`,
         color: featured ? "var(--accent)" : "var(--text-2)",
-        fontSize: 11,
-        fontWeight: 800,
       }}
     >
-      âœ“
+      <Check size={12} strokeWidth={2.5} />
     </div>
   );
 }
@@ -145,11 +144,9 @@ function StatusIcon({ enabled }: { enabled: boolean }) {
         background: enabled ? "var(--accent-muted)" : "var(--surface-3)",
         border: `1px solid ${enabled ? "rgba(0, 163, 255, 0.24)" : "var(--border)"}`,
         color: enabled ? "var(--accent)" : "var(--text-3)",
-        fontSize: 12,
-        fontWeight: 700,
       }}
     >
-      {enabled ? "+" : "âˆ’"}
+      {enabled ? <Check size={13} strokeWidth={2.5} /> : <Minus size={13} strokeWidth={2.5} />}
     </div>
   );
 }
@@ -184,7 +181,7 @@ export default function PricingPageTemplate() {
                 />
               </motion.div>
 
-              {/* Billing toggle â€” animated sliding pill */}
+              {/* Billing toggle — animated sliding pill */}
               <motion.div
                 variants={fadeUp}
                 style={{ marginTop: 32, display: "flex", justifyContent: "center" }}
@@ -395,7 +392,7 @@ export default function PricingPageTemplate() {
                         </div>
                         {annual && price > 0 && (
                           <div style={{ fontSize: 12, color: "var(--text-3)" }}>
-                            billed annually Â· ${plan.monthlyPrice}/mo monthly
+                            billed annually &middot; ${plan.monthlyPrice}/mo monthly
                           </div>
                         )}
                       </div>
@@ -651,9 +648,9 @@ export default function PricingPageTemplate() {
                       <motion.span
                         animate={{ rotate: openFaq === index ? 90 : 0 }}
                         transition={{ type: "spring", stiffness: 280, damping: 22, mass: 0.6 }}
-                        style={{ display: "inline-block", color: "var(--text-3)", fontSize: 18, lineHeight: 1, flexShrink: 0 }}
+                        style={{ display: "inline-flex", color: "var(--text-3)", flexShrink: 0 }}
                       >
-                        â€º
+                        <ChevronRight size={16} strokeWidth={2} />
                       </motion.span>
                     </button>
                     <AnimatePresence initial={false}>

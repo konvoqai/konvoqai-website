@@ -1,6 +1,12 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import {
+  Users2, ShoppingCart, Headphones, Globe, TrendingUp, MessageSquare,
+  Cloud, Target, GitMerge, Database, ShoppingBag, Store, Package,
+  Mail, HelpCircle, Layout, Layers, FileText, BarChart3, Activity,
+  MessageCircle, Video, Hash, Phone, Code2, type LucideIcon,
+} from "lucide-react";
 import Button from "@/components/atoms/Button";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
@@ -34,77 +40,83 @@ const cardVariants: Variants = {
   visible: { opacity: 1, y: 0, scale: 1 },
 };
 
-const categories = [
+const categories: Array<{
+  label: string;
+  Icon: LucideIcon;
+  accent: string;
+  glowColor: string;
+  integrations: Array<{ Icon: LucideIcon; name: string; description: string }>;
+}> = [
   {
     label: "CRM",
-    icon: "CRM",
+    Icon: Users2,
     accent: "var(--accent)",
     glowColor: "var(--accent-muted)",
     integrations: [
-      { icon: "SF", name: "Salesforce", description: "Sync leads, contacts, and opportunities. Log chat conversations automatically." },
-      { icon: "HS", name: "HubSpot", description: "Push chatbot contacts straight into your HubSpot CRM and trigger workflows." },
-      { icon: "PD", name: "Pipedrive", description: "Create deals and activities from chat interactions without leaving Konvoq." },
-      { icon: "ZO", name: "Zoho CRM", description: "Bi-directional sync of customer data and conversation transcripts." },
+      { Icon: Cloud,    name: "Salesforce", description: "Sync leads, contacts, and opportunities. Log chat conversations automatically." },
+      { Icon: Target,   name: "HubSpot",    description: "Push chatbot contacts straight into your HubSpot CRM and trigger workflows." },
+      { Icon: GitMerge, name: "Pipedrive",  description: "Create deals and activities from chat interactions without leaving Konvoq." },
+      { Icon: Database, name: "Zoho CRM",   description: "Bi-directional sync of customer data and conversation transcripts." },
     ],
   },
   {
     label: "E-commerce",
-    icon: "EC",
+    Icon: ShoppingCart,
     accent: "var(--text-1)",
     glowColor: "var(--accent-muted)",
     integrations: [
-      { icon: "SH", name: "Shopify", description: "Answer product, order, and shipping questions with real-time store data." },
-      { icon: "WC", name: "WooCommerce", description: "Connect your WordPress store and let the AI handle order status queries." },
-      { icon: "BC", name: "BigCommerce", description: "Sync your catalog and automate FAQs about products, returns, and refunds." },
-      { icon: "MG", name: "Magento", description: "Enterprise-grade commerce integration with full product catalog access." },
+      { Icon: ShoppingBag,  name: "Shopify",     description: "Answer product, order, and shipping questions with real-time store data." },
+      { Icon: ShoppingCart, name: "WooCommerce", description: "Connect your WordPress store and let the AI handle order status queries." },
+      { Icon: Store,        name: "BigCommerce", description: "Sync your catalog and automate FAQs about products, returns, and refunds." },
+      { Icon: Package,      name: "Magento",     description: "Enterprise-grade commerce integration with full product catalog access." },
     ],
   },
   {
     label: "Helpdesk",
-    icon: "HD",
+    Icon: Headphones,
     accent: "var(--accent-strong)",
     glowColor: "var(--accent-muted)",
     integrations: [
-      { icon: "ZD", name: "Zendesk", description: "Escalate unresolved chats to Zendesk tickets with full conversation history." },
-      { icon: "IC", name: "Intercom", description: "Use Konvoq as first-line AI and hand off complex issues to Intercom agents." },
-      { icon: "FD", name: "Freshdesk", description: "Create Freshdesk tickets automatically when the chatbot cannot resolve issues." },
-      { icon: "HS", name: "Help Scout", description: "Route conversations to the right Help Scout mailbox based on topic." },
+      { Icon: Headphones,    name: "Zendesk",    description: "Escalate unresolved chats to Zendesk tickets with full conversation history." },
+      { Icon: MessageCircle, name: "Intercom",   description: "Use Konvoq as first-line AI and hand off complex issues to Intercom agents." },
+      { Icon: Mail,          name: "Freshdesk",  description: "Create Freshdesk tickets automatically when the chatbot cannot resolve issues." },
+      { Icon: HelpCircle,    name: "Help Scout", description: "Route conversations to the right Help Scout mailbox based on topic." },
     ],
   },
   {
     label: "CMS",
-    icon: "CMS",
+    Icon: Globe,
     accent: "var(--text-1)",
     glowColor: "var(--accent-muted)",
     integrations: [
-      { icon: "WP", name: "WordPress", description: "Auto-train on your WordPress pages, posts, and WooCommerce products." },
-      { icon: "WF", name: "Webflow", description: "Embed the Konvoq widget on any Webflow site with a single code snippet." },
-      { icon: "FR", name: "Framer", description: "Drop the Konvoq component into any Framer project in seconds." },
-      { icon: "NO", name: "Notion", description: "Train your chatbot on your entire Notion workspace with one click." },
+      { Icon: Globe,     name: "WordPress", description: "Auto-train on your WordPress pages, posts, and WooCommerce products." },
+      { Icon: Layout,    name: "Webflow",   description: "Embed the Konvoq widget on any Webflow site with a single code snippet." },
+      { Icon: Layers,    name: "Framer",    description: "Drop the Konvoq component into any Framer project in seconds." },
+      { Icon: FileText,  name: "Notion",    description: "Train your chatbot on your entire Notion workspace with one click." },
     ],
   },
   {
     label: "Analytics",
-    icon: "AN",
+    Icon: TrendingUp,
     accent: "var(--text-1)",
     glowColor: "var(--accent-muted)",
     integrations: [
-      { icon: "GA", name: "Google Analytics", description: "Track chat engagement as GA4 events and connect to your existing dashboards." },
-      { icon: "MP", name: "Mixpanel", description: "Send conversation events to Mixpanel for deep funnel and retention analysis." },
-      { icon: "AM", name: "Amplitude", description: "Correlate chatbot interactions with product usage across your user base." },
-      { icon: "HP", name: "Heap", description: "Capture every chat touchpoint automatically with Heap's retroactive tracking." },
+      { Icon: TrendingUp, name: "Google Analytics", description: "Track chat engagement as GA4 events and connect to your existing dashboards." },
+      { Icon: BarChart3,  name: "Mixpanel",         description: "Send conversation events to Mixpanel for deep funnel and retention analysis." },
+      { Icon: Activity,   name: "Amplitude",         description: "Correlate chatbot interactions with product usage across your user base." },
+      { Icon: Database,   name: "Heap",              description: "Capture every chat touchpoint automatically with Heap's retroactive tracking." },
     ],
   },
   {
     label: "Communication",
-    icon: "COM",
+    Icon: MessageSquare,
     accent: "var(--accent)",
     glowColor: "var(--accent-muted)",
     integrations: [
-      { icon: "SL", name: "Slack", description: "Get real-time alerts for new conversations and handoff requests in Slack." },
-      { icon: "MT", name: "Microsoft Teams", description: "Notify your support team in Teams channels when intervention is needed." },
-      { icon: "DC", name: "Discord", description: "Deploy Konvoq as a Discord bot to support your community 24/7." },
-      { icon: "WA", name: "WhatsApp", description: "Take your AI chatbot to WhatsApp Business and reach customers where they are." },
+      { Icon: MessageSquare, name: "Slack",           description: "Get real-time alerts for new conversations and handoff requests in Slack." },
+      { Icon: Video,         name: "Microsoft Teams", description: "Notify your support team in Teams channels when intervention is needed." },
+      { Icon: Hash,          name: "Discord",         description: "Deploy Konvoq as a Discord bot to support your community 24/7." },
+      { Icon: Phone,         name: "WhatsApp",        description: "Take your AI chatbot to WhatsApp Business and reach customers where they are." },
     ],
   },
 ];
@@ -227,9 +239,9 @@ export default function IntegrationsPageTemplate() {
                     width: 44, height: 44, borderRadius: "var(--radius)",
                     background: "var(--surface-2)", border: "1px solid var(--border-2)",
                     display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: 12, fontWeight: 700, letterSpacing: "0.08em", color: "var(--text-1)",
+                    color: category.accent,
                   }}>
-                    {category.icon}
+                    <category.Icon size={20} strokeWidth={1.7} />
                   </div>
                   <div>
                     <h2 style={{
@@ -280,9 +292,9 @@ export default function IntegrationsPageTemplate() {
                         width: 48, height: 48, borderRadius: 14, marginBottom: 16,
                         display: "flex", alignItems: "center", justifyContent: "center",
                         background: "var(--surface-2)", border: "1px solid var(--border)",
-                        color: "var(--text-1)", fontSize: 12, fontWeight: 700, letterSpacing: "0.08em",
+                        color: "var(--text-1)",
                       }}>
-                        {integration.icon}
+                        <integration.Icon size={22} strokeWidth={1.6} />
                       </div>
                       <h3 style={{
                         fontSize: 17, fontWeight: 700, color: "var(--text-1)",
@@ -339,10 +351,9 @@ export default function IntegrationsPageTemplate() {
                 display: "flex", alignItems: "center", justifyContent: "center",
                 borderRadius: 18, border: "1px solid var(--border-2)",
                 background: "var(--surface-2)", color: "var(--text-1)",
-                fontSize: 13, fontWeight: 700, letterSpacing: "0.12em",
               }}
             >
-              API
+              <Code2 size={28} strokeWidth={1.6} />
             </motion.div>
             <motion.div variants={fadeUp}>
               <SectionLabel>Custom Integrations</SectionLabel>

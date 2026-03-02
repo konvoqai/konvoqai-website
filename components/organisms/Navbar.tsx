@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Button from "@/components/atoms/Button";
 import ThemeToggle from "@/components/atoms/ThemeToggle";
 import { SIGNUP_URL } from "@/lib/config";
+import { KonvoqLogoMark } from "@/components/atoms/Icons";
 
 const navLinks = [
   { label: "Features", href: "/features" },
@@ -93,11 +94,9 @@ export default function Navbar() {
                 background: "var(--grad-btn)",
                 color: "var(--accent-foreground)",
                 boxShadow: "var(--shadow-button)",
-                fontSize: 11,
-                fontWeight: 800,
               }}
             >
-              K
+              <KonvoqLogoMark size={16} />
             </motion.span>
             Konvoq
           </Link>

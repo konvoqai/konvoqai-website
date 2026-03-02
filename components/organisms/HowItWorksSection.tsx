@@ -1,7 +1,11 @@
 ﻿"use client";
 
+import * as React from "react";
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/molecules/SectionHeader";
+import { UploadCloudIcon, SlidersIcon, RocketIcon } from "@/components/atoms/Icons";
+
+const stepIcons = [UploadCloudIcon, SlidersIcon, RocketIcon];
 
 const steps = [
   {
@@ -111,10 +115,25 @@ export default function HowItWorksSection() {
               }}
             >
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
-                <div style={{ fontSize: 30, fontWeight: 800, letterSpacing: "-0.06em" }}>{step.step}</div>
-                <div style={{ width: 34, height: 34, borderRadius: 999, display: "grid", placeItems: "center", border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)", color: "var(--text-3)", fontSize: 13 }}>
-                  +
-                </div>
+                <div style={{ fontSize: 30, fontWeight: 800, letterSpacing: "-0.06em", color: "var(--text-3)" }}>{step.step}</div>
+                <motion.div
+                  initial={{ scale: 0.7, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.36, delay: index * 0.06 + 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: 10,
+                    display: "grid",
+                    placeItems: "center",
+                    border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)",
+                    background: "color-mix(in srgb, var(--surface) 72%, transparent)",
+                    color: "var(--text-2)",
+                  }}
+                >
+                  {React.createElement(stepIcons[index], { size: 17 })}
+                </motion.div>
               </div>
               <h3 style={{ margin: "0 0 10px", fontSize: 24, lineHeight: 1.08, letterSpacing: "-0.04em", fontWeight: 760 }}>
                 {step.title}

@@ -1,9 +1,9 @@
-﻿"use client";
+"use client";
 
 import { motion, type Variants } from "framer-motion";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// â”€â”€â”€ Reusable helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Reusable helpers ""
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -37,7 +37,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// â”€â”€â”€ Animation variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Animation variants ""
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -54,11 +54,11 @@ const fadeIn: Variants = {
   visible: { opacity: 1 },
 };
 
-// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Data ""
 
 const quickStart = [
   {
-    icon: "âš¡",
+    icon: "",
     step: "01",
     title: "Install Widget",
     time: "5 min",
@@ -68,7 +68,7 @@ const quickStart = [
     borderColor: "rgba(0, 163, 255, 0.24)",
   },
   {
-    icon: "ðŸ§ ",
+    icon: "",
     step: "02",
     title: "Train Your Bot",
     time: "10 min",
@@ -78,7 +78,7 @@ const quickStart = [
     borderColor: "rgba(0, 163, 255, 0.24)",
   },
   {
-    icon: "ðŸš€",
+    icon: "",
     step: "03",
     title: "Go Live",
     time: "2 min",
@@ -91,7 +91,7 @@ const quickStart = [
 
 const docCategories = [
   {
-    icon: "ðŸš€",
+    icon: "",
     title: "Getting Started",
     desc: "Installation, configuration, and your first chatbot in minutes.",
     articles: 12,
@@ -100,7 +100,7 @@ const docCategories = [
     border: "rgba(0, 163, 255, 0.18)",
   },
   {
-    icon: "ðŸŽ¨",
+    icon: "",
     title: "Widget Customization",
     desc: "Themes, colors, positioning, triggers, and advanced UI options.",
     articles: 24,
@@ -109,7 +109,7 @@ const docCategories = [
     border: "rgba(0, 163, 255, 0.2)",
   },
   {
-    icon: "ðŸ”Œ",
+    icon: "",
     title: "API & Webhooks",
     desc: "REST endpoints, webhook events, authentication, and rate limits.",
     articles: 31,
@@ -118,7 +118,7 @@ const docCategories = [
     border: "rgba(255, 196, 70, 0.18)",
   },
   {
-    icon: "ðŸ”—",
+    icon: "",
     title: "Integrations",
     desc: "Connect with Slack, HubSpot, Shopify, Zendesk, and 100+ more.",
     articles: 47,
@@ -138,7 +138,7 @@ const popularArticles = [
   { title: "Multilingual Support: Enabling 50+ Languages", time: "4 min read", tag: "Advanced" },
 ];
 
-// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Component ""
 
 export default function DocsPageTemplate() {
   return (
@@ -180,7 +180,7 @@ export default function DocsPageTemplate() {
       </div>
 
       <div style={{ position: "relative", zIndex: 1 }}>
-        {/* â”€â”€ Hero â”€â”€ */}
+        {/* "" Hero "" */}
         <section
           style={{
             maxWidth: 900,
@@ -246,7 +246,7 @@ export default function DocsPageTemplate() {
                   fontSize: 18,
                 }}
               >
-                ðŸ”
+                "
               </div>
               <input
                 type="text"
@@ -285,13 +285,13 @@ export default function DocsPageTemplate() {
                   fontFamily: "inherit",
                 }}
               >
-                âŒ˜K
+                K
               </kbd>
             </motion.div>
           </motion.div>
         </section>
 
-        {/* â”€â”€ Quick Start â”€â”€ */}
+        {/* "" Quick Start "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 80px" }}>
           <motion.div
             initial="hidden"
@@ -381,14 +381,14 @@ export default function DocsPageTemplate() {
                     fontWeight: 600,
                   }}
                 >
-                  Start â†’
+                  Start '
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </section>
 
-        {/* â”€â”€ Categories â”€â”€ */}
+        {/* "" Categories "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 80px" }}>
           <motion.div
             initial="hidden"
@@ -486,14 +486,14 @@ export default function DocsPageTemplate() {
                   >
                     {cat.articles} articles
                   </span>
-                  <span style={{ color: cat.color, fontSize: "1rem" }}>â†’</span>
+                  <span style={{ color: cat.color, fontSize: "1rem" }}>'</span>
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </section>
 
-        {/* â”€â”€ Popular Articles â”€â”€ */}
+        {/* "" Popular Articles "" */}
         <section
           style={{
             maxWidth: 1100,
@@ -637,7 +637,7 @@ export default function DocsPageTemplate() {
           </motion.div>
         </section>
 
-        {/* â”€â”€ API Reference CTA â”€â”€ */}
+        {/* "" API Reference CTA "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 100px" }}>
           <motion.div
             initial="hidden"
@@ -708,7 +708,7 @@ export default function DocsPageTemplate() {
                   display: "inline-block",
                 }}
               >
-                View API Reference â†’
+                View API Reference '
               </motion.a>
               <motion.a
                 href="#"

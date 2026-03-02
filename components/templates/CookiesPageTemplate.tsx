@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
@@ -32,7 +32,7 @@ const cookieCategories: CookieCategory[] = [
     required: true,
     defaultEnabled: true,
     color: "var(--warning)",
-    icon: "ðŸ”’",
+    icon: "",
     desc: "These cookies are essential for the website to function correctly and cannot be disabled. They are usually set in response to actions you take such as logging in or filling in forms.",
     cookies: [
       { name: "witzo_access_token", provider: "Konvoq AI", purpose: "Stores your authentication token for secure login sessions", duration: "15 minutes" },
@@ -47,7 +47,7 @@ const cookieCategories: CookieCategory[] = [
     required: false,
     defaultEnabled: true,
     color: "var(--accent)",
-    icon: "ðŸ“Š",
+    icon: "",
     desc: "These cookies help us understand how visitors interact with our website by collecting anonymous information. The data is aggregated and does not identify any individual.",
     cookies: [
       { name: "_ga", provider: "Google Analytics", purpose: "Distinguishes unique users and sessions for traffic analysis", duration: "2 years" },
@@ -62,7 +62,7 @@ const cookieCategories: CookieCategory[] = [
     required: false,
     defaultEnabled: true,
     color: "var(--accent-strong)",
-    icon: "âš™ï¸",
+    icon: "",
     desc: "Functional cookies enable enhanced functionality and personalization, such as remembering your language preference, theme, and dashboard layout.",
     cookies: [
       { name: "konvoq_theme", provider: "Konvoq AI", purpose: "Remembers your preferred UI theme (dark/light)", duration: "1 year" },
@@ -77,7 +77,7 @@ const cookieCategories: CookieCategory[] = [
     required: false,
     defaultEnabled: false,
     color: "var(--amber)",
-    icon: "ðŸ“£",
+    icon: "",
     desc: "These cookies are used to deliver relevant advertisements and track the effectiveness of marketing campaigns. They may be set by third-party advertising partners.",
     cookies: [
       { name: "_fbp", provider: "Meta (Facebook)", purpose: "Tracks conversions for Facebook ad campaigns", duration: "3 months" },
@@ -156,7 +156,7 @@ export default function CookiesPageTemplate() {
                 marginBottom: 24,
               }}
             >
-              <span>ðŸª</span> Privacy
+              <span></span> Privacy
             </span>
           </motion.div>
           <motion.h1
@@ -209,7 +209,7 @@ export default function CookiesPageTemplate() {
                 borderRadius: "var(--radius-lg)",
               }}
             >
-              <span style={{ fontSize: 28, display: "block", marginBottom: 12 }}>ðŸª</span>
+              <span style={{ fontSize: 28, display: "block", marginBottom: 12 }}></span>
               <h3 style={{ fontWeight: 700, marginBottom: 8 }}>What they are</h3>
               <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.7 }}>
                 Cookies are small text files placed on your device by websites you visit. They are widely used to
@@ -224,7 +224,7 @@ export default function CookiesPageTemplate() {
                 borderRadius: "var(--radius-lg)",
               }}
             >
-              <span style={{ fontSize: 28, display: "block", marginBottom: 12 }}>ðŸŽ¯</span>
+              <span style={{ fontSize: 28, display: "block", marginBottom: 12 }}></span>
               <h3 style={{ fontWeight: 700, marginBottom: 8 }}>How we use them</h3>
               <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.7 }}>
                 We use cookies for authentication, remembering your preferences, analyzing site traffic, and
@@ -234,7 +234,7 @@ export default function CookiesPageTemplate() {
           </motion.div>
         </motion.section>
 
-        {/* Cookie Categories â€” Interactive Cards */}
+        {/* Cookie Categories Interactive Cards */}
         <section style={{ marginBottom: 64 }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -362,7 +362,7 @@ export default function CookiesPageTemplate() {
                       transform: expanded === cat.id ? "rotate(180deg)" : "rotate(0deg)",
                     }}
                   >
-                    â–¼
+                    
                   </span>
                 </div>
 
@@ -439,18 +439,18 @@ export default function CookiesPageTemplate() {
             {[
               {
                 browser: "Google Chrome",
-                icon: "ðŸŒ",
-                steps: ["Open Settings (â‹® menu)", "Privacy and Security â†’ Cookies", "Manage and delete cookies"],
+                icon: "",
+                steps: ["Open Settings ( menu)", "Privacy and Security ' Cookies", "Manage and delete cookies"],
               },
               {
                 browser: "Mozilla Firefox",
-                icon: "ðŸ¦Š",
-                steps: ["Open Settings (â‰¡ menu)", "Privacy & Security panel", "Cookies and Site Data section"],
+                icon: "",
+                steps: ["Open Settings ( menu)", "Privacy & Security panel", "Cookies and Site Data section"],
               },
               {
                 browser: "Apple Safari",
-                icon: "ðŸ§­",
-                steps: ["Open Preferences (âŒ˜,)", "Privacy tab", "Manage Website Data"],
+                icon: "",
+                steps: ["Open Preferences (,)", "Privacy tab", "Manage Website Data"],
               },
             ].map(({ browser, icon, steps }) => (
               <div
@@ -540,7 +540,7 @@ export default function CookiesPageTemplate() {
                   rel="noopener noreferrer"
                   style={{ color: "var(--accent)", fontSize: 13, textDecoration: "none", whiteSpace: "nowrap" }}
                 >
-                  Privacy Policy â†’
+                  Privacy Policy '
                 </a>
               </div>
             ))}
@@ -563,7 +563,7 @@ export default function CookiesPageTemplate() {
             alignItems: "center",
           }}
         >
-          <span style={{ fontSize: 40, flexShrink: 0 }}>ðŸ“¬</span>
+          <span style={{ fontSize: 40, flexShrink: 0 }}>"</span>
           <div>
             <h3 style={{ fontWeight: 700, marginBottom: 8 }}>Questions About Cookies?</h3>
             <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.7 }}>
@@ -602,7 +602,7 @@ export default function CookiesPageTemplate() {
       >
         <div>
           <p style={{ fontWeight: 600, marginBottom: 2 }}>
-            {saved ? "âœ“ Cookie preferences saved!" : "Your Cookie Preferences"}
+            {saved ? "Cookie preferences saved!" : "Your Cookie Preferences"}
           </p>
           <p style={{ color: "var(--text-2)", fontSize: 13 }}>
             {Object.entries(enabled).filter(([k, v]) => v).map(([k]) => cookieCategories.find(c => c.id === k)?.label).filter(Boolean).join(", ")}

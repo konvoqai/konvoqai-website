@@ -1,10 +1,10 @@
-﻿"use client";
+"use client";
 
 import { motion, type Variants } from "framer-motion";
 import { useState } from "react";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// â”€â”€â”€ Reusable helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Reusable helpers ""
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -38,7 +38,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// â”€â”€â”€ Animation variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Animation variants ""
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -50,13 +50,13 @@ const stagger: Variants = {
   visible: { transition: { staggerChildren: 0.09 } },
 };
 
-// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Data ""
 
 const categories = ["All", "Product", "Guides", "Case Studies", "News"];
 
 const blogPosts = [
   {
-    emoji: "ðŸ¤–",
+    emoji: "",
     gradient: "linear-gradient(135deg, rgba(0, 163, 255, 0.14), rgba(0, 163, 255, 0.14))",
     borderColor: "rgba(0, 163, 255, 0.24)",
     accentColor: "var(--accent)",
@@ -71,13 +71,13 @@ const blogPosts = [
     category: "Guides",
   },
   {
-    emoji: "ðŸ“Š",
+    emoji: "",
     gradient: "linear-gradient(135deg, rgba(0, 163, 255, 0.14), rgba(255, 196, 70, 0.14))",
     borderColor: "rgba(0, 163, 255, 0.24)",
     accentColor: "var(--accent-strong)",
     title: "5 Metrics Every Customer Support Team Should Track",
     excerpt:
-      "From CSAT to resolution rate â€” the numbers that actually reveal how well your AI is performing.",
+      "From CSAT to resolution rate the numbers that actually reveal how well your AI is performing.",
     author: "Marcus Lee",
     authorInitial: "M",
     authorColor: "var(--accent-strong)",
@@ -86,7 +86,7 @@ const blogPosts = [
     category: "Guides",
   },
   {
-    emoji: "ðŸ†",
+    emoji: "",
     gradient: "linear-gradient(135deg, rgba(255, 196, 70, 0.14), rgba(0, 163, 255, 0.14))",
     borderColor: "rgba(255, 196, 70, 0.2)",
     accentColor: "var(--warning)",
@@ -101,7 +101,7 @@ const blogPosts = [
     category: "Case Studies",
   },
   {
-    emoji: "âš¡",
+    emoji: "",
     gradient: "linear-gradient(135deg, rgba(255, 196, 70, 0.14), rgba(255, 196, 70, 0.14))",
     borderColor: "rgba(255, 196, 70, 0.2)",
     accentColor: "var(--amber)",
@@ -116,13 +116,13 @@ const blogPosts = [
     category: "Product",
   },
   {
-    emoji: "ðŸ›ï¸",
+    emoji: "",
     gradient: "linear-gradient(135deg, rgba(255, 196, 70, 0.14), rgba(0, 163, 255, 0.14))",
     borderColor: "rgba(255, 196, 70, 0.22)",
     accentColor: "var(--warning)",
     title: "Shopify Store Reduced Support Tickets by 70% Using AI",
     excerpt:
-      "ShopEasy's journey from 2,000 monthly tickets to just 600 â€” without adding a single agent.",
+      "ShopEasy's journey from 2,000 monthly tickets to just 600 without adding a single agent.",
     author: "Amara Johnson",
     authorInitial: "A",
     authorColor: "var(--warning)",
@@ -131,14 +131,14 @@ const blogPosts = [
     category: "Case Studies",
   },
   {
-    emoji: "ðŸŒ",
+    emoji: "",
     gradient: "linear-gradient(135deg, rgba(0, 163, 255, 0.14), rgba(255, 196, 70, 0.14))",
     borderColor: "rgba(0, 163, 255, 0.18)",
     accentColor: "var(--accent)",
     title: "Building a Multilingual Chatbot: Step-by-Step Guide",
     excerpt:
       "How to enable 50+ languages in your Konvoq chatbot and ensure culturally appropriate responses.",
-    author: "Lena MÃ¼ller",
+    author: "Lena Mller",
     authorInitial: "L",
     authorColor: "var(--accent)",
     date: "Feb 2, 2026",
@@ -147,7 +147,7 @@ const blogPosts = [
   },
 ];
 
-// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Component ""
 
 export default function BlogPageTemplate() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -196,7 +196,7 @@ export default function BlogPageTemplate() {
       </div>
 
       <div style={{ position: "relative", zIndex: 1 }}>
-        {/* â”€â”€ Hero â”€â”€ */}
+        {/* "" Hero "" */}
         <section
           style={{
             maxWidth: 800,
@@ -231,13 +231,13 @@ export default function BlogPageTemplate() {
                 lineHeight: 1.7,
               }}
             >
-              Everything you need to master AI-powered customer support â€”
+              Everything you need to master AI-powered customer support "
               from beginner tutorials to advanced optimization strategies.
             </motion.p>
           </motion.div>
         </section>
 
-        {/* â”€â”€ Featured Post â”€â”€ */}
+        {/* "" Featured Post "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 60px" }}>
           <motion.div
             initial="hidden"
@@ -275,7 +275,7 @@ export default function BlogPageTemplate() {
                   pointerEvents: "none",
                 }}
               >
-                ðŸ¤–
+                
               </div>
 
               <div style={{ position: "relative", zIndex: 1 }}>
@@ -363,7 +363,7 @@ export default function BlogPageTemplate() {
                         James Watkins
                       </div>
                       <div style={{ fontSize: "0.78rem", color: "var(--text-3)" }}>
-                        Feb 26, 2026 Â· 12 min read
+                        Feb 26, 2026  12 min read
                       </div>
                     </div>
                   </div>
@@ -382,7 +382,7 @@ export default function BlogPageTemplate() {
                       fontFamily: "inherit",
                     }}
                   >
-                    Read Article â†’
+                    Read Article '
                   </motion.button>
                 </div>
               </div>
@@ -390,7 +390,7 @@ export default function BlogPageTemplate() {
           </motion.div>
         </section>
 
-        {/* â”€â”€ Category Filter â”€â”€ */}
+        {/* "" Category Filter "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 40px" }}>
           <motion.div
             initial="hidden"
@@ -430,7 +430,7 @@ export default function BlogPageTemplate() {
           </motion.div>
         </section>
 
-        {/* â”€â”€ Blog Grid â”€â”€ */}
+        {/* "" Blog Grid "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 80px" }}>
           <motion.div
             initial="hidden"
@@ -558,7 +558,7 @@ export default function BlogPageTemplate() {
                         <div style={{ fontSize: "0.72rem", color: "var(--text-3)" }}>{post.date}</div>
                       </div>
                     </div>
-                    <span style={{ color: post.accentColor, fontSize: "1.1rem" }}>â†’</span>
+                    <span style={{ color: post.accentColor, fontSize: "1.1rem" }}>'</span>
                   </div>
                 </div>
               </motion.article>
@@ -576,7 +576,7 @@ export default function BlogPageTemplate() {
           )}
         </section>
 
-        {/* â”€â”€ Newsletter â”€â”€ */}
+        {/* "" Newsletter "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 100px" }}>
           <motion.div
             initial="hidden"
@@ -674,7 +674,7 @@ export default function BlogPageTemplate() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  Subscribe â†’
+                  Subscribe '
                 </motion.button>
               </div>
               <p style={{ fontSize: "0.78rem", color: "var(--text-3)", marginTop: 16 }}>

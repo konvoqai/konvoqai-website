@@ -1,9 +1,9 @@
-﻿"use client";
+"use client";
 
 import { motion, type Variants } from "framer-motion";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// â”€â”€â”€ Reusable SectionLabel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Reusable SectionLabel ""
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
@@ -19,7 +19,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// â”€â”€â”€ Variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Variants ""
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -35,7 +35,7 @@ const fadeIn: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Data ""
 const PRESS_STATS = [
   { value: "500+", label: "Articles written" },
   { value: "50+", label: "Media features" },
@@ -51,7 +51,7 @@ const PRESS_ARTICLES = [
     outlet: "TechCrunch",
     outletColor: "var(--warning)",
     title: "Konvoq raises $12M to bring AI chatbots to SMBs",
-    excerpt: "The Series A, led by Sequoia Capital, will help the startup expand its AI-powered chatbot platform to small and medium businesses worldwide â€” a market largely ignored by enterprise AI vendors.",
+    excerpt: "The Series A, led by Sequoia Capital, will help the startup expand its AI-powered chatbot platform to small and medium businesses worldwide a market largely ignored by enterprise AI vendors.",
     date: "December 2025",
     tag: "Funding",
   },
@@ -67,7 +67,7 @@ const PRESS_ARTICLES = [
     outlet: "Wired",
     outletColor: "var(--text-1)",
     title: "How Konvoq is making enterprise AI accessible to everyone",
-    excerpt: "Inside the startup that figured out how to strip away the complexity of large language models without stripping away the capability â€” and why it might be the most important AI company most people haven't heard of.",
+    excerpt: "Inside the startup that figured out how to strip away the complexity of large language models without stripping away the capability and why it might be the most important AI company most people haven't heard of.",
     date: "November 2025",
     tag: "Deep Dive",
   },
@@ -75,7 +75,7 @@ const PRESS_ARTICLES = [
     outlet: "VentureBeat",
     outletColor: "var(--accent-strong)",
     title: "Konvoq's AI achieves 94% resolution rate, outperforming human agents",
-    excerpt: "New benchmark data released by Konvoq shows their AI chatbot resolves 94% of customer inquiries without human escalation â€” compared to an industry average of 68% for human agents.",
+    excerpt: "New benchmark data released by Konvoq shows their AI chatbot resolves 94% of customer inquiries without human escalation compared to an industry average of 68% for human agents.",
     date: "February 2026",
     tag: "Research",
   },
@@ -98,16 +98,16 @@ const PRESS_ARTICLES = [
 ];
 
 const PRESS_KIT_ITEMS = [
-  { icon: "ðŸ–¼ï¸", title: "Logo Files", desc: "PNG, SVG, and EPS formats. Light and dark variants included." },
-  { icon: "ðŸ“", title: "Brand Guidelines", desc: "Color palette, typography, usage rules, and spacing standards." },
-  { icon: "ðŸ“¸", title: "Founder Photos", desc: "High-resolution headshots of Aryan Mehta and Priya Sharma." },
+  { icon: "", title: "Logo Files", desc: "PNG, SVG, and EPS formats. Light and dark variants included." },
+  { icon: "", title: "Brand Guidelines", desc: "Color palette, typography, usage rules, and spacing standards." },
+  { icon: "", title: "Founder Photos", desc: "High-resolution headshots of Aryan Mehta and Priya Sharma." },
 ];
 
-// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Component ""
 export default function PressPageTemplate() {
   return (
     <PageLayout>
-      {/* â”€â”€ Hero â”€â”€ */}
+      {/* "" Hero "" */}
       <section style={{ position: "relative", overflow: "hidden", padding: "100px 24px 120px" }}>
         <div aria-hidden style={{
           position: "absolute", inset: 0, pointerEvents: "none",
@@ -146,7 +146,7 @@ export default function PressPageTemplate() {
         </div>
       </section>
 
-      {/* â”€â”€ Featured In â”€â”€ */}
+      {/* "" Featured In "" */}
       <section style={{ padding: "60px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={stagger}>
@@ -177,7 +177,7 @@ export default function PressPageTemplate() {
         </div>
       </section>
 
-      {/* â”€â”€ Press Articles â”€â”€ */}
+      {/* "" Press Articles "" */}
       <section style={{ padding: "80px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}>
@@ -225,7 +225,7 @@ export default function PressPageTemplate() {
                     paddingTop: 16, borderTop: "1px solid var(--border)",
                   }}>
                     <span style={{ fontSize: 12, color: "var(--text-3)" }}>{article.date}</span>
-                    <span style={{ fontSize: 13, color: "var(--accent)", fontWeight: 600 }}>Read article â†’</span>
+                    <span style={{ fontSize: 13, color: "var(--accent)", fontWeight: 600 }}>Read article '</span>
                   </div>
                 </motion.div>
               ))}
@@ -234,7 +234,7 @@ export default function PressPageTemplate() {
         </div>
       </section>
 
-      {/* â”€â”€ Press Kit â”€â”€ */}
+      {/* "" Press Kit "" */}
       <section style={{ padding: "80px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={stagger}>
@@ -270,7 +270,7 @@ export default function PressPageTemplate() {
                       fontSize: 14, cursor: "pointer",
                     }}
                   >
-                    Download â†“
+                    Download "
                   </motion.button>
                 </motion.div>
               ))}
@@ -291,7 +291,7 @@ export default function PressPageTemplate() {
         </div>
       </section>
 
-      {/* â”€â”€ Press Contact â”€â”€ */}
+      {/* "" Press Contact "" */}
       <section style={{ padding: "80px 24px 120px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
           <motion.div
@@ -325,7 +325,7 @@ export default function PressPageTemplate() {
                 border: "1px solid var(--border-2)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 22, flexShrink: 0,
-              }}>ðŸ“¬</div>
+              }}>"</div>
               <div>
                 <div style={{ fontSize: 13, color: "var(--text-3)", marginBottom: 4 }}>Press enquiries</div>
                 <a href="mailto:pr@konvoq.ai" style={{ fontSize: 20, fontWeight: 700, color: "var(--accent)", textDecoration: "none" }}>
@@ -341,7 +341,7 @@ export default function PressPageTemplate() {
                 border: "1px solid var(--border-2)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 22, flexShrink: 0,
-              }}>âš¡</div>
+              }}></div>
               <div>
                 <div style={{ fontSize: 13, color: "var(--text-3)", marginBottom: 4 }}>Average response time</div>
                 <div style={{ fontSize: 18, fontWeight: 700, color: "var(--text-1)" }}>Under 24 hours</div>
@@ -360,7 +360,7 @@ export default function PressPageTemplate() {
                 fontWeight: 700, fontSize: 15, color: "#fff", textDecoration: "none",
               }}
             >
-              Email press team â†’
+              Email press team '
             </motion.a>
           </motion.div>
         </div>

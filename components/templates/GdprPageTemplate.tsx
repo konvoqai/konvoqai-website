@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
@@ -21,37 +21,37 @@ const cardIn: Variants = {
 
 const gdprRights = [
   {
-    icon: "ðŸ‘ï¸",
+    icon: "",
     title: "Right to Access",
     color: "var(--accent)",
     desc: "Request a complete copy of all personal data we hold about you, including how it is processed and why.",
   },
   {
-    icon: "âœï¸",
+    icon: "",
     title: "Right to Rectification",
     color: "var(--accent-strong)",
     desc: "Request correction of inaccurate or incomplete personal data without undue delay.",
   },
   {
-    icon: "ðŸ—‘ï¸",
+    icon: "",
     title: "Right to Erasure",
     color: "var(--warning)",
     desc: "Request deletion of your personal data (the 'right to be forgotten') when it is no longer necessary.",
   },
   {
-    icon: "ðŸ“¦",
+    icon: "",
     title: "Right to Portability",
     color: "var(--warning)",
     desc: "Receive your data in a structured, machine-readable format and transfer it to another controller.",
   },
   {
-    icon: "â¸ï¸",
+    icon: "",
     title: "Right to Restrict Processing",
     color: "var(--amber)",
     desc: "Request that we restrict processing of your data under certain circumstances.",
   },
   {
-    icon: "ðŸš«",
+    icon: "",
     title: "Right to Object",
     color: "var(--text-2)",
     desc: "Object to processing based on legitimate interests or for direct marketing purposes at any time.",
@@ -60,25 +60,25 @@ const gdprRights = [
 
 const commitments = [
   {
-    icon: "ðŸŽ¯",
+    icon: "",
     title: "Data Minimization",
     desc: "We collect only the personal data that is strictly necessary for the purposes for which it is processed.",
     color: "var(--accent)",
   },
   {
-    icon: "ðŸ“œ",
+    icon: "",
     title: "Lawful Basis",
     desc: "Every processing activity has a documented lawful basis: consent, contract, legal obligation, or legitimate interest.",
     color: "var(--accent-strong)",
   },
   {
-    icon: "âš–ï¸",
+    icon: "",
     title: "Data Subject Rights",
     desc: "We have processes and tooling to honor all GDPR data subject rights within the required 30-day window.",
     color: "var(--warning)",
   },
   {
-    icon: "ðŸ—ï¸",
+    icon: "",
     title: "Privacy by Design",
     desc: "Data protection is baked into our engineering process from day one, not bolted on as an afterthought.",
     color: "var(--amber)",
@@ -126,7 +126,7 @@ export default function GdprPageTemplate() {
             pointerEvents: "none",
           }}
         >
-          ðŸ‡ªðŸ‡º
+          
         </div>
 
         <motion.div variants={stagger} initial="hidden" animate="visible" style={{ position: "relative", zIndex: 1 }}>
@@ -148,7 +148,7 @@ export default function GdprPageTemplate() {
                 marginBottom: 24,
               }}
             >
-              <span>ðŸ‡ªðŸ‡º</span> Compliance
+              <span></span> Compliance
             </span>
           </motion.div>
           <motion.h1
@@ -391,9 +391,9 @@ export default function GdprPageTemplate() {
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 {[
-                  { mechanism: "Standard Contractual Clauses (SCCs)", status: "Active", icon: "ðŸ“‹" },
-                  { mechanism: "EU-US Data Privacy Framework", status: "Certified", icon: "ðŸ…" },
-                  { mechanism: "Binding Corporate Rules", status: "In Progress", icon: "ðŸ”„" },
+                  { mechanism: "Standard Contractual Clauses (SCCs)", status: "Active", icon: "" },
+                  { mechanism: "EU-US Data Privacy Framework", status: "Certified", icon: "" },
+                  { mechanism: "Binding Corporate Rules", status: "In Progress", icon: "" },
                 ].map(({ mechanism, status, icon }) => (
                   <div
                     key={mechanism}
@@ -482,7 +482,7 @@ export default function GdprPageTemplate() {
                   textDecoration: "none",
                 }}
               >
-                <span>ðŸ“¥</span> Download DPA (PDF)
+                <span>"</span> Download DPA (PDF)
               </a>
               <a
                 href="mailto:legal@konvoq.ai"
@@ -521,14 +521,14 @@ export default function GdprPageTemplate() {
               communications.
             </p>
             <div style={{ display: "flex", gap: 10, alignItems: "center", marginTop: 8 }}>
-              <span style={{ fontSize: 20 }}>ðŸ“§</span>
+              <span style={{ fontSize: 20 }}>"</span>
               <a href="mailto:dpo@konvoq.ai" style={{ color: "var(--accent)", fontWeight: 600 }}>
                 dpo@konvoq.ai
               </a>
             </div>
             <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-              <span style={{ fontSize: 20 }}>ðŸ¢</span>
-              <span style={{ fontSize: 13, color: "var(--text-2)" }}>Konvoq AI, Inc. â€” 1209 Orange St, Wilmington, DE 19801</span>
+              <span style={{ fontSize: 20 }}></span>
+              <span style={{ fontSize: 13, color: "var(--text-2)" }}>Konvoq AI, Inc. " 1209 Orange St, Wilmington, DE 19801</span>
             </div>
           </div>
         </motion.div>
@@ -565,7 +565,7 @@ export default function GdprPageTemplate() {
                 textAlign: "center",
               }}
             >
-              <span style={{ fontSize: 48, display: "block", marginBottom: 16 }}>âœ…</span>
+              <span style={{ fontSize: 48, display: "block", marginBottom: 16 }}></span>
               <h3 style={{ fontWeight: 700, marginBottom: 8 }}>Request Received</h3>
               <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.7 }}>
                 We&apos;ve received your request and will respond to <strong style={{ color: "var(--text-1)" }}>{form.email}</strong> within 30 days.

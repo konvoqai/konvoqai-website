@@ -2,23 +2,28 @@
 
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/molecules/SectionHeader";
+import { LightningIcon, HandoffIcon, ChartBarIcon, ShieldCheckIcon } from "@/components/atoms/Icons";
 
 const pillars = [
   {
     title: "Faster resolution",
     description: "Answer repetitive support questions instantly without losing product accuracy.",
+    Icon: LightningIcon,
   },
   {
     title: "Better handoff quality",
     description: "Escalate conversations with context, intent, and the right suggested next step.",
+    Icon: HandoffIcon,
   },
   {
     title: "Operational visibility",
     description: "See what resolves, what converts, and where your knowledge gaps still live.",
+    Icon: ChartBarIcon,
   },
   {
     title: "Brand-safe deployment",
     description: "Launch a system that feels native to your product instead of bolted on after the fact.",
+    Icon: ShieldCheckIcon,
   },
 ];
 
@@ -51,22 +56,25 @@ export default function FeaturesSection() {
                 position: "relative",
               }}
             >
-              <div
+              <motion.div
+                initial={{ scale: 0.7, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.38, delay: index * 0.06 + 0.12, ease: [0.22, 1, 0.36, 1] }}
                 style={{
-                  width: 34,
-                  height: 34,
-                  borderRadius: 999,
+                  width: 38,
+                  height: 38,
+                  borderRadius: 12,
                   display: "grid",
                   placeItems: "center",
-                  marginBottom: 16,
+                  marginBottom: 18,
                   background: index === 0 ? "var(--accent-muted)" : "color-mix(in srgb, var(--surface) 78%, transparent)",
+                  border: "1px solid color-mix(in srgb, var(--border) 60%, transparent)",
                   color: "var(--text-1)",
-                  fontSize: 13,
-                  fontWeight: 800,
                 }}
               >
-                {index + 1}
-              </div>
+                <pillar.Icon size={18} />
+              </motion.div>
               <h3 style={{ margin: "0 0 10px", fontSize: 22, lineHeight: 1.08, letterSpacing: "-0.04em", fontWeight: 760 }}>
                 {pillar.title}
               </h3>

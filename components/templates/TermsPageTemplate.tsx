@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect, useRef } from "react";
 import { motion, type Variants } from "framer-motion";
@@ -94,7 +94,7 @@ export default function TermsPageTemplate() {
                 marginBottom: 24,
               }}
             >
-              <span>ðŸ“‹</span> Legal
+              <span>"</span> Legal
             </span>
           </motion.div>
           <motion.h1
@@ -245,7 +245,7 @@ export default function TermsPageTemplate() {
                 }}
               >
                 <p style={{ fontWeight: 700, color: "var(--warning)", marginBottom: 12, fontSize: 14 }}>
-                  âœ“ Permitted Uses
+                  Permitted Uses
                 </p>
                 <ul style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.8, paddingLeft: 16 }}>
                   <li>Customer support automation</li>
@@ -265,7 +265,7 @@ export default function TermsPageTemplate() {
                 }}
               >
                 <p style={{ fontWeight: 700, color: "var(--warning)", marginBottom: 12, fontSize: 14 }}>
-                  âœ— Prohibited Uses
+                   Prohibited Uses
                 </p>
                 <ul style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.8, paddingLeft: 16 }}>
                   <li>Illegal, harmful, or fraudulent activities</li>
@@ -286,9 +286,9 @@ export default function TermsPageTemplate() {
           <TermsSection id="billing" title="5. Subscription and Billing">
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 20 }}>
               {[
-                { label: "Billing Cycle", value: "Monthly or Annual", icon: "ðŸ“…" },
-                { label: "Auto-Renewal", value: "Enabled by default", icon: "ðŸ”„" },
-                { label: "Money-Back", value: "30-day guarantee", icon: "ðŸ’°" },
+                { label: "Billing Cycle", value: "Monthly or Annual", icon: "" },
+                { label: "Auto-Renewal", value: "Enabled by default", icon: "" },
+                { label: "Money-Back", value: "30-day guarantee", icon: "'" },
               ].map(({ label, value, icon }) => (
                 <div
                   key={label}
@@ -338,7 +338,7 @@ export default function TermsPageTemplate() {
               >
                 <p style={{ fontWeight: 700, color: "var(--accent)", marginBottom: 12 }}>Your Content</p>
                 <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.7 }}>
-                  You retain full ownership of all content you create, upload, or process through Konvoq AI â€” including
+                  You retain full ownership of all content you create, upload, or process through Konvoq AI including
                   conversation flows, training data, documents, and chatbot configurations. You grant us a limited
                   license to process this content solely to provide the Service.
                 </p>
@@ -443,7 +443,7 @@ export default function TermsPageTemplate() {
                 borderRadius: "var(--radius-lg)",
               }}
             >
-              <span style={{ fontSize: 48 }}>âš–ï¸</span>
+              <span style={{ fontSize: 48 }}></span>
               <div>
                 <p style={{ fontWeight: 600, marginBottom: 8 }}>Delaware, USA</p>
                 <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.7 }}>
@@ -476,7 +476,7 @@ export default function TermsPageTemplate() {
                 {[
                   { label: "Legal Email", value: "legal@konvoq.ai", href: "mailto:legal@konvoq.ai" },
                   { label: "Support", value: "support@konvoq.ai", href: "mailto:support@konvoq.ai" },
-                  { label: "Address", value: "Konvoq AI, Inc. â€” 1209 Orange St, Wilmington, DE 19801, USA" },
+                  { label: "Address", value: "Konvoq AI, Inc. 1209 Orange St, Wilmington, DE 19801, USA" },
                 ].map(({ label, value, href }) => (
                   <div key={label} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
                     <span
@@ -508,7 +508,7 @@ export default function TermsPageTemplate() {
   );
 }
 
-/* â”€â”€â”€ Sub-components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* "" Sub-components "" */
 
 function TermsSection({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
   return (
@@ -537,7 +537,7 @@ function FeatureList({ items }: { items: string[] }) {
     <ul style={{ paddingLeft: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
       {items.map((item) => (
         <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 10, color: "var(--text-2)", fontSize: 14 }}>
-          <span style={{ color: "var(--accent-strong)", fontWeight: 700, flexShrink: 0 }}>â†’</span>
+          <span style={{ color: "var(--accent-strong)", fontWeight: 700, flexShrink: 0 }}>'</span>
           {item}
         </li>
       ))}

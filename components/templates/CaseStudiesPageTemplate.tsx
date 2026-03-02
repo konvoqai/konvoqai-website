@@ -1,10 +1,10 @@
-﻿"use client";
+"use client";
 
 import { motion, type Variants } from "framer-motion";
 import { useState } from "react";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// â”€â”€â”€ Reusable helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Reusable helpers ""
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -38,7 +38,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// â”€â”€â”€ Animation variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Animation variants ""
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -55,18 +55,18 @@ const scaleIn: Variants = {
   visible: { opacity: 1, scale: 1 },
 };
 
-// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Data ""
 
 const industries = ["All", "E-commerce", "SaaS", "Healthcare", "Education", "Legal"];
 
 const caseStudies = [
   {
     company: "ShopEasy",
-    logo: "ðŸ›ï¸",
+    logo: "",
     industry: "E-commerce",
     headline: "70% reduction in support tickets within 30 days of deployment",
     description:
-      "ShopEasy was drowning in order-status, return, and shipping queries. After deploying Konvoq, 70% of those tickets vanished overnight â€” handled instantly by AI.",
+      "ShopEasy was drowning in order-status, return, and shipping queries. After deploying Konvoq, 70% of those tickets vanished overnight handled instantly by AI.",
     metrics: [
       { label: "Ticket Reduction", value: "70%" },
       { label: "CSAT Score", value: "4.8/5" },
@@ -79,7 +79,7 @@ const caseStudies = [
   },
   {
     company: "HealthFirst",
-    logo: "ðŸ¥",
+    logo: "",
     industry: "Healthcare",
     headline: "89% of patient queries resolved without human intervention",
     description:
@@ -96,7 +96,7 @@ const caseStudies = [
   },
   {
     company: "EduLearn",
-    logo: "ðŸŽ“",
+    logo: "",
     industry: "Education",
     headline: "5x increase in student engagement with personalized AI tutoring",
     description:
@@ -113,7 +113,7 @@ const caseStudies = [
   },
   {
     company: "CloudHost",
-    logo: "â˜ï¸",
+    logo: "",
     industry: "SaaS",
     headline: "$2M saved in annual support costs by scaling AI to handle tier-1",
     description:
@@ -130,9 +130,9 @@ const caseStudies = [
   },
   {
     company: "LegalEase",
-    logo: "âš–ï¸",
+    logo: "",
     industry: "Legal",
-    headline: "24/7 client intake automation â€” never miss a lead again",
+    headline: "24/7 client intake automation never miss a lead again",
     description:
       "LegalEase automated client intake, initial case triage, and document collection with Konvoq. They now capture 3x more qualified leads after business hours.",
     metrics: [
@@ -147,7 +147,7 @@ const caseStudies = [
   },
 ];
 
-// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Component ""
 
 export default function CaseStudiesPageTemplate() {
   const [activeIndustry, setActiveIndustry] = useState("All");
@@ -196,7 +196,7 @@ export default function CaseStudiesPageTemplate() {
       </div>
 
       <div style={{ position: "relative", zIndex: 1 }}>
-        {/* â”€â”€ Hero â”€â”€ */}
+        {/* "" Hero "" */}
         <section
           style={{
             maxWidth: 800,
@@ -237,7 +237,7 @@ export default function CaseStudiesPageTemplate() {
           </motion.div>
         </section>
 
-        {/* â”€â”€ Metric Callouts â”€â”€ */}
+        {/* "" Metric Callouts "" */}
         <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
             initial="hidden"
@@ -308,7 +308,7 @@ export default function CaseStudiesPageTemplate() {
           </motion.div>
         </section>
 
-        {/* â”€â”€ Featured Case Study â”€â”€ */}
+        {/* "" Featured Case Study "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 60px" }}>
           <motion.div
             initial="hidden"
@@ -341,7 +341,7 @@ export default function CaseStudiesPageTemplate() {
                   userSelect: "none",
                 }}
               >
-                ðŸ¢
+                
               </div>
 
               <div style={{ position: "relative", zIndex: 1 }}>
@@ -391,14 +391,14 @@ export default function CaseStudiesPageTemplate() {
                       fontSize: 28,
                     }}
                   >
-                    ðŸ—ï¸
+                    
                   </div>
                   <div>
                     <div style={{ fontSize: "1.1rem", fontWeight: 800, color: "var(--text-1)" }}>
                       TechCorp
                     </div>
                     <div style={{ fontSize: "0.82rem", color: "var(--text-3)" }}>
-                      Enterprise Software Â· 850 employees
+                      Enterprise Software  850 employees
                     </div>
                   </div>
                 </div>
@@ -479,14 +479,14 @@ export default function CaseStudiesPageTemplate() {
                     fontFamily: "inherit",
                   }}
                 >
-                  Read Full Case Study â†’
+                  Read Full Case Study '
                 </motion.button>
               </div>
             </motion.div>
           </motion.div>
         </section>
 
-        {/* â”€â”€ Industry Filter â”€â”€ */}
+        {/* "" Industry Filter "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 36px" }}>
           <motion.div
             initial="hidden"
@@ -522,7 +522,7 @@ export default function CaseStudiesPageTemplate() {
           </motion.div>
         </section>
 
-        {/* â”€â”€ Case Study Cards Grid â”€â”€ */}
+        {/* "" Case Study Cards Grid "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 80px" }}>
           <motion.div
             initial="hidden"
@@ -676,7 +676,7 @@ export default function CaseStudiesPageTemplate() {
                     fontWeight: 700,
                   }}
                 >
-                  Read Case Study â†’
+                  Read Case Study '
                 </div>
               </motion.article>
             ))}
@@ -693,7 +693,7 @@ export default function CaseStudiesPageTemplate() {
           )}
         </section>
 
-        {/* â”€â”€ Bottom CTA â”€â”€ */}
+        {/* "" Bottom CTA "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 100px" }}>
           <motion.div
             initial="hidden"
@@ -719,7 +719,7 @@ export default function CaseStudiesPageTemplate() {
               }}
             />
             <div style={{ position: "relative", zIndex: 1 }}>
-              <div style={{ fontSize: 48, marginBottom: 20 }}>ðŸ†</div>
+              <div style={{ fontSize: 48, marginBottom: 20 }}></div>
               <h2
                 style={{
                   fontSize: "clamp(1.8rem, 3.5vw, 2.6rem)",
@@ -741,7 +741,7 @@ export default function CaseStudiesPageTemplate() {
                 }}
               >
                 Join hundreds of businesses already transforming their support
-                with Konvoq. Start free â€” no credit card required.
+                with Konvoq. Start free no credit card required.
               </p>
               <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
                 <motion.a
@@ -759,7 +759,7 @@ export default function CaseStudiesPageTemplate() {
                     display: "inline-block",
                   }}
                 >
-                  Start Free Trial â†’
+                  Start Free Trial '
                 </motion.a>
                 <motion.a
                   href="/pricing"

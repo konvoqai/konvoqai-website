@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
@@ -89,7 +89,7 @@ const releases: Release[] = [
       "Conversation heatmap: see engagement peaks by hour, day, and week",
       "Resolution funnel: track how many chats resolve vs. escalate vs. abandon",
       "Revenue attribution: connect resolved chats to downstream purchases via UTM params",
-      "Top unanswered questions report â€” updated daily",
+      "Top unanswered questions report updated daily",
       "CSV and PDF export for all dashboard panels",
     ],
   },
@@ -103,7 +103,7 @@ const releases: Release[] = [
     changes: [
       "Switched to streaming completions by default for all LLM providers",
       "Knowledge base lookup now uses approximate nearest-neighbor indexing (HNSW)",
-      "CDN edge caching for static widget assets â€” load time down from 420ms to 90ms",
+      "CDN edge caching for static widget assets load time down from 420ms to 90ms",
       "Reduced average context window size with smarter chunk ranking",
     ],
   },
@@ -130,7 +130,7 @@ const releases: Release[] = [
     description:
       "The widget editor got a major overhaul with live preview, new layout options, and far more granular control over every visual element.",
     changes: [
-      "Live preview panel â€” see changes in real-time as you edit",
+      "Live preview panel see changes in real-time as you edit",
       "Custom CSS injection for advanced brand consistency",
       "New launcher button styles: circle, pill, and custom image",
       "Conversation starter bubbles: up to 6 quick-reply prompts",
@@ -141,12 +141,12 @@ const releases: Release[] = [
     version: "v2.0.0",
     date: "Oct 15, 2025",
     type: "New Feature",
-    title: "Konvoq 2.0 â€” Complete Rebuild",
+    title: "Konvoq 2.0 Complete Rebuild",
     description:
       "After months of work, Konvoq 2.0 ships with a new training engine, a redesigned dashboard, and the foundation for everything we're building next.",
     changes: [
       "New AI Training Engine with 3x faster ingestion and higher answer accuracy",
-      "Completely redesigned dashboard â€” faster, cleaner, more powerful",
+      "Completely redesigned dashboard faster, cleaner, more powerful",
       "Webhook system for real-time event notifications to any endpoint",
       "Public API v2 with full OpenAPI spec and SDK libraries",
       "New pricing plans with higher limits and more flexibility",
@@ -160,7 +160,7 @@ const releases: Release[] = [
     description:
       "A focused release on security hardening as we complete our SOC2 Type II audit, plus GDPR data residency controls for EU customers.",
     changes: [
-      "EU data residency option â€” all data stored in Frankfurt region",
+      "EU data residency option all data stored in Frankfurt region",
       "Session tokens now rotate on every API call (token refresh pattern)",
       "Added rate limiting to all public-facing API endpoints",
       "Dependency audit: updated 34 packages with known CVEs",
@@ -227,7 +227,7 @@ export default function ChangelogPageTemplate() {
                 margin: "0 auto", lineHeight: 1.7,
               }}
             >
-              Every update, improvement, and fix â€” documented as it ships.
+              Every update, improvement, and fix documented as it ships.
             </motion.p>
           </motion.div>
         </section>
@@ -370,7 +370,7 @@ export default function ChangelogPageTemplate() {
               background: "radial-gradient(ellipse at center, rgba(0, 163, 255, 0.1) 0%, transparent 60%)",
               pointerEvents: "none",
             }} />
-            <motion.div variants={fadeUp} style={{ fontSize: 40, marginBottom: 16 }}>ðŸ“¬</motion.div>
+            <motion.div variants={fadeUp} style={{ fontSize: 40, marginBottom: 16 }}>"</motion.div>
             <motion.h2 variants={fadeUp} style={{
               fontSize: 28, fontWeight: 800, letterSpacing: "-0.02em",
               color: "var(--text-1)", marginBottom: 12,
@@ -380,7 +380,7 @@ export default function ChangelogPageTemplate() {
             <motion.p variants={fadeUp} style={{
               color: "var(--text-2)", fontSize: 15, lineHeight: 1.7, marginBottom: 28,
             }}>
-              Get a short email whenever we ship something new. No noise â€” only meaningful updates.
+              Get a short email whenever we ship something new. No noise only meaningful updates.
             </motion.p>
 
             {submitted ? (

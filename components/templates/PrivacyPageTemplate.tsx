@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect, useRef } from "react";
 import { motion, type Variants } from "framer-motion";
@@ -102,7 +102,7 @@ export default function PrivacyPageTemplate() {
                 marginBottom: 24,
               }}
             >
-              <span>ðŸ”’</span> Legal
+              <span>"'</span> Legal
             </span>
           </motion.div>
           <motion.h1
@@ -230,12 +230,12 @@ export default function PrivacyPageTemplate() {
 
           <PolicySection id="how-we-use" title="2. How We Use Your Information">
             <InfoGrid items={[
-              { icon: "âš™ï¸", title: "Service Delivery", text: "To operate, maintain, and provide all features of the Konvoq AI platform." },
-              { icon: "ðŸ“ˆ", title: "Improvements", text: "To analyze usage patterns and improve our AI models, features, and user experience." },
-              { icon: "ðŸ›¡ï¸", title: "Security", text: "To detect fraud, abuse, and security threats, and to enforce our Terms of Service." },
-              { icon: "âš–ï¸", title: "Legal Compliance", text: "To comply with applicable laws, regulations, court orders, and legal processes." },
-              { icon: "ðŸ“§", title: "Communications", text: "To send you service updates, security alerts, and marketing communications (with opt-out)." },
-              { icon: "ðŸ’°", title: "Billing", text: "To process payments, manage subscriptions, and send invoices." },
+              { icon: "", title: "Service Delivery", text: "To operate, maintain, and provide all features of the Konvoq AI platform." },
+              { icon: "", title: "Improvements", text: "To analyze usage patterns and improve our AI models, features, and user experience." },
+              { icon: "", title: "Security", text: "To detect fraud, abuse, and security threats, and to enforce our Terms of Service." },
+              { icon: "", title: "Legal Compliance", text: "To comply with applicable laws, regulations, court orders, and legal processes." },
+              { icon: "", title: "Communications", text: "To send you service updates, security alerts, and marketing communications (with opt-out)." },
+              { icon: "", title: "Billing", text: "To process payments, manage subscriptions, and send invoices." },
             ]} />
           </PolicySection>
 
@@ -272,19 +272,19 @@ export default function PrivacyPageTemplate() {
               />
             </div>
             <p style={{ marginTop: 20, color: "var(--text-2)" }}>
-              Account data is retained for the duration of your account plus 90 days after closure for legal and billing purposes. You may request deletion of your data at any time â€” see Your Rights below. Backups may retain data for up to 30 additional days.
+              Account data is retained for the duration of your account plus 90 days after closure for legal and billing purposes. You may request deletion of your data at any time see Your Rights below. Backups may retain data for up to 30 additional days.
             </p>
           </PolicySection>
 
           <PolicySection id="security-measures" title="5. Security Measures">
             <p>We implement industry-leading security practices to protect your data:</p>
             <InfoGrid items={[
-              { icon: "ðŸ†", title: "SOC 2 Type II", text: "Annually audited for security, availability, and confidentiality controls." },
-              { icon: "ðŸ”", title: "Encryption at Rest", text: "All stored data is encrypted using AES-256 encryption." },
-              { icon: "ðŸ”’", title: "Encryption in Transit", text: "All data transmitted over TLS 1.3 with perfect forward secrecy." },
-              { icon: "ðŸ‘¤", title: "Access Controls", text: "Strict role-based access controls and least-privilege principles." },
-              { icon: "ðŸ”‘", title: "MFA", text: "Multi-factor authentication required for all Konvoq AI team members." },
-              { icon: "ðŸ§ª", title: "Pen Testing", text: "Quarterly penetration testing by independent third-party security firms." },
+              { icon: "", title: "SOC 2 Type II", text: "Annually audited for security, availability, and confidentiality controls." },
+              { icon: "", title: "Encryption at Rest", text: "All stored data is encrypted using AES-256 encryption." },
+              { icon: "", title: "Encryption in Transit", text: "All data transmitted over TLS 1.3 with perfect forward secrecy." },
+              { icon: "", title: "Access Controls", text: "Strict role-based access controls and least-privilege principles." },
+              { icon: "", title: "MFA", text: "Multi-factor authentication required for all Konvoq AI team members." },
+              { icon: "", title: "Pen Testing", text: "Quarterly penetration testing by independent third-party security firms." },
             ]} />
           </PolicySection>
 
@@ -388,7 +388,7 @@ export default function PrivacyPageTemplate() {
               We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make material changes, we will:
             </p>
             <ul style={{ color: "var(--text-2)", lineHeight: 1.8, paddingLeft: 20, marginTop: 12 }}>
-              <li>Update the "Last Updated" date at the top of this page</li>
+              <li>Update the "Last Updated date at the top of this page</li>
               <li>Send an email notification to registered users</li>
               <li>Display a prominent notice in the dashboard</li>
               <li>Provide at least 30 days notice before changes take effect</li>
@@ -413,7 +413,7 @@ export default function PrivacyPageTemplate() {
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 <ContactItem label="Email" value="privacy@konvoq.ai" href="mailto:privacy@konvoq.ai" />
                 <ContactItem label="DPO Email" value="dpo@konvoq.ai" href="mailto:dpo@konvoq.ai" />
-                <ContactItem label="Address" value="Konvoq AI, Inc. â€” 1209 Orange St, Wilmington, DE 19801, USA" />
+                <ContactItem label="Address" value="Konvoq AI, Inc. 1209 Orange St, Wilmington, DE 19801, USA" />
               </div>
             </div>
           </PolicySection>
@@ -423,7 +423,7 @@ export default function PrivacyPageTemplate() {
   );
 }
 
-/* â”€â”€â”€ Sub-components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* "" Sub-components "" */
 
 function PolicySection({
   id,

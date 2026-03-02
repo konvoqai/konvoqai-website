@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import { Brain, Cpu, Paintbrush, BarChart3, Users, ShieldCheck, type LucideIcon } from "lucide-react";
 import Button from "@/components/atoms/Button";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
@@ -34,9 +35,17 @@ const cardVariants: Variants = {
   visible: { opacity: 1, y: 0, scale: 1 },
 };
 
-const features = [
+const features: Array<{
+  Icon: LucideIcon;
+  title: string;
+  subtitle: string;
+  description: string;
+  points: string[];
+  accent: string;
+  glowColor: string;
+}> = [
   {
-    icon: "AI",
+    Icon: Brain,
     title: "AI Training Engine",
     subtitle: "Train on any content in minutes",
     description:
@@ -51,7 +60,7 @@ const features = [
     glowColor: "var(--accent-muted)",
   },
   {
-    icon: "LLM",
+    Icon: Cpu,
     title: "Multi-LLM Support",
     subtitle: "GPT-4o, Claude, Gemini, and more",
     description:
@@ -66,7 +75,7 @@ const features = [
     glowColor: "var(--accent-muted)",
   },
   {
-    icon: "UI",
+    Icon: Paintbrush,
     title: "Widget Customization",
     subtitle: "Match your brand cleanly",
     description:
@@ -81,7 +90,7 @@ const features = [
     glowColor: "var(--accent-muted)",
   },
   {
-    icon: "AN",
+    Icon: BarChart3,
     title: "Advanced Analytics",
     subtitle: "Know exactly what is working",
     description:
@@ -96,7 +105,7 @@ const features = [
     glowColor: "var(--accent-muted)",
   },
   {
-    icon: "TM",
+    Icon: Users,
     title: "Team Collaboration",
     subtitle: "One platform for AI and humans",
     description:
@@ -111,7 +120,7 @@ const features = [
     glowColor: "var(--accent-muted)",
   },
   {
-    icon: "SEC",
+    Icon: ShieldCheck,
     title: "Enterprise Security",
     subtitle: "SOC2 Type II, GDPR, HIPAA ready",
     description:
@@ -240,14 +249,20 @@ export default function FeaturesPageTemplate() {
                 <div style={{ display: "flex", gap: 48, alignItems: "flex-start", flexWrap: "wrap", position: "relative" }}>
                   {/* Left */}
                   <div style={{ flex: "1 1 340px" }}>
-                    <div style={{
-                      width: 56, height: 56, borderRadius: "var(--radius)",
-                      background: `${feature.glowColor}`, border: `1px solid ${feature.accent}33`,
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      fontSize: 28, marginBottom: 20,
-                    }}>
-                      {feature.icon}
-                    </div>
+                    <motion.div
+                      initial={{ scale: 0.7, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+                      style={{
+                        width: 56, height: 56, borderRadius: "var(--radius)",
+                        background: `${feature.glowColor}`, border: `1px solid ${feature.accent}33`,
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        marginBottom: 20, color: feature.accent,
+                      }}
+                    >
+                      <feature.Icon size={26} strokeWidth={1.6} />
+                    </motion.div>
                     <div style={{
                       fontSize: 11, fontWeight: 600, letterSpacing: "0.12em",
                       textTransform: "uppercase", color: feature.accent, marginBottom: 8,

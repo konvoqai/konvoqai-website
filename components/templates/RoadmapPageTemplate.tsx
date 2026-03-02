@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { motion, type Variants } from "framer-motion";
@@ -46,37 +46,37 @@ interface RoadmapItem {
 
 const shipped: RoadmapItem[] = [
   {
-    icon: "ðŸ§ ",
+    icon: "",
     title: "AI Training Engine v2",
-    description: "Complete rewrite of the ingestion pipeline â€” 3x faster indexing and higher answer accuracy across all content types.",
+    description: "Complete rewrite of the ingestion pipeline 3x faster indexing and higher answer accuracy across all content types.",
     votes: 312,
   },
   {
-    icon: "ðŸ“Š",
+    icon: "",
     title: "Advanced Analytics Dashboard",
     description: "Conversation heatmaps, resolution funnels, revenue attribution, and full CSV/PDF export for every panel.",
     votes: 287,
   },
   {
-    icon: "ðŸ‘¥",
+    icon: "",
     title: "Team Collaboration & Shared Inbox",
     description: "Invite teammates, leave internal notes, @mention agents, and manage human handoffs from one unified inbox.",
     votes: 241,
   },
   {
-    icon: "âš¡",
+    icon: "",
     title: "Multi-LLM Support",
     description: "Switch between GPT-4o, Claude 3.5, and Gemini 1.5 per chatbot with automatic fallback routing.",
     votes: 229,
   },
   {
-    icon: "ðŸ”Œ",
+    icon: "",
     title: "Shopify & WooCommerce Integration",
     description: "Real-time product catalog sync so your chatbot can answer stock, pricing, and order status questions instantly.",
     votes: 198,
   },
   {
-    icon: "ðŸŒ",
+    icon: "",
     title: "EU Data Residency",
     description: "All customer data stored exclusively in our Frankfurt region for GDPR compliance. Opt-in from your dashboard settings.",
     votes: 176,
@@ -85,28 +85,28 @@ const shipped: RoadmapItem[] = [
 
 const inProgress: RoadmapItem[] = [
   {
-    icon: "ðŸŽ™ï¸",
+    icon: "",
     title: "Voice Chat Support",
-    description: "Real-time voice conversations powered by the same knowledge base as your text chatbot â€” for phone and web.",
+    description: "Real-time voice conversations powered by the same knowledge base as your text chatbot for phone and web.",
     votes: 418,
     progress: 72,
   },
   {
-    icon: "ðŸŒ",
+    icon: "",
     title: "WhatsApp Business Channel",
     description: "Deploy your AI chatbot directly on WhatsApp Business API. Supports rich messages, buttons, and media.",
     votes: 389,
     progress: 55,
   },
   {
-    icon: "ðŸ¤–",
+    icon: "",
     title: "Agentic Actions",
-    description: "Let your chatbot take actions â€” book appointments, create tickets, update CRM records â€” via function calling.",
+    description: "Let your chatbot take actions book appointments, create tickets, update CRM records via function calling.",
     votes: 356,
     progress: 40,
   },
   {
-    icon: "ðŸ“±",
+    icon: "",
     title: "Mobile SDK (iOS & Android)",
     description: "Native SDK to embed Konvoq into your mobile apps with full support for push notifications.",
     votes: 302,
@@ -116,37 +116,37 @@ const inProgress: RoadmapItem[] = [
 
 const planned: RoadmapItem[] = [
   {
-    icon: "ðŸ§©",
+    icon: "",
     title: "Custom Workflow Builder",
     description: "A no-code flow builder to create branching conversation paths, conditional logic, and automated sequences.",
     votes: 534,
   },
   {
-    icon: "ðŸ”",
+    icon: "",
     title: "Semantic Search Widget",
-    description: "Add a knowledge-base search bar to your site that answers in natural language â€” no chat interface required.",
+    description: "Add a knowledge-base search bar to your site that answers in natural language no chat interface required.",
     votes: 467,
   },
   {
-    icon: "ðŸ“§",
+    icon: "",
     title: "Email Support Channel",
     description: "Route incoming support emails through Konvoq AI for automated replies with human escalation on complex cases.",
     votes: 412,
   },
   {
-    icon: "ðŸŽ¯",
+    icon: "",
     title: "Proactive Messaging",
-    description: "Trigger chat messages based on user behavior â€” time on page, scroll depth, cart abandonment, and more.",
+    description: "Trigger chat messages based on user behavior time on page, scroll depth, cart abandonment, and more.",
     votes: 378,
   },
   {
-    icon: "ðŸŒ",
+    icon: "",
     title: "Auto-translation (50+ languages)",
     description: "Respond to users in their browser language automatically, while you author content in a single language.",
     votes: 344,
   },
   {
-    icon: "ðŸ”",
+    icon: "",
     title: "On-Premise Deployment",
     description: "Run Konvoq entirely within your own cloud infrastructure for maximum data sovereignty.",
     votes: 289,
@@ -156,7 +156,7 @@ const planned: RoadmapItem[] = [
 const statusConfig = {
   shipped: {
     label: "Shipped",
-    icon: "âœ“",
+    icon: "",
     headerBg: "rgba(255, 196, 70, 0.08)",
     headerBorder: "rgba(255, 196, 70, 0.2)",
     headerText: "var(--warning)",
@@ -167,7 +167,7 @@ const statusConfig = {
   },
   "in-progress": {
     label: "In Progress",
-    icon: "âŸ³",
+    icon: "",
     headerBg: "var(--accent-muted)",
     headerBorder: "rgba(0, 163, 255, 0.24)",
     headerText: "var(--accent)",
@@ -178,7 +178,7 @@ const statusConfig = {
   },
   planned: {
     label: "Planned",
-    icon: "â—·",
+    icon: "",
     headerBg: "rgba(0, 163, 255, 0.12)",
     headerBorder: "rgba(0, 163, 255, 0.24)",
     headerText: "var(--accent-strong)",
@@ -216,7 +216,7 @@ function VoteButton({ votes, accent }: { votes: number; accent: string }) {
         transition: "all 0.2s",
       }}
     >
-      <span style={{ fontSize: 11 }}>â–²</span>
+      <span style={{ fontSize: 11 }}></span>
       {count}
     </button>
   );
@@ -478,7 +478,7 @@ export default function RoadmapPageTemplate() {
               pointerEvents: "none",
             }} />
 
-            <motion.div variants={fadeUp} style={{ fontSize: 44, marginBottom: 16 }}>ðŸ’¡</motion.div>
+            <motion.div variants={fadeUp} style={{ fontSize: 44, marginBottom: 16 }}>'</motion.div>
             <motion.div variants={fadeUp}>
               <SectionLabel>Feature Requests</SectionLabel>
             </motion.div>
@@ -545,7 +545,7 @@ export default function RoadmapPageTemplate() {
             <motion.p variants={fadeUp} style={{
               marginTop: 20, fontSize: 13, color: "var(--text-3)",
             }}>
-              Or <a href="mailto:hello@konvoq.ai" style={{ color: "var(--accent)", textDecoration: "none" }}>email us directly</a> â€” we read every message.
+              Or <a href="mailto:hello@konvoq.ai" style={{ color: "var(--accent)", textDecoration: "none" }}>email us directly</a> we read every message.
             </motion.p>
           </motion.div>
         </section>

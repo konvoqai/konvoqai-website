@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -66,8 +66,8 @@ export default function JobRow({ title, department, location, type, deptColor = 
             >
               {department}
             </span>
-            <span style={{ fontSize: 13, color: "var(--text-2)" }}>ðŸ“ {location}</span>
-            <span style={{ fontSize: 13, color: "var(--text-2)" }}>ðŸ• {type}</span>
+            <span style={{ fontSize: 13, color: "var(--text-2)" }}>" {location}</span>
+            <span style={{ fontSize: 13, color: "var(--text-2)" }}> {type}</span>
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function JobRow({ title, department, location, type, deptColor = 
             whiteSpace: "nowrap",
           }}
         >
-          Apply â†’
+          Apply '
         </Link>
       </motion.div>
     </motion.div>

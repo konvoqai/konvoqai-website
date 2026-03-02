@@ -1,9 +1,9 @@
-﻿"use client";
+"use client";
 
 import { motion, type Variants } from "framer-motion";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// â”€â”€â”€ Reusable SectionLabel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Reusable SectionLabel ""
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
@@ -19,7 +19,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// â”€â”€â”€ Variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Variants ""
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -35,40 +35,40 @@ const fadeIn: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Data ""
 const PERKS = [
   {
-    icon: "ðŸŒ",
+    icon: "",
     title: "Remote First",
     desc: "Work from anywhere. We have team members in 12 countries and we believe the best talent isn't in any single city.",
     color: "var(--accent)",
   },
   {
-    icon: "ðŸ’°",
+    icon: "",
     title: "Competitive Pay",
     desc: "Top-of-market salaries benchmarked against the best companies in tech. We pay well because great people deserve it.",
     color: "var(--warning)",
   },
   {
-    icon: "ðŸ“ˆ",
+    icon: "",
     title: "Meaningful Equity",
     desc: "Generous equity packages. As we grow, so do you. Every team member has real ownership in what we're building.",
     color: "var(--accent-strong)",
   },
   {
-    icon: "ðŸ¥",
+    icon: "",
     title: "Full Health Coverage",
     desc: "Comprehensive health, dental, and vision insurance for you and your dependents. Your wellbeing comes first.",
     color: "var(--warning)",
   },
   {
-    icon: "ðŸ“š",
+    icon: "",
     title: "$2K Learning Budget",
     desc: "Annual budget for courses, books, conferences, or anything that makes you better at your craft. No questions asked.",
     color: "var(--amber)",
   },
   {
-    icon: "ðŸŒ´",
+    icon: "",
     title: "Unlimited PTO",
     desc: "Take the time you need. We trust you to manage your time well and come back recharged and ready to do great work.",
     color: "#00A3FF",
@@ -160,11 +160,11 @@ const CULTURE_CARDS = [
   },
 ];
 
-// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Component ""
 export default function CareersPageTemplate() {
   return (
     <PageLayout>
-      {/* â”€â”€ Hero â”€â”€ */}
+      {/* "" Hero "" */}
       <section style={{ position: "relative", overflow: "hidden", padding: "100px 24px 120px" }}>
         <div aria-hidden style={{
           position: "absolute", inset: 0, pointerEvents: "none",
@@ -225,7 +225,7 @@ export default function CareersPageTemplate() {
         </div>
       </section>
 
-      {/* â”€â”€ Perks â”€â”€ */}
+      {/* "" Perks "" */}
       <section style={{ padding: "80px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={stagger}>
@@ -263,7 +263,7 @@ export default function CareersPageTemplate() {
         </div>
       </section>
 
-      {/* â”€â”€ Open Positions â”€â”€ */}
+      {/* "" Open Positions "" */}
       <section id="open-positions" style={{ padding: "80px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}>
@@ -273,7 +273,7 @@ export default function CareersPageTemplate() {
                 Find your role
               </h2>
               <p style={{ fontSize: 17, color: "var(--text-2)", marginTop: 16 }}>
-                {JOBS.length} open positions Â· All remote Â· Full-time
+                {JOBS.length} open positions  All remote  Full-time
               </p>
             </motion.div>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -306,8 +306,8 @@ export default function CareersPageTemplate() {
                           background: `${job.deptColor}15`, color: job.deptColor,
                           border: `1px solid ${job.deptColor}30`,
                         }}>{job.dept}</span>
-                        <span style={{ fontSize: 13, color: "var(--text-2)" }}>ðŸ“ {job.location}</span>
-                        <span style={{ fontSize: 13, color: "var(--text-2)" }}>ðŸ• {job.type}</span>
+                        <span style={{ fontSize: 13, color: "var(--text-2)" }}>" {job.location}</span>
+                        <span style={{ fontSize: 13, color: "var(--text-2)" }}> {job.type}</span>
                       </div>
                     </div>
                   </div>
@@ -320,7 +320,7 @@ export default function CareersPageTemplate() {
                       borderRadius: 100, fontWeight: 700, fontSize: 14,
                       color: "#fff", textDecoration: "none", whiteSpace: "nowrap",
                     }}>
-                    Apply â†’
+                    Apply '
                   </motion.a>
                 </motion.div>
               ))}
@@ -329,7 +329,7 @@ export default function CareersPageTemplate() {
         </div>
       </section>
 
-      {/* â”€â”€ Culture â”€â”€ */}
+      {/* "" Culture "" */}
       <section style={{ padding: "80px 24px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}>
@@ -372,7 +372,7 @@ export default function CareersPageTemplate() {
         </div>
       </section>
 
-      {/* â”€â”€ General Application â”€â”€ */}
+      {/* "" General Application "" */}
       <section style={{ padding: "80px 24px 120px", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
           <motion.div
@@ -388,7 +388,7 @@ export default function CareersPageTemplate() {
               background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0, 163, 255, 0.09) 0%, transparent 70%)",
             }} />
             <motion.div variants={fadeUp} style={{ position: "relative" }}>
-              <div style={{ fontSize: 40, marginBottom: 16 }}>ðŸ’Œ</div>
+              <div style={{ fontSize: 40, marginBottom: 16 }}>'</div>
               <h2 style={{ fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 800, marginBottom: 16, letterSpacing: "-0.02em" }}>
                 Don&apos;t see your role?
               </h2>
@@ -403,7 +403,7 @@ export default function CareersPageTemplate() {
                   background: "var(--grad-btn)", borderRadius: 100, fontWeight: 700, fontSize: 15,
                   color: "#fff", textDecoration: "none",
                 }}>
-                Send a general application â†’
+                Send a general application '
               </motion.a>
             </motion.div>
           </motion.div>

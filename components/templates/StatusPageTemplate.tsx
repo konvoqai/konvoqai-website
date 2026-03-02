@@ -1,10 +1,10 @@
-﻿"use client";
+"use client";
 
 import { motion, type Variants } from "framer-motion";
 import { useState } from "react";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
-// â”€â”€â”€ Reusable helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Reusable helpers ""
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -38,7 +38,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-// â”€â”€â”€ Animation variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Animation variants ""
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -55,13 +55,13 @@ const slideIn: Variants = {
   visible: { opacity: 1, x: 0 },
 };
 
-// â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Data ""
 
 const services = [
   {
     name: "API",
     desc: "REST API endpoints and authentication",
-    icon: "ðŸ”Œ",
+    icon: "",
     status: "Operational",
     uptime: "100.00%",
     latency: "42ms",
@@ -69,7 +69,7 @@ const services = [
   {
     name: "Widget CDN",
     desc: "Chat widget delivery and static assets",
-    icon: "ðŸŒ",
+    icon: "",
     status: "Operational",
     uptime: "99.99%",
     latency: "18ms",
@@ -77,7 +77,7 @@ const services = [
   {
     name: "Dashboard",
     desc: "Web application and user interface",
-    icon: "ðŸ“Š",
+    icon: "",
     status: "Operational",
     uptime: "99.98%",
     latency: "210ms",
@@ -85,7 +85,7 @@ const services = [
   {
     name: "AI Processing",
     desc: "Language model inference and response generation",
-    icon: "ðŸ§ ",
+    icon: "",
     status: "Operational",
     uptime: "99.97%",
     latency: "680ms",
@@ -93,7 +93,7 @@ const services = [
   {
     name: "Webhooks",
     desc: "Real-time event delivery and notifications",
-    icon: "ðŸ””",
+    icon: "",
     status: "Operational",
     uptime: "99.99%",
     latency: "95ms",
@@ -101,10 +101,10 @@ const services = [
   {
     name: "Training Pipeline",
     desc: "Knowledge base ingestion and model fine-tuning",
-    icon: "âš™ï¸",
+    icon: "",
     status: "Operational",
     uptime: "99.96%",
-    latency: "â€”",
+    latency: "",
   },
 ];
 
@@ -147,7 +147,7 @@ const incidents = [
   },
 ];
 
-// Generate 30 uptime bars â€” mostly operational, a couple degraded
+// Generate 30 uptime bars mostly operational, a couple degraded
 function generateUptimeBars(): Array<{ status: "operational" | "degraded" | "outage"; date: string }> {
   const bars = [];
   const today = new Date("2026-02-28");
@@ -168,7 +168,7 @@ function generateUptimeBars(): Array<{ status: "operational" | "degraded" | "out
 
 const uptimeBars = generateUptimeBars();
 
-// â”€â”€â”€ Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// "" Component ""
 
 export default function StatusPageTemplate() {
   const [email, setEmail] = useState("");
@@ -210,7 +210,7 @@ export default function StatusPageTemplate() {
       </div>
 
       <div style={{ position: "relative", zIndex: 1 }}>
-        {/* â”€â”€ Hero â”€â”€ */}
+        {/* "" Hero "" */}
         <section
           style={{
             maxWidth: 800,
@@ -333,7 +333,7 @@ export default function StatusPageTemplate() {
           </motion.div>
         </section>
 
-        {/* â”€â”€ Service Status Rows â”€â”€ */}
+        {/* "" Service Status Rows "" */}
         <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
             initial="hidden"
@@ -470,7 +470,7 @@ export default function StatusPageTemplate() {
           </motion.div>
         </section>
 
-        {/* â”€â”€ 30-Day Uptime Visualization â”€â”€ */}
+        {/* "" 30-Day Uptime Visualization "" */}
         <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
             initial="hidden"
@@ -605,7 +605,7 @@ export default function StatusPageTemplate() {
           </motion.div>
         </section>
 
-        {/* â”€â”€ Incident History â”€â”€ */}
+        {/* "" Incident History "" */}
         <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
             initial="hidden"
@@ -742,12 +742,12 @@ export default function StatusPageTemplate() {
                 paddingBottom: 2,
               }}
             >
-              View full incident history â†’
+              View full incident history '
             </a>
           </motion.div>
         </section>
 
-        {/* â”€â”€ Subscribe to Status Updates â”€â”€ */}
+        {/* "" Subscribe to Status Updates "" */}
         <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 100px" }}>
           <motion.div
             initial="hidden"
@@ -773,7 +773,7 @@ export default function StatusPageTemplate() {
               }}
             />
             <div style={{ position: "relative", zIndex: 1 }}>
-              <div style={{ fontSize: 40, marginBottom: 16 }}>ðŸ””</div>
+              <div style={{ fontSize: 40, marginBottom: 16 }}>""</div>
               <h2
                 style={{
                   fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
@@ -816,7 +816,7 @@ export default function StatusPageTemplate() {
                     color: "var(--warning)",
                   }}
                 >
-                  <span>âœ“</span>
+                  <span>"</span>
                   <span>You're subscribed! We'll notify you of any incidents.</span>
                 </motion.div>
               ) : (
@@ -873,7 +873,7 @@ export default function StatusPageTemplate() {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    Subscribe â†’
+                    Subscribe '
                   </motion.button>
                 </form>
               )}

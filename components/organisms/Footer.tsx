@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { XTwitterIcon, LinkedInIcon, GitHubIcon } from "@/components/atoms/Icons";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -26,9 +27,9 @@ const utilityLinks = [
 ];
 
 const socials = [
-  { label: "X", href: "https://twitter.com/konvoqai" },
-  { label: "In", href: "https://linkedin.com/company/konvoq" },
-  { label: "Gh", href: "https://github.com/konvoq-ai" },
+  { label: "X", Icon: XTwitterIcon, href: "https://twitter.com/konvoqai" },
+  { label: "LinkedIn", Icon: LinkedInIcon, href: "https://linkedin.com/company/konvoq" },
+  { label: "GitHub", Icon: GitHubIcon, href: "https://github.com/konvoq-ai" },
 ];
 
 const contactItems: Array<{
@@ -218,6 +219,7 @@ export default function Footer() {
                   <motion.a
                     key={social.label}
                     href={social.href}
+                    aria-label={social.label}
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.98 }}
                     style={{
@@ -231,11 +233,9 @@ export default function Footer() {
                       background: "transparent",
                       color: "var(--text-1)",
                       textDecoration: "none",
-                      fontSize: 13,
-                      fontWeight: 700,
                     }}
                   >
-                    {social.label}
+                    <social.Icon size={15} />
                   </motion.a>
                 ))}
               </div>

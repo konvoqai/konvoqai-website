@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import SectionHeader from "@/components/molecules/SectionHeader";
+import { IntegrationIcon } from "@/components/atoms/Icons";
 
 const stacks = ["Next.js", "Webflow", "Shopify", "Zendesk", "HubSpot", "Salesforce", "Stripe", "Slack", "Notion", "Intercom", "Docs", "API"];
 
@@ -65,7 +66,7 @@ export default function IntegrationsSection() {
                 transition={{ duration: 0.34, delay: index * 0.025, ease: "easeOut" }}
                 whileHover={{ y: -3, scale: 1.02 }}
                 style={{
-                  padding: "12px 16px",
+                  padding: "10px 14px",
                   borderRadius: 999,
                   border: "1px solid color-mix(in srgb, var(--border) 74%, transparent)",
                   background: index % 4 === 0 ? "var(--accent-muted)" : "color-mix(in srgb, var(--surface-2) 82%, transparent)",
@@ -73,8 +74,12 @@ export default function IntegrationsSection() {
                   fontSize: 13,
                   fontWeight: 600,
                   whiteSpace: "nowrap",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 7,
                 }}
               >
+                <IntegrationIcon name={item} size={14} />
                 {item}
               </motion.div>
             ))}
