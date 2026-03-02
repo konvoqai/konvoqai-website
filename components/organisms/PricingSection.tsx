@@ -11,14 +11,14 @@ const plans = [
     name: "Free",
     monthly: 0,
     annual: 0,
-    description: "For testing the workflow and validating product-market fit.",
+    description: "For teams testing AI support.",
     features: ["1 assistant", "500 conversations", "Website and docs ingestion", "Basic analytics"],
   },
   {
     name: "Growth",
     monthly: 49,
     annual: 39,
-    description: "For teams that want stronger routing, customization, and reporting.",
+    description: "For teams ready for routing, branding, and analytics.",
     features: ["5 assistants", "Unlimited sources", "Advanced analytics", "White-label support", "Priority rules"],
     featured: true,
   },
@@ -26,7 +26,7 @@ const plans = [
     name: "Enterprise",
     monthly: 0,
     annual: 0,
-    description: "For teams with security, scale, and rollout requirements.",
+    description: "For teams that need scale, security, and rollout support.",
     features: ["Unlimited assistants", "Role controls", "Custom routing", "Security review", "Dedicated support"],
     custom: true,
   },
@@ -41,8 +41,8 @@ export default function PricingSection() {
         <div style={{ display: "grid", gridTemplateColumns: "0.9fr 1.1fr", gap: 26, alignItems: "end", marginBottom: 30 }}>
           <SectionHeader
             badge="Pricing"
-            heading={<>The best work solution, for the right stage of growth.</>}
-            description={<>Start lean, then scale into governance, routing, and deeper team workflows when AI becomes part of your core operating system.</>}
+            heading={<>Simple AI chatbot pricing.</>}
+            description={<>Start free, then add routing, analytics, and security as your usage grows.</>}
             align="left"
             style={{ margin: 0 }}
           />

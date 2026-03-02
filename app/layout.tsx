@@ -29,18 +29,33 @@ const themeScript = `
 `;
 
 export const metadata: Metadata = {
-  title: "Konvoq | AI Chatbot for Websites",
+  metadataBase: new URL("https://konvoq.ai"),
+  title: {
+    default: "Konvoq | AI Chatbot for Website Support",
+    template: "%s | Konvoq",
+  },
   description:
-    "Konvoq trains a custom AI chatbot on your website, docs, and data, then deploys it in minutes. Convert more. Support better. Grow without hiring.",
+    "Konvoq is an AI chatbot platform for website support, docs, and sales handoff. Train on your content, answer faster, and route conversations with context.",
   keywords: [
     "AI chatbot",
     "website chatbot",
+    "AI support agent",
     "customer support automation",
-    "GPT-4o",
-    "Claude",
-    "Gemini",
-    "SaaS",
+    "help desk AI",
+    "sales handoff",
+    "SaaS chatbot",
   ],
+  openGraph: {
+    title: "Konvoq | AI Chatbot for Website Support",
+    description:
+      "Train an AI chatbot on your website and docs, answer support questions faster, and route high-intent conversations with context.",
+    url: "https://konvoq.ai",
+    siteName: "Konvoq",
+    type: "website",
+  },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({

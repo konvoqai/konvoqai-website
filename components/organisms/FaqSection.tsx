@@ -39,9 +39,9 @@ export default function FaqSection() {
       <div className="site-container">
         <div style={{ display: "grid", gridTemplateColumns: "0.9fr 1.1fr", gap: 24 }}>
           <SectionHeader
-            badge="Questions answered"
-            heading={<>The questions teams usually ask before rollout.</>}
-            description={<>A short overview of how the system fits into support, growth, and operational workflows.</>}
+            badge="FAQ"
+            heading={<>Common questions before launch.</>}
+            description={<>Quick answers on setup, handoff, branding, and rollout.</>}
             align="left"
             style={{ margin: 0 }}
           />

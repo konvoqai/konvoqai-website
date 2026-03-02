@@ -18,8 +18,8 @@ export default function ComparisonSection() {
       <div className="site-container">
         <SectionHeader
           badge="Why teams switch"
-          heading={<>A more opinionated product than generic chatbot tooling.</>}
-          description={<>Konvoq is designed to behave like a serious operating layer for support and growth teams, not a widget with AI bolted on afterward.</>}
+          heading={<>Why teams replace basic chatbots.</>}
+          description={<>Konvoq is built for support automation, clean handoff, and revenue signals in one system.</>}
           style={{ marginBottom: 28 }}
         />
 

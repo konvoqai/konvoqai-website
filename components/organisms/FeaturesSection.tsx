@@ -33,8 +33,8 @@ export default function FeaturesSection() {
       <div className="site-container">
         <SectionHeader
           badge="Why choose Konvoq"
-          heading={<>A product system designed for teams that care about experience quality.</>}
-          description={<>The advantage is not just automation. It is the quality of the product layer around every answer, escalation, and opportunity.</>}
+          heading={<>Why teams choose Konvoq.</>}
+          description={<>Answer faster, hand off better, and see what drives support quality and revenue.</>}
           style={{ marginBottom: 34 }}
         />
 

@@ -5,16 +5,16 @@ import SectionHeader from "@/components/molecules/SectionHeader";
 
 const panels = [
   {
-    title: "Customer service AI agents that sell, not just solve.",
-    description: "Resolve support issues, capture commercial intent, and move high-value conversations toward the right owner without making the customer repeat context.",
+    title: "Support AI that also drives revenue.",
+    description: "Resolve support issues, spot buying intent, and route valuable conversations without losing context.",
   },
   {
-    title: "Knowledge retrieval that stays grounded.",
-    description: "Use docs, product notes, and help content as one operating layer so answers stay useful as the product changes.",
+    title: "Grounded answers from your docs.",
+    description: "Use product docs, release notes, and help content so answers stay accurate as your product changes.",
   },
   {
-    title: "Structured handoff for serious teams.",
-    description: "Escalations arrive with intent, summary, and next-step guidance instead of a raw transcript and guesswork.",
+    title: "Clean human handoff.",
+    description: "Send escalations with intent, summary, and next steps instead of a raw transcript.",
   },
 ];
 
@@ -25,8 +25,8 @@ export default function UseCasesSection() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "end", gap: 20, marginBottom: 28, flexWrap: "wrap" }}>
           <SectionHeader
             badge="Use cases"
-            heading={<>Customer-facing AI built for support, growth, and documentation surfaces.</>}
-            description={<>Different teams can run the same agent system without fragmenting the experience for customers.</>}
+            heading={<>One AI agent across support, sales, and docs.</>}
+            description={<>Use the same AI chatbot on your website, help center, and product surfaces.</>}
             align="left"
             style={{ margin: 0 }}
           />

@@ -31,8 +31,8 @@ function AnimatedCheckmark({ delay = 0 }: { delay?: number }) {
 }
 
 const proofPoints = [
-  "Website and docs trained",
-  "Human handoff built in",
+  "Train on your website and docs",
+  "Human handoff included",
 ];
 
 const trustStats = [
@@ -104,7 +104,7 @@ function HeroDashboard() {
                 Operator dashboard
               </div>
               <div style={{ fontSize: 28, fontWeight: 800, letterSpacing: "-0.05em", lineHeight: 1.02 }}>
-                Customer conversation intelligence
+                Support and sales dashboard
               </div>
             </div>
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
@@ -328,7 +328,7 @@ export default function HeroSection() {
       <div className="site-container">
         <div style={{ maxWidth: 920, margin: "0 auto", textAlign: "center" }}>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: "easeOut" }} style={{ display: "flex", justifyContent: "center" }}>
-            <SectionBadge>AI agent system</SectionBadge>
+            <SectionBadge>AI chatbot platform</SectionBadge>
           </motion.div>
 
           <motion.h1
@@ -343,7 +343,7 @@ export default function HeroSection() {
               fontWeight: 800,
             }}
           >
-            Support and revenue, in one AI layer.
+            AI chatbot for support, sales, and docs.
           </motion.h1>
 
           <motion.p
@@ -358,7 +358,7 @@ export default function HeroSection() {
               color: "var(--text-2)",
             }}
           >
-            Train on your product, answer clearly, and route high-intent conversations without losing context.
+            Train one AI agent on your website and docs, answer faster, and route high-intent conversations with context.
           </motion.p>
 
           <motion.div

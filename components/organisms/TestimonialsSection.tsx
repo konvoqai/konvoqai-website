@@ -28,10 +28,10 @@ export default function TestimonialsSection() {
         >
           <div>
             <div style={{ fontSize: "clamp(28px, 3.8vw, 40px)", lineHeight: 1.2, letterSpacing: "-0.04em", fontWeight: 760, marginBottom: 10 }}>
-              You do not just get a platform. You get a crew.
+              More than a chatbot. A real support system.
             </div>
             <div style={{ color: "var(--text-2)", lineHeight: 1.7, fontSize: 15, maxWidth: 640 }}>
-              Teams switch because the product feels more operational from day one and the handoff quality is materially better than generic chatbot tooling.
+              Teams switch when they need cleaner handoffs and a product that feels ready on day one.
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", justifyContent: "flex-end" }}>

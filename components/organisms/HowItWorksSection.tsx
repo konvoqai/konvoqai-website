@@ -81,8 +81,8 @@ export default function HowItWorksSection() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "end", gap: 20, marginBottom: 30, flexWrap: "wrap" }}>
           <SectionHeader
             badge="How it works"
-            heading={<>Launch a full AI agent workflow in three clear steps.</>}
-            description={<>A structured setup flow keeps rollout fast while preserving the controls serious teams still need.</>}
+          heading={<>Set up your AI chatbot in three steps.</>}
+          description={<>Train it, match your brand, and launch it where customers need help.</>}
             align="left"
             style={{ margin: 0 }}
           />

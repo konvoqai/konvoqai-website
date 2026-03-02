@@ -12,9 +12,9 @@ export default function IntegrationsSection() {
       <div className="site-container" style={{ display: "grid", gridTemplateColumns: "0.94fr 1.06fr", gap: 24, alignItems: "center" }}>
         <div>
           <SectionHeader
-            badge="Inject into your stack"
-            heading={<>Connect the agent to the software your team already operates.</>}
-            description={<>Route support into help desks, pass lead intent into CRM, and train from the sources your product and success teams already maintain.</>}
+            badge="Integrations"
+            heading={<>Connect your AI chatbot to your stack.</>}
+            description={<>Sync your help desk, CRM, docs, and website without changing how your team already works.</>}
             align="left"
             style={{ margin: 0 }}
           />
@@ -48,7 +48,7 @@ export default function IntegrationsSection() {
             <div>
               <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.12em" }}>Connected stack</div>
               <div style={{ fontSize: 26, lineHeight: 1.08, letterSpacing: "-0.05em", fontWeight: 760, maxWidth: 360 }}>
-                One assistant layer across support, docs, and revenue surfaces.
+                One AI layer across support, docs, and sales.
               </div>
             </div>
             <div style={{ padding: "10px 12px", borderRadius: 999, border: "1px solid color-mix(in srgb, var(--border) 74%, transparent)", background: "color-mix(in srgb, var(--surface) 72%, transparent)", color: "var(--text-2)", fontSize: 12, fontWeight: 700 }}>

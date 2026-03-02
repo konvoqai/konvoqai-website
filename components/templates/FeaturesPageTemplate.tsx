@@ -4,6 +4,7 @@ import { motion, type Variants } from "framer-motion";
 import { Brain, Cpu, Paintbrush, BarChart3, Users, ShieldCheck, type LucideIcon } from "lucide-react";
 import Button from "@/components/atoms/Button";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
+import { SIGNUP_URL } from "@/lib/config";
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -49,7 +50,7 @@ const features: Array<{
     title: "AI Training Engine",
     subtitle: "Train on any content in minutes",
     description:
-      "Our ingestion pipeline processes your content and creates a semantic knowledge base that your AI chatbot can use with far better accuracy and control.",
+      "Connect your website, docs, and files to give your AI chatbot accurate answers fast.",
     points: [
       "Paste website URLs and crawl them automatically",
       "Upload PDF, DOCX, CSV, or plain-text documents",
@@ -64,7 +65,7 @@ const features: Array<{
     title: "Multi-LLM Support",
     subtitle: "GPT-4o, Claude, Gemini, and more",
     description:
-      "Konvoq sits on top of major model providers so you can choose the right model for the job and switch without rebuilding the product layer.",
+      "Choose the right model for each workflow and switch providers without rebuilding your setup.",
     points: [
       "Switch models per chatbot or per workflow",
       "Compare quality and cost across providers",
@@ -79,7 +80,7 @@ const features: Array<{
     title: "Widget Customization",
     subtitle: "Match your brand cleanly",
     description:
-      "The chat widget should feel native to your product, not bolted on later. Configure tone, framing, and visual details without touching code.",
+      "Make the widget look and sound like your product without custom code.",
     points: [
       "Tune colors, fonts, and radius to match your system",
       "Upload a branded avatar or use a generated one",
@@ -94,7 +95,7 @@ const features: Array<{
     title: "Advanced Analytics",
     subtitle: "Know exactly what is working",
     description:
-      "Turn every conversation into useful operational insight. Surface the questions, resolution patterns, and revenue signals that actually change decisions.",
+      "Track what your AI resolves, where handoff happens, and which conversations drive pipeline.",
     points: [
       "Track engagement windows and conversation volume",
       "Measure resolution versus human handoff rate",
@@ -109,7 +110,7 @@ const features: Array<{
     title: "Team Collaboration",
     subtitle: "One platform for AI and humans",
     description:
-      "Konvoq connects automation and people so customers always get the right level of help without your team switching between disconnected tools.",
+      "Keep AI and human support in one workflow so teams can step in without losing context.",
     points: [
       "Shared inbox for AI-to-human handoffs",
       "Internal notes and mentions for tricky tickets",
@@ -124,7 +125,7 @@ const features: Array<{
     title: "Enterprise Security",
     subtitle: "SOC2 Type II, GDPR, HIPAA ready",
     description:
-      "Security is the foundation. Konvoq is designed to satisfy strict compliance requirements while keeping rollout and administration simple.",
+      "Meet security and compliance needs without turning deployment into a long services project.",
     points: [
       "End-to-end encryption in transit and at rest",
       "Regional data residency options",
@@ -190,8 +191,7 @@ export default function FeaturesPageTemplate() {
                 letterSpacing: "-0.03em",
               }}
             >
-              Every feature you need to{" "}
-              <span className="grad-text">automate customer conversations</span>
+              AI chatbot features for support teams
             </motion.h1>
             <motion.p
               variants={fadeUp}
@@ -203,15 +203,14 @@ export default function FeaturesPageTemplate() {
                 lineHeight: 1.7,
               }}
             >
-              From AI training to enterprise security, Konvoq gives you the complete
-              toolkit to deploy, manage, and scale AI chatbots that customers actually love.
+              Train on your docs, route conversations, customize the widget, and track what your AI support agent resolves.
             </motion.p>
             <motion.div variants={fadeUp} style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <Button href="/signup" variant="primary" size="lg">
+              <Button href={SIGNUP_URL} variant="primary" size="lg">
                 Start for free
               </Button>
-              <Button href="/demo" variant="outline" size="lg">
-                Watch demo
+              <Button href="/contact" variant="outline" size="lg">
+                Book demo
               </Button>
             </motion.div>
           </motion.div>
@@ -329,13 +328,13 @@ export default function FeaturesPageTemplate() {
               style={{ textAlign: "center", marginBottom: 56 }}
             >
               <motion.div variants={fadeUp}>
-                <SectionLabel>How We Compare</SectionLabel>
+                <SectionLabel>Comparison</SectionLabel>
               </motion.div>
               <motion.h2 variants={fadeUp} style={{
                 fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800,
                 letterSpacing: "-0.03em", color: "var(--text-1)",
               }}>
-                Built different — <span className="grad-text">built better</span>
+                Why teams choose Konvoq
               </motion.h2>
             </motion.div>
 
@@ -405,24 +404,23 @@ export default function FeaturesPageTemplate() {
             variants={staggerContainer}
           >
             <motion.div variants={fadeUp}>
-              <SectionLabel>Get Started Today</SectionLabel>
+              <SectionLabel>Get Started</SectionLabel>
             </motion.div>
             <motion.h2 variants={fadeUp} style={{
               fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 800,
               letterSpacing: "-0.03em", marginBottom: 20, color: "var(--text-1)",
             }}>
-              Ready to automate your{" "}
-              <span className="grad-text">customer support?</span>
+              Start your AI chatbot in minutes
             </motion.h2>
             <motion.p variants={fadeUp} style={{
               color: "var(--text-2)", fontSize: 18, maxWidth: 500,
               margin: "0 auto 40px", lineHeight: 1.7,
             }}>
-              Join 2,400+ companies using Konvoq to handle support at scale. No credit card required.
+              Train on your website and docs, then launch with routing, analytics, and human handoff.
             </motion.p>
             <motion.div variants={fadeUp} style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <Button href="/signup" variant="primary" size="lg">
-                Start free - no card needed
+              <Button href={SIGNUP_URL} variant="primary" size="lg">
+                Start free
               </Button>
               <Button href="/pricing" variant="outline" size="lg">
                 View pricing
@@ -434,9 +432,6 @@ export default function FeaturesPageTemplate() {
     </PageLayout>
   );
 }
-
-
-
 
 
 

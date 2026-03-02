@@ -23,7 +23,7 @@ const plans = [
     name: "Starter",
     monthlyPrice: 0,
     annualPrice: 0,
-    description: "For early teams validating an AI support workflow.",
+    description: "For teams starting with AI support.",
     cta: "Start free",
     ctaHref: SIGNUP_URL,
     variant: "outline" as const,
@@ -40,7 +40,7 @@ const plans = [
     name: "Growth",
     monthlyPrice: 79,
     annualPrice: 63,
-    description: "For SaaS teams replacing repetitive support and qualification work.",
+    description: "For teams automating support and lead qualification.",
     cta: "Start 14-day trial",
     ctaHref: SIGNUP_URL,
     variant: "primary" as const,
@@ -58,7 +58,7 @@ const plans = [
     name: "Scale",
     monthlyPrice: 249,
     annualPrice: 199,
-    description: "For larger teams that need governance, security, and deeper collaboration.",
+    description: "For teams that need scale, governance, and security.",
     cta: "Talk to sales",
     ctaHref: "/contact",
     variant: "secondary" as const,
@@ -176,8 +176,8 @@ export default function PricingPageTemplate() {
               <motion.div variants={fadeUp}>
                 <SectionHeader
                   badge="Pricing"
-                  heading={<>Simple pricing with room to scale operationally.</>}
-                  description="A neutral, procurement-friendly pricing model with generous entry points, clear upgrade paths, and enterprise options when security requirements get heavier."
+                  heading={<>AI chatbot pricing that scales.</>}
+                  description="Clear plans for startups, growth teams, and enterprise rollouts."
                 />
               </motion.div>
 
@@ -470,10 +470,10 @@ export default function PricingPageTemplate() {
                   Enterprise readiness
                 </div>
                 <h3 style={{ margin: "0 0 12px", fontSize: 28, letterSpacing: "-0.04em", fontWeight: 760, lineHeight: 1.08 }}>
-                  Structured for finance, IT, and security teams.
+                  Built for procurement and security reviews.
                 </h3>
                 <p style={{ margin: 0, color: "var(--text-2)", lineHeight: 1.72, fontSize: 15 }}>
-                  Contracts, procurement reviews, security questionnaires, and usage ramp plans are supported without pushing teams into a bloated custom package too early.
+                  Handle contracts, security reviews, and rollout planning without jumping into an oversized custom package too early.
                 </p>
               </div>
               <div
@@ -510,8 +510,8 @@ export default function PricingPageTemplate() {
               <SectionHeader
                 badge="Compare"
                 align="left"
-                heading={<>A clear feature matrix, without feature-sprawl.</>}
-                description="The product tiers map to team maturity, not arbitrary packaging tricks."
+                heading={<>Compare plans at a glance.</>}
+                description="Each plan maps to real team needs, not artificial packaging."
                 style={{ margin: 0 }}
               />
             </div>
@@ -613,8 +613,8 @@ export default function PricingPageTemplate() {
               <SectionHeader
                 badge="FAQ"
                 align="left"
-                heading={<>Questions teams usually ask before procurement starts.</>}
-                description="Short answers now. Deeper security and architecture reviews later."
+                heading={<>Pricing questions, answered.</>}
+                description="Short answers now. Security and architecture reviews later."
                 style={{ margin: 0, maxWidth: "100%" }}
               />
               <div style={{ display: "grid", gap: 10, marginTop: 26 }}>
@@ -730,10 +730,10 @@ export default function PricingPageTemplate() {
                     lineHeight: 1.08,
                   }}
                 >
-                  Need higher throughput, dedicated infrastructure, or commercial flexibility?
+                  Need more volume or stricter controls?
                 </h3>
                 <p style={{ margin: 0, color: "var(--text-2)", lineHeight: 1.72, fontSize: 15 }}>
-                  We support multi-region deployments, security reviews, custom quotas, procurement workflows, and launch planning for larger enterprise rollouts.
+                  We support multi-region deployments, security reviews, custom quotas, procurement workflows, and rollout planning.
                 </p>
 
                 {/* Trust signals */}
@@ -762,7 +762,7 @@ export default function PricingPageTemplate() {
 
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap", position: "relative" }}>
                 <Button href="/contact" size="lg">Talk to sales</Button>
-                <Button href="/demo" variant="secondary" size="lg">Book a walkthrough</Button>
+                <Button href="/contact" variant="secondary" size="lg">Book a walkthrough</Button>
               </div>
             </motion.div>
 
@@ -772,4 +772,3 @@ export default function PricingPageTemplate() {
     </PageLayout>
   );
 }
-

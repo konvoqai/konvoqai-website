@@ -26,7 +26,7 @@ export default function SocialProofSection() {
               color: "var(--text-1)",
             }}
           >
-            Simplicity, performance, and decision quality for teams that want AI to feel native to the product.
+            AI chatbot software for faster support and smarter handoff.
           </motion.p>
           <motion.p
             initial={{ opacity: 0 }}
@@ -35,7 +35,7 @@ export default function SocialProofSection() {
             transition={{ duration: 0.45, delay: 0.08 }}
             style={{ margin: "0 auto 28px", maxWidth: 620, color: "var(--text-2)", lineHeight: 1.72, fontSize: 16 }}
           >
-            Built for support, growth, and onboarding teams that need structure around AI, not another disconnected widget.
+            Built for teams that want clear answers, clean routing, and fewer repetitive tickets.
           </motion.p>
         </div>
 

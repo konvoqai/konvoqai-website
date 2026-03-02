@@ -176,9 +176,7 @@ export default function IntegrationsPageTemplate() {
                 letterSpacing: "-0.03em", lineHeight: 1.1, margin: "0 auto 24px", maxWidth: 780,
               }}
             >
-              Connect the tools
-              <br />
-              your team already uses
+              Integrations for your AI chatbot
             </motion.h1>
             <motion.p
               variants={fadeUp}
@@ -187,7 +185,7 @@ export default function IntegrationsPageTemplate() {
                 margin: "0 auto 48px", lineHeight: 1.7,
               }}
             >
-              Konvoq plugs into your existing stack in minutes. No complex setup, just pick your tools and go.
+              Connect your CRM, help desk, CMS, analytics, and chat tools without a heavy setup.
             </motion.p>
           </motion.div>
         </section>
@@ -356,21 +354,21 @@ export default function IntegrationsPageTemplate() {
               <Code2 size={28} strokeWidth={1.6} />
             </motion.div>
             <motion.div variants={fadeUp}>
-              <SectionLabel>Custom Integrations</SectionLabel>
+              <SectionLabel>Custom Integration</SectionLabel>
             </motion.div>
             <motion.h2 variants={fadeUp} style={{
               fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800,
               letterSpacing: "-0.02em", color: "var(--text-1)", marginBottom: 16,
             }}>
-              Cannot find your integration?
+              Need another integration?
             </motion.h2>
             <motion.p variants={fadeUp} style={{
               color: "var(--text-2)", fontSize: 16, lineHeight: 1.7, marginBottom: 36,
             }}>
-              Use our REST API and webhooks to connect Konvoq to any tool in your stack. We also accept integration requests. Just tell us what you need.
+              Use our API and webhooks to connect internal tools, or ask us to add the integration you need.
             </motion.p>
             <motion.div variants={fadeUp} style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-              <Button href="/docs/api" variant="primary" size="lg">
+              <Button href="/api-reference" variant="primary" size="lg">
                 View API docs
               </Button>
               <Button href="/contact" variant="outline" size="lg">
@@ -383,8 +381,6 @@ export default function IntegrationsPageTemplate() {
     </PageLayout>
   );
 }
-
-
 
 
 

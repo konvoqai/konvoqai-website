@@ -104,8 +104,8 @@ export default function AboutPageTemplate() {
               <motion.div variants={fadeUp}>
                 <SectionHeader
                   badge="About"
-                  heading={<>We build AI conversation software that feels dependable the first time a serious team sees it.</>}
-                  description="Konvoq exists to give support, success, and product teams a calmer way to deploy AI. Less orchestration overhead. Better controls. A cleaner operating model from day one."
+                  heading={<>We build AI chatbot software teams can trust.</>}
+                  description="Konvoq helps support, success, and product teams launch AI with less setup, clearer controls, and better customer experience."
                 />
               </motion.div>
 
@@ -132,10 +132,10 @@ export default function AboutPageTemplate() {
                     Our thesis
                   </div>
                   <h2 style={{ margin: "0 0 16px", fontSize: 34, lineHeight: 1.08, letterSpacing: "-0.05em" }}>
-                    AI support should look enterprise-ready without feeling enterprise-heavy.
+                    AI support should feel simple and reliable.
                   </h2>
                   <p style={{ margin: "0 0 18px", color: "var(--text-2)", lineHeight: 1.75 }}>
-                    We are opinionated about visual clarity, product confidence, and operational simplicity because those are the factors that decide whether AI actually gets adopted inside a company.
+                    We focus on clarity, trust, and operational simplicity because those are the things that decide whether AI gets adopted.
                   </p>
                   <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                     <Button href="/careers" size="lg">View roles</Button>
@@ -201,7 +201,7 @@ export default function AboutPageTemplate() {
                   Mission
                 </div>
                 <p style={{ margin: 0, fontSize: "clamp(24px, 3.4vw, 36px)", lineHeight: 1.38, letterSpacing: "-0.04em" }}>
-                  We want AI conversation infrastructure to feel as straightforward as shipping a polished SaaS feature, not as messy as coordinating five vendors and a custom services project.
+                  We want shipping AI support to feel as simple as shipping any polished SaaS feature.
                 </p>
               </div>
             </div>
@@ -214,8 +214,8 @@ export default function AboutPageTemplate() {
               <SectionHeader
                 badge="Principles"
                 align="left"
-                heading={<>How we think about product, trust, and growth.</>}
-                description="The same rules shape the company, the design system, and the way the platform is sold."
+                heading={<>How we build Konvoq.</>}
+                description="These principles shape the product, the company, and how we work with customers."
                 style={{ margin: 0 }}
               />
             </div>
@@ -264,8 +264,8 @@ export default function AboutPageTemplate() {
               <SectionHeader
                 badge="Timeline"
                 align="left"
-                heading={<>A short history of the company and the product direction behind it.</>}
-                description="We are still early, but the product decisions are driven by a consistent operating belief."
+                heading={<>How Konvoq evolved.</>}
+                description="We are early, but the product direction has stayed consistent from the start."
                 style={{ margin: 0 }}
               />
             </div>
@@ -314,8 +314,8 @@ export default function AboutPageTemplate() {
               <SectionHeader
                 badge="Leadership"
                 align="left"
-                heading={<>A small team, with product, design, and systems discipline at the center.</>}
-                description="We stay intentionally lean so feedback loops remain fast and product decisions stay close to customers."
+                heading={<>Built by a lean product team.</>}
+                description="We stay small so feedback moves quickly and decisions stay close to customers."
                 style={{ margin: 0 }}
               />
             </div>
@@ -364,10 +364,10 @@ export default function AboutPageTemplate() {
                   Careers
                 </div>
                 <h2 style={{ margin: "0 0 12px", fontSize: 34, letterSpacing: "-0.05em", lineHeight: 1.08 }}>
-                  Join a team shaping a more credible standard for AI product experiences.
+                  Help shape better AI support.
                 </h2>
                 <p style={{ margin: 0, color: "var(--text-2)", lineHeight: 1.72, maxWidth: 560 }}>
-                  If you care about product quality, technical clarity, and building software that earns trust quickly, we should talk.
+                  If you care about product quality, clear systems, and software that earns trust fast, we should talk.
                 </p>
               </div>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", gap: 12, flexWrap: "wrap" }}>

@@ -22,13 +22,13 @@ export default function CtaSection() {
           }}
         >
           <div style={{ fontSize: 12, color: "var(--text-1)", marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.14em", fontWeight: 700 }}>
-            Ready when your team is
+            Ready to launch
           </div>
           <h2 style={{ margin: "0 0 16px", fontSize: "clamp(34px, 5vw, 58px)", lineHeight: 1.04, letterSpacing: "-0.05em", fontWeight: 800 }}>
-            A better home page is one thing. A better AI product experience is the real upgrade.
+            Launch a better AI chatbot experience.
           </h2>
           <p style={{ margin: "0 auto 24px", maxWidth: 620, color: "var(--text-2)", lineHeight: 1.74, fontSize: 17 }}>
-            Launch Konvoq with a clearer operating model for support, sales, and customer education, then scale it without turning the experience into noise.
+            Use Konvoq to answer faster, reduce repetitive tickets, and route buyers or support issues with context.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
             <Button href={SIGNUP_URL} variant="primary" size="lg">
