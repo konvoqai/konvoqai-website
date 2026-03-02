@@ -252,8 +252,7 @@ export default function Footer() {
                 letterSpacing: "-0.08em",
                 whiteSpace: "nowrap",
                 userSelect: "none",
-                backgroundImage:
-                  "repeating-linear-gradient(180deg, #FFFFFF 0 3px, #F8F9FA 3px 6px, rgba(248, 249, 250, 0) 6px 10px)",
+                backgroundImage: "var(--wordmark-stripes)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",

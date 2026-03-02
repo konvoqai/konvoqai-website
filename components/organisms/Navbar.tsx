@@ -91,7 +91,7 @@ export default function Navbar() {
                 justifyContent: "center",
                 borderRadius: 10,
                 background: "var(--grad-btn)",
-                color: "var(--background)",
+                color: "var(--accent-foreground)",
                 boxShadow: "var(--shadow-button)",
                 fontSize: 11,
                 fontWeight: 800,

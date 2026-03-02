@@ -1,6 +1,7 @@
-﻿"use client";
+"use client";
 
 import { motion, type Variants } from "framer-motion";
+import Button from "@/components/atoms/Button";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -35,97 +36,96 @@ const cardVariants: Variants = {
 
 const features = [
   {
-    icon: "ðŸ§ ",
+    icon: "AI",
     title: "AI Training Engine",
     subtitle: "Train on any content in minutes",
     description:
-      "Our proprietary ingestion pipeline processes your content and creates a semantic knowledge base that your AI chatbot draws from with pinpoint accuracy. No coding required.",
+      "Our ingestion pipeline processes your content and creates a semantic knowledge base that your AI chatbot can use with far better accuracy and control.",
     points: [
-      "Paste website URLs â€” we crawl and index automatically",
+      "Paste website URLs and crawl them automatically",
       "Upload PDF, DOCX, CSV, or plain-text documents",
-      "Add custom Q&A pairs for precise control",
-      "Sync your product catalog for real-time inventory answers",
+      "Add custom Q and A pairs for precise control",
+      "Sync your product catalog for real-time answers",
     ],
     accent: "var(--accent)",
-    glowColor: "rgba(0, 163, 255, 0.18)",
+    glowColor: "var(--accent-muted)",
   },
   {
-    icon: "âš¡",
+    icon: "LLM",
     title: "Multi-LLM Support",
-    subtitle: "GPT-4o, Claude 3.5, Gemini 1.5 â€” you choose",
+    subtitle: "GPT-4o, Claude, Gemini, and more",
     description:
-      "Never be locked into a single AI provider. Konvoq sits on top of every major model so you can pick the right brain for the right job â€” and switch on the fly.",
+      "Konvoq sits on top of major model providers so you can choose the right model for the job and switch without rebuilding the product layer.",
     points: [
-      "Switch between models per chatbot or per conversation",
-      "A/B test different LLMs to compare quality and cost",
-      "Set monthly token budgets to keep spending predictable",
-      "Automatic fallback routing if a provider goes down",
+      "Switch models per chatbot or per workflow",
+      "Compare quality and cost across providers",
+      "Set monthly token budgets to control spend",
+      "Use fallback routing if a provider goes down",
     ],
     accent: "var(--accent-strong)",
-    glowColor: "rgba(0, 163, 255, 0.16)",
+    glowColor: "var(--accent-muted)",
   },
   {
-    icon: "ðŸŽ¨",
+    icon: "UI",
     title: "Widget Customization",
-    subtitle: "Match your brand perfectly",
+    subtitle: "Match your brand cleanly",
     description:
-      "The chat widget is a seamless extension of your product â€” not an afterthought. Configure every visual detail through a live preview editor without touching a line of code.",
+      "The chat widget should feel native to your product, not bolted on later. Configure tone, framing, and visual details without touching code.",
     points: [
-      "Custom colors, fonts, and corner radius to match your design system",
-      "Upload a branded avatar or use an AI-generated one",
-      "Write your own welcome message and conversation starters",
-      "Choose placement: bottom-right, bottom-left, or embedded inline",
+      "Tune colors, fonts, and radius to match your system",
+      "Upload a branded avatar or use a generated one",
+      "Write your own welcome message and starter prompts",
+      "Choose placement on site, docs, or product surfaces",
     ],
-    accent: "var(--warning)",
-    glowColor: "rgba(255, 196, 70, 0.16)",
+    accent: "var(--text-1)",
+    glowColor: "var(--accent-muted)",
   },
   {
-    icon: "ðŸ“Š",
+    icon: "AN",
     title: "Advanced Analytics",
-    subtitle: "Know exactly what's working",
+    subtitle: "Know exactly what is working",
     description:
-      "Turn every conversation into actionable intelligence. Our analytics suite surfaces the insights that actually drive decisions â€” not vanity metrics.",
+      "Turn every conversation into useful operational insight. Surface the questions, resolution patterns, and revenue signals that actually change decisions.",
     points: [
-      "Conversation heatmaps showing peak engagement times",
-      "Resolution rate tracking vs. human handoff rate",
-      "Top unanswered questions to plug knowledge gaps fast",
-      "Revenue attribution â€” see which chats convert to sales",
+      "Track engagement windows and conversation volume",
+      "Measure resolution versus human handoff rate",
+      "Find unanswered questions to close knowledge gaps",
+      "Attribute qualified conversations to pipeline impact",
     ],
-    accent: "var(--amber)",
-    glowColor: "rgba(255, 196, 70, 0.12)",
+    accent: "var(--text-1)",
+    glowColor: "var(--accent-muted)",
   },
   {
-    icon: "ðŸ‘¥",
+    icon: "TM",
     title: "Team Collaboration",
-    subtitle: "Your whole team, one platform",
+    subtitle: "One platform for AI and humans",
     description:
-      "Konvoq bridges AI and human support so customers always get the help they need. Your team stays in the loop without switching between a dozen tools.",
+      "Konvoq connects automation and people so customers always get the right level of help without your team switching between disconnected tools.",
     points: [
-      "Shared inbox for seamless AI-to-human handoffs",
-      "Internal notes and mentions to coordinate on tricky tickets",
-      "Role-based access: Admin, Agent, and Viewer permissions",
-      "Automated routing rules based on topic or customer tier",
+      "Shared inbox for AI-to-human handoffs",
+      "Internal notes and mentions for tricky tickets",
+      "Role-based access for admins, agents, and viewers",
+      "Routing rules based on topic or customer tier",
     ],
-    accent: "var(--warning)",
-    glowColor: "rgba(255, 196, 70, 0.12)",
+    accent: "var(--text-1)",
+    glowColor: "var(--accent-muted)",
   },
   {
-    icon: "ðŸ”’",
+    icon: "SEC",
     title: "Enterprise Security",
     subtitle: "SOC2 Type II, GDPR, HIPAA ready",
     description:
-      "Security isn't a feature â€” it's the foundation. Konvoq is built from the ground up to satisfy the strictest compliance requirements across every major regulation.",
+      "Security is the foundation. Konvoq is designed to satisfy strict compliance requirements while keeping rollout and administration simple.",
     points: [
-      "End-to-end encryption in transit and at rest (AES-256)",
-      "Data residency options: US, EU, or APAC regions",
-      "Full audit log of every configuration change and conversation",
-      "SSO via SAML 2.0 and SCIM provisioning for zero-friction onboarding",
+      "End-to-end encryption in transit and at rest",
+      "Regional data residency options",
+      "Full audit log of configuration and conversation activity",
+      "SSO via SAML and SCIM provisioning support",
     ],
     accent: "var(--accent)",
     glowColor: "var(--accent-muted)",
   },
 ];
-
 const comparisonData = [
   { feature: "Custom AI Training", konvoq: true, basic: false, enterprise: true },
   { feature: "Multi-LLM Switching", konvoq: true, basic: false, enterprise: true },
@@ -198,28 +198,12 @@ export default function FeaturesPageTemplate() {
               toolkit to deploy, manage, and scale AI chatbots that customers actually love.
             </motion.p>
             <motion.div variants={fadeUp} style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <a
-                href="/signup"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  background: "var(--grad-btn)", color: "#000", fontWeight: 700,
-                  padding: "14px 32px", borderRadius: "var(--radius)", fontSize: 15,
-                  textDecoration: "none", letterSpacing: "-0.01em",
-                }}
-              >
+              <Button href="/signup" variant="primary" size="lg">
                 Start for free
-              </a>
-              <a
-                href="/demo"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  background: "var(--surface-2)", border: "1px solid var(--border-2)",
-                  color: "var(--text-1)", fontWeight: 600, padding: "14px 32px",
-                  borderRadius: "var(--radius)", fontSize: 15, textDecoration: "none",
-                }}
-              >
+              </Button>
+              <Button href="/demo" variant="outline" size="lg">
                 Watch demo
-              </a>
+              </Button>
             </motion.div>
           </motion.div>
         </section>
@@ -336,7 +320,7 @@ export default function FeaturesPageTemplate() {
                 fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800,
                 letterSpacing: "-0.03em", color: "var(--text-1)",
               }}>
-                Built different â€” <span className="grad-text">built better</span>
+                Built different — <span className="grad-text">built better</span>
               </motion.h2>
             </motion.div>
 
@@ -378,18 +362,18 @@ export default function FeaturesPageTemplate() {
                   <div style={{ color: "var(--text-2)", fontSize: 15 }}>{row.feature}</div>
                   <div style={{ textAlign: "center" }}>
                     {row.basic
-                      ? <span style={{ color: "var(--warning)", fontSize: 18 }}>âœ“</span>
-                      : <span style={{ color: "var(--text-3)", fontSize: 18 }}>âœ•</span>}
+                      ? <span style={{ color: "var(--warning)", fontSize: 18 }}>✓</span>
+                      : <span style={{ color: "var(--text-3)", fontSize: 18 }}>✕</span>}
                   </div>
                   <div style={{ textAlign: "center" }}>
                     {row.konvoq
-                      ? <span style={{ color: "var(--accent)", fontSize: 18, fontWeight: 700 }}>âœ“</span>
-                      : <span style={{ color: "var(--text-3)", fontSize: 18 }}>âœ•</span>}
+                      ? <span style={{ color: "var(--accent)", fontSize: 18, fontWeight: 700 }}>✓</span>
+                      : <span style={{ color: "var(--text-3)", fontSize: 18 }}>✕</span>}
                   </div>
                   <div style={{ textAlign: "center" }}>
                     {row.enterprise
-                      ? <span style={{ color: "var(--warning)", fontSize: 18 }}>âœ“</span>
-                      : <span style={{ color: "var(--text-3)", fontSize: 18 }}>âœ•</span>}
+                      ? <span style={{ color: "var(--warning)", fontSize: 18 }}>✓</span>
+                      : <span style={{ color: "var(--text-3)", fontSize: 18 }}>✕</span>}
                   </div>
                 </div>
               ))}
@@ -422,28 +406,12 @@ export default function FeaturesPageTemplate() {
               Join 2,400+ companies using Konvoq to handle support at scale. No credit card required.
             </motion.p>
             <motion.div variants={fadeUp} style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <a
-                href="/signup"
-                style={{
-                  display: "inline-flex", alignItems: "center",
-                  background: "var(--grad-btn)", color: "#000", fontWeight: 700,
-                  padding: "16px 40px", borderRadius: "var(--radius)", fontSize: 16,
-                  textDecoration: "none",
-                }}
-              >
-                Start free â€” no card needed
-              </a>
-              <a
-                href="/pricing"
-                style={{
-                  display: "inline-flex", alignItems: "center",
-                  background: "var(--surface-2)", border: "1px solid var(--border-2)",
-                  color: "var(--text-1)", fontWeight: 600, padding: "16px 40px",
-                  borderRadius: "var(--radius)", fontSize: 16, textDecoration: "none",
-                }}
-              >
+              <Button href="/signup" variant="primary" size="lg">
+                Start free - no card needed
+              </Button>
+              <Button href="/pricing" variant="outline" size="lg">
                 View pricing
-              </a>
+              </Button>
             </motion.div>
           </motion.div>
         </section>
@@ -451,6 +419,10 @@ export default function FeaturesPageTemplate() {
     </PageLayout>
   );
 }
+
+
+
+
 
 
 

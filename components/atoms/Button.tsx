@@ -18,25 +18,25 @@ interface ButtonProps {
 
 const variantStyles: Record<Variant, React.CSSProperties> = {
   primary: {
-    background: "var(--grad-btn)",
-    color: "var(--background)",
-    border: "1px solid color-mix(in srgb, var(--border-strong) 84%, transparent)",
+    background: "var(--accent)",
+    color: "var(--accent-foreground)",
+    border: "1px solid color-mix(in srgb, var(--accent) 84%, var(--border-strong) 16%)",
     boxShadow: "var(--shadow-button)",
   },
   secondary: {
-    background: "color-mix(in srgb, var(--surface-2) 72%, transparent)",
+    background: "color-mix(in srgb, var(--background-elevated) 88%, var(--surface-2) 12%)",
     color: "var(--text-1)",
-    border: "1px solid var(--border-2)",
+    border: "1px solid color-mix(in srgb, var(--border-strong) 88%, transparent)",
   },
   ghost: {
     background: "transparent",
-    color: "var(--text-2)",
-    border: "1px solid transparent",
+    color: "var(--text-1)",
+    border: "1px solid color-mix(in srgb, var(--border) 28%, transparent)",
   },
   outline: {
-    background: "color-mix(in srgb, var(--surface) 60%, transparent)",
+    background: "color-mix(in srgb, var(--background-elevated) 92%, var(--surface) 8%)",
     color: "var(--text-1)",
-    border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)",
+    border: "1px solid color-mix(in srgb, var(--border-strong) 92%, transparent)",
   },
 };
 
@@ -54,6 +54,7 @@ function ButtonInner({ children, variant }: { children: React.ReactNode; variant
         display: "inline-flex",
         alignItems: "center",
         gap: 8,
+        zIndex: 1,
       }}
     >
       <span>{children}</span>
@@ -69,7 +70,7 @@ function ButtonInner({ children, variant }: { children: React.ReactNode; variant
           bottom: -6,
           height: 1,
           transformOrigin: "left",
-          background: variant === "primary" ? "rgba(0,0,0,0.72)" : "currentColor",
+          background: variant === "primary" ? "currentColor" : "currentColor",
         }}
       />
     </span>
@@ -108,8 +109,8 @@ export default function Button({
     inset: 0,
     background:
       variant === "primary"
-        ? "radial-gradient(circle at 30% 0%, rgba(255,255,255,0.22), transparent 55%), radial-gradient(circle at 70% 100%, rgba(136, 144, 150, 0.18), transparent 50%)"
-        : "radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%)",
+        ? "linear-gradient(180deg, rgba(255,255,255,0.08), transparent 44%)"
+        : "linear-gradient(180deg, rgba(255,255,255,0.04), transparent 44%)",
     pointerEvents: "none",
   };
 

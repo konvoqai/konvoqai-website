@@ -1,7 +1,7 @@
-﻿"use client";
+"use client";
 
-import { useEffect, useRef } from "react";
 import { motion, type Variants } from "framer-motion";
+import Button from "@/components/atoms/Button";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -13,7 +13,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
       letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--text-2)",
       marginBottom: 24,
     }}>
-      <div style={{ width: 6, height: 6, background: "var(--grad-aurora)", borderRadius: "50%" }} />
+      <div style={{ width: 6, height: 6, background: "var(--text-1)", borderRadius: "50%" }} />
       {children}
     </div>
   );
@@ -37,85 +37,84 @@ const cardVariants: Variants = {
 const categories = [
   {
     label: "CRM",
-    icon: "ðŸ¤",
+    icon: "CRM",
     accent: "var(--accent)",
     glowColor: "var(--accent-muted)",
     integrations: [
-      { icon: "â˜ï¸", name: "Salesforce", description: "Sync leads, contacts, and opportunities. Log chat conversations automatically." },
-      { icon: "ðŸ§¡", name: "HubSpot", description: "Push chatbot contacts straight into your HubSpot CRM and trigger workflows." },
-      { icon: "ðŸ“ˆ", name: "Pipedrive", description: "Create deals and activities from chat interactions without leaving Konvoq." },
-      { icon: "ðŸŸ¡", name: "Zoho CRM", description: "Bi-directional sync of customer data and conversation transcripts." },
+      { icon: "SF", name: "Salesforce", description: "Sync leads, contacts, and opportunities. Log chat conversations automatically." },
+      { icon: "HS", name: "HubSpot", description: "Push chatbot contacts straight into your HubSpot CRM and trigger workflows." },
+      { icon: "PD", name: "Pipedrive", description: "Create deals and activities from chat interactions without leaving Konvoq." },
+      { icon: "ZO", name: "Zoho CRM", description: "Bi-directional sync of customer data and conversation transcripts." },
     ],
   },
   {
     label: "E-commerce",
-    icon: "ðŸ›’",
-    accent: "var(--warning)",
-    glowColor: "rgba(255, 196, 70, 0.08)",
+    icon: "EC",
+    accent: "var(--text-1)",
+    glowColor: "var(--accent-muted)",
     integrations: [
-      { icon: "ðŸŸ¢", name: "Shopify", description: "Answer product, order, and shipping questions with real-time store data." },
-      { icon: "ðŸ”µ", name: "WooCommerce", description: "Connect your WordPress store and let the AI handle order status queries." },
-      { icon: "ðŸŸ ", name: "BigCommerce", description: "Sync your catalog and automate FAQs about products, returns, and refunds." },
-      { icon: "ðŸ”´", name: "Magento", description: "Enterprise-grade commerce integration with full product catalog access." },
+      { icon: "SH", name: "Shopify", description: "Answer product, order, and shipping questions with real-time store data." },
+      { icon: "WC", name: "WooCommerce", description: "Connect your WordPress store and let the AI handle order status queries." },
+      { icon: "BC", name: "BigCommerce", description: "Sync your catalog and automate FAQs about products, returns, and refunds." },
+      { icon: "MG", name: "Magento", description: "Enterprise-grade commerce integration with full product catalog access." },
     ],
   },
   {
     label: "Helpdesk",
-    icon: "ðŸŽ§",
+    icon: "HD",
     accent: "var(--accent-strong)",
-    glowColor: "rgba(0, 163, 255, 0.14)",
+    glowColor: "var(--accent-muted)",
     integrations: [
-      { icon: "ðŸŸ©", name: "Zendesk", description: "Escalate unresolved chats to Zendesk tickets with full conversation history." },
-      { icon: "ðŸ’¬", name: "Intercom", description: "Use Konvoq as first-line AI and hand off complex issues to Intercom agents." },
-      { icon: "ðŸŒ¿", name: "Freshdesk", description: "Create Freshdesk tickets automatically when the chatbot can't resolve issues." },
-      { icon: "ðŸ”µ", name: "Help Scout", description: "Route conversations to the right Help Scout mailbox based on topic." },
+      { icon: "ZD", name: "Zendesk", description: "Escalate unresolved chats to Zendesk tickets with full conversation history." },
+      { icon: "IC", name: "Intercom", description: "Use Konvoq as first-line AI and hand off complex issues to Intercom agents." },
+      { icon: "FD", name: "Freshdesk", description: "Create Freshdesk tickets automatically when the chatbot cannot resolve issues." },
+      { icon: "HS", name: "Help Scout", description: "Route conversations to the right Help Scout mailbox based on topic." },
     ],
   },
   {
     label: "CMS",
-    icon: "ðŸ“",
-    accent: "var(--warning)",
-    glowColor: "rgba(255, 196, 70, 0.1)",
+    icon: "CMS",
+    accent: "var(--text-1)",
+    glowColor: "var(--accent-muted)",
     integrations: [
-      { icon: "ðŸ”µ", name: "WordPress", description: "Auto-train on your WordPress pages, posts, and WooCommerce products." },
-      { icon: "âš¡", name: "Webflow", description: "Embed the Konvoq widget on any Webflow site with a single code snippet." },
-      { icon: "ðŸŽ¯", name: "Framer", description: "Drop the Konvoq component into any Framer project in seconds." },
-      { icon: "â¬›", name: "Notion", description: "Train your chatbot on your entire Notion workspace with one click." },
+      { icon: "WP", name: "WordPress", description: "Auto-train on your WordPress pages, posts, and WooCommerce products." },
+      { icon: "WF", name: "Webflow", description: "Embed the Konvoq widget on any Webflow site with a single code snippet." },
+      { icon: "FR", name: "Framer", description: "Drop the Konvoq component into any Framer project in seconds." },
+      { icon: "NO", name: "Notion", description: "Train your chatbot on your entire Notion workspace with one click." },
     ],
   },
   {
     label: "Analytics",
-    icon: "ðŸ“Š",
-    accent: "var(--amber)",
-    glowColor: "rgba(255, 196, 70, 0.08)",
+    icon: "AN",
+    accent: "var(--text-1)",
+    glowColor: "var(--accent-muted)",
     integrations: [
-      { icon: "ðŸ“‰", name: "Google Analytics", description: "Track chat engagement as GA4 events and connect to your existing dashboards." },
-      { icon: "ðŸ”®", name: "Mixpanel", description: "Send conversation events to Mixpanel for deep funnel and retention analysis." },
-      { icon: "ðŸ“", name: "Amplitude", description: "Correlate chatbot interactions with product usage across your user base." },
-      { icon: "ðŸŒŠ", name: "Heap", description: "Capture every chat touchpoint automatically with Heap's retroactive tracking." },
+      { icon: "GA", name: "Google Analytics", description: "Track chat engagement as GA4 events and connect to your existing dashboards." },
+      { icon: "MP", name: "Mixpanel", description: "Send conversation events to Mixpanel for deep funnel and retention analysis." },
+      { icon: "AM", name: "Amplitude", description: "Correlate chatbot interactions with product usage across your user base." },
+      { icon: "HP", name: "Heap", description: "Capture every chat touchpoint automatically with Heap's retroactive tracking." },
     ],
   },
   {
     label: "Communication",
-    icon: "ðŸ’¬",
+    icon: "COM",
     accent: "var(--accent)",
-    glowColor: "rgba(0, 163, 255, 0.1)",
+    glowColor: "var(--accent-muted)",
     integrations: [
-      { icon: "ðŸ’œ", name: "Slack", description: "Get real-time alerts for new conversations and handoff requests in Slack." },
-      { icon: "ðŸŸ¦", name: "Microsoft Teams", description: "Notify your support team in Teams channels when intervention is needed." },
-      { icon: "ðŸŽ®", name: "Discord", description: "Deploy Konvoq as a Discord bot to support your community 24/7." },
-      { icon: "ðŸŸ¢", name: "WhatsApp", description: "Take your AI chatbot to WhatsApp Business and reach customers where they are." },
+      { icon: "SL", name: "Slack", description: "Get real-time alerts for new conversations and handoff requests in Slack." },
+      { icon: "MT", name: "Microsoft Teams", description: "Notify your support team in Teams channels when intervention is needed." },
+      { icon: "DC", name: "Discord", description: "Deploy Konvoq as a Discord bot to support your community 24/7." },
+      { icon: "WA", name: "WhatsApp", description: "Take your AI chatbot to WhatsApp Business and reach customers where they are." },
     ],
   },
 ];
-
 const marqueeLogos = [
   "Salesforce", "HubSpot", "Shopify", "Zendesk", "Intercom", "Slack",
   "WordPress", "Webflow", "Google Analytics", "Mixpanel", "Pipedrive", "Freshdesk",
   "WooCommerce", "Microsoft Teams", "WhatsApp", "Discord", "Notion", "Amplitude",
 ];
 
-function MarqueeTrack({ reverse = false }: { reverse?: boolean }) {
+function MarqueeTrack() {
   return (
     <div style={{ display: "flex", gap: 16, willChange: "transform" }}>
       {[...marqueeLogos, ...marqueeLogos].map((name, i) => (
@@ -123,8 +122,8 @@ function MarqueeTrack({ reverse = false }: { reverse?: boolean }) {
           key={`${name}-${i}`}
           style={{
             flexShrink: 0, padding: "10px 20px",
-            background: "var(--surface-3)", border: "1px solid var(--border)",
-            borderRadius: 100, fontSize: 13, fontWeight: 500, color: "var(--text-2)",
+            background: "var(--surface-2)", border: "1px solid var(--border)",
+            borderRadius: 100, fontSize: 13, fontWeight: 500, color: "var(--text-1)",
             whiteSpace: "nowrap",
           }}
         >
@@ -141,7 +140,7 @@ export default function IntegrationsPageTemplate() {
       <div style={{ position: "fixed", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
         <div style={{
           position: "absolute", top: "-10%", right: "-5%", width: 600, height: 600,
-          background: "radial-gradient(circle, rgba(0, 163, 255, 0.1) 0%, transparent 70%)",
+          background: "radial-gradient(circle, var(--accent-muted-strong) 0%, transparent 70%)",
           borderRadius: "50%", filter: "blur(40px)",
         }} />
         <div style={{
@@ -165,9 +164,9 @@ export default function IntegrationsPageTemplate() {
                 letterSpacing: "-0.03em", lineHeight: 1.1, margin: "0 auto 24px", maxWidth: 780,
               }}
             >
-              Connect with{" "}
-              <span className="grad-text">100+ tools</span>
-              {" "}you already use
+              Connect the tools
+              <br />
+              your team already uses
             </motion.h1>
             <motion.p
               variants={fadeUp}
@@ -176,7 +175,7 @@ export default function IntegrationsPageTemplate() {
                 margin: "0 auto 48px", lineHeight: 1.7,
               }}
             >
-              Konvoq plugs into your existing stack in minutes. No complex setup â€” just pick your tools and go.
+              Konvoq plugs into your existing stack in minutes. No complex setup, just pick your tools and go.
             </motion.p>
           </motion.div>
         </section>
@@ -186,12 +185,12 @@ export default function IntegrationsPageTemplate() {
           <div style={{ position: "relative" }}>
             <div style={{
               position: "absolute", left: 0, top: 0, bottom: 0, width: 120,
-              background: "linear-gradient(to right, var(--black), transparent)",
+              background: "linear-gradient(to right, var(--background), transparent)",
               zIndex: 2, pointerEvents: "none",
             }} />
             <div style={{
               position: "absolute", right: 0, top: 0, bottom: 0, width: 120,
-              background: "linear-gradient(to left, var(--black), transparent)",
+              background: "linear-gradient(to left, var(--background), transparent)",
               zIndex: 2, pointerEvents: "none",
             }} />
             <motion.div
@@ -206,7 +205,7 @@ export default function IntegrationsPageTemplate() {
               transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
               style={{ display: "flex", gap: 16 }}
             >
-              <MarqueeTrack reverse />
+              <MarqueeTrack />
             </motion.div>
           </div>
         </section>
@@ -214,7 +213,7 @@ export default function IntegrationsPageTemplate() {
         {/* Categories */}
         <section style={{ padding: "0 24px 80px", maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 72 }}>
-            {categories.map((category, ci) => (
+            {categories.map((category) => (
               <div key={category.label}>
                 <motion.div
                   initial="hidden"
@@ -226,8 +225,9 @@ export default function IntegrationsPageTemplate() {
                 >
                   <div style={{
                     width: 44, height: 44, borderRadius: "var(--radius)",
-                    background: category.glowColor, border: `1px solid ${category.accent}33`,
-                    display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22,
+                    background: "var(--surface-2)", border: "1px solid var(--border-2)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: 12, fontWeight: 700, letterSpacing: "0.08em", color: "var(--text-1)",
                   }}>
                     {category.icon}
                   </div>
@@ -238,7 +238,7 @@ export default function IntegrationsPageTemplate() {
                     }}>
                       {category.label}
                     </h2>
-                    <div style={{ fontSize: 13, color: category.accent }}>
+                    <div style={{ fontSize: 13, color: "var(--text-3)" }}>
                       {category.integrations.length} integrations
                     </div>
                   </div>
@@ -276,7 +276,14 @@ export default function IntegrationsPageTemplate() {
                         background: `radial-gradient(circle, ${category.glowColor} 0%, transparent 70%)`,
                         borderRadius: "50%", pointerEvents: "none",
                       }} />
-                      <div style={{ fontSize: 32, marginBottom: 12 }}>{integration.icon}</div>
+                      <div style={{
+                        width: 48, height: 48, borderRadius: 14, marginBottom: 16,
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        background: "var(--surface-2)", border: "1px solid var(--border)",
+                        color: "var(--text-1)", fontSize: 12, fontWeight: 700, letterSpacing: "0.08em",
+                      }}>
+                        {integration.icon}
+                      </div>
                       <h3 style={{
                         fontSize: 17, fontWeight: 700, color: "var(--text-1)",
                         marginBottom: 8, letterSpacing: "-0.01em",
@@ -288,8 +295,8 @@ export default function IntegrationsPageTemplate() {
                       </p>
                       <button style={{
                         display: "inline-flex", alignItems: "center", gap: 6,
-                        background: "var(--surface-2)", border: `1px solid ${category.accent}44`,
-                        color: category.accent, fontWeight: 600, fontSize: 13,
+                        background: "var(--surface-2)", border: "1px solid var(--border-2)",
+                        color: "var(--text-1)", fontWeight: 600, fontSize: 13,
                         padding: "8px 16px", borderRadius: 8, cursor: "pointer",
                         fontFamily: "inherit",
                       }}>
@@ -322,10 +329,21 @@ export default function IntegrationsPageTemplate() {
           >
             <div style={{
               position: "absolute", inset: 0,
-              background: "radial-gradient(ellipse at center top, rgba(0, 163, 255, 0.12) 0%, transparent 60%)",
+              background: "radial-gradient(ellipse at center top, var(--accent-muted-strong) 0%, transparent 60%)",
               pointerEvents: "none",
             }} />
-            <motion.div variants={fadeUp} style={{ fontSize: 48, marginBottom: 20 }}>ðŸ”Œ</motion.div>
+            <motion.div
+              variants={fadeUp}
+              style={{
+                width: 64, height: 64, margin: "0 auto 20px",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                borderRadius: 18, border: "1px solid var(--border-2)",
+                background: "var(--surface-2)", color: "var(--text-1)",
+                fontSize: 13, fontWeight: 700, letterSpacing: "0.12em",
+              }}
+            >
+              API
+            </motion.div>
             <motion.div variants={fadeUp}>
               <SectionLabel>Custom Integrations</SectionLabel>
             </motion.div>
@@ -333,37 +351,20 @@ export default function IntegrationsPageTemplate() {
               fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 800,
               letterSpacing: "-0.02em", color: "var(--text-1)", marginBottom: 16,
             }}>
-              Can't find your integration?
+              Cannot find your integration?
             </motion.h2>
             <motion.p variants={fadeUp} style={{
               color: "var(--text-2)", fontSize: 16, lineHeight: 1.7, marginBottom: 36,
             }}>
-              Use our REST API and webhooks to connect Konvoq to any tool in your stack. We also accept
-              integration requests â€” just tell us what you need.
+              Use our REST API and webhooks to connect Konvoq to any tool in your stack. We also accept integration requests. Just tell us what you need.
             </motion.p>
             <motion.div variants={fadeUp} style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-              <a
-                href="/docs/api"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  background: "var(--grad-btn)", color: "#000", fontWeight: 700,
-                  padding: "14px 32px", borderRadius: "var(--radius)", fontSize: 15,
-                  textDecoration: "none",
-                }}
-              >
+              <Button href="/docs/api" variant="primary" size="lg">
                 View API docs
-              </a>
-              <a
-                href="/contact"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: 8,
-                  background: "var(--surface-2)", border: "1px solid var(--border-2)",
-                  color: "var(--text-1)", fontWeight: 600, padding: "14px 32px",
-                  borderRadius: "var(--radius)", fontSize: 15, textDecoration: "none",
-                }}
-              >
+              </Button>
+              <Button href="/contact" variant="outline" size="lg">
                 Request an integration
-              </a>
+              </Button>
             </motion.div>
           </motion.div>
         </section>
@@ -371,6 +372,9 @@ export default function IntegrationsPageTemplate() {
     </PageLayout>
   );
 }
+
+
+
 
 
 
