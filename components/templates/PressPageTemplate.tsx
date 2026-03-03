@@ -187,9 +187,10 @@ export default function PressPageTemplate() {
                 Latest coverage
               </h2>
             </motion.div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 24 }}>
+            <div className="px-4 sm:px-0" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 24 }}>
               {PRESS_ARTICLES.map((article, i) => (
                 <motion.div key={i} variants={fadeIn}
+                  className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                   whileHover={{ y: -6, transition: { duration: 0.2, ease: "easeOut" } }}
                   style={{
                     background: "var(--surface-2)", border: "1px solid var(--border)",
@@ -247,9 +248,10 @@ export default function PressPageTemplate() {
                 Download high-quality brand assets for use in editorial and press coverage.
               </p>
             </motion.div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20, marginBottom: 40 }}>
+            <div className="px-4 sm:px-0" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20, marginBottom: 40 }}>
               {PRESS_KIT_ITEMS.map((item) => (
                 <motion.div key={item.title} variants={fadeIn}
+                  className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                   whileHover={{ y: -5, transition: { duration: 0.2, ease: "easeOut" } }}
                   style={{
                     background: "var(--surface-2)", border: "1px solid var(--border)",

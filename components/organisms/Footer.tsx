@@ -1,8 +1,8 @@
 "use client";
 
+import { GitHubIcon, LinkedInIcon, XTwitterIcon } from "@/components/atoms/Icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { XTwitterIcon, LinkedInIcon, GitHubIcon } from "@/components/atoms/Icons";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -38,31 +38,31 @@ const contactItems: Array<{
   href: string;
   icon: "mail" | "link" | "pin";
 }> = [
-  {
-    label: "Sales",
-    value: "sales@konvoq.ai",
-    href: "mailto:sales@konvoq.ai",
-    icon: "mail",
-  },
-  {
-    label: "Support",
-    value: "support@konvoq.ai",
-    href: "mailto:support@konvoq.ai",
-    icon: "mail",
-  },
-  {
-    label: "App",
-    value: "app.konvoq.ai",
-    href: "https://app.konvoq.ai",
-    icon: "link",
-  },
-  {
-    label: "Presence",
-    value: "Remote-first / Global",
-    href: "/contact",
-    icon: "pin",
-  },
-];
+    {
+      label: "Sales",
+      value: "sales@konvoq.ai",
+      href: "mailto:sales@konvoq.ai",
+      icon: "mail",
+    },
+    {
+      label: "Support",
+      value: "support@konvoq.ai",
+      href: "mailto:support@konvoq.ai",
+      icon: "mail",
+    },
+    {
+      label: "App",
+      value: "app.konvoq.ai",
+      href: "https://app.konvoq.ai",
+      icon: "link",
+    },
+    {
+      label: "Presence",
+      value: "Remote-first / Global",
+      href: "/contact",
+      icon: "pin",
+    },
+  ];
 
 function FooterIcon({ type }: { type: "mail" | "link" | "pin" }) {
   if (type === "mail") {
@@ -143,10 +143,57 @@ export default function Footer() {
             borderTop: "1px solid color-mix(in srgb, var(--border) 74%, transparent)",
           }}
         >
+          <div className="block md:hidden" style={{ marginBottom: 42 }}>
+            <div className="grid grid-cols-2 gap-x-6 gap-y-8">
+              <FooterColumn title="Quick Links" links={quickLinks} />
+              <FooterColumn title="Support" links={supportLinks} />
+              <FooterColumn title="Utilities" links={utilityLinks} />
+              <div className="col-span-2">
+                <h4
+                  style={{
+                    margin: "0 0 20px",
+                    fontSize: 12,
+                    fontWeight: 700,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "var(--text-1)",
+                  }}
+                >
+                  Contact Us
+                </h4>
+                <div style={{ display: "grid", gap: 14 }}>
+                  {contactItems.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      style={{
+                        display: "flex",
+                        alignItems: "start",
+                        gap: 12,
+                        color: "var(--text-2)",
+                        textDecoration: "none",
+                        fontSize: 15,
+                        lineHeight: 1.55,
+                      }}
+                    >
+                      <span style={{ display: "inline-flex", marginTop: 2, color: "var(--text-3)" }}>
+                        <FooterIcon type={item.icon} />
+                      </span>
+                      <span>
+                        <span style={{ display: "block", color: "var(--text-3)", fontSize: 12, marginBottom: 3 }}>{item.label}</span>
+                        <span>{item.value}</span>
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div
-            className="footer-links-grid"
+            className="hidden md:grid footer-links-grid"
             style={{
-              display: "grid",
+              display: undefined,
               gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
               gap: 36,
               marginBottom: 42,
@@ -204,7 +251,7 @@ export default function Footer() {
               borderTop: "1px solid color-mix(in srgb, var(--border) 68%, transparent)",
               display: "flex",
               alignItems: "center",
-              justifyContent: "space-between",
+              justifyContent: "center",
               gap: 16,
               flexWrap: "wrap",
               marginBottom: 42,

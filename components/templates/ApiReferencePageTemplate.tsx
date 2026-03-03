@@ -313,6 +313,7 @@ export default function ApiReferencePageTemplate() {
         {/* "" Endpoint Categories "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
+            className="px-4 sm:px-0"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -347,6 +348,7 @@ export default function ApiReferencePageTemplate() {
               <motion.div
                 key={cat.title}
                 variants={fadeUp}
+                className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                 whileHover={{ y: -6 }}
                 style={{
                   background: "var(--surface-2)",
@@ -590,6 +592,7 @@ export default function ApiReferencePageTemplate() {
         {/* "" Authentication "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
+            className="px-4 sm:px-0"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -598,6 +601,7 @@ export default function ApiReferencePageTemplate() {
           >
             <motion.div
               variants={fadeUp}
+              className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
               style={{
                 background: "var(--surface-2)",
                 border: "1px solid var(--border)",
@@ -654,6 +658,7 @@ export default function ApiReferencePageTemplate() {
 
             <motion.div
               variants={fadeUp}
+              className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
               style={{
                 background: "var(--surface-2)",
                 border: "1px solid var(--border)",
@@ -698,6 +703,7 @@ export default function ApiReferencePageTemplate() {
         {/* "" SDKs "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
+            className="px-4 sm:px-0"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -735,6 +741,7 @@ export default function ApiReferencePageTemplate() {
               <motion.div
                 key={sdk.lang}
                 variants={fadeUp}
+                className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                 whileHover={{ y: -4 }}
                 style={{
                   background: "var(--surface-2)",

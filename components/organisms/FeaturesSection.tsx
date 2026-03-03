@@ -38,10 +38,11 @@ export default function FeaturesSection() {
           style={{ marginBottom: 34 }}
         />
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 16 }}>
+        <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:px-0">
           {pillars.map((pillar, index) => (
             <motion.div
               key={pillar.title}
+              className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}

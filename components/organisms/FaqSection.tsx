@@ -37,7 +37,7 @@ export default function FaqSection() {
   return (
     <section id="faq" style={{ padding: "110px 24px" }}>
       <div className="site-container">
-        <div style={{ display: "grid", gridTemplateColumns: "0.9fr 1.1fr", gap: 24 }}>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <SectionHeader
             badge="FAQ"
             heading={<>Common questions before launch.</>}
@@ -46,12 +46,13 @@ export default function FaqSection() {
             style={{ margin: 0 }}
           />
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18, alignItems: "start" }}>
+          <div className="grid grid-cols-2 gap-3 px-2 sm:gap-4 sm:px-0">
             {faqs.map((faq, index) => {
               const open = openIndex === index;
               return (
                 <div
                   key={faq.question}
+                  className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                   style={{
                     alignSelf: "start",
                     padding: 20,

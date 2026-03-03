@@ -41,10 +41,11 @@ export default function SocialProofSection() {
 
         <div className="section-divider" style={{ marginBottom: 20 }} />
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 18 }}>
+        <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 md:grid-cols-3 sm:px-0">
           {metrics.map((metric, index) => (
             <motion.div
               key={metric.label}
+              className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
@@ -59,8 +60,8 @@ export default function SocialProofSection() {
                 boxShadow: "var(--shadow-card)",
               }}
             >
-              <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 8 }}>{metric.label}</div>
-              <div style={{ fontSize: 34, fontWeight: 800, letterSpacing: "-0.05em" }}>{metric.value}</div>
+              <div style={{ fontSize: 14, color: "var(--text-3)", marginBottom: 8, lineHeight: 1.45 }}>{metric.label}</div>
+              <div style={{ fontSize: 44, fontWeight: 800, letterSpacing: "-0.05em", lineHeight: 1 }}>{metric.value}</div>
             </motion.div>
           ))}
         </div>

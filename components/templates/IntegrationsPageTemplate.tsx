@@ -255,6 +255,7 @@ export default function IntegrationsPageTemplate() {
                 </motion.div>
 
                 <motion.div
+                  className="px-4 sm:px-0"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-60px" }}
@@ -269,6 +270,7 @@ export default function IntegrationsPageTemplate() {
                     <motion.div
                       key={integration.name}
                       variants={cardVariants}
+                      className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                       transition={{ duration: 0.45, ease: "easeOut" }}
                       whileHover={{ y: -5, scale: 1.02 }}
                       style={{
@@ -381,7 +383,6 @@ export default function IntegrationsPageTemplate() {
     </PageLayout>
   );
 }
-
 
 
 

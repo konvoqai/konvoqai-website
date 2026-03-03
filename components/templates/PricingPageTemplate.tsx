@@ -266,6 +266,7 @@ export default function PricingPageTemplate() {
         <section style={{ padding: "0 24px 40px" }}>
           <div className="site-container">
             <div
+              className="px-4 sm:px-0"
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
@@ -279,6 +280,7 @@ export default function PricingPageTemplate() {
                 return (
                   <motion.div
                     key={plan.name}
+                    className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                     initial={{ opacity: 0, x: cardInitialX[index], y: cardInitialY[index] }}
                     whileInView={{ opacity: 1, x: 0, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
@@ -479,6 +481,7 @@ export default function PricingPageTemplate() {
                 </p>
               </div>
               <div
+                className="px-4 sm:px-0"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
@@ -493,7 +496,7 @@ export default function PricingPageTemplate() {
                 ].map(([value, label]) => (
                   <div
                     key={label}
-                    className="section-surface"
+                    className="section-surface mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                     style={{ padding: 18 }}
                   >
                     <div style={{ fontSize: 22, fontWeight: 800, letterSpacing: "-0.04em", marginBottom: 6 }}>{value}</div>

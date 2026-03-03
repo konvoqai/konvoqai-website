@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import { motion } from "framer-motion";
-import SectionHeader from "@/components/molecules/SectionHeader";
+import SectionBadge from "@/components/atoms/SectionBadge";
 
 const panels = [
   {
@@ -22,18 +22,55 @@ export default function UseCasesSection() {
   return (
     <section id="cases" style={{ padding: "110px 24px" }}>
       <div className="site-container">
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "end", gap: 20, marginBottom: 28, flexWrap: "wrap" }}>
-          <SectionHeader
-            badge="Use cases"
-            heading={<>One AI agent across support, sales, and docs.</>}
-            description={<>Use the same AI chatbot on your website, help center, and product surfaces.</>}
-            align="left"
-            style={{ margin: 0 }}
-          />
+        <div style={{ marginBottom: 28 }}>
+          <div className="mx-auto max-w-3xl text-center md:mx-0 md:max-w-none md:text-left">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.35 }}
+              className="mb-4 flex justify-center md:justify-start"
+            >
+              <SectionBadge>Use cases</SectionBadge>
+            </motion.div>
+            <motion.h2
+              className="section-heading mobile-text-break"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                margin: 0,
+                marginBottom: 16,
+                fontSize: "clamp(32px, 4.8vw, 58px)",
+                fontWeight: 800,
+                lineHeight: 1.04,
+                letterSpacing: "-0.04em",
+              }}
+            >
+              One AI agent across support, sales, and docs.
+            </motion.h2>
+            <motion.p
+              className="section-description mobile-text-break"
+              initial={{ opacity: 0, y: 6 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.14, ease: "easeOut" }}
+              style={{
+                margin: 0,
+                fontSize: 17,
+                color: "var(--text-2)",
+                lineHeight: 1.72,
+              }}
+            >
+              Use the same AI chatbot on your website, help center, and product surfaces.
+            </motion.p>
+          </div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr 0.9fr", gap: 16 }}>
+        <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 md:grid-cols-3 sm:px-0">
           <motion.div
+            className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
@@ -60,6 +97,7 @@ export default function UseCasesSection() {
           {[panels[1], panels[2]].map((panel, index) => (
             <motion.div
               key={panel.title}
+              className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}

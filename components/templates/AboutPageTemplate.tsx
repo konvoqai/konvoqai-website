@@ -144,12 +144,9 @@ export default function AboutPageTemplate() {
                 </div>
 
                 <div
-                  className="section-frame"
+                  className="section-frame grid grid-cols-1 gap-3 px-4 sm:grid-cols-2 sm:px-0"
                   style={{
                     padding: 24,
-                    display: "grid",
-                    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-                    gap: 12,
                   }}
                 >
                   {[
@@ -160,6 +157,7 @@ export default function AboutPageTemplate() {
                   ].map(([value, label]) => (
                     <div
                       key={label}
+                      className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                       style={{
                         padding: 18,
                         borderRadius: "var(--radius)",
@@ -319,9 +317,13 @@ export default function AboutPageTemplate() {
                 style={{ margin: 0 }}
               />
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 14 }}>
+            <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:px-0">
               {leadership.map((person) => (
-                <div key={person.name} className="section-surface" style={{ padding: 20 }}>
+                <div
+                  key={person.name}
+                  className="section-surface mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
+                  style={{ padding: 20 }}
+                >
                   <div
                     style={{
                       width: 44,

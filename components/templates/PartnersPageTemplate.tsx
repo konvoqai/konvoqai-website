@@ -350,9 +350,10 @@ export default function PartnersPageTemplate() {
                 Find the right partnership model
               </h2>
             </motion.div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
+            <div className="px-4 sm:px-0" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
               {TIERS.map((tier) => (
                 <motion.div key={tier.title} variants={fadeIn}
+                  className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                   whileHover={{ y: -6, transition: { duration: 0.2, ease: "easeOut" } }}
                   style={{
                     background: tier.featured ? `linear-gradient(160deg, ${tier.color}10, var(--surface-2))` : "var(--surface-2)",
@@ -425,9 +426,10 @@ export default function PartnersPageTemplate() {
                 Everything you need to succeed
               </h2>
             </motion.div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
+            <div className="px-4 sm:px-0" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
               {BENEFITS.map((b) => (
                 <motion.div key={b.title} variants={fadeIn}
+                  className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                   whileHover={{ y: -5, transition: { duration: 0.2, ease: "easeOut" } }}
                   style={{
                     background: "var(--surface-2)", border: "1px solid var(--border)",

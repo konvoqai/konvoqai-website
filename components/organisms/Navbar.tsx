@@ -48,22 +48,25 @@ export default function Navbar() {
           left: 0,
           right: 0,
           zIndex: 200,
-          padding: "12px 24px 0",
+          padding: scrolled ? "12px 24px 0" : "18px 24px 0",
         }}
       >
         <div
-          className="site-container nav-shell"
+          className={`site-container nav-shell ${scrolled ? "nav-shell-scrolled" : "nav-shell-top"}`}
           style={{
             height: "var(--nav-height)",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            borderRadius: 999,
-            border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)",
-            background: scrolled ? "color-mix(in srgb, var(--background-elevated) 92%, transparent)" : "color-mix(in srgb, var(--background) 84%, transparent)",
+            borderRadius: scrolled ? 999 : 0,
+            border: scrolled ? "1px solid color-mix(in srgb, var(--border) 76%, transparent)" : "1px solid transparent",
+            background: scrolled
+              ? "color-mix(in srgb, var(--background-elevated) 92%, transparent)"
+              : "transparent",
             boxShadow: scrolled ? "var(--shadow-soft)" : "none",
-            backdropFilter: "blur(20px)",
-            padding: "0 18px 0 20px",
+            backdropFilter: scrolled ? "blur(20px)" : "none",
+            padding: scrolled ? "0 18px 0 20px" : "0 4px",
+            transition: "border-radius 220ms ease, background-color 220ms ease, padding 220ms ease, box-shadow 220ms ease, border-color 220ms ease",
           }}
         >
           <Link
@@ -165,8 +168,8 @@ export default function Navbar() {
               alignItems: "center",
               justifyContent: "center",
               borderRadius: 999,
-              border: "1px solid var(--border)",
-              background: "color-mix(in srgb, var(--surface-2) 78%, transparent)",
+              border: scrolled ? "1px solid var(--border)" : "1px solid color-mix(in srgb, var(--border) 56%, transparent)",
+              background: scrolled ? "color-mix(in srgb, var(--surface-2) 78%, transparent)" : "transparent",
               color: "var(--text-1)",
               cursor: "pointer",
               position: "relative",
@@ -223,7 +226,7 @@ export default function Navbar() {
               zIndex: 99,
               borderRadius: 28,
               border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)",
-              background: "color-mix(in srgb, var(--background-elevated) 90%, transparent)",
+              background: "linear-gradient(180deg, color-mix(in srgb, var(--surface-2) 84%, transparent), color-mix(in srgb, var(--background-elevated) 92%, transparent))",
               boxShadow: "var(--shadow-soft)",
               backdropFilter: "blur(18px)",
               padding: 18,

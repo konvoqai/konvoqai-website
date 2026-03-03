@@ -1,9 +1,9 @@
 ﻿"use client";
 
-import * as React from "react";
+import { RocketIcon, SlidersIcon, UploadCloudIcon } from "@/components/atoms/Icons";
+import SectionBadge from "@/components/atoms/SectionBadge";
 import { motion } from "framer-motion";
-import SectionHeader from "@/components/molecules/SectionHeader";
-import { UploadCloudIcon, SlidersIcon, RocketIcon } from "@/components/atoms/Icons";
+import * as React from "react";
 
 const stepIcons = [UploadCloudIcon, SlidersIcon, RocketIcon];
 
@@ -78,14 +78,50 @@ export default function HowItWorksSection() {
   return (
     <section id="how" style={{ padding: "110px 24px" }}>
       <div className="site-container">
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "end", gap: 20, marginBottom: 30, flexWrap: "wrap" }}>
-          <SectionHeader
-            badge="How it works"
-          heading={<>Set up your AI chatbot in three steps.</>}
-          description={<>Train it, match your brand, and launch it where customers need help.</>}
-            align="left"
-            style={{ margin: 0 }}
-          />
+        <div className="flex flex-wrap items-center justify-center gap-4 text-center md:items-end md:justify-between md:text-left" style={{ marginBottom: 30 }}>
+          <div className="mx-auto max-w-3xl text-center md:mx-0 md:max-w-none md:text-left">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.35 }}
+              className="mb-4 flex justify-center md:justify-start"
+            >
+              <SectionBadge>How it works</SectionBadge>
+            </motion.div>
+            <motion.h2
+              className="section-heading mobile-text-break"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                margin: 0,
+                marginBottom: 16,
+                fontSize: "clamp(32px, 4.8vw, 58px)",
+                fontWeight: 800,
+                lineHeight: 1.04,
+                letterSpacing: "-0.04em",
+              }}
+            >
+              Set up your AI chatbot in three steps.
+            </motion.h2>
+            <motion.p
+              className="section-description mobile-text-break"
+              initial={{ opacity: 0, y: 6 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.14, ease: "easeOut" }}
+              style={{
+                margin: 0,
+                fontSize: 17,
+                color: "var(--text-2)",
+                lineHeight: 1.72,
+              }}
+            >
+              Train it, match your brand, and launch it where customers need help.
+            </motion.p>
+          </div>
           <motion.a
             href="/docs"
             className="motion-link"
@@ -97,10 +133,11 @@ export default function HowItWorksSection() {
           </motion.a>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 16 }}>
+        <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 md:grid-cols-3 sm:px-0">
           {steps.map((step, index) => (
             <motion.div
               key={step.step}
+              className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}

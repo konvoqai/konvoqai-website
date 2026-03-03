@@ -297,7 +297,7 @@ export default function DocsPageTemplate() {
         {/* "" Quick Start "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 80px" }}>
           <motion.div
-            className="mobile-auto-stack"
+            className="mobile-auto-stack px-4 sm:px-0"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -312,6 +312,7 @@ export default function DocsPageTemplate() {
               <motion.div
                 key={item.step}
                 variants={fadeUp}
+                className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                 whileHover={{ y: -4, scale: 1.01 }}
                 style={{
                   background: item.gradient,
@@ -416,6 +417,7 @@ export default function DocsPageTemplate() {
           </motion.div>
 
           <motion.div
+            className="px-4 sm:px-0"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -430,6 +432,7 @@ export default function DocsPageTemplate() {
               <motion.div
                 key={cat.title}
                 variants={fadeUp}
+                className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                 whileHover={{ y: -6 }}
                 style={{
                   background: "var(--surface-2)",

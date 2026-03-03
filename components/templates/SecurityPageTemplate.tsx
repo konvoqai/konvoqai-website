@@ -141,6 +141,7 @@ export default function SecurityPageTemplate() {
       {/* Certifications */}
       <Section label="Certifications" title="Industry-Leading Compliance" dim>
         <motion.div
+          className="px-4 sm:px-0"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
@@ -176,6 +177,7 @@ export default function SecurityPageTemplate() {
             <motion.div
               key={title}
               variants={cardIn}
+              className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
               style={{
                 padding: "32px 28px",
                 background: "var(--surface-2)",
@@ -206,6 +208,7 @@ export default function SecurityPageTemplate() {
       {/* Infrastructure Security */}
       <Section label="Infrastructure" title="Cloud-Native, Battle-Hardened Infrastructure">
         <motion.div
+          className="px-4 sm:px-0"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
@@ -220,6 +223,7 @@ export default function SecurityPageTemplate() {
             <motion.div
               key={title}
               variants={cardIn}
+              className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
               style={{
                 padding: "32px 28px",
                 background: "var(--surface-2)",
@@ -253,6 +257,7 @@ export default function SecurityPageTemplate() {
       {/* Data Security */}
       <Section label="Data Security" title="Your Data Is Encrypted End-to-End" dim>
         <motion.div
+          className="px-4 sm:px-0"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
@@ -267,6 +272,7 @@ export default function SecurityPageTemplate() {
             <motion.div
               key={title}
               variants={cardIn}
+              className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
               style={{
                 padding: "32px 28px",
                 background: "linear-gradient(135deg, var(--surface-2) 0%, var(--surface-3) 100%)",
@@ -300,6 +306,7 @@ export default function SecurityPageTemplate() {
       {/* Access Controls */}
       <Section label="Access Controls" title="Enterprise Identity & Access Management">
         <motion.div
+          className="px-4 sm:px-0"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
@@ -314,6 +321,7 @@ export default function SecurityPageTemplate() {
             <motion.div
               key={title}
               variants={cardIn}
+              className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
               style={{
                 padding: "32px 28px",
                 background: "var(--surface-2)",
@@ -332,6 +340,7 @@ export default function SecurityPageTemplate() {
       {/* Incident Response */}
       <Section label="Incident Response" title="Always-On Security Operations" dim>
         <motion.div
+          className="px-4 sm:px-0"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
@@ -340,6 +349,7 @@ export default function SecurityPageTemplate() {
         >
           <motion.div
             variants={cardIn}
+            className="mx-auto w-full min-w-0 overflow-hidden"
             style={{
               padding: "40px",
               background: "linear-gradient(135deg, rgba(0, 163, 255, 0.1) 0%, rgba(0, 163, 255, 0.07) 100%)",
@@ -391,6 +401,7 @@ export default function SecurityPageTemplate() {
           </motion.div>
           <motion.div
             variants={cardIn}
+            className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
             style={{
               padding: "32px 28px",
               background: "var(--surface-2)",
@@ -410,6 +421,7 @@ export default function SecurityPageTemplate() {
           </motion.div>
           <motion.div
             variants={cardIn}
+            className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
             style={{
               padding: "32px 28px",
               background: "var(--surface-2)",
@@ -447,6 +459,7 @@ export default function SecurityPageTemplate() {
       {/* Pen Testing + Vuln Disclosure */}
       <Section label="Vulnerability Program" title="Responsible Security Research">
         <motion.div
+          className="px-4 sm:px-0"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
@@ -455,6 +468,7 @@ export default function SecurityPageTemplate() {
         >
           <motion.div
             variants={cardIn}
+            className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
             style={{
               padding: "36px",
               background: "var(--surface-2)",
@@ -478,6 +492,7 @@ export default function SecurityPageTemplate() {
           </motion.div>
           <motion.div
             variants={cardIn}
+            className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
             style={{
               padding: "36px",
               background: "var(--surface-2)",

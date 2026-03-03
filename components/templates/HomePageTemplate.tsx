@@ -1,15 +1,14 @@
-﻿import Navbar from "@/components/organisms/Navbar";
-import HeroSection from "@/components/organisms/HeroSection";
-import SocialProofSection from "@/components/organisms/SocialProofSection";
+﻿import CtaSection from "@/components/organisms/CtaSection";
+import FaqSection from "@/components/organisms/FaqSection";
 import FeaturesSection from "@/components/organisms/FeaturesSection";
+import Footer from "@/components/organisms/Footer";
+import HeroSection from "@/components/organisms/HeroSection";
 import HowItWorksSection from "@/components/organisms/HowItWorksSection";
 import IntegrationsSection from "@/components/organisms/IntegrationsSection";
-import UseCasesSection from "@/components/organisms/UseCasesSection";
-import TestimonialsSection from "@/components/organisms/TestimonialsSection";
+import Navbar from "@/components/organisms/Navbar";
 import PricingSection from "@/components/organisms/PricingSection";
-import FaqSection from "@/components/organisms/FaqSection";
-import CtaSection from "@/components/organisms/CtaSection";
-import Footer from "@/components/organisms/Footer";
+import SocialProofSection from "@/components/organisms/SocialProofSection";
+import UseCasesSection from "@/components/organisms/UseCasesSection";
 
 export default function HomePageTemplate() {
   return (
@@ -23,7 +22,7 @@ export default function HomePageTemplate() {
         <IntegrationsSection />
         <UseCasesSection />
         <PricingSection />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <FaqSection />
         <CtaSection />
       </main>

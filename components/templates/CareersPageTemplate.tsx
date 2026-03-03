@@ -238,9 +238,10 @@ export default function CareersPageTemplate() {
                 Great work comes from people who feel supported. Here&apos;s how we do that.
               </p>
             </motion.div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
+            <div className="px-4 sm:px-0" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
               {PERKS.map((perk) => (
                 <motion.div key={perk.title} variants={fadeIn}
+                  className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                   whileHover={{ y: -5, transition: { duration: 0.2, ease: "easeOut" } }}
                   style={{
                     background: "var(--surface-2)", border: "1px solid var(--border)",
@@ -339,9 +340,10 @@ export default function CareersPageTemplate() {
                 How we work
               </h2>
             </motion.div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
+            <div className="px-4 sm:px-0" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
               {CULTURE_CARDS.map((card, i) => (
                 <motion.div key={i} variants={fadeIn}
+                  className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                   whileHover={{ y: -5, transition: { duration: 0.2, ease: "easeOut" } }}
                   style={{ borderRadius: "var(--radius-lg)", overflow: "hidden", cursor: "default" }}
                 >

@@ -1,10 +1,10 @@
 ﻿"use client";
 
+import Button from "@/components/atoms/Button";
+import SectionBadge from "@/components/atoms/SectionBadge";
+import { SIGNUP_URL } from "@/lib/config";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Button from "@/components/atoms/Button";
-import SectionHeader from "@/components/molecules/SectionHeader";
-import { SIGNUP_URL } from "@/lib/config";
 
 const plans = [
   {
@@ -38,51 +38,97 @@ export default function PricingSection() {
   return (
     <section id="pricing" style={{ padding: "110px 24px" }}>
       <div className="site-container">
-        <div style={{ display: "grid", gridTemplateColumns: "0.9fr 1.1fr", gap: 26, alignItems: "end", marginBottom: 30 }}>
-          <SectionHeader
-            badge="Pricing"
-            heading={<>Simple AI chatbot pricing.</>}
-            description={<>Start free, then add routing, analytics, and security as your usage grows.</>}
-            align="left"
-            style={{ margin: 0 }}
-          />
+        <div style={{ marginBottom: 30 }}>
+          <div className="mx-auto max-w-3xl text-center md:mx-0 md:max-w-none md:text-left">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.35 }}
+              className="mb-4 flex justify-center md:justify-start"
+            >
+              <SectionBadge>Pricing</SectionBadge>
+            </motion.div>
+            <motion.h2
+              className="section-heading mobile-text-break"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                margin: 0,
+                marginBottom: 16,
+                fontSize: "clamp(32px, 4.8vw, 58px)",
+                fontWeight: 800,
+                lineHeight: 1.04,
+                letterSpacing: "-0.04em",
+              }}
+            >
+              Simple AI chatbot pricing.
+            </motion.h2>
+            <motion.p
+              className="section-description mobile-text-break"
+              initial={{ opacity: 0, y: 6 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.14, ease: "easeOut" }}
+              style={{
+                margin: 0,
+                fontSize: 17,
+                color: "var(--text-2)",
+                lineHeight: 1.72,
+              }}
+            >
+              Start free, then add routing, analytics, and security as your usage grows.
+            </motion.p>
+          </div>
+        </div>
 
-          <div style={{ display: "flex", justifyContent: "flex-start" }}>
-            <div style={{ display: "inline-flex", alignItems: "center", background: "color-mix(in srgb, var(--surface-2) 80%, transparent)", border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)", borderRadius: 999, padding: 4, gap: 4 }}>
-              {[{ label: "Monthly", value: false }, { label: "Annual", value: true }].map((option) => {
-                const active = annual === option.value;
-                return (
-                  <motion.button
-                    key={option.label}
-                    type="button"
-                    onClick={() => setAnnual(option.value)}
-                    whileTap={{ scale: 0.97 }}
-                    style={{ position: "relative", padding: "10px 18px", border: 0, background: "transparent", color: active ? "var(--text-1)" : "var(--text-3)", fontSize: 13, fontWeight: 700, borderRadius: 999, cursor: "pointer" }}
-                  >
-                    {active && (
-                      <motion.span
-                        layoutId="home-pricing-toggle"
-                        style={{ position: "absolute", inset: 0, borderRadius: 999, background: "color-mix(in srgb, var(--surface) 88%, transparent)", border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)" }}
-                        transition={{ type: "spring", stiffness: 360, damping: 30 }}
-                      />
-                    )}
-                    <span style={{ position: "relative", zIndex: 1 }}>{option.label}</span>
-                  </motion.button>
-                );
-              })}
-              <div style={{ padding: "9px 12px", borderRadius: 999, background: "var(--accent-muted)", border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)", color: "var(--text-1)", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                Save 20%
-              </div>
+        <div className="mb-8 flex justify-center">
+          <div
+            className="inline-flex w-fit max-w-full flex-wrap items-center"
+            style={{
+              background: "color-mix(in srgb, var(--surface-2) 80%, transparent)",
+              border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)",
+              borderRadius: 999,
+              padding: "4px",
+              gap: "4px",
+            }}
+          >
+            {[{ label: "Monthly", value: false }, { label: "Annual", value: true }].map((option) => {
+              const active = annual === option.value;
+              return (
+                <motion.button
+                  key={option.label}
+                  type="button"
+                  onClick={() => setAnnual(option.value)}
+                  whileTap={{ scale: 0.97 }}
+                  style={{ position: "relative", padding: "10px 18px", border: 0, background: "transparent", color: active ? "var(--text-1)" : "var(--text-3)", fontSize: 13, fontWeight: 700, borderRadius: 999, cursor: "pointer" }}
+                >
+                  {active && (
+                    <motion.span
+                      layoutId="home-pricing-toggle"
+                      style={{ position: "absolute", inset: 0, borderRadius: 999, background: "color-mix(in srgb, var(--surface) 88%, transparent)", border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)" }}
+                      transition={{ type: "spring", stiffness: 360, damping: 30 }}
+                    />
+                  )}
+                  <span style={{ position: "relative", zIndex: 1 }}>{option.label}</span>
+                </motion.button>
+              );
+            })}
+            <div style={{ padding: "9px 12px", borderRadius: 999, background: "var(--accent-muted)", border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)", color: "var(--text-1)", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase" }}>
+              Save 20%
             </div>
           </div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 16, marginBottom: 20 }}>
+        <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 md:grid-cols-3 sm:px-0">
           {plans.map((plan, index) => {
             const price = plan.custom ? "Let\'s Talk" : `$${annual ? plan.annual : plan.monthly}`;
             return (
               <motion.div
                 key={plan.name}
+                className="mx-auto w-full max-w-sm min-w-0 overflow-hidden sm:max-w-none"
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.25 }}
@@ -130,4 +176,3 @@ export default function PricingSection() {
     </section>
   );
 }
-
