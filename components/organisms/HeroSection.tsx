@@ -296,8 +296,33 @@ export default function HeroSection() {
         padding: "60px 24px 88px",
         position: "relative",
         overflow: "hidden",
+        background:
+          "linear-gradient(180deg, color-mix(in srgb, var(--background) 96%, var(--background-elevated) 4%) 0%, color-mix(in srgb, var(--background) 90%, var(--background-elevated) 10%) 100%)",
       }}
     >
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+          backgroundImage:
+            "linear-gradient(color-mix(in srgb, var(--grid-line) 76%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--grid-line) 76%, transparent) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+          opacity: 0.34,
+          maskImage: "linear-gradient(180deg, black 0%, black 78%, transparent 100%)",
+        }}
+      />
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+          background:
+            "radial-gradient(circle at 50% 14%, rgba(255, 255, 255, 0.06), transparent 24%), radial-gradient(circle at 22% 28%, rgba(136, 144, 150, 0.08), transparent 26%), radial-gradient(circle at 78% 20%, rgba(136, 144, 150, 0.06), transparent 28%)",
+        }}
+      />
       <motion.div
         style={{
           position: "absolute",
@@ -325,7 +350,9 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="site-container">
+      <div style={{
+        marginTop: "80px"
+      }} className="site-container">
         <div style={{ maxWidth: 920, margin: "0 auto", textAlign: "center" }}>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: "easeOut" }} style={{ display: "flex", justifyContent: "center" }}>
             <SectionBadge>AI chatbot platform</SectionBadge>

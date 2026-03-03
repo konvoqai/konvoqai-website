@@ -43,12 +43,13 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
         style={{
-          position: "sticky",
+          position: "fixed",
           top: 0,
           left: 0,
           right: 0,
           zIndex: 200,
           padding: scrolled ? "12px 24px 0" : "18px 24px 0",
+          background: "transparent",
         }}
       >
         <div
