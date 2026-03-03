@@ -75,7 +75,7 @@ function HeroDashboard() {
       />
 
       <div
-        className="section-frame"
+        className="section-frame hero-dashboard-frame"
         style={{
           position: "relative",
           padding: 24,
@@ -103,7 +103,7 @@ function HeroDashboard() {
               <div style={{ fontSize: 12, color: "var(--text-3)", marginBottom: 8, textTransform: "uppercase", letterSpacing: "0.12em" }}>
                 Operator dashboard
               </div>
-              <div style={{ fontSize: 28, fontWeight: 800, letterSpacing: "-0.05em", lineHeight: 1.02 }}>
+              <div className="hero-dashboard-headline" style={{ fontSize: 28, fontWeight: 800, letterSpacing: "-0.05em", lineHeight: 1.02 }}>
                 Support and sales dashboard
               </div>
             </div>
@@ -117,8 +117,8 @@ function HeroDashboard() {
             </div>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "200px minmax(0, 1fr) 280px", gap: 18, alignItems: "stretch" }}>
-            <div style={{ padding: 16, borderRadius: 22, border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)", background: "color-mix(in srgb, var(--surface-2) 82%, transparent)" }}>
+          <div className="hero-db-grid" style={{ display: "grid", gridTemplateColumns: "200px minmax(0, 1fr) 280px", gap: 18, alignItems: "stretch" }}>
+            <div className="hero-db-left" style={{ padding: 16, borderRadius: 22, border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)", background: "color-mix(in srgb, var(--surface-2) 82%, transparent)" }}>
               <div style={{ fontSize: 11, color: "var(--text-3)", marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.12em" }}>Workspace</div>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                 {leftRail.map((item, index) => (
@@ -217,7 +217,7 @@ function HeroDashboard() {
               </div>
             </div>
 
-            <div style={{ display: "grid", gap: 12 }}>
+            <div className="hero-db-right" style={{ display: "grid", gap: 12 }}>
               <motion.div
                 initial={{ opacity: 0, x: 16 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -332,6 +332,7 @@ export default function HeroSection() {
           </motion.div>
 
           <motion.h1
+            className="hero-title mobile-text-break"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.66, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
@@ -347,6 +348,7 @@ export default function HeroSection() {
           </motion.h1>
 
           <motion.p
+            className="hero-copy mobile-text-break"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.52, delay: 0.16, ease: "easeOut" }}
@@ -362,6 +364,7 @@ export default function HeroSection() {
           </motion.p>
 
           <motion.div
+            className="mobile-button-group"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.42, delay: 0.24, ease: "easeOut" }}
@@ -376,6 +379,7 @@ export default function HeroSection() {
           </motion.div>
 
           <motion.div
+            className="hero-proof-points"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.45, delay: 0.3 }}

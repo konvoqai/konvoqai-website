@@ -181,6 +181,7 @@ export default function FeaturesPageTemplate() {
               <SectionLabel>Platform Features</SectionLabel>
             </motion.div>
             <motion.h1
+              className="mobile-hero-title mobile-text-break"
               variants={fadeUp}
               style={{
                 fontSize: "clamp(40px, 6vw, 72px)",
@@ -194,6 +195,7 @@ export default function FeaturesPageTemplate() {
               AI chatbot features for support teams
             </motion.h1>
             <motion.p
+              className="mobile-hero-body mobile-text-break"
               variants={fadeUp}
               style={{
                 fontSize: 20,
@@ -205,7 +207,7 @@ export default function FeaturesPageTemplate() {
             >
               Train on your docs, route conversations, customize the widget, and track what your AI support agent resolves.
             </motion.p>
-            <motion.div variants={fadeUp} style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+            <motion.div variants={fadeUp} className="mobile-button-group" style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
               <Button href={SIGNUP_URL} variant="primary" size="lg">
                 Start for free
               </Button>
@@ -339,15 +341,20 @@ export default function FeaturesPageTemplate() {
             </motion.div>
 
             <motion.div
+              className="mobile-table-scroll"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              style={{
-                border: "1px solid var(--border)", borderRadius: "var(--radius-lg)",
-                overflow: "hidden",
-              }}
+              style={{ ["--mobile-table-width" as string]: "700px" }}
             >
+              <div
+                className="mobile-table-grid"
+                style={{
+                  border: "1px solid var(--border)", borderRadius: "var(--radius-lg)",
+                  overflow: "hidden",
+                }}
+              >
               {/* Table Header */}
               <div style={{
                 display: "grid", gridTemplateColumns: "1fr 160px 160px 160px",
@@ -366,6 +373,7 @@ export default function FeaturesPageTemplate() {
 
               {comparisonData.map((row, i) => (
                 <div
+                  className="mobile-table-grid"
                   key={row.feature}
                   style={{
                     display: "grid", gridTemplateColumns: "1fr 160px 160px 160px",
@@ -391,6 +399,7 @@ export default function FeaturesPageTemplate() {
                   </div>
                 </div>
               ))}
+              </div>
             </motion.div>
           </div>
         </section>
@@ -418,7 +427,7 @@ export default function FeaturesPageTemplate() {
             }}>
               Train on your website and docs, then launch with routing, analytics, and human handoff.
             </motion.p>
-            <motion.div variants={fadeUp} style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+            <motion.div variants={fadeUp} className="mobile-button-group" style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
               <Button href={SIGNUP_URL} variant="primary" size="lg">
                 Start free
               </Button>
@@ -432,7 +441,6 @@ export default function FeaturesPageTemplate() {
     </PageLayout>
   );
 }
-
 
 
 

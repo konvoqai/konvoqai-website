@@ -149,13 +149,14 @@ function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit}
+      className="mobile-card-padding-lg"
       style={{
         background: "var(--surface-2)", border: "1px solid var(--border-2)",
         borderRadius: "var(--radius-xl)", padding: "40px 36px",
         display: "flex", flexDirection: "column", gap: 20,
       }}
     >
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+      <div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <Field label="Full Name *">
           <input
             required
@@ -230,6 +231,7 @@ function ContactForm() {
         type="submit"
         whileHover={{ scale: 1.02, transition: { duration: 0.15, ease: "easeOut" } }}
         whileTap={{ scale: 0.97 }}
+        className="mobile-button-fill"
         style={{
           padding: "16px 0", background: "var(--grad-btn)", borderRadius: 100,
           fontWeight: 700, fontSize: 16, color: "#fff", cursor: "pointer",
@@ -260,13 +262,13 @@ export default function ContactPageTemplate() {
             <motion.div variants={fadeUp}>
               <SectionLabel>Contact</SectionLabel>
             </motion.div>
-            <motion.h1 variants={fadeUp} style={{
+            <motion.h1 variants={fadeUp} className="mobile-hero-title mobile-text-break" style={{
               fontSize: "clamp(48px, 8vw, 96px)", fontWeight: 900, lineHeight: 1.0,
               letterSpacing: "-0.04em", marginBottom: 20,
             }}>
               Let&apos;s <span className="grad-text">talk</span>
             </motion.h1>
-            <motion.p variants={fadeUp} style={{
+            <motion.p variants={fadeUp} className="mobile-hero-body mobile-text-break" style={{
               fontSize: 20, color: "var(--text-2)", lineHeight: 1.7, maxWidth: 520, margin: "0 auto",
             }}>
               Whether you&apos;re exploring Konvoq for your business, need technical help, or just want to say hello we&apos;re here and we respond fast.
@@ -308,6 +310,7 @@ export default function ContactPageTemplate() {
                 href={channel.href}
                 variants={fadeIn}
                 whileHover={{ x: 4, transition: { duration: 0.15, ease: "easeOut" } }}
+                className="mobile-card-padding"
                 style={{
                   background: "var(--surface-2)", border: "1px solid var(--border)",
                   borderRadius: "var(--radius)", padding: "18px 20px",
@@ -342,6 +345,7 @@ export default function ContactPageTemplate() {
             {/* Live Chat Promo */}
             <motion.div variants={fadeIn}
               whileHover={{ y: -3, transition: { duration: 0.2, ease: "easeOut" } }}
+              className="mobile-card-padding"
               style={{
                 background: "linear-gradient(135deg, var(--accent-muted), rgba(0, 163, 255, 0.12))",
                 border: "1px solid var(--border-2)", borderRadius: "var(--radius-lg)",
@@ -362,10 +366,11 @@ export default function ContactPageTemplate() {
                     We use our own product! Get instant answers to common questions 24/7.
                   </div>
                   <motion.button
+                    className="mobile-button-fill"
                     whileHover={{ scale: 1.04, transition: { duration: 0.15, ease: "easeOut" } }}
                     whileTap={{ scale: 0.96 }}
                     style={{
-                      padding: "8px 20px", background: "var(--grad-btn)", borderRadius: 100,
+                      padding: "10px 20px", background: "var(--grad-btn)", borderRadius: 100,
                       fontWeight: 700, fontSize: 13, color: "#fff", cursor: "pointer",
                       border: "none", fontFamily: "inherit",
                     }}
@@ -378,6 +383,7 @@ export default function ContactPageTemplate() {
 
             {/* Office location */}
             <motion.div variants={fadeIn}
+              className="mobile-card-padding"
               style={{
                 background: "var(--surface-2)", border: "1px solid var(--border)",
                 borderRadius: "var(--radius)", padding: "18px 20px",

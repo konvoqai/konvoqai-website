@@ -29,9 +29,9 @@ export default function ComparisonSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          style={{ overflow: "hidden" }}
         >
-          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <div className="comparison-table-scroll">
+          <table className="comparison-table" style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>
               <tr>
                 {[
@@ -90,6 +90,7 @@ export default function ComparisonSection() {
               ))}
             </tbody>
           </table>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -52,7 +52,7 @@ export default function Navbar() {
         }}
       >
         <div
-          className="site-container"
+          className="site-container nav-shell"
           style={{
             height: "var(--nav-height)",
             display: "flex",
@@ -69,7 +69,7 @@ export default function Navbar() {
           <Link
             href="/"
             onClick={closeMenu}
-            className="motion-link"
+            className="motion-link nav-brand"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -212,6 +212,7 @@ export default function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
+            className="nav-menu-panel"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -255,25 +256,22 @@ export default function Navbar() {
             </div>
 
             <div
+              className="nav-menu-actions mobile-button-group"
               style={{
-                display: "grid",
-                gridTemplateColumns: "auto 1fr",
-                gap: 12,
-                alignItems: "center",
+                display: "flex",
+                flexDirection: "column",
+                gap: 10,
                 marginTop: 18,
                 paddingTop: 18,
                 borderTop: "1px solid var(--border)",
               }}
             >
-              <ThemeToggle />
-              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                <Button href="/contact" variant="outline" size="md">
-                  Book demo
-                </Button>
-                <Button href={SIGNUP_URL} variant="primary" size="md">
-                  Start free
-                </Button>
-              </div>
+              <Button href="/contact" variant="outline" size="md">
+                Book demo
+              </Button>
+              <Button href={SIGNUP_URL} variant="primary" size="md">
+                Start free
+              </Button>
             </div>
           </motion.div>
         )}
@@ -281,4 +279,3 @@ export default function Navbar() {
     </>
   );
 }
-

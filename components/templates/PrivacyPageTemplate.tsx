@@ -141,6 +141,7 @@ export default function PrivacyPageTemplate() {
 
       {/* Body */}
       <div
+        className="mobile-sidebar-layout"
         style={{
           maxWidth: 1200,
           margin: "0 auto",
@@ -257,7 +258,7 @@ export default function PrivacyPageTemplate() {
           </PolicySection>
 
           <PolicySection id="data-retention" title="4. Data Retention">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 8 }}>
+            <div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 8 }}>
               <RetentionCard
                 plan="Free Plan"
                 duration="30 Days"
@@ -334,6 +335,7 @@ export default function PrivacyPageTemplate() {
                 { name: "Preference Cookies", purpose: "Remember your settings like language, theme, and dashboard layout.", required: false },
               ].map(({ name, purpose, required }) => (
                 <div
+                  className="mobile-flex-column"
                   key={name}
                   style={{
                     padding: "16px 20px",

@@ -210,6 +210,7 @@ export default function BlogPageTemplate() {
               <SectionLabel>Blog</SectionLabel>
             </motion.div>
             <motion.h1
+              className="mobile-hero-title mobile-text-break"
               variants={fadeUp}
               style={{
                 fontSize: "clamp(2.4rem, 5vw, 3.6rem)",
@@ -224,6 +225,7 @@ export default function BlogPageTemplate() {
               <span className="grad-text">the Konvoq team</span>
             </motion.h1>
             <motion.p
+              className="mobile-hero-body mobile-text-break"
               variants={fadeUp}
               style={{
                 fontSize: "1.1rem",
@@ -246,6 +248,7 @@ export default function BlogPageTemplate() {
             variants={fadeUp}
           >
             <motion.div
+              className="mobile-stack mobile-card-padding-lg"
               whileHover={{ y: -4 }}
               style={{
                 background: "linear-gradient(135deg, rgba(0, 163, 255, 0.1) 0%, rgba(0, 163, 255, 0.1) 50%, rgba(255, 196, 70, 0.07) 100%)",
@@ -339,7 +342,7 @@ export default function BlogPageTemplate() {
                   means for the humans who were doing those jobs.
                 </p>
 
-                <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+                <div className="mobile-flex-column" style={{ display: "flex", alignItems: "center", gap: 20 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                     <div
                       style={{
@@ -393,6 +396,7 @@ export default function BlogPageTemplate() {
         {/* "" Category Filter "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 40px" }}>
           <motion.div
+            className="mobile-auto-stack"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -633,6 +637,7 @@ export default function BlogPageTemplate() {
                 weekly. No spam, unsubscribe anytime.
               </p>
               <div
+                className="mobile-button-group"
                 style={{
                   display: "flex",
                   gap: 12,

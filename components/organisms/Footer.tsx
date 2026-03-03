@@ -144,6 +144,7 @@ export default function Footer() {
           }}
         >
           <div
+            className="footer-links-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
@@ -197,6 +198,7 @@ export default function Footer() {
           </div>
 
           <div
+            className="footer-meta-row"
             style={{
               paddingTop: 22,
               borderTop: "1px solid color-mix(in srgb, var(--border) 68%, transparent)",
@@ -244,6 +246,7 @@ export default function Footer() {
 
           <div style={{ position: "relative", overflow: "hidden", paddingBottom: 8 }}>
             <div
+              className="footer-wordmark"
               aria-hidden="true"
               style={{
                 fontSize: "clamp(76px, 16vw, 220px)",
@@ -265,6 +268,7 @@ export default function Footer() {
           </div>
 
           <div
+            className="footer-legal-row"
             style={{
               paddingTop: 18,
               borderTop: "1px solid color-mix(in srgb, var(--border) 68%, transparent)",

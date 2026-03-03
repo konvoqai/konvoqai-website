@@ -188,9 +188,11 @@ export default function PricingPageTemplate() {
               >
                 <LayoutGroup>
                   <div
+                    className="mobile-text-break"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
+                      flexWrap: "wrap",
                       background: "color-mix(in srgb, var(--surface-2) 80%, transparent)",
                       border: "1px solid color-mix(in srgb, var(--border) 80%, transparent)",
                       borderRadius: 999,
@@ -443,7 +445,7 @@ export default function PricingPageTemplate() {
         <section style={{ padding: "0 24px 40px" }}>
           <div className="site-container">
             <motion.div
-              className="section-frame"
+              className="section-frame mobile-card-padding"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -523,8 +525,10 @@ export default function PricingPageTemplate() {
               transition={{ duration: 0.4, ease: "easeOut" }}
               style={{ overflow: "hidden" }}
             >
+              <div className="mobile-table-scroll" style={{ ["--mobile-table-width" as string]: "720px" }}>
               {/* Header row */}
               <div
+                className="mobile-table-grid"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "1.3fr repeat(3, minmax(0, 0.7fr))",
@@ -560,6 +564,7 @@ export default function PricingPageTemplate() {
               {/* Data rows */}
               {comparisonRows.map((row, index) => (
                 <motion.div
+                  className="mobile-table-grid"
                   key={row.label}
                   initial={{ opacity: 0, x: -8 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -593,6 +598,7 @@ export default function PricingPageTemplate() {
                   ))}
                 </motion.div>
               ))}
+              </div>
             </motion.div>
           </div>
         </section>
@@ -760,7 +766,7 @@ export default function PricingPageTemplate() {
                 </div>
               </div>
 
-              <div style={{ display: "flex", gap: 12, flexWrap: "wrap", position: "relative" }}>
+              <div className="mobile-button-group" style={{ display: "flex", gap: 12, flexWrap: "wrap", position: "relative" }}>
                 <Button href="/contact" size="lg">Talk to sales</Button>
                 <Button href="/contact" variant="secondary" size="lg">Book a walkthrough</Button>
               </div>

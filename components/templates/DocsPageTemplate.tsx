@@ -199,6 +199,7 @@ export default function DocsPageTemplate() {
             </motion.div>
 
             <motion.h1
+              className="mobile-hero-title mobile-text-break"
               variants={fadeUp}
               style={{
                 fontSize: "clamp(2.4rem, 5vw, 3.8rem)",
@@ -214,6 +215,7 @@ export default function DocsPageTemplate() {
             </motion.h1>
 
             <motion.p
+              className="mobile-hero-body mobile-text-break"
               variants={fadeUp}
               style={{
                 fontSize: "1.15rem",
@@ -271,6 +273,7 @@ export default function DocsPageTemplate() {
                 }}
               />
               <kbd
+                className="mobile-inline-kbd"
                 style={{
                   position: "absolute",
                   right: 14,
@@ -294,6 +297,7 @@ export default function DocsPageTemplate() {
         {/* "" Quick Start "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 80px" }}>
           <motion.div
+            className="mobile-auto-stack"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -391,6 +395,7 @@ export default function DocsPageTemplate() {
         {/* "" Categories "" */}
         <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px 80px" }}>
           <motion.div
+            className="mobile-auto-stack"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -495,6 +500,7 @@ export default function DocsPageTemplate() {
 
         {/* "" Popular Articles "" */}
         <section
+          className="mobile-auto-stack"
           style={{
             maxWidth: 1100,
             margin: "0 auto",
@@ -526,6 +532,7 @@ export default function DocsPageTemplate() {
 
             {popularArticles.map((article, i) => (
               <motion.div
+                className="mobile-article-row"
                 key={article.title}
                 variants={fadeUp}
                 whileHover={{ x: 6 }}
@@ -555,7 +562,7 @@ export default function DocsPageTemplate() {
                     {article.title}
                   </span>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
+                <div className="mobile-article-meta" style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
                   <span
                     style={{
                       fontSize: 10,
@@ -586,6 +593,7 @@ export default function DocsPageTemplate() {
             variants={fadeUp}
           >
             <div
+              className="mobile-card-padding-lg"
               style={{
                 background: "var(--surface-2)",
                 border: "1px solid var(--border)",
@@ -692,7 +700,7 @@ export default function DocsPageTemplate() {
                 Integrate Konvoq into any application or workflow.
               </p>
             </div>
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <div className="mobile-button-group" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <motion.a
                 href="/api-reference"
                 whileHover={{ scale: 1.04 }}

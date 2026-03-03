@@ -1,6 +1,5 @@
 ﻿"use client";
 
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 type Theme = "light" | "dark";
@@ -71,7 +70,9 @@ export default function ThemeToggle() {
   };
 
   return (
-    <motion.button
+    <>
+
+      {/* <motion.button
       type="button"
       onClick={toggleTheme}
       whileHover={{ y: -1, scale: 1.01 }}
@@ -131,7 +132,8 @@ export default function ThemeToggle() {
           {theme === "dark" ? <SunIcon /> : <MoonIcon />}
         </motion.span>
       </motion.span>
-    </motion.button>
+    </motion.button> */}
+    </>
   );
 }
 

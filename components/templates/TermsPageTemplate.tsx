@@ -119,6 +119,7 @@ export default function TermsPageTemplate() {
 
       {/* Body */}
       <div
+        className="mobile-sidebar-layout"
         style={{
           maxWidth: 1200,
           margin: "0 auto",
@@ -235,7 +236,7 @@ export default function TermsPageTemplate() {
           </TermsSection>
 
           <TermsSection id="acceptable-use" title="4. Acceptable Use Policy">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            <div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
               <div
                 style={{
                   padding: "24px",
@@ -284,7 +285,7 @@ export default function TermsPageTemplate() {
           </TermsSection>
 
           <TermsSection id="billing" title="5. Subscription and Billing">
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 20 }}>
+            <div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 20 }}>
               {[
                 { label: "Billing Cycle", value: "Monthly or Annual", icon: "" },
                 { label: "Auto-Renewal", value: "Enabled by default", icon: "" },
@@ -327,7 +328,7 @@ export default function TermsPageTemplate() {
           </TermsSection>
 
           <TermsSection id="intellectual-property" title="6. Intellectual Property">
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            <div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
               <div
                 style={{
                   padding: "24px",

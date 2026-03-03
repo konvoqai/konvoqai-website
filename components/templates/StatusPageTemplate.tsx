@@ -225,6 +225,7 @@ export default function StatusPageTemplate() {
             </motion.div>
 
             <motion.h1
+              className="mobile-hero-title"
               variants={fadeUp}
               style={{
                 fontSize: "clamp(2.4rem, 5vw, 3.8rem)",
@@ -290,6 +291,7 @@ export default function StatusPageTemplate() {
 
             {/* Uptime summary */}
             <motion.div
+              className="mobile-summary-stack"
               variants={fadeUp}
               style={{ display: "flex", justifyContent: "center", gap: 32 }}
             >
@@ -302,6 +304,7 @@ export default function StatusPageTemplate() {
                 </div>
               </div>
               <div
+                className="mobile-summary-divider"
                 style={{
                   width: 1,
                   height: 50,
@@ -316,6 +319,7 @@ export default function StatusPageTemplate() {
                 <div style={{ fontSize: "0.8rem", color: "var(--text-3)" }}>Active incidents</div>
               </div>
               <div
+                className="mobile-summary-divider"
                 style={{
                   width: 1,
                   height: 50,
@@ -336,11 +340,13 @@ export default function StatusPageTemplate() {
         {/* "" Service Status Rows "" */}
         <section style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px 72px" }}>
           <motion.div
+            className="mobile-table-scroll"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
             style={{
+              ["--mobile-table-width" as string]: "720px",
               background: "var(--surface-2)",
               border: "1px solid var(--border)",
               borderRadius: "var(--radius-xl)",
@@ -349,6 +355,7 @@ export default function StatusPageTemplate() {
           >
             {/* Header */}
             <div
+              className="mobile-table-grid"
               style={{
                 display: "grid",
                 gridTemplateColumns: "1fr auto auto auto",
@@ -378,6 +385,7 @@ export default function StatusPageTemplate() {
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
               {services.map((svc, i) => (
                 <motion.div
+                  className="mobile-table-grid"
                   key={svc.name}
                   variants={slideIn}
                   whileHover={{ background: "rgba(255,255,255,0.02)" }}
@@ -821,6 +829,7 @@ export default function StatusPageTemplate() {
                 </motion.div>
               ) : (
                 <form
+                  className="mobile-button-group"
                   onSubmit={handleSubscribe}
                   style={{
                     display: "flex",

@@ -126,14 +126,15 @@ export default function Button({
       whileHover={{ y: -2, scale: 1.01 }}
       whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 320, damping: 24, mass: 0.7 }}
+      className="app-button-shell"
       style={{ display: "inline-block" }}
     >
       {href ? (
-        <Link href={href} style={baseStyle} className={className}>
+        <Link href={href} style={baseStyle} className={["app-button-control", className].filter(Boolean).join(" ")}>
           {content}
         </Link>
       ) : (
-        <button type="button" onClick={onClick} style={baseStyle} className={className}>
+        <button type="button" onClick={onClick} style={baseStyle} className={["app-button-control", className].filter(Boolean).join(" ")}>
           {content}
         </button>
       )}

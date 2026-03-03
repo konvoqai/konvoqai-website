@@ -22,6 +22,7 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div
+      className="mobile-text-break"
       style={{
         textAlign: align,
         maxWidth: align === "center" ? 720 : 640,
@@ -40,6 +41,7 @@ export default function SectionHeader({
         </motion.div>
       )}
       <motion.h2
+        className="section-heading mobile-text-break"
         initial={{ opacity: 0, x: align === "center" ? 0 : -12 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -57,6 +59,7 @@ export default function SectionHeader({
       </motion.h2>
       {description && (
         <motion.p
+          className="section-description mobile-text-break"
           initial={{ opacity: 0, y: 6 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
