@@ -1,13 +1,13 @@
-﻿"use client";
+"use client";
 
-import { AnimatePresence, LayoutGroup, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Button from "@/components/atoms/Button";
 import ThemeToggle from "@/components/atoms/ThemeToggle";
-import { SIGNUP_URL } from "@/lib/config";
 import { KonvoqLogoMark } from "@/components/atoms/Icons";
+import { SIGNUP_URL } from "@/lib/config";
 
 const navLinks = [
   { label: "Features", href: "/features" },
@@ -17,15 +17,187 @@ const navLinks = [
   { label: "Docs", href: "/docs" },
 ];
 
+type NavVariant = "hero" | "sticky";
+
+function NavContent({
+  pathname,
+  menuOpen,
+  onToggleMenu,
+  onCloseMenu,
+  variant,
+}: {
+  pathname: string;
+  menuOpen: boolean;
+  onToggleMenu: () => void;
+  onCloseMenu: () => void;
+  variant: NavVariant;
+}) {
+  const sticky = variant === "sticky";
+
+  return (
+    <>
+      <Link
+        href="/"
+        onClick={onCloseMenu}
+        className="motion-link nav-brand"
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 12,
+          textDecoration: "none",
+          color: "var(--text-1)",
+          fontSize: 16,
+          fontWeight: 800,
+          letterSpacing: "-0.03em",
+        }}
+      >
+        <motion.span
+          whileHover={{ rotate: -6, scale: 1.06 }}
+          transition={{ type: "spring", stiffness: 260, damping: 16 }}
+          style={{
+            width: 28,
+            height: 28,
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: 10,
+            background: "var(--grad-btn)",
+            color: "var(--accent-foreground)",
+            boxShadow: "var(--shadow-button)",
+          }}
+        >
+          <KonvoqLogoMark size={16} />
+        </motion.span>
+        Konvoq
+      </Link>
+
+      <LayoutGroup>
+        <div className="nav-links-desktop" style={{ alignItems: "center", gap: 4, position: "relative" }}>
+          {navLinks.map((link) => {
+            const active = pathname === link.href;
+            return (
+              <motion.div key={link.href} whileHover={{ y: -1 }} transition={{ type: "spring", stiffness: 260, damping: 20 }} style={{ position: "relative" }}>
+                {active && (
+                  <motion.span
+                    layoutId="nav-active-pill"
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      borderRadius: 999,
+                      background: "color-mix(in srgb, var(--surface-2) 72%, transparent)",
+                      border: "1px solid color-mix(in srgb, var(--border) 70%, transparent)",
+                    }}
+                    transition={{ type: "spring", stiffness: 340, damping: 28 }}
+                  />
+                )}
+                <Link
+                  href={link.href}
+                  className="motion-link"
+                  style={{
+                    position: "relative",
+                    zIndex: 1,
+                    padding: "10px 14px",
+                    borderRadius: 999,
+                    fontSize: 13,
+                    fontWeight: active ? 700 : 600,
+                    textDecoration: "none",
+                    color: active ? "var(--text-1)" : "var(--text-2)",
+                  }}
+                >
+                  {link.label}
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
+      </LayoutGroup>
+
+      <div className="nav-actions-desktop" style={{ alignItems: "center", gap: 10 }}>
+        <ThemeToggle />
+        <Button href="/contact" variant="ghost" size="sm">
+          Book demo
+        </Button>
+        <Button href={SIGNUP_URL} variant="primary" size="sm">
+          Start free
+        </Button>
+      </div>
+
+      <motion.button
+        type="button"
+        className="nav-hamburger"
+        onClick={onToggleMenu}
+        aria-expanded={menuOpen}
+        aria-label="Toggle navigation menu"
+        whileTap={{ scale: 0.96 }}
+        style={{
+          width: 40,
+          height: 40,
+          alignItems: "center",
+          justifyContent: "center",
+          borderRadius: 999,
+          border: sticky ? "1px solid var(--border)" : "1px solid color-mix(in srgb, var(--border) 56%, transparent)",
+          background: sticky ? "color-mix(in srgb, var(--surface-2) 78%, transparent)" : "transparent",
+          color: "var(--text-1)",
+          cursor: "pointer",
+          position: "relative",
+        }}
+      >
+        <motion.span
+          animate={menuOpen ? { rotate: 45, y: 3 } : { rotate: 0, y: -3 }}
+          transition={{ type: "spring", stiffness: 280, damping: 18 }}
+          style={{
+            position: "absolute",
+            width: 16,
+            height: 1.5,
+            background: "currentColor",
+            borderRadius: 999,
+          }}
+        />
+        <motion.span
+          animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+          transition={{ duration: 0.18 }}
+          style={{
+            position: "absolute",
+            width: 16,
+            height: 1.5,
+            background: "currentColor",
+            borderRadius: 999,
+          }}
+        />
+        <motion.span
+          animate={menuOpen ? { rotate: -45, y: -3 } : { rotate: 0, y: 3 }}
+          transition={{ type: "spring", stiffness: 280, damping: 18 }}
+          style={{
+            position: "absolute",
+            width: 16,
+            height: 1.5,
+            background: "currentColor",
+            borderRadius: 999,
+          }}
+        />
+      </motion.button>
+    </>
+  );
+}
+
 export default function Navbar() {
   const pathname = usePathname();
-  const { scrollY } = useScroll();
+  const isHome = pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setScrolled(latest > 18);
-  });
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 18);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -35,183 +207,48 @@ export default function Navbar() {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+  const sticky = !isHome || scrolled;
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.45, ease: "easeOut" }}
+      <nav
         style={{
-          position: "fixed",
+          position: "sticky",
           top: 0,
           left: 0,
           right: 0,
-          zIndex: 200,
-          padding: scrolled ? "12px 24px 0" : "18px 24px 0",
-          background: "transparent",
+          zIndex: 1000,
+          padding: `${sticky ? 12 : 18}px 24px 0`,
+          transition: "padding 200ms ease",
         }}
       >
         <div
-          className={`site-container nav-shell ${scrolled ? "nav-shell-scrolled" : "nav-shell-top"}`}
+          className={`site-container nav-shell ${sticky ? "nav-shell-scrolled" : "nav-shell-top"}`}
           style={{
             height: "var(--nav-height)",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            borderRadius: scrolled ? 999 : 0,
-            border: scrolled ? "1px solid color-mix(in srgb, var(--border) 76%, transparent)" : "1px solid transparent",
-            background: scrolled
-              ? "color-mix(in srgb, var(--background-elevated) 92%, transparent)"
+            padding: sticky ? "0 18px 0 20px" : "0 4px",
+            borderRadius: sticky ? 999 : 0,
+            border: sticky ? "1px solid color-mix(in srgb, var(--border-strong) 92%, transparent)" : "1px solid transparent",
+            background: sticky
+              ? "linear-gradient(180deg, color-mix(in srgb, var(--background-elevated) 96%, transparent), color-mix(in srgb, var(--background) 92%, var(--background-elevated) 8%))"
               : "transparent",
-            boxShadow: scrolled ? "var(--shadow-soft)" : "none",
-            backdropFilter: scrolled ? "blur(20px)" : "none",
-            padding: scrolled ? "0 18px 0 20px" : "0 4px",
-            transition: "border-radius 220ms ease, background-color 220ms ease, padding 220ms ease, box-shadow 220ms ease, border-color 220ms ease",
+            boxShadow: sticky ? "0 18px 48px rgba(0, 0, 0, 0.38)" : "none",
+            backdropFilter: sticky ? "blur(20px)" : "none",
+            transition: "padding 200ms ease, border-radius 200ms ease, border-color 200ms ease, background-color 200ms ease, box-shadow 200ms ease",
           }}
         >
-          <Link
-            href="/"
-            onClick={closeMenu}
-            className="motion-link nav-brand"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 12,
-              textDecoration: "none",
-              color: "var(--text-1)",
-              fontSize: 16,
-              fontWeight: 800,
-              letterSpacing: "-0.03em",
-            }}
-          >
-            <motion.span
-              whileHover={{ rotate: -6, scale: 1.06 }}
-              transition={{ type: "spring", stiffness: 260, damping: 16 }}
-              style={{
-                width: 28,
-                height: 28,
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: 10,
-                background: "var(--grad-btn)",
-                color: "var(--accent-foreground)",
-                boxShadow: "var(--shadow-button)",
-              }}
-            >
-              <KonvoqLogoMark size={16} />
-            </motion.span>
-            Konvoq
-          </Link>
-
-          <LayoutGroup>
-            <div className="nav-links-desktop" style={{ alignItems: "center", gap: 4, position: "relative" }}>
-              {navLinks.map((link) => {
-                const active = pathname === link.href;
-                return (
-                  <motion.div key={link.href} whileHover={{ y: -1 }} transition={{ type: "spring", stiffness: 260, damping: 20 }} style={{ position: "relative" }}>
-                    {active && (
-                      <motion.span
-                        layoutId="nav-active-pill"
-                        style={{
-                          position: "absolute",
-                          inset: 0,
-                          borderRadius: 999,
-                          background: "color-mix(in srgb, var(--surface-2) 72%, transparent)",
-                          border: "1px solid color-mix(in srgb, var(--border) 70%, transparent)",
-                        }}
-                        transition={{ type: "spring", stiffness: 340, damping: 28 }}
-                      />
-                    )}
-                    <Link
-                      href={link.href}
-                      className="motion-link"
-                      style={{
-                        position: "relative",
-                        zIndex: 1,
-                        padding: "10px 14px",
-                        borderRadius: 999,
-                        fontSize: 13,
-                        fontWeight: active ? 700 : 600,
-                        textDecoration: "none",
-                        color: active ? "var(--text-1)" : "var(--text-2)",
-                      }}
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </LayoutGroup>
-
-          <div className="nav-actions-desktop" style={{ alignItems: "center", gap: 10 }}>
-            <ThemeToggle />
-            <Button href="/contact" variant="ghost" size="sm">
-              Book demo
-            </Button>
-            <Button href={SIGNUP_URL} variant="primary" size="sm">
-              Start free
-            </Button>
-          </div>
-
-          <motion.button
-            type="button"
-            className="nav-hamburger"
-            onClick={() => setMenuOpen((open) => !open)}
-            aria-expanded={menuOpen}
-            aria-label="Toggle navigation menu"
-            whileTap={{ scale: 0.96 }}
-            style={{
-              width: 40,
-              height: 40,
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: 999,
-              border: scrolled ? "1px solid var(--border)" : "1px solid color-mix(in srgb, var(--border) 56%, transparent)",
-              background: scrolled ? "color-mix(in srgb, var(--surface-2) 78%, transparent)" : "transparent",
-              color: "var(--text-1)",
-              cursor: "pointer",
-              position: "relative",
-            }}
-          >
-            <motion.span
-              animate={menuOpen ? { rotate: 45, y: 3 } : { rotate: 0, y: -3 }}
-              transition={{ type: "spring", stiffness: 280, damping: 18 }}
-              style={{
-                position: "absolute",
-                width: 16,
-                height: 1.5,
-                background: "currentColor",
-                borderRadius: 999,
-              }}
-            />
-            <motion.span
-              animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-              transition={{ duration: 0.18 }}
-              style={{
-                position: "absolute",
-                width: 16,
-                height: 1.5,
-                background: "currentColor",
-                borderRadius: 999,
-              }}
-            />
-            <motion.span
-              animate={menuOpen ? { rotate: -45, y: -3 } : { rotate: 0, y: 3 }}
-              transition={{ type: "spring", stiffness: 280, damping: 18 }}
-              style={{
-                position: "absolute",
-                width: 16,
-                height: 1.5,
-                background: "currentColor",
-                borderRadius: 999,
-              }}
-            />
-          </motion.button>
+          <NavContent
+            pathname={pathname}
+            menuOpen={menuOpen}
+            onToggleMenu={() => setMenuOpen((open) => !open)}
+            onCloseMenu={closeMenu}
+            variant={sticky ? "sticky" : "hero"}
+          />
         </div>
-      </motion.nav>
+      </nav>
 
       <AnimatePresence>
         {menuOpen && (
@@ -224,7 +261,7 @@ export default function Navbar() {
             style={{
               position: "fixed",
               inset: "88px 20px auto",
-              zIndex: 99,
+              zIndex: 230,
               borderRadius: 28,
               border: "1px solid color-mix(in srgb, var(--border) 76%, transparent)",
               background: "linear-gradient(180deg, color-mix(in srgb, var(--surface-2) 84%, transparent), color-mix(in srgb, var(--background-elevated) 92%, transparent))",

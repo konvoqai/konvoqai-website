@@ -295,6 +295,7 @@ export default function HeroSection() {
       style={{
         padding: "60px 24px 88px",
         position: "relative",
+        zIndex: 0,
         overflow: "hidden",
         background:
           "linear-gradient(180deg, color-mix(in srgb, var(--background) 96%, var(--background-elevated) 4%) 0%, color-mix(in srgb, var(--background) 90%, var(--background-elevated) 10%) 100%)",
@@ -350,9 +351,14 @@ export default function HeroSection() {
         }}
       />
 
-      <div style={{
-        marginTop: "80px"
-      }} className="site-container">
+      <div
+        className="site-container"
+        style={{
+          marginTop: 12,
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
         <div style={{ maxWidth: 920, margin: "0 auto", textAlign: "center" }}>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: "easeOut" }} style={{ display: "flex", justifyContent: "center" }}>
             <SectionBadge>AI chatbot platform</SectionBadge>

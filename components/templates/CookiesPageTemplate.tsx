@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { motion, type Variants } from "framer-motion";
 import PageLayout from "@/components/templates/MarketingPageTemplate";
+import { motion, type Variants } from "framer-motion";
+import { useState } from "react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -35,7 +35,7 @@ const cookieCategories: CookieCategory[] = [
     icon: "",
     desc: "These cookies are essential for the website to function correctly and cannot be disabled. They are usually set in response to actions you take such as logging in or filling in forms.",
     cookies: [
-      { name: "witzo_access_token", provider: "Konvoq AI", purpose: "Stores your authentication token for secure login sessions", duration: "15 minutes" },
+      { name: "konvoq_access_token", provider: "Konvoq AI", purpose: "Stores your authentication token for secure login sessions", duration: "15 minutes" },
       { name: "witzo_refresh_token", provider: "Konvoq AI", purpose: "Allows automatic renewal of your authentication session", duration: "7 days" },
       { name: "csrf_token", provider: "Konvoq AI", purpose: "Prevents cross-site request forgery attacks", duration: "24 hours" },
       { name: "__session", provider: "Konvoq AI", purpose: "Maintains your user session across page loads", duration: "Session" },
@@ -362,7 +362,7 @@ export default function CookiesPageTemplate() {
                       transform: expanded === cat.id ? "rotate(180deg)" : "rotate(0deg)",
                     }}
                   >
-                    
+
                   </span>
                 </div>
 
@@ -540,7 +540,7 @@ export default function CookiesPageTemplate() {
                   rel="noopener noreferrer"
                   style={{ color: "var(--accent)", fontSize: 13, textDecoration: "none", whiteSpace: "nowrap" }}
                 >
-                  Privacy Policy '
+                  Privacy Policy &apos;
                 </a>
               </div>
             ))}
@@ -563,7 +563,7 @@ export default function CookiesPageTemplate() {
             alignItems: "center",
           }}
         >
-          <span style={{ fontSize: 40, flexShrink: 0 }}>"</span>
+          <span style={{ fontSize: 40, flexShrink: 0 }}>&quot;</span>
           <div>
             <h3 style={{ fontWeight: 700, marginBottom: 8 }}>Questions About Cookies?</h3>
             <p style={{ color: "var(--text-2)", fontSize: 14, lineHeight: 1.7 }}>
@@ -605,7 +605,11 @@ export default function CookiesPageTemplate() {
             {saved ? "Cookie preferences saved!" : "Your Cookie Preferences"}
           </p>
           <p style={{ color: "var(--text-2)", fontSize: 13 }}>
-            {Object.entries(enabled).filter(([k, v]) => v).map(([k]) => cookieCategories.find(c => c.id === k)?.label).filter(Boolean).join(", ")}
+            {Object.entries(enabled)
+              .filter(([, v]) => v)
+              .map(([k]) => cookieCategories.find((c) => c.id === k)?.label)
+              .filter(Boolean)
+              .join(", ")}
           </p>
         </div>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
@@ -644,6 +648,5 @@ export default function CookiesPageTemplate() {
     </PageLayout>
   );
 }
-
 
 
