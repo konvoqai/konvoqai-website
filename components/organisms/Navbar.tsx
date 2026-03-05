@@ -3,11 +3,11 @@
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import Button from "@/components/atoms/Button";
 import ThemeToggle from "@/components/atoms/ThemeToggle";
 import { KonvoqLogoMark } from "@/components/atoms/Icons";
-import { SIGNUP_URL } from "@/lib/config";
+import { LOGIN_URL, SIGNUP_URL } from "@/lib/config";
 
 const navLinks = [
   { label: "Features", href: "/features" },
@@ -114,11 +114,11 @@ function NavContent({
 
       <div className="nav-actions-desktop" style={{ alignItems: "center", gap: 10 }}>
         <ThemeToggle />
-        <Button href="/contact" variant="ghost" size="sm">
-          Book demo
+        <Button href={LOGIN_URL} variant="ghost" size="sm">
+          Login
         </Button>
         <Button href={SIGNUP_URL} variant="primary" size="sm">
-          Start free
+          Signup
         </Button>
       </div>
 
@@ -186,18 +186,46 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 18);
+  useLayoutEffect(() => {
+    if (!isHome) {
+      return;
+    }
+
+    const syncScrolledState = () => {
+      const y = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      const isPastActivationThreshold = y >= 20;
+      setScrolled((prev) => {
+        const next = isPastActivationThreshold;
+        return prev === next ? prev : next;
+      });
     };
 
+    const handleScroll = () => syncScrolledState();
+
+    let raf = 0;
+    let timeout: number | null = null;
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    window.addEventListener("load", syncScrolledState);
+    window.addEventListener("pageshow", syncScrolledState);
+    window.addEventListener("resize", syncScrolledState);
+    syncScrolledState();
+    raf = window.requestAnimationFrame(() => {
+      syncScrolledState();
+    });
+    timeout = window.setTimeout(syncScrolledState, 80);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("load", syncScrolledState);
+      window.removeEventListener("pageshow", syncScrolledState);
+      window.removeEventListener("resize", syncScrolledState);
+      window.cancelAnimationFrame(raf);
+      if (timeout !== null) {
+        window.clearTimeout(timeout);
+      }
     };
-  }, []);
+  }, [isHome]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -218,14 +246,15 @@ export default function Navbar() {
           left: 0,
           right: 0,
           zIndex: 1000,
-          padding: `${sticky ? 12 : 18}px 24px 0`,
-          transition: "padding 200ms ease",
+          height: "var(--nav-height)",
+          padding: "0 24px",
+          transition: "background-color 220ms ease",
         }}
       >
         <div
           className={`site-container nav-shell ${sticky ? "nav-shell-scrolled" : "nav-shell-top"}`}
           style={{
-            height: "var(--nav-height)",
+            height: "100%",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -237,7 +266,9 @@ export default function Navbar() {
               : "transparent",
             boxShadow: sticky ? "0 18px 48px rgba(0, 0, 0, 0.38)" : "none",
             backdropFilter: sticky ? "blur(20px)" : "none",
-            transition: "padding 200ms ease, border-radius 200ms ease, border-color 200ms ease, background-color 200ms ease, box-shadow 200ms ease",
+            transform: sticky ? "translateY(8px)" : "translateY(0)",
+            transition:
+              "padding 220ms ease, border-radius 220ms ease, border-color 220ms ease, background-color 220ms ease, box-shadow 260ms ease, backdrop-filter 220ms ease, transform 220ms ease",
           }}
         >
           <NavContent
@@ -307,11 +338,11 @@ export default function Navbar() {
                 borderTop: "1px solid var(--border)",
               }}
             >
-              <Button href="/contact" variant="outline" size="md">
-                Book demo
+              <Button href={LOGIN_URL} variant="outline" size="md">
+                Login
               </Button>
               <Button href={SIGNUP_URL} variant="primary" size="md">
-                Start free
+                Signup
               </Button>
             </div>
           </motion.div>

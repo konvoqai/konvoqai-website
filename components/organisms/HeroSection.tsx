@@ -2,6 +2,7 @@
 
 import Button from "@/components/atoms/Button";
 import SectionBadge from "@/components/atoms/SectionBadge";
+import { SIGNUP_URL } from "@/lib/config";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 function AnimatedCheckmark({ delay = 0 }: { delay?: number }) {
@@ -293,7 +294,8 @@ export default function HeroSection() {
     <section
       id="hero"
       style={{
-        padding: "60px 24px 88px",
+        marginTop: "calc(var(--nav-height) * -1)",
+        padding: "calc(var(--nav-height) + 60px) 24px 88px",
         position: "relative",
         zIndex: 0,
         overflow: "hidden",
@@ -354,7 +356,7 @@ export default function HeroSection() {
       <div
         className="site-container"
         style={{
-          marginTop: 12,
+          marginTop: 0,
           position: "relative",
           zIndex: 1,
         }}
@@ -403,7 +405,7 @@ export default function HeroSection() {
             transition={{ duration: 0.42, delay: 0.24, ease: "easeOut" }}
             style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 12, flexWrap: "wrap", marginBottom: 20 }}
           >
-            <Button href="/pricing" variant="primary" size="lg">
+            <Button href={SIGNUP_URL} variant="primary" size="lg">
               Try for free
             </Button>
             <Button href="/contact" variant="outline" size="lg">
