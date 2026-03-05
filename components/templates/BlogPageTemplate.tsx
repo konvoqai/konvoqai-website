@@ -289,7 +289,7 @@ export default function BlogPageTemplate() {
                       fontWeight: 700,
                       letterSpacing: "0.12em",
                       textTransform: "uppercase",
-                      color: "#000",
+                      color: "var(--accent-foreground)",
                       background: "var(--grad-btn)",
                       borderRadius: 100,
                       padding: "4px 12px",
@@ -355,7 +355,7 @@ export default function BlogPageTemplate() {
                         justifyContent: "center",
                         fontSize: 14,
                         fontWeight: 700,
-                        color: "#000",
+                        color: "var(--accent-foreground)",
                         flexShrink: 0,
                       }}
                     >
@@ -380,7 +380,7 @@ export default function BlogPageTemplate() {
                       padding: "10px 22px",
                       fontSize: "0.88rem",
                       fontWeight: 700,
-                      color: "#000",
+                      color: "var(--accent-foreground)",
                       cursor: "pointer",
                       fontFamily: "inherit",
                     }}
@@ -550,7 +550,7 @@ export default function BlogPageTemplate() {
                           justifyContent: "center",
                           fontSize: 11,
                           fontWeight: 700,
-                          color: "#000",
+                          color: "var(--accent-foreground)",
                         }}
                       >
                         {post.authorInitial}
@@ -673,7 +673,7 @@ export default function BlogPageTemplate() {
                     padding: "13px 24px",
                     fontSize: "0.95rem",
                     fontWeight: 700,
-                    color: "#000",
+                    color: "var(--accent-foreground)",
                     cursor: "pointer",
                     fontFamily: "inherit",
                     whiteSpace: "nowrap",

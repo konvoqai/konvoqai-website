@@ -635,7 +635,7 @@ export default function CookiesPageTemplate() {
               background: "var(--grad-btn)",
               border: "none",
               borderRadius: "var(--radius)",
-              color: "#000",
+              color: "var(--accent-foreground)",
               fontWeight: 700,
               fontSize: 13,
               cursor: "pointer",

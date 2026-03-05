@@ -97,7 +97,7 @@ const BENEFITS = [
   { icon: "", title: "Partner Portal", desc: "Track your referrals, commissions, and leads in one dedicated partner dashboard.", color: "var(--accent-strong)" },
   { icon: "", title: "Technical Support", desc: "Priority support access to help you and your clients succeed faster with Konvoq.", color: "var(--warning)" },
   { icon: "", title: "Partner Badge", desc: "Display your Certified Konvoq Partner badge on your website, proposals, and marketing.", color: "var(--amber)" },
-  { icon: "", title: "Early Access", desc: "Get early access to new features and influence our roadmap through quarterly partner advisory calls.", color: "#00A3FF" },
+  { icon: "", title: "Early Access", desc: "Get early access to new features and influence our roadmap through quarterly partner advisory calls.", color: "var(--accent)" },
 ];
 
 const PARTNER_NAMES = [
@@ -365,7 +365,7 @@ export default function PartnersPageTemplate() {
                   {tier.featured && (
                     <div style={{
                       position: "absolute", top: 16, right: 16,
-                      background: tier.color, color: "#000",
+                      background: tier.color, color: "var(--accent-foreground)",
                       fontSize: 10, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase",
                       padding: "4px 12px", borderRadius: 100,
                     }}>Most Popular</div>
@@ -507,7 +507,7 @@ export default function PartnersPageTemplate() {
                 width: 44, height: 44, borderRadius: "50%",
                 background: "linear-gradient(135deg, var(--warning), var(--accent))",
                 display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 16, fontWeight: 700, color: "#000",
+                fontSize: 16, fontWeight: 700, color: "var(--accent-foreground)",
               }}>TD</div>
               <div style={{ textAlign: "left" }}>
                 <div style={{ fontWeight: 700, fontSize: 15 }}>Tyler Davis</div>

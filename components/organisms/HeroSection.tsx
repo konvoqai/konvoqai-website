@@ -69,7 +69,8 @@ function HeroDashboard() {
           width: 320,
           height: 24,
           borderRadius: 999,
-          background: "radial-gradient(circle, rgba(255, 255, 255, 0.16), rgba(136, 144, 150, 0.12) 48%, transparent 78%)",
+          background:
+            "radial-gradient(circle, color-mix(in srgb, var(--accent-soft) 34%, transparent), color-mix(in srgb, var(--accent) 20%, transparent) 48%, transparent 78%)",
           filter: "blur(14px)",
           pointerEvents: "none",
         }}
@@ -93,7 +94,7 @@ function HeroDashboard() {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.06), transparent 36%), linear-gradient(180deg, rgba(255,255,255,0.04), transparent 24%)",
+              "radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--accent-soft) 16%, transparent), transparent 36%), linear-gradient(180deg, color-mix(in srgb, var(--foreground) 5%, transparent), transparent 24%)",
             pointerEvents: "none",
           }}
         />
@@ -182,7 +183,7 @@ function HeroDashboard() {
                         style={{
                           flex: 1,
                           borderRadius: "999px 999px 0 0",
-                          background: index > 7 ? "linear-gradient(180deg, var(--text-1), var(--text-2))" : "color-mix(in srgb, var(--surface-2) 88%, transparent)",
+                          background: index > 7 ? "linear-gradient(180deg, var(--accent-soft), var(--accent))" : "color-mix(in srgb, var(--surface-2) 88%, transparent)",
                           border: "1px solid color-mix(in srgb, var(--border) 70%, transparent)",
                         }}
                       />
@@ -323,7 +324,7 @@ export default function HeroSection() {
           inset: 0,
           pointerEvents: "none",
           background:
-            "radial-gradient(circle at 50% 14%, rgba(255, 255, 255, 0.06), transparent 24%), radial-gradient(circle at 22% 28%, rgba(136, 144, 150, 0.08), transparent 26%), radial-gradient(circle at 78% 20%, rgba(136, 144, 150, 0.06), transparent 28%)",
+            "radial-gradient(circle at 50% 14%, color-mix(in srgb, var(--accent-soft) 14%, transparent), transparent 24%), radial-gradient(circle at 22% 28%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 26%), radial-gradient(circle at 78% 20%, color-mix(in srgb, var(--accent-soft) 10%, transparent), transparent 28%)",
         }}
       />
       <motion.div
@@ -334,7 +335,7 @@ export default function HeroSection() {
           width: 620,
           height: 620,
           borderRadius: 999,
-          background: "radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 72%)",
+          background: "radial-gradient(circle, color-mix(in srgb, var(--accent-soft) 16%, transparent), transparent 72%)",
           pointerEvents: "none",
           y: topGlowY,
         }}
@@ -347,7 +348,7 @@ export default function HeroSection() {
           width: 420,
           height: 420,
           borderRadius: 999,
-          background: "radial-gradient(circle, rgba(136, 144, 150, 0.12), transparent 72%)",
+          background: "radial-gradient(circle, color-mix(in srgb, var(--accent) 14%, transparent), transparent 72%)",
           pointerEvents: "none",
           y: bottomGlowY,
         }}

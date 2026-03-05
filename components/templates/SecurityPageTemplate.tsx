@@ -592,7 +592,7 @@ export default function SecurityPageTemplate() {
                   background: "var(--grad-btn)",
                   border: "none",
                   borderRadius: "var(--radius)",
-                  color: "#000",
+                  color: "var(--accent-foreground)",
                   fontWeight: 700,
                   fontSize: 14,
                   cursor: "pointer",

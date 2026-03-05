@@ -71,7 +71,7 @@ const PERKS = [
     icon: "",
     title: "Unlimited PTO",
     desc: "Take the time you need. We trust you to manage your time well and come back recharged and ready to do great work.",
-    color: "#00A3FF",
+    color: "var(--accent)",
   },
 ];
 
@@ -137,7 +137,7 @@ const JOBS = [
     dept: "DevRel",
     location: "Remote",
     type: "Full-time",
-    deptColor: "#00A3FF",
+    deptColor: "var(--accent)",
     hot: false,
   },
 ];

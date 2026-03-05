@@ -45,7 +45,7 @@ function StepVisual({ index }: { index: number }) {
     return (
       <div style={{ padding: 16, borderRadius: 18, border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)", background: "color-mix(in srgb, var(--surface-2) 80%, transparent)" }}>
         <div style={{ display: "flex", gap: 8, marginBottom: 14 }}>
-          {["#000000", "#151718", "#889096", "#F8F9FA"].map((color) => (
+          {["var(--background)", "var(--background-elevated)", "var(--border)", "var(--accent)"].map((color) => (
             <div key={color} style={{ width: 22, height: 22, borderRadius: 999, background: color, border: "1px solid color-mix(in srgb, var(--border) 60%, transparent)" }} />
           ))}
         </div>
@@ -127,7 +127,7 @@ export default function HowItWorksSection() {
             className="motion-link"
             whileHover={{ x: 3 }}
             transition={{ type: "spring", stiffness: 280, damping: 20 }}
-            style={{ color: "var(--text-1)", fontSize: 14, fontWeight: 700, textDecoration: "none", paddingBottom: 8 }}
+            style={{ color: "var(--accent)", fontSize: 14, fontWeight: 700, textDecoration: "none", paddingBottom: 8 }}
           >
             View workflow docs
           </motion.a>
@@ -142,7 +142,7 @@ export default function HowItWorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.48, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -4 }}
+              whileHover={{ y: -4, borderColor: "var(--card-hover-border)" }}
               style={{
                 padding: 24,
                 border: "1px solid color-mix(in srgb, var(--border) 74%, transparent)",
@@ -166,7 +166,7 @@ export default function HowItWorksSection() {
                     placeItems: "center",
                     border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)",
                     background: "color-mix(in srgb, var(--surface) 72%, transparent)",
-                    color: "var(--text-2)",
+                    color: "var(--accent)",
                   }}
                 >
                   {React.createElement(stepIcons[index], { size: 17 })}

@@ -355,7 +355,7 @@ export default function CaseStudiesPageTemplate() {
                       fontWeight: 700,
                       letterSpacing: "0.12em",
                       textTransform: "uppercase",
-                      color: "#000",
+                      color: "var(--accent-foreground)",
                       background: "var(--grad-btn)",
                       borderRadius: 100,
                       padding: "4px 12px",
@@ -477,7 +477,7 @@ export default function CaseStudiesPageTemplate() {
                     padding: "13px 26px",
                     fontSize: "0.92rem",
                     fontWeight: 700,
-                    color: "#000",
+                    color: "var(--accent-foreground)",
                     cursor: "pointer",
                     fontFamily: "inherit",
                   }}
@@ -758,7 +758,7 @@ export default function CaseStudiesPageTemplate() {
                     padding: "14px 28px",
                     fontSize: "0.95rem",
                     fontWeight: 700,
-                    color: "#000",
+                    color: "var(--accent-foreground)",
                     textDecoration: "none",
                     display: "inline-block",
                   }}

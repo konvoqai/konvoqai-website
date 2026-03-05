@@ -714,7 +714,7 @@ export default function DocsPageTemplate() {
                   padding: "14px 28px",
                   fontSize: "0.95rem",
                   fontWeight: 700,
-                  color: "#000",
+                  color: "var(--accent-foreground)",
                   textDecoration: "none",
                   display: "inline-block",
                 }}

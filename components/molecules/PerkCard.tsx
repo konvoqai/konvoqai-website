@@ -12,11 +12,10 @@ interface PerkCardProps {
 export default function PerkCard({ icon, title, description, accent = "var(--accent)" }: PerkCardProps) {
   return (
     <motion.div
-      whileHover={{ y: -4 }}
+      whileHover={{ y: -4, borderColor: "var(--card-hover-border)" }}
       transition={{ duration: 0.2, ease: "easeOut" }}
+      className="app-card"
       style={{
-        background: "var(--surface-2)",
-        border: "1px solid var(--border)",
         borderRadius: "var(--radius-lg)",
         padding: "28px 24px",
         position: "relative",

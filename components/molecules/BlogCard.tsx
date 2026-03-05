@@ -17,11 +17,10 @@ interface BlogCardProps {
 export default function BlogCard({ cover, category, title, excerpt, readTime, author, date, href = "#" }: BlogCardProps) {
   return (
     <motion.div
-      whileHover={{ y: -4, borderColor: "var(--border-2)" }}
+      whileHover={{ y: -4, borderColor: "var(--card-hover-border)" }}
       transition={{ duration: 0.2, ease: "easeOut" }}
+      className="app-card"
       style={{
-        background: "var(--surface-2)",
-        border: "1px solid var(--border)",
         borderRadius: "var(--radius-lg)",
         overflow: "hidden",
         cursor: "pointer",
@@ -64,7 +63,7 @@ export default function BlogCard({ cover, category, title, excerpt, readTime, au
             {excerpt}
           </p>
           <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "var(--text-3)" }}>
-            <span>{author} Â· {readTime}</span>
+            <span>{author} | {readTime}</span>
             <span>{date}</span>
           </div>
         </div>

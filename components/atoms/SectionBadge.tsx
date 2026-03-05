@@ -2,7 +2,7 @@
 
 export default function SectionBadge({
   children,
-  dotColor = "var(--text-1)",
+  dotColor = "var(--accent)",
 }: {
   children: React.ReactNode;
   dotColor?: string;
@@ -33,7 +33,7 @@ export default function SectionBadge({
           background: dotColor,
           borderRadius: "50%",
           flexShrink: 0,
-          boxShadow: `0 0 10px ${dotColor}, 0 0 22px ${dotColor}`,
+          boxShadow: `0 0 8px ${dotColor}`,
         }}
       />
       {children}

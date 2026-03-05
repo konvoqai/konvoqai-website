@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { AnimatePresence, LayoutGroup, motion, type Variants } from "framer-motion";
@@ -74,7 +74,7 @@ const plans = [
   },
 ];
 
-// Directional entry — each plan slides from a unique direction
+// Directional entry - each plan slides from a unique direction
 const cardInitialX = [-24, 0, 24];
 const cardInitialY = [0, 28, 0];
 
@@ -181,7 +181,7 @@ export default function PricingPageTemplate() {
                 />
               </motion.div>
 
-              {/* Billing toggle — animated sliding pill */}
+              {/* Billing toggle - animated sliding pill */}
               <motion.div
                 variants={fadeUp}
                 style={{ marginTop: 32, display: "flex", justifyContent: "center" }}

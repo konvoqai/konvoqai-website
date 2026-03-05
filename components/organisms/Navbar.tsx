@@ -1,13 +1,13 @@
 "use client";
 
+import Button from "@/components/atoms/Button";
+import { KonvoqLogoMark } from "@/components/atoms/Icons";
+import ThemeToggle from "@/components/atoms/ThemeToggle";
+import { LOGIN_URL, SIGNUP_URL } from "@/lib/config";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useLayoutEffect, useState } from "react";
-import Button from "@/components/atoms/Button";
-import ThemeToggle from "@/components/atoms/ThemeToggle";
-import { KonvoqLogoMark } from "@/components/atoms/Icons";
-import { LOGIN_URL, SIGNUP_URL } from "@/lib/config";
 
 const navLinks = [
   { label: "Features", href: "/features" },
@@ -76,7 +76,15 @@ function NavContent({
           {navLinks.map((link) => {
             const active = pathname === link.href;
             return (
-              <motion.div key={link.href} whileHover={{ y: -1 }} transition={{ type: "spring", stiffness: 260, damping: 20 }} style={{ position: "relative" }}>
+              <motion.div
+                key={link.href}
+                whileHover={{ y: -1, color: "var(--accent-soft)" }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                style={{
+                  position: "relative",
+                  color: active ? "var(--accent)" : "var(--text-2)",
+                }}
+              >
                 {active && (
                   <motion.span
                     layoutId="nav-active-pill"
@@ -84,8 +92,8 @@ function NavContent({
                       position: "absolute",
                       inset: 0,
                       borderRadius: 999,
-                      background: "color-mix(in srgb, var(--surface-2) 72%, transparent)",
-                      border: "1px solid color-mix(in srgb, var(--border) 70%, transparent)",
+                      background: "rgba(59, 130, 246, 0.1)",
+                      border: "1px solid rgba(59, 130, 246, 0.36)",
                     }}
                     transition={{ type: "spring", stiffness: 340, damping: 28 }}
                   />
@@ -101,7 +109,7 @@ function NavContent({
                     fontSize: 13,
                     fontWeight: active ? 700 : 600,
                     textDecoration: "none",
-                    color: active ? "var(--text-1)" : "var(--text-2)",
+                    color: "inherit",
                   }}
                 >
                   {link.label}
@@ -248,7 +256,9 @@ export default function Navbar() {
           zIndex: 1000,
           height: "var(--nav-height)",
           padding: "0 24px",
-          transition: "background-color 220ms ease",
+          background: "transparent",
+          borderBottom: "1px solid transparent",
+          transition: "none",
         }}
       >
         <div
@@ -258,15 +268,15 @@ export default function Navbar() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            padding: sticky ? "0 18px 0 20px" : "0 4px",
-            borderRadius: sticky ? 999 : 0,
-            border: sticky ? "1px solid color-mix(in srgb, var(--border-strong) 92%, transparent)" : "1px solid transparent",
+            padding: sticky ? "0 25px" : "0 4px",
+            borderRadius: sticky ? 50 : 0,
+            border: sticky ? "1px solid color-mix(in srgb, var(--border) 76%, transparent)" : "1px solid transparent",
             background: sticky
-              ? "linear-gradient(180deg, color-mix(in srgb, var(--background-elevated) 96%, transparent), color-mix(in srgb, var(--background) 92%, var(--background-elevated) 8%))"
+              ? "linear-gradient(180deg, color-mix(in srgb, var(--surface-2) 84%, transparent), color-mix(in srgb, var(--background-elevated) 92%, transparent))"
               : "transparent",
-            boxShadow: sticky ? "0 18px 48px rgba(0, 0, 0, 0.38)" : "none",
-            backdropFilter: sticky ? "blur(20px)" : "none",
-            transform: sticky ? "translateY(8px)" : "translateY(0)",
+            boxShadow: sticky ? "0 14px 34px rgba(0, 0, 0, 0.3)" : "none",
+            backdropFilter: sticky ? "blur(16px)" : "none",
+            transform: sticky ? "translateY(4px)" : "translateY(0)",
             transition:
               "padding 220ms ease, border-radius 220ms ease, border-color 220ms ease, background-color 220ms ease, box-shadow 260ms ease, backdrop-filter 220ms ease, transform 220ms ease",
           }}
@@ -313,10 +323,10 @@ export default function Navbar() {
                     style={{
                       padding: "14px 16px",
                       borderRadius: 16,
-                      background: active ? "color-mix(in srgb, var(--surface-2) 72%, transparent)" : "transparent",
-                      border: active ? "1px solid var(--border)" : "1px solid transparent",
+                      background: active ? "rgba(59, 130, 246, 0.12)" : "transparent",
+                      border: active ? "1px solid rgba(59, 130, 246, 0.36)" : "1px solid transparent",
                       textDecoration: "none",
-                      color: active ? "var(--text-1)" : "var(--text-2)",
+                      color: active ? "var(--accent)" : "var(--text-2)",
                       fontSize: 15,
                       fontWeight: 600,
                     }}

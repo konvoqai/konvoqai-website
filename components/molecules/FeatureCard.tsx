@@ -19,11 +19,10 @@ export default function FeatureCard({
 }: FeatureCardProps) {
   return (
     <motion.div
-      whileHover={{ y: -4, borderColor: "var(--border-2)" }}
+      whileHover={{ y: -4, borderColor: "var(--card-hover-border)" }}
       transition={{ duration: 0.2, ease: "easeOut" }}
+      className="app-card"
       style={{
-        background: "var(--surface-2)",
-        border: "1px solid var(--border)",
         borderRadius: "var(--radius-lg)",
         padding: "28px 24px",
         position: "relative",
@@ -52,7 +51,7 @@ export default function FeatureCard({
         <ul style={{ marginTop: 16, display: "flex", flexDirection: "column", gap: 6, listStyle: "none", padding: 0 }}>
           {points.map((pt) => (
             <li key={pt} style={{ fontSize: 13, color: "var(--text-2)", display: "flex", alignItems: "flex-start", gap: 8 }}>
-              <span style={{ color: accent, marginTop: 2, flexShrink: 0 }}>"</span>
+              <span style={{ color: accent, marginTop: 2, flexShrink: 0 }}>*</span>
               {pt}
             </li>
           ))}

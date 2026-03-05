@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Navbar from "@/components/organisms/Navbar";
 import Footer from "@/components/organisms/Footer";

@@ -1,31 +1,33 @@
 ﻿@import "tailwindcss";
 
 :root {
-  --background: #000000;
-  --background-elevated: #151718;
-  --panel: rgba(255, 255, 255, 0.03);
-  --panel-strong: rgba(255, 255, 255, 0.05);
-  --panel-muted: rgba(255, 255, 255, 0.02);
-  --border: rgba(136, 144, 150, 0.18);
-  --border-strong: rgba(136, 144, 150, 0.28);
+  --background: #0B0B0B;
+  --background-elevated: #111111;
+  --panel: rgba(17, 17, 17, 0.92);
+  --panel-strong: rgba(17, 17, 17, 0.98);
+  --panel-muted: rgba(17, 17, 17, 0.82);
+  --border: #27272A;
+  --border-strong: rgba(39, 39, 42, 0.95);
   --foreground: #FFFFFF;
-  --foreground-muted: #9BA1A6;
-  --foreground-subtle: #889096;
-  --accent: #FFFFFF;
-  --accent-strong: #F8F9FA;
-  --accent-foreground: #000000;
-  --accent-muted: rgba(255, 255, 255, 0.08);
-  --accent-muted-strong: rgba(255, 255, 255, 0.14);
-  --surface-accent: rgba(255, 255, 255, 0.06);
+  --foreground-muted: #A1A1AA;
+  --foreground-subtle: rgba(161, 161, 170, 0.78);
+  --accent: #3B82F6;
+  --accent-strong: #2563EB;
+  --accent-soft: #60A5FA;
+  --accent-foreground: #FFFFFF;
+  --accent-muted: rgba(59, 130, 246, 0.12);
+  --accent-muted-strong: rgba(59, 130, 246, 0.25);
+  --surface-accent: rgba(59, 130, 246, 0.12);
   --surface-danger: rgba(255, 255, 255, 0.04);
   --surface-success: rgba(255, 255, 255, 0.04);
-  --success: #FFFFFF;
-  --warning: #9BA1A6;
-  --danger: #889096;
+  --success: #60A5FA;
+  --warning: #A1A1AA;
+  --danger: #A1A1AA;
   --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.42);
   --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 18px 48px rgba(0, 0, 0, 0.28);
-  --shadow-button: 0 12px 30px rgba(0, 0, 0, 0.28);
-  --grid-line: rgba(136, 144, 150, 0.1);
+  --shadow-button: 0 10px 20px rgba(37, 99, 235, 0.18);
+  --grid-line: rgba(39, 39, 42, 0.4);
+  --card-hover-border: rgba(59, 130, 246, 0.4);
   --radius-sm: 12px;
   --radius: 18px;
   --radius-lg: 24px;
@@ -42,53 +44,54 @@
   --text-3: var(--foreground-subtle);
   --cyan: var(--accent);
   --violet: var(--accent);
-  --rose: var(--warning);
-  --emerald: var(--warning);
-  --amber: var(--warning);
-  --grad-aurora: linear-gradient(135deg, #FFFFFF 0%, #889096 100%);
-  --grad-btn: linear-gradient(135deg, #FFFFFF 0%, #9BA1A6 100%);
-  --grad-text: linear-gradient(135deg, #FFFFFF 0%, #9BA1A6 100%);
-  --page-glow-top: rgba(255, 255, 255, 0.04);
-  --page-glow-left: rgba(255, 255, 255, 0.04);
-  --page-glow-right: rgba(136, 144, 150, 0.05);
+  --rose: var(--accent-soft);
+  --emerald: var(--accent-soft);
+  --amber: var(--accent-soft);
+  --grad-aurora: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+  --grad-btn: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+  --grad-text: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+  --page-glow-top: rgba(59, 130, 246, 0.08);
+  --page-glow-left: rgba(59, 130, 246, 0.06);
+  --page-glow-right: rgba(96, 165, 250, 0.06);
   --frame-fill: linear-gradient(180deg, color-mix(in srgb, var(--surface) 68%, transparent) 0%, transparent 100%);
   --surface-fill: color-mix(in srgb, var(--surface-2) 58%, transparent);
   --surface-highlight: linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 24%);
-  --wordmark-stripes: repeating-linear-gradient(180deg, #FFFFFF 0 3px, #F8F9FA 3px 6px, rgba(248, 249, 250, 0) 6px 10px);
-  --grid-opacity: 0.22;
+  --wordmark-stripes: repeating-linear-gradient(180deg, #FFFFFF 0 3px, rgba(161, 161, 170, 0.88) 3px 6px, rgba(96, 165, 250, 0.42) 6px 10px);
+  --grid-opacity: 0.16;
 }
 
 html[data-theme="light"] {
-  --background: #FFFFFF;
-  --background-elevated: #F8F9FA;
-  --panel: rgba(21, 23, 24, 0.04);
-  --panel-strong: rgba(21, 23, 24, 0.065);
-  --panel-muted: rgba(21, 23, 24, 0.03);
-  --border: rgba(21, 23, 24, 0.14);
-  --border-strong: rgba(21, 23, 24, 0.2);
-  --foreground: #000000;
-  --foreground-muted: #151718;
-  --foreground-subtle: #889096;
-  --accent: #000000;
-  --accent-strong: #151718;
+  --background: #0B0B0B;
+  --background-elevated: #111111;
+  --panel: rgba(17, 17, 17, 0.92);
+  --panel-strong: rgba(17, 17, 17, 0.98);
+  --panel-muted: rgba(17, 17, 17, 0.82);
+  --border: #27272A;
+  --border-strong: rgba(39, 39, 42, 0.95);
+  --foreground: #FFFFFF;
+  --foreground-muted: #A1A1AA;
+  --foreground-subtle: rgba(161, 161, 170, 0.78);
+  --accent: #3B82F6;
+  --accent-strong: #2563EB;
+  --accent-soft: #60A5FA;
   --accent-foreground: #FFFFFF;
-  --accent-muted: rgba(21, 23, 24, 0.08);
-  --accent-muted-strong: rgba(21, 23, 24, 0.13);
-  --shadow-soft: 0 22px 60px rgba(21, 23, 24, 0.08);
-  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.85) inset, 0 18px 40px rgba(21, 23, 24, 0.06);
-  --shadow-button: 0 14px 28px rgba(21, 23, 24, 0.14);
-  --grid-line: rgba(21, 23, 24, 0.05);
-  --grad-aurora: linear-gradient(135deg, #000000 0%, #151718 100%);
-  --grad-btn: linear-gradient(135deg, #151718 0%, #000000 100%);
-  --grad-text: linear-gradient(135deg, #000000 0%, #151718 100%);
-  --page-glow-top: rgba(21, 23, 24, 0.02);
-  --page-glow-left: rgba(21, 23, 24, 0.018);
-  --page-glow-right: rgba(136, 144, 150, 0.03);
-  --frame-fill: linear-gradient(180deg, color-mix(in srgb, #FFFFFF 94%, #F8F9FA 6%) 0%, color-mix(in srgb, #F8F9FA 86%, #FFFFFF 14%) 100%);
-  --surface-fill: color-mix(in srgb, #FFFFFF 88%, #F8F9FA 12%);
-  --surface-highlight: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.2) 24%, transparent 100%);
-  --wordmark-stripes: repeating-linear-gradient(180deg, #000000 0 3px, #151718 3px 6px, rgba(21, 23, 24, 0.12) 6px 10px);
-  --grid-opacity: 0.1;
+  --accent-muted: rgba(59, 130, 246, 0.12);
+  --accent-muted-strong: rgba(59, 130, 246, 0.25);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.42);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 18px 48px rgba(0, 0, 0, 0.28);
+  --shadow-button: 0 10px 20px rgba(37, 99, 235, 0.18);
+  --grid-line: rgba(39, 39, 42, 0.4);
+  --grad-aurora: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+  --grad-btn: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+  --grad-text: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+  --page-glow-top: rgba(59, 130, 246, 0.08);
+  --page-glow-left: rgba(59, 130, 246, 0.06);
+  --page-glow-right: rgba(96, 165, 250, 0.06);
+  --frame-fill: linear-gradient(180deg, color-mix(in srgb, var(--surface) 68%, transparent) 0%, transparent 100%);
+  --surface-fill: color-mix(in srgb, var(--surface-2) 58%, transparent);
+  --surface-highlight: linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 24%);
+  --wordmark-stripes: repeating-linear-gradient(180deg, #FFFFFF 0 3px, rgba(161, 161, 170, 0.88) 3px 6px, rgba(96, 165, 250, 0.42) 6px 10px);
+  --grid-opacity: 0.16;
 }
 
 html {
@@ -170,7 +173,13 @@ select {
 }
 
 a {
-  color: inherit;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-soft);
+  text-decoration: underline;
 }
 
 button,
@@ -185,8 +194,24 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid var(--text-1);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+input,
+textarea,
+select {
+  background: var(--background-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-1);
+  border-radius: 12px;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
 }
 
 ::-webkit-scrollbar {
@@ -284,7 +309,7 @@ select:focus-visible {
 .gradient-border {
   background:
     linear-gradient(color-mix(in srgb, var(--surface) 70%, transparent), color-mix(in srgb, var(--surface) 70%, transparent)) padding-box,
-    linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(136, 144, 150, 0.22)) border-box;
+    linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(161, 161, 170, 0.22)) border-box;
   border: 1px solid transparent;
 }
 
@@ -333,8 +358,72 @@ select:focus-visible {
   box-shadow: var(--shadow-soft);
 }
 
+.app-card {
+  background: var(--background-elevated);
+  border: 1px solid var(--border);
+}
+
+.app-card:hover {
+  border-color: var(--card-hover-border);
+}
+
 .app-button-control {
   min-height: 44px;
+  border-radius: 12px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none !important;
+}
+
+.app-button--primary {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: var(--accent-foreground);
+}
+
+.app-button--primary:hover {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+}
+
+.app-button--secondary,
+.app-button--outline {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.app-button--secondary:hover,
+.app-button--outline:hover {
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.app-button--ghost {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-1);
+}
+
+.app-button--ghost:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--text-1);
+}
+
+.app-button--sm {
+  padding: 10px 16px;
+  font-size: 13px;
+}
+
+.app-button--md {
+  padding: 12px 18px;
+  font-size: 14px;
+}
+
+.app-button--lg {
+  padding: 14px 22px;
+  font-size: 15px;
 }
 
 /* ── 1100px ── */

@@ -18,16 +18,15 @@ export default function TestimonialCard({
   role,
   company,
   initials,
-  avatarColor = "var(--accent-strong)",
+  avatarColor = "var(--accent)",
   stars = 5,
 }: TestimonialCardProps) {
   return (
     <motion.div
-      whileHover={{ y: -3, borderColor: "var(--border-2)" }}
+      whileHover={{ y: -3, borderColor: "var(--card-hover-border)" }}
       transition={{ duration: 0.2, ease: "easeOut" }}
+      className="app-card"
       style={{
-        background: "var(--surface)",
-        border: "1px solid var(--border)",
         borderRadius: "var(--radius-lg)",
         padding: 32,
         display: "flex",
@@ -37,7 +36,7 @@ export default function TestimonialCard({
     >
       <div style={{ display: "flex", gap: 4, marginBottom: 16 }}>
         {Array.from({ length: stars }).map((_, i) => (
-          <span key={i} style={{ color: "#FFC446", fontSize: 16 }}>â˜…</span>
+          <span key={i} style={{ color: "var(--accent-soft)", fontSize: 16 }}>★</span>
         ))}
       </div>
       <p style={{ fontSize: 15, lineHeight: 1.7, color: "var(--text-2)", flex: 1, marginBottom: 24 }}>
@@ -55,7 +54,7 @@ export default function TestimonialCard({
             justifyContent: "center",
             fontSize: 14,
             fontWeight: 700,
-            color: "#fff",
+            color: "var(--accent-foreground)",
             flexShrink: 0,
           }}
         >
@@ -63,7 +62,7 @@ export default function TestimonialCard({
         </div>
         <div>
           <div style={{ fontWeight: 700, fontSize: 14, color: "var(--text-1)" }}>{name}</div>
-          <div style={{ fontSize: 13, color: "var(--text-3)" }}>{role} Â· {company}</div>
+          <div style={{ fontSize: 13, color: "var(--text-3)" }}>{role} | {company}</div>
         </div>
       </div>
     </motion.div>

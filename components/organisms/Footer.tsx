@@ -176,7 +176,7 @@ export default function Footer() {
                         lineHeight: 1.55,
                       }}
                     >
-                      <span style={{ display: "inline-flex", marginTop: 2, color: "var(--text-3)" }}>
+                      <span style={{ display: "inline-flex", marginTop: 2, color: "var(--accent)" }}>
                         <FooterIcon type={item.icon} />
                       </span>
                       <span>
@@ -231,7 +231,7 @@ export default function Footer() {
                       lineHeight: 1.55,
                     }}
                   >
-                    <span style={{ display: "inline-flex", marginTop: 2, color: "var(--text-3)" }}>
+                    <span style={{ display: "inline-flex", marginTop: 2, color: "var(--accent)" }}>
                       <FooterIcon type={item.icon} />
                     </span>
                     <span>
@@ -269,7 +269,7 @@ export default function Footer() {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    whileHover={{ y: -2 }}
+                    whileHover={{ y: -2, color: "var(--accent-soft)", borderColor: "rgba(59, 130, 246, 0.5)" }}
                     whileTap={{ scale: 0.98 }}
                     style={{
                       width: 36,
@@ -280,7 +280,7 @@ export default function Footer() {
                       borderRadius: 999,
                       border: "1px solid color-mix(in srgb, var(--border) 74%, transparent)",
                       background: "transparent",
-                      color: "var(--text-1)",
+                      color: "var(--text-2)",
                       textDecoration: "none",
                     }}
                   >

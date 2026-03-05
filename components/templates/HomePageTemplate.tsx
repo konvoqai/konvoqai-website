@@ -1,4 +1,4 @@
-﻿import CtaSection from "@/components/organisms/CtaSection";
+import CtaSection from "@/components/organisms/CtaSection";
 import FaqSection from "@/components/organisms/FaqSection";
 import FeaturesSection from "@/components/organisms/FeaturesSection";
 import Footer from "@/components/organisms/Footer";

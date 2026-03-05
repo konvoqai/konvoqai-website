@@ -419,7 +419,7 @@ export default function ChangelogPageTemplate() {
                   type="submit"
                   style={{
                     padding: "12px 24px", background: "var(--grad-btn)",
-                    color: "#000", fontWeight: 700, fontSize: 15,
+                    color: "var(--accent-foreground)", fontWeight: 700, fontSize: 15,
                     border: "none", borderRadius: "var(--radius)", cursor: "pointer",
                     fontFamily: "inherit",
                   }}

@@ -876,7 +876,7 @@ export default function StatusPageTemplate() {
                       padding: "13px 24px",
                       fontSize: "0.95rem",
                       fontWeight: 700,
-                      color: "#000",
+                      color: "var(--accent-foreground)",
                       cursor: "pointer",
                       fontFamily: "inherit",
                       whiteSpace: "nowrap",
