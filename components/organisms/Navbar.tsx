@@ -250,7 +250,7 @@ export default function Navbar() {
       <nav
         style={{
           position: "sticky",
-          top: 0,
+          top: 15,
           left: 0,
           right: 0,
           zIndex: 1000,

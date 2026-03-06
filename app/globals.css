@@ -358,6 +358,26 @@ select:focus-visible {
   box-shadow: var(--shadow-soft);
 }
 
+.footer-wordmark-shimmer {
+  color: transparent;
+  background-image: linear-gradient(
+    102deg,
+    #f4f8ff 0%,
+    #d6e7ff 18%,
+    #8bb9ff 42%,
+    #3b82f6 50%,
+    #8bb9ff 58%,
+    #d6e7ff 82%,
+    #f4f8ff 100%
+  );
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 14px color-mix(in srgb, var(--accent-soft) 26%, transparent));
+}
+
 .app-card {
   background: var(--background-elevated);
   border: 1px solid var(--border);
@@ -457,6 +477,15 @@ select:focus-visible {
   [style*="grid-template-columns: 1.3fr repeat(3, minmax(0, 0.7fr))"] {
     grid-template-columns: 1fr !important;
   }
+
+  /* Hero dashboard: avoid crammed 3-panel layout on tablets */
+  .hero-db-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  }
+
+  .hero-db-left {
+    grid-column: 1 / -1;
+  }
 }
 
 /* ── 720px: single-column + mobile nav ── */
@@ -489,14 +518,21 @@ select:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 
-  /* Hero dashboard: collapse 3-panel to single col, hide side panels */
+  /* Hero dashboard: collapse to single column */
   .hero-db-grid {
     grid-template-columns: 1fr !important;
   }
 
-  .hero-db-left,
+  .hero-db-main {
+    order: 1;
+  }
+
   .hero-db-right {
-    display: none !important;
+    order: 2;
+  }
+
+  .hero-db-left {
+    order: 3;
   }
 
   /* Reduce section vertical padding */
@@ -650,6 +686,15 @@ select:focus-visible {
     font-size: 24px !important;
   }
 
+  .hero-db-actions {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-db-metrics,
+  .hero-db-trust {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
   .section-heading {
     font-size: clamp(28px, 8.5vw, 42px) !important;
     line-height: 1.06 !important;
@@ -789,5 +834,10 @@ select:focus-visible {
   [style*="padding: 60px 24px 88px"] {
     padding-top: 32px !important;
     padding-bottom: 48px !important;
+  }
+
+  .hero-db-metrics,
+  .hero-db-trust {
+    grid-template-columns: 1fr !important;
   }
 }

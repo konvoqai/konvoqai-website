@@ -147,9 +147,9 @@ function HeroDashboard() {
               </div>
             </div>
 
-            <div style={{ display: "grid", gap: 14 }}>
+            <div className="hero-db-main" style={{ display: "grid", gap: 14 }}>
               <div style={{ padding: 18, borderRadius: 22, border: "1px solid color-mix(in srgb, var(--border) 72%, transparent)", background: "color-mix(in srgb, var(--surface-2) 78%, transparent)" }}>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 12, marginBottom: 16 }}>
+                <div className="hero-db-metrics" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 12, marginBottom: 16 }}>
                   {[
                     { label: "Conversations", value: "14,382" },
                     { label: "Resolved", value: "12,945" },
@@ -192,7 +192,7 @@ function HeroDashboard() {
                 </div>
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 14 }}>
+              <div className="hero-db-actions" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 14 }}>
                 <motion.div
                   initial={{ opacity: 0, y: 18 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -266,7 +266,7 @@ function HeroDashboard() {
             </div>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 14, paddingTop: 18, borderTop: "1px solid color-mix(in srgb, var(--border) 72%, transparent)" }}>
+          <div className="hero-db-trust" style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 14, paddingTop: 18, borderTop: "1px solid color-mix(in srgb, var(--border) 72%, transparent)" }}>
             {trustStats.map((item, index) => (
               <motion.div
                 key={item.label}

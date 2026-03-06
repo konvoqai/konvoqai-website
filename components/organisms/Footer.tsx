@@ -293,7 +293,7 @@ export default function Footer() {
 
           <div style={{ position: "relative", overflow: "hidden", paddingBottom: 8 }}>
             <div
-              className="footer-wordmark"
+              className="footer-wordmark footer-wordmark-shimmer"
               aria-hidden="true"
               style={{
                 fontSize: "clamp(76px, 16vw, 220px)",
@@ -302,11 +302,7 @@ export default function Footer() {
                 letterSpacing: "-0.08em",
                 whiteSpace: "nowrap",
                 userSelect: "none",
-                backgroundImage: "var(--wordmark-stripes)",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
-                opacity: 0.95,
+                opacity: 0.98,
                 transform: "translateX(-4px)",
               }}
             >
